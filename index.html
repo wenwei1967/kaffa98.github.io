@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>kaffa98~給好咖啡｜手沖咖啡專業技巧說明</title>
+  <style>
+    :root{
+      --bg:#f6f3ee;
+      --panel:#ffffff;
+      --text:#2b211b;
+      --muted:#6f6258;
+      --line:#ddd2c6;
+      --accent:#6b4c3b;
+      --accent-2:#8a674f;
+      --soft:#efe7de;
+      --ok:#315b42;
+      --shadow:0 12px 32px rgba(43,33,27,.08);
+      --radius:22px;
+      --max:1140px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial,"Noto Sans TC","Microsoft JhengHei",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(139,103,79,.08), transparent 22%),
+        linear-gradient(180deg,#f7f4ef 0%,#f3eee7 100%);
+      line-height:1.75;
+    }
+
+    a{color:inherit;text-decoration:none}
+
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+
+    .topbar{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(10px);
+      background:rgba(246,243,238,.88);
+      border-bottom:1px solid rgba(107,76,59,.08);
+    }
+
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;
+      min-height:72px;gap:16px;
+    }
+
+    .brand{
+      display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.5px;
+    }
+
+    .brand-badge{
+      width:42px;height:42px;border-radius:14px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--accent),#3c2b22);
+      color:#fff;font-size:22px;box-shadow:var(--shadow);
+    }
+
+    .brand small{display:block;color:var(--muted);font-weight:500;letter-spacing:0}
+
+    .nav-links{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:14px}
+    .nav-links a:hover{color:var(--accent)}
+
+    .hero{padding:64px 0 34px}
+
+    .hero-grid{
+      display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:stretch;
+    }
+
+    .hero-card,.side-card,.section-card,.recipe-card,.tip-card,.faq-card,.footer-card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    .hero-card{padding:42px}
+
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;
+      background:var(--soft);color:var(--accent);
+      padding:8px 14px;border-radius:999px;font-size:13px;font-weight:700;
+      letter-spacing:.4px;
+    }
+
+    h1{
+      margin:18px 0 14px;
+      font-size:clamp(32px,4vw,54px);
+      line-height:1.15;
+      letter-spacing:.5px;
+    }
+
+    .lead{
+      margin:0 0 22px;
+      color:var(--muted);
+      font-size:18px;
+    }
+
+    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      min-height:48px;padding:0 20px;border-radius:14px;
+      font-weight:700;border:1px solid transparent;
+      transition:.2s ease;
+    }
+
+    .btn-primary{background:var(--accent);color:#fff}
+    .btn-primary:hover{background:#563d2f;transform:translateY(-1px)}
+    .btn-secondary{background:#fff;border-color:var(--line);color:var(--text)}
+    .btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+
+    .hero-points{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px;
+    }
+
+    .hero-points div{
+      background:#faf7f2;border:1px solid var(--line);border-radius:18px;
+      padding:16px 14px;
+    }
+
+    .hero-points strong{display:block;font-size:20px;color:var(--accent)}
+    .hero-points span{color:var(--muted);font-size:14px}
+
+    .side-stack{display:grid;gap:18px}
+
+    .side-card{padding:26px}
+
+    .card-title{margin:0 0 14px;font-size:20px}
+    .muted{color:var(--muted)}
+
+    .checklist,.flowlist,.faq-list{display:grid;gap:12px;padding:0;margin:0;list-style:none}
+    .checklist li,.flowlist li,.faq-list li{
+      padding:12px 14px;border-radius:14px;background:#faf7f3;border:1px solid #e8ddd1;
+    }
+
+    .section{padding:18px 0}
+    .section-card{padding:34px}
+
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+    .section-head h2{margin:0;font-size:30px}
+    .section-head p{margin:0;color:var(--muted);max-width:760px}
+
+    .grid-2,.grid-3,.grid-4{display:grid;gap:18px}
+    .grid-2{grid-template-columns:repeat(2,1fr)}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .grid-4{grid-template-columns:repeat(4,1fr)}
+
+    .recipe-card,.tip-card,.faq-card{padding:24px}
+
+    .recipe-badge,.mini-badge{
+      display:inline-block;padding:6px 10px;border-radius:999px;
+      font-size:12px;font-weight:700;background:var(--soft);color:var(--accent);
+      margin-bottom:10px;
+    }
+
+    .recipe-card h3,.tip-card h3,.faq-card h3{margin:0 0 10px;font-size:22px}
+    .recipe-card p,.tip-card p,.faq-card p{margin:0;color:var(--muted)}
+
+    .spec{
+      display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px;
+    }
+
+    .spec div{
+      border:1px solid var(--line);border-radius:14px;padding:12px;background:#fff;
+    }
+
+    .spec strong{display:block;font-size:13px;color:var(--muted);margin-bottom:4px}
+
+    .flowlist strong{color:var(--accent)}
+
+    .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:18px}
+    table{width:100%;border-collapse:collapse;background:#fff;min-width:680px}
+    th,td{padding:14px 16px;border-bottom:1px solid #eee4d8;text-align:left}
+    th{background:#faf6f0;font-size:14px;color:var(--accent)}
+    tr:last-child td{border-bottom:none}
+
+    .highlight{
+      color:var(--ok);font-weight:700;
+    }
+
+    .footer{padding:22px 0 60px}
+    .footer-card{padding:28px 32px;background:linear-gradient(135deg,#fff 0%,#f5eee6 100%)}
+    .footer-card h2{margin:0 0 12px;font-size:28px}
+    .footer-card p{margin:0;color:var(--muted)}
+
+    .footer-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:20px}
+
+    .note{
+      margin-top:16px;font-size:13px;color:var(--muted)
+    }
+
+    @media (max-width: 980px){
+      .hero-grid,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+      .hero-points{grid-template-columns:1fr}
+      .hero-card,.side-card,.section-card,.recipe-card,.tip-card,.faq-card,.footer-card{padding:24px}
+      .section-head h2{font-size:26px}
+      .nav{padding:8px 0}
+    }
+
+    @media (max-width: 640px){
+      .wrap{padding:0 14px}
+      h1{font-size:34px}
+      .lead{font-size:16px}
+      .nav-links{font-size:13px;gap:12px}
+      .spec{grid-template-columns:1fr}
+      .btn{width:100%}
+      .hero-actions,.footer-actions{display:grid;grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="brand-badge">☕</div>
+        <div>
+          給好咖啡
+          <small>Hand Pour Coffee Guide</small>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#basics">基礎觀念</a>
+        <a href="#recipe">標準沖法</a>
+        <a href="#variables">風味調整</a>
+        <a href="#troubleshoot">常見問題</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <article class="hero-card">
+          <span class="eyebrow">專業手沖教學頁</span>
+          <h1>手沖咖啡技巧說明<br>從穩定萃取到風味表現</h1>
+          <p class="lead">
+            這是一份適合店內展示、客戶教學、品牌說明的手沖咖啡專業內容頁。
+            以清楚流程、標準參數與常見修正方式，協助初學者快速上手，也讓進階使用者更容易沖出穩定風味。
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#recipe">查看標準沖法</a>
+            <a class="btn btn-secondary" href="#troubleshoot">看風味修正方式</a>
+          </div>
+
+          <div class="hero-points">
+            <div>
+              <strong>1:15–1:17</strong>
+              <span>建議粉水比例</span>
+            </div>
+            <div>
+              <strong>88–94°C</strong>
+              <span>常用沖煮水溫</span>
+            </div>
+            <div>
+              <strong>2:00–2:30</strong>
+              <span>常見完成時間</span>
+            </div>
+          </div>
+        </article>
+
+        <div class="side-stack">
+          <aside class="side-card">
+            <h2 class="card-title">手沖核心四要素</h2>
+            <ul class="checklist">
+              <li><strong>研磨粗細</strong>：影響萃取速度與濃淡平衡</li>
+              <li><strong>水溫高低</strong>：影響香氣釋放與苦甜表現</li>
+              <li><strong>注水節奏</strong>：影響均勻度與整體口感</li>
+              <li><strong>粉水比例</strong>：決定濃度與風味結構</li>
+            </ul>
+          </aside>
+
+          <aside class="side-card">
+            <h2 class="card-title">適合誰閱讀？</h2>
+            <ul class="checklist">
+              <li>剛開始接觸手沖咖啡的入門者</li>
+              <li>想建立穩定沖煮流程的咖啡愛好者</li>
+              <li>需要店內教學頁或品牌說明頁的店家</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="basics" class="section">
+      <div class="wrap section-card">
+        <div class="section-head">
+          <div>
+            <h2>手沖咖啡基礎觀念</h2>
+            <p>先掌握器材、比例、研磨與悶蒸原理，再進一步調整風味，會比只記沖煮步驟更有效率。</p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <article class="tip-card">
+            <span class="mini-badge">01 器材準備</span>
+            <h3>基本器材</h3>
+            <p>濾杯、濾紙、細口壺、磨豆機、電子秤、計時器與分享壺，是建立穩定手沖流程的基本配置。</p>
+          </article>
+
+          <article class="tip-card">
+            <span class="mini-badge">02 粉水比例</span>
+            <h3>先從標準比例開始</h3>
+            <p>常見建議為 <strong>1:15 到 1:17</strong>。濃郁感可往 1:15 靠近，想要更清爽明亮可往 1:17 調整。</p>
+          </article>
+
+          <article class="tip-card">
+            <span class="mini-badge">03 悶蒸</span>
+            <h3>讓排氣更完全</h3>
+            <p>第一次注水以咖啡粉重量的 2 倍左右為基準，悶蒸 30 至 40 秒，有助提升萃取均勻度。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="recipe" class="section">
+      <div class="wrap section-card">
+        <div class="section-head">
+          <div>
+            <h2>標準手沖參考配方</h2>
+            <p>下面提供一組適合大多數中淺焙到中焙豆款的穩定沖法，可作為店內示範或客戶入門基準。</p>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <article class="recipe-card">
+            <span class="recipe-badge">推薦標準版</span>
+            <h3>15g 咖啡粉／225g 熱水</h3>
+            <p>風味平衡、操作穩定，適合作為手沖咖啡的通用起點。</p>
+            <div class="spec">
+              <div><strong>粉水比例</strong>1:15</div>
+              <div><strong>研磨度</strong>中粗，近砂糖感</div>
+              <div><strong>建議水溫</strong>90–92°C</div>
+              <div><strong>完成時間</strong>約 2:10</div>
+            </div>
+            <ul class="flowlist" style="margin-top:16px">
+              <li><strong>Step 1｜悶蒸</strong><br>注入 30g 熱水，均勻浸濕咖啡粉，等待 30 秒。</li>
+              <li><strong>Step 2｜主注水</strong><br>由中心穩定畫圈注水，總量注至 150g。</li>
+              <li><strong>Step 3｜完成注水</strong><br>再次穩定注水至 225g，待濾杯滴落完成即可。</li>
+            </ul>
+          </article>
+
+          <article class="recipe-card">
+            <span class="recipe-badge">清爽風味版</span>
+            <h3>15g 咖啡粉／255g 熱水</h3>
+            <p>適合想呈現較乾淨、較透明、較明亮層次的人使用。</p>
+            <div class="spec">
+              <div><strong>粉水比例</strong>1:17</div>
+              <div><strong>研磨度</strong>中粗略再粗一點</div>
+              <div><strong>建議水溫</strong>92–94°C</div>
+              <div><strong>完成時間</strong>約 2:20–2:35</div>
+            </div>
+            <ul class="flowlist" style="margin-top:16px">
+              <li><strong>Step 1｜悶蒸</strong><br>注入 30g 熱水，悶蒸 30 至 40 秒。</li>
+              <li><strong>Step 2｜中段注水</strong><br>注水至 160g，保持水流穩定且不過高。</li>
+              <li><strong>Step 3｜尾段注水</strong><br>注水至 255g，等待濾液滴落完成。</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="variables" class="section">
+      <div class="wrap section-card">
+        <div class="section-head">
+          <div>
+            <h2>如何依風味調整參數</h2>
+            <p>當咖啡出現太苦、太酸、太淡或不夠甜時，不必一次全部重改，建議一次只調整一個變因。</p>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>想改善的狀況</th>
+                <th>可能原因</th>
+                <th>建議修正方式</th>
+                <th>效果方向</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>太酸、太薄</td>
+                <td>研磨太粗、時間太短、水溫偏低</td>
+                <td>磨細一點、延長萃取、提高水溫 1–2°C</td>
+                <td class="highlight">提升萃取與甜感</td>
+              </tr>
+              <tr>
+                <td>太苦、太澀</td>
+                <td>研磨太細、時間太長、水溫過高</td>
+                <td>磨粗一點、縮短時間、降低水溫 1–2°C</td>
+                <td class="highlight">減少過萃與雜味</td>
+              </tr>
+              <tr>
+                <td>風味不集中</td>
+                <td>粉水比例過高或注水不穩</td>
+                <td>減少總水量或穩定分段注水</td>
+                <td class="highlight">增加濃度與結構</td>
+              </tr>
+              <tr>
+                <td>香氣不夠明顯</td>
+                <td>水溫不足、豆子太不新鮮</td>
+                <td>提高水溫、檢查豆子烘焙日期與保存</td>
+                <td class="highlight">提升香氣表現</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="troubleshoot" class="section">
+      <div class="wrap section-card">
+        <div class="section-head">
+          <div>
+            <h2>常見手沖問題與修正</h2>
+            <p>手沖不穩定時，多半不是器材問題，而是注水、研磨與時間沒有互相配合。</p>
+          </div>
+        </div>
+
+        <div class="grid-4">
+          <article class="tip-card">
+            <span class="mini-badge">問題 1</span>
+            <h3>流速太快</h3>
+            <p>通常表示研磨太粗或注水過於集中，容易造成味道偏淡、層次不足。</p>
+          </article>
+          <article class="tip-card">
+            <span class="mini-badge">問題 2</span>
+            <h3>流速太慢</h3>
+            <p>多半是研磨過細、水流過小或悶蒸後粉層堵塞，容易產生苦澀感。</p>
+          </article>
+          <article class="tip-card">
+            <span class="mini-badge">問題 3</span>
+            <h3>萃取不均</h3>
+            <p>注水忽大忽小、水柱過高或繞圈不穩，會讓粉床受水不平均，風味容易混亂。</p>
+          </article>
+          <article class="tip-card">
+            <span class="mini-badge">問題 4</span>
+            <h3>尾韻不乾淨</h3>
+            <p>可能是過萃、雜粉過多或濾紙貼合不良，建議重新檢查研磨與預濕濾紙動作。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="wrap section-card">
+        <div class="section-head">
+          <div>
+            <h2>常見問答</h2>
+            <p>可直接作為店內教學頁、品牌官網說明或客戶手沖入門 Q&A 使用。</p>
+          </div>
+        </div>
+
+        <div class="faq-list">
+          <article class="faq-card">
+            <h3>手沖一定要用電子秤嗎？</h3>
+            <p>建議要。電子秤能讓咖啡粉量、注水量與時間更穩定，是建立可重複風味的關鍵工具。</p>
+          </article>
+
+          <article class="faq-card">
+            <h3>不同烘焙度要用不同水溫嗎？</h3>
+            <p>通常是的。淺焙可稍高溫以幫助香氣與酸質表現；深焙可稍低溫，降低苦澀與焦感。</p>
+          </article>
+
+          <article class="faq-card">
+            <h3>為什麼我照著比例沖，味道還是不一樣？</h3>
+            <p>因為比例只是其中一項條件，研磨粗細、注水節奏、水溫與豆子新鮮度都會影響最後風味。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer">
+      <div class="wrap">
+        <div class="footer-card">
+          <h2>給好咖啡｜讓每一杯手沖更穩定、更專業</h2>
+          <p>
+            這個頁面已經整理成可直接展示的專業版網頁架構。
+            後續還可以再加入品牌 LOGO、產品照片、濾杯教學、門市資訊、LINE 連結或客戶下載版教學卡。
+          </p>
+          <div class="footer-actions">
+            <a class="btn btn-primary" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">回到頁首</a>
+            <a class="btn btn-secondary" href="#basics">重新閱讀教學重點</a>
+          </div>
+          <div class="note">建議用途：品牌網站說明頁、店內平板展示頁、客戶手沖教學頁、LINE 圖文導流頁。</div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
