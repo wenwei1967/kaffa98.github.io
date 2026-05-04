@@ -216,6 +216,19 @@
       background: #fbf4ea;
     }
 
+    /* 簡單記憶法表格：文字靠左 */
+    .memory-table th,
+    .memory-table td {
+      text-align: left;
+    }
+
+    .memory-table td:first-child {
+      white-space: nowrap;
+      font-weight: 600;
+      color: #5a3825;
+      width: 160px;
+    }
+
     .teacher-box {
       background: #f1e1ce;
       padding: 28px;
@@ -754,7 +767,7 @@
       <h3>簡單記憶法</h3>
 
       <div class="table-wrap">
-        <table class="compare-table">
+        <table class="compare-table memory-table">
           <tr>
             <th>處理法</th>
             <th>一句話記憶</th>
