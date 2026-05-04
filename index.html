@@ -1,517 +1,1186 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kaffa98~給好咖啡｜手沖咖啡專業技巧說明</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>咖啡處理法介紹｜水洗・日曬・蜜處理・厭氧・橡木桶發酵</title>
+
   <style>
-    :root{
-      --bg:#f6f3ee;
-      --panel:#ffffff;
-      --text:#2b211b;
-      --muted:#6f6258;
-      --line:#ddd2c6;
-      --accent:#6b4c3b;
-      --accent-2:#8a674f;
-      --soft:#efe7de;
-      --ok:#315b42;
-      --shadow:0 12px 32px rgba(43,33,27,.08);
-      --radius:22px;
-      --max:1140px;
+    * {
+      box-sizing: border-box;
     }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:Arial,"Noto Sans TC","Microsoft JhengHei",sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(circle at top right, rgba(139,103,79,.08), transparent 22%),
-        linear-gradient(180deg,#f7f4ef 0%,#f3eee7 100%);
-      line-height:1.75;
+    html {
+      scroll-behavior: smooth;
     }
 
-    a{color:inherit;text-decoration:none}
-
-    .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
-
-    .topbar{
-      position:sticky;top:0;z-index:50;
-      backdrop-filter:blur(10px);
-      background:rgba(246,243,238,.88);
-      border-bottom:1px solid rgba(107,76,59,.08);
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+      background: #f7f3ec;
+      color: #3b2a1f;
+      line-height: 1.8;
     }
 
-    .nav{
-      display:flex;align-items:center;justify-content:space-between;
-      min-height:72px;gap:16px;
+    header {
+      background: linear-gradient(135deg, #3b2418, #8b5a35);
+      color: #fff;
+      padding: 60px 20px;
+      text-align: center;
     }
 
-    .brand{
-      display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.5px;
+    header h1 {
+      margin: 0;
+      font-size: 38px;
+      letter-spacing: 2px;
     }
 
-    .brand-badge{
-      width:42px;height:42px;border-radius:14px;
-      display:grid;place-items:center;
-      background:linear-gradient(135deg,var(--accent),#3c2b22);
-      color:#fff;font-size:22px;box-shadow:var(--shadow);
+    header p {
+      margin-top: 15px;
+      font-size: 18px;
+      color: #f5e8d8;
     }
 
-    .brand small{display:block;color:var(--muted);font-weight:500;letter-spacing:0}
-
-    .nav-links{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:14px}
-    .nav-links a:hover{color:var(--accent)}
-
-    .hero{padding:64px 0 34px}
-
-    .hero-grid{
-      display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:stretch;
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      background: #fff8ef;
+      border-bottom: 1px solid #e1d2bf;
+      padding: 12px 10px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
 
-    .hero-card,.side-card,.section-card,.recipe-card,.tip-card,.faq-card,.footer-card{
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
+    nav a {
+      display: inline-block;
+      margin: 5px;
+      padding: 8px 15px;
+      color: #5a3825;
+      text-decoration: none;
+      border-radius: 999px;
+      background: #ead8c0;
+      font-size: 15px;
+      transition: 0.2s;
     }
 
-    .hero-card{padding:42px}
-
-    .eyebrow{
-      display:inline-flex;align-items:center;gap:8px;
-      background:var(--soft);color:var(--accent);
-      padding:8px 14px;border-radius:999px;font-size:13px;font-weight:700;
-      letter-spacing:.4px;
+    nav a:hover {
+      background: #8b5a35;
+      color: #fff;
     }
 
-    h1{
-      margin:18px 0 14px;
-      font-size:clamp(32px,4vw,54px);
-      line-height:1.15;
-      letter-spacing:.5px;
+    .container {
+      max-width: 1150px;
+      margin: auto;
+      padding: 35px 20px;
     }
 
-    .lead{
-      margin:0 0 22px;
-      color:var(--muted);
-      font-size:18px;
+    .intro {
+      background: #fff;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      margin-bottom: 35px;
     }
 
-    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
-
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      min-height:48px;padding:0 20px;border-radius:14px;
-      font-weight:700;border:1px solid transparent;
-      transition:.2s ease;
+    .intro h2 {
+      margin-top: 0;
+      color: #6b3f25;
     }
 
-    .btn-primary{background:var(--accent);color:#fff}
-    .btn-primary:hover{background:#563d2f;transform:translateY(-1px)}
-    .btn-secondary{background:#fff;border-color:var(--line);color:var(--text)}
-    .btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
-
-    .hero-points{
-      display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin: 30px 0;
     }
 
-    .hero-points div{
-      background:#faf7f2;border:1px solid var(--line);border-radius:18px;
-      padding:16px 14px;
+    .summary-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      border-top: 6px solid #8b5a35;
+      transition: 0.2s;
     }
 
-    .hero-points strong{display:block;font-size:20px;color:var(--accent)}
-    .hero-points span{color:var(--muted);font-size:14px}
-
-    .side-stack{display:grid;gap:18px}
-
-    .side-card{padding:26px}
-
-    .card-title{margin:0 0 14px;font-size:20px}
-    .muted{color:var(--muted)}
-
-    .checklist,.flowlist,.faq-list{display:grid;gap:12px;padding:0;margin:0;list-style:none}
-    .checklist li,.flowlist li,.faq-list li{
-      padding:12px 14px;border-radius:14px;background:#faf7f3;border:1px solid #e8ddd1;
+    .summary-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
     }
 
-    .section{padding:18px 0}
-    .section-card{padding:34px}
-
-    .section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:24px}
-    .section-head h2{margin:0;font-size:30px}
-    .section-head p{margin:0;color:var(--muted);max-width:760px}
-
-    .grid-2,.grid-3,.grid-4{display:grid;gap:18px}
-    .grid-2{grid-template-columns:repeat(2,1fr)}
-    .grid-3{grid-template-columns:repeat(3,1fr)}
-    .grid-4{grid-template-columns:repeat(4,1fr)}
-
-    .recipe-card,.tip-card,.faq-card{padding:24px}
-
-    .recipe-badge,.mini-badge{
-      display:inline-block;padding:6px 10px;border-radius:999px;
-      font-size:12px;font-weight:700;background:var(--soft);color:var(--accent);
-      margin-bottom:10px;
+    .summary-card h3 {
+      margin-top: 0;
+      font-size: 21px;
+      color: #5a3825;
     }
 
-    .recipe-card h3,.tip-card h3,.faq-card h3{margin:0 0 10px;font-size:22px}
-    .recipe-card p,.tip-card p,.faq-card p{margin:0;color:var(--muted)}
-
-    .spec{
-      display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px;
+    .summary-card p {
+      margin-bottom: 0;
+      font-size: 15px;
     }
 
-    .spec div{
-      border:1px solid var(--line);border-radius:14px;padding:12px;background:#fff;
+    section {
+      background: #fff;
+      margin-bottom: 35px;
+      padding: 32px;
+      border-radius: 18px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
     }
 
-    .spec strong{display:block;font-size:13px;color:var(--muted);margin-bottom:4px}
-
-    .flowlist strong{color:var(--accent)}
-
-    .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:18px}
-    table{width:100%;border-collapse:collapse;background:#fff;min-width:680px}
-    th,td{padding:14px 16px;border-bottom:1px solid #eee4d8;text-align:left}
-    th{background:#faf6f0;font-size:14px;color:var(--accent)}
-    tr:last-child td{border-bottom:none}
-
-    .highlight{
-      color:var(--ok);font-weight:700;
+    section h2 {
+      margin-top: 0;
+      color: #5a3825;
+      border-left: 8px solid #b9814f;
+      padding-left: 14px;
+      font-size: 28px;
     }
 
-    .footer{padding:22px 0 60px}
-    .footer-card{padding:28px 32px;background:linear-gradient(135deg,#fff 0%,#f5eee6 100%)}
-    .footer-card h2{margin:0 0 12px;font-size:28px}
-    .footer-card p{margin:0;color:var(--muted)}
+    section h3 {
+      color: #7a4a2a;
+      margin-top: 26px;
+      margin-bottom: 10px;
+    }
 
-    .footer-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:20px}
+    .process-flow {
+      background: #fbf4ea;
+      padding: 18px;
+      border-radius: 14px;
+      margin-top: 15px;
+      border-left: 5px solid #b9814f;
+      font-weight: 500;
+    }
 
-    .note{
-      margin-top:16px;font-size:13px;color:var(--muted)
+    .image-box {
+      margin: 22px 0;
+      background: #fbf4ea;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #ead8c0;
+    }
+
+    .image-box img {
+      width: 100%;
+      display: block;
+      max-height: 420px;
+      object-fit: cover;
     }
 
     .image-box figcaption {
-  padding: 14px 18px;
-  font-size: 15px;
-  color: #5a3825;
-  background: #fff8ef;
-  line-height: 1.7;
-}
-
-.image-box figcaption {
-  display: block;
-}
-    @media (max-width: 980px){
-      .hero-grid,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
-      .hero-points{grid-template-columns:1fr}
-      .hero-card,.side-card,.section-card,.recipe-card,.tip-card,.faq-card,.footer-card{padding:24px}
-      .section-head h2{font-size:26px}
-      .nav{padding:8px 0}
+      display: block;
+      padding: 14px 18px;
+      font-size: 15px;
+      color: #5a3825;
+      background: #fff8ef;
+      line-height: 1.7;
     }
 
-    @media (max-width: 640px){
-      .wrap{padding:0 14px}
-      h1{font-size:34px}
-      .lead{font-size:16px}
-      .nav-links{font-size:13px;gap:12px}
-      .spec{grid-template-columns:1fr}
-      .btn{width:100%}
-      .hero-actions,.footer-actions{display:grid;grid-template-columns:1fr}
+    .image-box figcaption strong {
+      color: #6b3f25;
+    }
+
+    .tag-group {
+      margin-top: 14px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #f0dfc9;
+      color: #5a3825;
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin: 4px;
+      font-size: 14px;
+    }
+
+    .note-box {
+      background: #fff8dc;
+      border-left: 6px solid #d29b45;
+      padding: 18px;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+
+    .warning-box {
+      background: #fff1e8;
+      border-left: 6px solid #c96f3c;
+      padding: 18px;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      margin-top: 18px;
+      border-radius: 14px;
+    }
+
+    .compare-table {
+      width: 100%;
+      min-width: 780px;
+      border-collapse: collapse;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .compare-table th {
+      background: #6b3f25;
+      color: #fff;
+      padding: 13px;
+      font-weight: normal;
+      white-space: nowrap;
+    }
+
+    .compare-table td {
+      border: 1px solid #e4d4c2;
+      padding: 13px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .compare-table tr:nth-child(even) {
+      background: #fbf4ea;
+    }
+
+    .memory-table th,
+    .memory-table td {
+      text-align: left;
+    }
+
+    .memory-table td:first-child {
+      white-space: nowrap;
+      font-weight: 600;
+      color: #5a3825;
+      width: 160px;
+    }
+
+    .roast-stage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .roast-card {
+      background: #fff;
+      border: 1px solid #e4d4c2;
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .roast-card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: #5a3825;
+      font-size: 22px;
+    }
+
+    .stage-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #f0dfc9;
+      color: #6b3f25;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .roast-card ul {
+      padding-left: 20px;
+      margin: 10px 0 0 0;
+    }
+
+    .roast-card li {
+      margin-bottom: 8px;
+    }
+
+    .roast-timeline {
+      margin-top: 18px;
+      background: #fbf4ea;
+      border-left: 5px solid #b9814f;
+      border-radius: 14px;
+      padding: 18px;
+    }
+
+    .teacher-box {
+      background: #f1e1ce;
+      padding: 28px;
+      border-radius: 18px;
+      margin-bottom: 35px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    }
+
+    .teacher-box h2 {
+      margin-top: 0;
+      color: #5a3825;
+    }
+
+    .memory-list {
+      margin-top: 15px;
+      padding-left: 22px;
+    }
+
+    .memory-list li {
+      margin-bottom: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 15px;
+      background: #3b2a1f;
+      color: #ead8c0;
+      font-size: 14px;
+    }
+
+    .top-btn {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      background: #6b3f25;
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 18px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      font-size: 14px;
+    }
+
+    .top-btn:hover {
+      background: #8b5a35;
+    }
+
+    @media (max-width: 900px) {
+      .grid,
+      .roast-stage-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      header h1 {
+        font-size: 30px;
+      }
+
+      section h2 {
+        font-size: 24px;
+      }
     }
 
     @media (max-width: 600px) {
-  .image-box figcaption {
-    font-size: 14px;
-    padding: 12px 14px;
-  }
-}
-    
+      header {
+        padding: 42px 16px;
+      }
+
+      header h1 {
+        font-size: 25px;
+      }
+
+      header p {
+        font-size: 15px;
+      }
+
+      nav {
+        overflow-x: auto;
+        white-space: nowrap;
+        text-align: left;
+      }
+
+      .container {
+        padding: 24px 14px;
+      }
+
+      .intro,
+      section,
+      .teacher-box {
+        padding: 22px 18px;
+      }
+
+      .grid,
+      .roast-stage-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .compare-table {
+        font-size: 14px;
+      }
+
+      .compare-table th,
+      .compare-table td {
+        padding: 9px;
+      }
+
+      .image-box figcaption {
+        font-size: 14px;
+        padding: 12px 14px;
+      }
+
+      .top-btn {
+        right: 12px;
+        bottom: 12px;
+        padding: 10px 14px;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <header class="topbar">
-    <div class="wrap nav">
-      <div class="brand">
-        <div class="brand-badge">☕</div>
-        <div>
-          給好咖啡
-          <small>Hand Pour Coffee Guide</small>
-        </div>
-      </div>
-      <nav class="nav-links">
-        <a href="#basics">基礎觀念</a>
-        <a href="#recipe">標準沖法</a>
-        <a href="#variables">風味調整</a>
-        <a href="#troubleshoot">常見問題</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-    </div>
+
+  <header id="top">
+    <h1>咖啡處理法介紹</h1>
+    <p>水洗・日曬・蜜處理・葡萄乾蜜處理・厭氧處理・橡木桶發酵・烘焙變化</p>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <article class="hero-card">
-          <span class="eyebrow">專業手沖教學頁</span>
-          <h1>手沖咖啡技巧說明<br>從穩定萃取到風味表現</h1>
-          <p class="lead">
-            這是一份適合店內展示、客戶教學、品牌說明的手沖咖啡專業內容頁。
-            以清楚流程、標準參數與常見修正方式，協助初學者快速上手，也讓進階使用者更容易沖出穩定風味。
+  <nav>
+    <a href="#intro">課程簡介</a>
+    <a href="#washed">水洗</a>
+    <a href="#natural">日曬</a>
+    <a href="#honey">蜜處理</a>
+    <a href="#raisin">葡萄乾蜜處理</a>
+    <a href="#anaerobic">厭氧處理</a>
+    <a href="#barrel">橡木桶發酵</a>
+    <a href="#roasting">烘焙變化</a>
+    <a href="#compare">風味比較</a>
+    <a href="#teaching">教學講法</a>
+  </nav>
+
+  <main class="container">
+
+    <div class="intro" id="intro">
+      <h2>一、什麼是咖啡處理法？</h2>
+      <p>
+        咖啡豆其實是咖啡果實裡面的種子。咖啡果實採收後，必須經過處理，
+        把果皮、果肉、果膠層去除，再乾燥成生豆。不同處理方式會影響咖啡的
+        <strong>香氣、甜感、酸質、口感與風味乾淨度</strong>。
+      </p>
+      <p>
+        常見的咖啡處理法包含水洗處理、日曬處理、蜜處理與葡萄乾蜜處理。
+        近年精品咖啡也常見厭氧處理、橡木桶發酵等特殊處理方式。
+        此外，咖啡後續的烘焙程度，也會影響最後杯中的酸甜苦平衡、香氣與厚實度。
+      </p>
+    </div>
+
+    <div class="grid">
+      <div class="summary-card">
+        <h3>水洗處理</h3>
+        <p>乾淨、明亮、酸質清楚，最能表現產區與品種特色。</p>
+      </div>
+
+      <div class="summary-card">
+        <h3>日曬處理</h3>
+        <p>果香濃郁、甜感高，常有莓果、酒香、熱帶水果風味。</p>
+      </div>
+
+      <div class="summary-card">
+        <h3>蜜處理</h3>
+        <p>介於水洗與日曬之間，甜感佳、口感滑順、酸甜平衡。</p>
+      </div>
+
+      <div class="summary-card">
+        <h3>葡萄乾蜜處理</h3>
+        <p>糖分濃縮，果乾感、酒香與厚實度更明顯。</p>
+      </div>
+
+      <div class="summary-card">
+        <h3>厭氧處理</h3>
+        <p>在低氧或無氧環境中發酵，香氣明顯、層次豐富。</p>
+      </div>
+
+      <div class="summary-card">
+        <h3>橡木桶發酵</h3>
+        <p>利用橡木桶發酵或熟成，帶出木質、香草、酒香與可可調性。</p>
+      </div>
+    </div>
+
+    <section id="washed">
+      <h2>二、水洗處理 Washed Process</h2>
+      <p>
+        水洗處理是最常見、也最能表現咖啡豆本身產區與品種特色的方式。
+        它的重點在於去除果肉與果膠，讓咖啡風味呈現得更乾淨。
+      </p>
+
+      <h3>處理流程</h3>
+      <div class="process-flow">
+        採收咖啡櫻桃 → 去除果皮與果肉 → 發酵分解果膠 → 清水洗淨 → 乾燥 → 脫殼成生豆
+      </div>
+
+      <figure class="image-box">
+        <img src="images/washed.jpg" alt="水洗處理示意圖">
+        <figcaption>
+          <strong>圖說｜水洗處理：</strong>
+          咖啡櫻桃去除果皮與果肉後，透過發酵與清水洗淨去除果膠層，
+          讓咖啡呈現乾淨、明亮、酸質清楚的風味特色。
+        </figcaption>
+      </figure>
+
+      <h3>風味特色</h3>
+      <p>
+        水洗咖啡通常風味比較乾淨、明亮、清爽。酸質會比較明顯，
+        像檸檬、柑橘、青蘋果、花香、茶感等風味比較容易被表現出來。
+      </p>
+
+      <div class="tag-group">
+        <span class="tag">乾淨</span>
+        <span class="tag">明亮</span>
+        <span class="tag">清爽</span>
+        <span class="tag">花香</span>
+        <span class="tag">柑橘酸</span>
+        <span class="tag">茶感</span>
+      </div>
+
+      <div class="note-box">
+        <strong>適合推薦給：</strong>
+        喜歡清爽口感、花香、柑橘酸質，或不喜歡太重發酵味的人。
+      </div>
+    </section>
+
+    <section id="natural">
+      <h2>三、日曬處理 Natural Process</h2>
+      <p>
+        日曬處理是較傳統的咖啡處理方式。咖啡櫻桃採收後，不先去皮，
+        而是整顆果實直接乾燥。果肉中的糖分與香氣會在乾燥過程中慢慢影響咖啡豆。
+      </p>
+
+      <h3>處理流程</h3>
+      <div class="process-flow">
+        採收咖啡櫻桃 → 整顆果實鋪曬 → 定期翻動 → 慢慢乾燥 → 去除乾燥果皮果肉 → 脫殼成生豆
+      </div>
+
+      <figure class="image-box">
+        <img src="images/natural.jpg" alt="日曬處理示意圖">
+        <figcaption>
+          <strong>圖說｜日曬處理：</strong>
+          咖啡櫻桃整顆鋪在曬床或曬場上乾燥，
+          果肉中的糖分與香氣會在乾燥過程中影響咖啡豆，
+          因此常帶有莓果、酒香與濃郁水果甜感。
+        </figcaption>
+      </figure>
+
+      <h3>風味特色</h3>
+      <p>
+        日曬咖啡通常會有較明顯的水果香、甜感、酒香或發酵感。
+        常見風味包含草莓、藍莓、葡萄、芒果、鳳梨、酒釀、水果乾等。
+      </p>
+
+      <div class="tag-group">
+        <span class="tag">果香濃郁</span>
+        <span class="tag">甜感高</span>
+        <span class="tag">莓果</span>
+        <span class="tag">酒香</span>
+        <span class="tag">熱帶水果</span>
+        <span class="tag">發酵香</span>
+      </div>
+
+      <div class="warning-box">
+        <strong>注意：</strong>
+        日曬處理如果控制不好，可能會出現過度發酵、雜味、土味或酸敗感。
+      </div>
+    </section>
+
+    <section id="honey">
+      <h2>四、蜜處理 Honey Process</h2>
+      <p>
+        蜜處理不是加蜂蜜，而是因為咖啡豆保留果膠層乾燥時，
+        表面會黏黏的，像蜂蜜一樣，所以稱為蜜處理。
+      </p>
+
+      <h3>處理流程</h3>
+      <div class="process-flow">
+        採收咖啡櫻桃 → 去除果皮 → 保留部分果膠層 → 直接乾燥 → 脫殼成生豆
+      </div>
+
+      <figure class="image-box">
+        <img src="images/honey.jpg" alt="蜜處理示意圖">
+        <figcaption>
+          <strong>圖說｜蜜處理：</strong>
+          蜜處理不是加入蜂蜜，而是保留部分果膠層進行乾燥。
+          果膠層帶有黏性與甜感，因此能讓咖啡呈現蜂蜜甜、焦糖感與滑順口感。
+        </figcaption>
+      </figure>
+
+      <h3>風味特色</h3>
+      <p>
+        蜜處理介於水洗與日曬之間。它比水洗甜感更好、口感更滑順；
+        但又比日曬乾淨，不會有太強烈的發酵感。
+      </p>
+
+      <div class="tag-group">
+        <span class="tag">蜂蜜甜</span>
+        <span class="tag">焦糖</span>
+        <span class="tag">熟水果</span>
+        <span class="tag">滑順</span>
+        <span class="tag">酸甜平衡</span>
+        <span class="tag">紅糖感</span>
+      </div>
+
+      <h3>蜜處理常見分類</h3>
+      <div class="table-wrap">
+        <table class="compare-table">
+          <tr>
+            <th>類型</th>
+            <th>果膠保留程度</th>
+            <th>風味特色</th>
+          </tr>
+          <tr>
+            <td>白蜜</td>
+            <td>少</td>
+            <td>接近水洗，乾淨、清爽</td>
+          </tr>
+          <tr>
+            <td>黃蜜</td>
+            <td>中低</td>
+            <td>甜感柔和，酸甜平衡</td>
+          </tr>
+          <tr>
+            <td>紅蜜</td>
+            <td>中高</td>
+            <td>甜感明顯，果香較濃</td>
+          </tr>
+          <tr>
+            <td>黑蜜</td>
+            <td>高</td>
+            <td>甜度高，口感厚實，發酵感較強</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section id="raisin">
+      <h2>五、葡萄乾蜜處理 Raisin Honey Process</h2>
+      <p>
+        葡萄乾蜜處理可以理解為蜜處理的進階版。這裡的「葡萄乾」不是加入葡萄乾，
+        而是咖啡櫻桃在處理前，先經過一段時間的乾燥或脫水，
+        讓果實像葡萄乾一樣皺縮，使糖分更加濃縮。
+      </p>
+
+      <h3>處理流程</h3>
+      <div class="process-flow">
+        採收咖啡櫻桃 → 先日曬或陰乾脫水 → 果實呈葡萄乾狀 → 去除果皮 → 保留果膠乾燥 → 脫殼成生豆
+      </div>
+
+      <figure class="image-box">
+        <img src="images/raisin-honey.jpg" alt="葡萄乾蜜處理示意圖">
+        <figcaption>
+          <strong>圖說｜葡萄乾蜜處理：</strong>
+          咖啡櫻桃先經過乾燥或脫水，使果實像葡萄乾般皺縮，
+          讓糖分更加濃縮，再進行蜜處理乾燥，
+          因此容易產生葡萄乾、果乾、紅酒與果醬般的濃郁甜感。
+        </figcaption>
+      </figure>
+
+      <h3>風味特色</h3>
+      <p>
+        葡萄乾蜜處理通常甜感非常明顯，口感厚實，
+        常見風味包含葡萄乾、紅酒、莓果醬、果乾、熱帶水果、酒香與熟成水果。
+      </p>
+
+      <div class="tag-group">
+        <span class="tag">高甜感</span>
+        <span class="tag">葡萄乾</span>
+        <span class="tag">紅酒感</span>
+        <span class="tag">果醬</span>
+        <span class="tag">糖漿感</span>
+        <span class="tag">厚實</span>
+      </div>
+
+      <div class="note-box">
+        <strong>適合推薦給：</strong>
+        喜歡重風味、明顯甜感、酒香、葡萄乾、果醬感的人。
+      </div>
+    </section>
+
+    <section id="anaerobic">
+      <h2>六、厭氧處理 Anaerobic Process</h2>
+      <p>
+        厭氧處理是近年精品咖啡中很受歡迎的特殊處理方式。
+        「厭氧」的意思是讓咖啡櫻桃或去皮後的咖啡豆，
+        在低氧或接近無氧的環境中進行發酵。
+      </p>
+
+      <p>
+        常見做法是把咖啡櫻桃放入密閉桶、發酵槽或特殊容器中，
+        控制溫度、時間、壓力與發酵條件，讓咖啡產生更明顯的香氣與風味層次。
+      </p>
+
+      <h3>處理流程</h3>
+      <div class="process-flow">
+        採收咖啡櫻桃 → 挑選成熟果實 → 放入密閉容器 → 低氧或無氧發酵 → 取出後日曬或水洗乾燥 → 脫殼成生豆
+      </div>
+
+      <figure class="image-box">
+        <img src="images/anaerobic.jpg" alt="厭氧處理示意圖">
+        <figcaption>
+          <strong>圖說｜厭氧處理：</strong>
+          咖啡櫻桃或咖啡豆被放入密閉容器中，在低氧或無氧環境下發酵。
+          透過控制時間、溫度與發酵條件，可創造酒香、熱帶水果、乳酸感與特殊層次。
+        </figcaption>
+      </figure>
+
+      <h3>風味特色</h3>
+      <p>
+        厭氧處理的咖啡通常香氣強烈，風味辨識度高，
+        常見有酒香、鳳梨、芒果、百香果、莓果、乳酸感、優格感、果汁感或發酵甜感。
+      </p>
+
+      <div class="tag-group">
+        <span class="tag">酒香</span>
+        <span class="tag">熱帶水果</span>
+        <span class="tag">發酵甜感</span>
+        <span class="tag">果汁感</span>
+        <span class="tag">乳酸感</span>
+        <span class="tag">香氣強烈</span>
+      </div>
+
+      <div class="warning-box">
+        <strong>注意：</strong>
+        厭氧處理風味很有特色，但如果發酵控制不好，可能會出現過重酒味、
+        酸敗感、醬菜味或不自然的發酵味。
+      </div>
+
+      <div class="note-box">
+        <strong>適合推薦給：</strong>
+        喜歡特殊風味、酒香、熱帶水果、強烈香氣與明顯層次感的人。
+      </div>
+    </section>
+
+    <section id="barrel">
+      <h2>七、橡木桶發酵 Oak Barrel Fermentation</h2>
+      <p>
+        橡木桶發酵是特殊處理法的一種，通常會把咖啡櫻桃或處理中的咖啡豆，
+        放入橡木桶中進行發酵或熟成。
+      </p>
+
+      <p>
+        橡木桶原本常用於紅酒、威士忌、白蘭地等酒類熟成。
+        咖啡在橡木桶中發酵時，可能會吸收木質、香草、酒香或熟成感。
+        但這不代表咖啡含有酒精，也不是直接加入酒，而是利用桶子的香氣與發酵環境創造特殊風味。
+      </p>
+
+      <h3>處理流程</h3>
+      <div class="process-flow">
+        採收咖啡櫻桃 → 挑選成熟果實 → 放入橡木桶中發酵或熟成 → 取出後乾燥 → 脫殼成生豆
+      </div>
+
+      <figure class="image-box">
+        <img src="images/oak-barrel.jpg" alt="橡木桶發酵示意圖">
+        <figcaption>
+          <strong>圖說｜橡木桶發酵：</strong>
+          咖啡櫻桃或處理中的咖啡豆放入橡木桶中發酵或熟成，
+          可能帶出木質調、香草、酒桶香、可可與熟果風味。
+          這並不代表咖啡含有酒精，而是利用桶香與發酵環境形成特殊風味。
+        </figcaption>
+      </figure>
+
+      <h3>風味特色</h3>
+      <p>
+        橡木桶發酵的咖啡常見風味包含香草、木質調、可可、威士忌香、紅酒感、
+        熟果、焦糖、香料、葡萄乾與厚實甜感。
+      </p>
+
+      <div class="tag-group">
+        <span class="tag">香草</span>
+        <span class="tag">木質調</span>
+        <span class="tag">酒桶香</span>
+        <span class="tag">可可</span>
+        <span class="tag">焦糖</span>
+        <span class="tag">熟成感</span>
+      </div>
+
+      <div class="warning-box">
+        <strong>注意：</strong>
+        橡木桶發酵風味特殊，若桶香太重，可能會蓋過咖啡原本的產區特色。
+      </div>
+
+      <div class="note-box">
+        <strong>適合推薦給：</strong>
+        喜歡酒香、木質調、香草、可可、厚實口感與特殊風味的人。
+      </div>
+    </section>
+
+    <section id="roasting">
+      <h2>八、咖啡烘焙過程的變化</h2>
+
+      <p>
+        咖啡烘焙是將生豆透過熱能轉化為熟豆的過程。在烘焙中，
+        咖啡豆會經歷水分蒸發、顏色改變、體積膨脹、香氣形成與酸甜苦平衡變化。
+        不同階段的變化，會直接影響杯中的風味表現。
+      </p>
+
+      <div class="roast-timeline">
+        <strong>烘焙變化簡要流程：</strong><br>
+        生豆 → 脫水期 → 黃化期 → 梅納反應期 → 一爆 → 發展期 → 深焙時可能進入二爆
+      </div>
+
+      <div class="roast-stage-grid">
+        <article class="roast-card">
+          <div class="stage-badge">Stage 1</div>
+          <h3>生豆狀態</h3>
+          <p>
+            咖啡生豆在烘焙前呈現青綠色或淡綠色，含有較高水分，
+            聞起來常帶有青草、豆生味或乾穀物氣味。
           </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#recipe">查看標準沖法</a>
-            <a class="btn btn-secondary" href="#troubleshoot">看風味修正方式</a>
-          </div>
-
-          <div class="hero-points">
-            <div>
-              <strong>1:15–1:17</strong>
-              <span>建議粉水比例</span>
-            </div>
-            <div>
-              <strong>88–94°C</strong>
-              <span>常用沖煮水溫</span>
-            </div>
-            <div>
-              <strong>2:00–2:30</strong>
-              <span>常見完成時間</span>
-            </div>
-          </div>
+          <ul>
+            <li>顏色：綠色、淡綠色</li>
+            <li>氣味：青草、豆生味</li>
+            <li>特徵：水分高、質地堅硬</li>
+          </ul>
         </article>
 
-        <div class="side-stack">
-          <aside class="side-card">
-            <h2 class="card-title">手沖核心四要素</h2>
-            <ul class="checklist">
-              <li><strong>研磨粗細</strong>：影響萃取速度與濃淡平衡</li>
-              <li><strong>水溫高低</strong>：影響香氣釋放與苦甜表現</li>
-              <li><strong>注水節奏</strong>：影響均勻度與整體口感</li>
-              <li><strong>粉水比例</strong>：決定濃度與風味結構</li>
-            </ul>
-          </aside>
-
-          <aside class="side-card">
-            <h2 class="card-title">適合誰閱讀？</h2>
-            <ul class="checklist">
-              <li>剛開始接觸手沖咖啡的入門者</li>
-              <li>想建立穩定沖煮流程的咖啡愛好者</li>
-              <li>需要店內教學頁或品牌說明頁的店家</li>
-            </ul>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section id="basics" class="section">
-      <div class="wrap section-card">
-        <div class="section-head">
-          <div>
-            <h2>手沖咖啡基礎觀念</h2>
-            <p>先掌握器材、比例、研磨與悶蒸原理，再進一步調整風味，會比只記沖煮步驟更有效率。</p>
-          </div>
-        </div>
-
-        <div class="grid-3">
-          <article class="tip-card">
-            <span class="mini-badge">01 器材準備</span>
-            <h3>基本器材</h3>
-            <p>濾杯、濾紙、細口壺、磨豆機、電子秤、計時器與分享壺，是建立穩定手沖流程的基本配置。</p>
-          </article>
-
-          <article class="tip-card">
-            <span class="mini-badge">02 粉水比例</span>
-            <h3>先從標準比例開始</h3>
-            <p>常見建議為 <strong>1:15 到 1:17</strong>。濃郁感可往 1:15 靠近，想要更清爽明亮可往 1:17 調整。</p>
-          </article>
-
-          <article class="tip-card">
-            <span class="mini-badge">03 悶蒸</span>
-            <h3>讓排氣更完全</h3>
-            <p>第一次注水以咖啡粉重量的 2 倍左右為基準，悶蒸 30 至 40 秒，有助提升萃取均勻度。</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="recipe" class="section">
-      <div class="wrap section-card">
-        <div class="section-head">
-          <div>
-            <h2>標準手沖參考配方</h2>
-            <p>下面提供一組適合大多數中淺焙到中焙豆款的穩定沖法，可作為店內示範或客戶入門基準。</p>
-          </div>
-        </div>
-
-        <div class="grid-2">
-          <article class="recipe-card">
-            <span class="recipe-badge">推薦標準版</span>
-            <h3>15g 咖啡粉／225g 熱水</h3>
-            <p>風味平衡、操作穩定，適合作為手沖咖啡的通用起點。</p>
-            <div class="spec">
-              <div><strong>粉水比例</strong>1:15</div>
-              <div><strong>研磨度</strong>中粗，近砂糖感</div>
-              <div><strong>建議水溫</strong>90–92°C</div>
-              <div><strong>完成時間</strong>約 2:10</div>
-            </div>
-            <ul class="flowlist" style="margin-top:16px">
-              <li><strong>Step 1｜悶蒸</strong><br>注入 30g 熱水，均勻浸濕咖啡粉，等待 30 秒。</li>
-              <li><strong>Step 2｜主注水</strong><br>由中心穩定畫圈注水，總量注至 150g。</li>
-              <li><strong>Step 3｜完成注水</strong><br>再次穩定注水至 225g，待濾杯滴落完成即可。</li>
-            </ul>
-          </article>
-
-          <article class="recipe-card">
-            <span class="recipe-badge">清爽風味版</span>
-            <h3>15g 咖啡粉／255g 熱水</h3>
-            <p>適合想呈現較乾淨、較透明、較明亮層次的人使用。</p>
-            <div class="spec">
-              <div><strong>粉水比例</strong>1:17</div>
-              <div><strong>研磨度</strong>中粗略再粗一點</div>
-              <div><strong>建議水溫</strong>92–94°C</div>
-              <div><strong>完成時間</strong>約 2:20–2:35</div>
-            </div>
-            <ul class="flowlist" style="margin-top:16px">
-              <li><strong>Step 1｜悶蒸</strong><br>注入 30g 熱水，悶蒸 30 至 40 秒。</li>
-              <li><strong>Step 2｜中段注水</strong><br>注水至 160g，保持水流穩定且不過高。</li>
-              <li><strong>Step 3｜尾段注水</strong><br>注水至 255g，等待濾液滴落完成。</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="variables" class="section">
-      <div class="wrap section-card">
-        <div class="section-head">
-          <div>
-            <h2>如何依風味調整參數</h2>
-            <p>當咖啡出現太苦、太酸、太淡或不夠甜時，不必一次全部重改，建議一次只調整一個變因。</p>
-          </div>
-        </div>
-
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>想改善的狀況</th>
-                <th>可能原因</th>
-                <th>建議修正方式</th>
-                <th>效果方向</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>太酸、太薄</td>
-                <td>研磨太粗、時間太短、水溫偏低</td>
-                <td>磨細一點、延長萃取、提高水溫 1–2°C</td>
-                <td class="highlight">提升萃取與甜感</td>
-              </tr>
-              <tr>
-                <td>太苦、太澀</td>
-                <td>研磨太細、時間太長、水溫過高</td>
-                <td>磨粗一點、縮短時間、降低水溫 1–2°C</td>
-                <td class="highlight">減少過萃與雜味</td>
-              </tr>
-              <tr>
-                <td>風味不集中</td>
-                <td>粉水比例過高或注水不穩</td>
-                <td>減少總水量或穩定分段注水</td>
-                <td class="highlight">增加濃度與結構</td>
-              </tr>
-              <tr>
-                <td>香氣不夠明顯</td>
-                <td>水溫不足、豆子太不新鮮</td>
-                <td>提高水溫、檢查豆子烘焙日期與保存</td>
-                <td class="highlight">提升香氣表現</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <section id="troubleshoot" class="section">
-      <div class="wrap section-card">
-        <div class="section-head">
-          <div>
-            <h2>常見手沖問題與修正</h2>
-            <p>手沖不穩定時，多半不是器材問題，而是注水、研磨與時間沒有互相配合。</p>
-          </div>
-        </div>
-
-        <div class="grid-4">
-          <article class="tip-card">
-            <span class="mini-badge">問題 1</span>
-            <h3>流速太快</h3>
-            <p>通常表示研磨太粗或注水過於集中，容易造成味道偏淡、層次不足。</p>
-          </article>
-          <article class="tip-card">
-            <span class="mini-badge">問題 2</span>
-            <h3>流速太慢</h3>
-            <p>多半是研磨過細、水流過小或悶蒸後粉層堵塞，容易產生苦澀感。</p>
-          </article>
-          <article class="tip-card">
-            <span class="mini-badge">問題 3</span>
-            <h3>萃取不均</h3>
-            <p>注水忽大忽小、水柱過高或繞圈不穩，會讓粉床受水不平均，風味容易混亂。</p>
-          </article>
-          <article class="tip-card">
-            <span class="mini-badge">問題 4</span>
-            <h3>尾韻不乾淨</h3>
-            <p>可能是過萃、雜粉過多或濾紙貼合不良，建議重新檢查研磨與預濕濾紙動作。</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq" class="section">
-      <div class="wrap section-card">
-        <div class="section-head">
-          <div>
-            <h2>常見問答</h2>
-            <p>可直接作為店內教學頁、品牌官網說明或客戶手沖入門 Q&A 使用。</p>
-          </div>
-        </div>
-
-        <div class="faq-list">
-          <article class="faq-card">
-            <h3>手沖一定要用電子秤嗎？</h3>
-            <p>建議要。電子秤能讓咖啡粉量、注水量與時間更穩定，是建立可重複風味的關鍵工具。</p>
-          </article>
-
-          <article class="faq-card">
-            <h3>不同烘焙度要用不同水溫嗎？</h3>
-            <p>通常是的。淺焙可稍高溫以幫助香氣與酸質表現；深焙可稍低溫，降低苦澀與焦感。</p>
-          </article>
-
-          <article class="faq-card">
-            <h3>為什麼我照著比例沖，味道還是不一樣？</h3>
-            <p>因為比例只是其中一項條件，研磨粗細、注水節奏、水溫與豆子新鮮度都會影響最後風味。</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="footer">
-      <div class="wrap">
-        <div class="footer-card">
-          <h2>給好咖啡｜讓每一杯手沖更穩定、更專業</h2>
+        <article class="roast-card">
+          <div class="stage-badge">Stage 2</div>
+          <h3>脫水期</h3>
           <p>
-            這個頁面已經整理成可直接展示的專業版網頁架構。
-            後續還可以再加入品牌 LOGO、產品照片、濾杯教學、門市資訊、LINE 連結或客戶下載版教學卡。
+            烘焙初期，咖啡豆開始吸熱，內部水分逐漸蒸發，
+            顏色會從綠色轉為淡黃，豆表逐漸乾燥。
           </p>
-          <div class="footer-actions">
-            <a class="btn btn-primary" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">回到頁首</a>
-            <a class="btn btn-secondary" href="#basics">重新閱讀教學重點</a>
-          </div>
-          <div class="note">建議用途：品牌網站說明頁、店內平板展示頁、客戶手沖教學頁、LINE 圖文導流頁。</div>
-        </div>
+          <ul>
+            <li>顏色：綠色 → 淡黃色</li>
+            <li>氣味：青草味逐漸減少</li>
+            <li>變化：水分蒸發、豆體升溫</li>
+          </ul>
+        </article>
+
+        <article class="roast-card">
+          <div class="stage-badge">Stage 3</div>
+          <h3>黃化期</h3>
+          <p>
+            當脫水接近完成後，咖啡豆會變成黃色，
+            氣味開始由青草味轉向穀物、吐司或麵包香。
+          </p>
+          <ul>
+            <li>顏色：淡黃、黃色</li>
+            <li>氣味：穀物、麵包香</li>
+            <li>變化：開始建立香氣基礎</li>
+          </ul>
+        </article>
+
+        <article class="roast-card">
+          <div class="stage-badge">Stage 4</div>
+          <h3>梅納反應期</h3>
+          <p>
+            這個階段是糖分與胺基酸反應的重要時期，
+            咖啡豆顏色由黃色轉為淺棕色，甜感、堅果調、焦糖感逐漸形成。
+          </p>
+          <ul>
+            <li>顏色：黃色 → 淺棕色</li>
+            <li>氣味：堅果、焦糖、吐司香</li>
+            <li>變化：甜感提升，香氣更複雜</li>
+          </ul>
+        </article>
+
+        <article class="roast-card">
+          <div class="stage-badge">Stage 5</div>
+          <h3>一爆 First Crack</h3>
+          <p>
+            當內部壓力升高到一定程度，咖啡豆會發出像爆米花般的爆裂聲，
+            這就是「一爆」。一爆後，咖啡豆體積會膨脹，酸質與香氣更明顯。
+          </p>
+          <ul>
+            <li>聲音：明顯爆裂聲</li>
+            <li>顏色：淺棕至中棕色</li>
+            <li>變化：體積膨脹、花果香更突出</li>
+          </ul>
+        </article>
+
+        <article class="roast-card">
+          <div class="stage-badge">Stage 6</div>
+          <h3>發展期 Development</h3>
+          <p>
+            一爆之後進入發展期，烘焙師會依照想要的風味決定下豆時間。
+            這個階段會影響甜感、厚實度、酸苦平衡與尾韻表現。
+          </p>
+          <ul>
+            <li>淺焙：酸質活潑、花果香明亮</li>
+            <li>中焙：酸甜平衡、口感圓潤</li>
+            <li>中深焙：甜感厚實、苦甜感增加</li>
+          </ul>
+        </article>
+
+        <article class="roast-card">
+          <div class="stage-badge">Stage 7</div>
+          <h3>二爆 Second Crack</h3>
+          <p>
+            若繼續加深烘焙，咖啡豆可能進入二爆，
+            聲音比一爆更細碎急促，表面也可能開始出油。
+          </p>
+          <ul>
+            <li>顏色：深棕色甚至更深</li>
+            <li>氣味：煙燻、焦糖、可可、炭焙感</li>
+            <li>變化：苦感提升，酸質下降，油脂更明顯</li>
+          </ul>
+        </article>
+      </div>
+
+      <h3>烘焙階段變化比較</h3>
+      <div class="table-wrap">
+        <table class="compare-table memory-table">
+          <tr>
+            <th>烘焙階段</th>
+            <th>外觀變化</th>
+            <th>香氣變化</th>
+            <th>風味方向</th>
+          </tr>
+          <tr>
+            <td>生豆</td>
+            <td>綠色、質地硬</td>
+            <td>青草、豆生味</td>
+            <td>尚未形成飲用品質風味</td>
+          </tr>
+          <tr>
+            <td>脫水期</td>
+            <td>綠色轉淡黃</td>
+            <td>青草味減少</td>
+            <td>準備進入香氣形成階段</td>
+          </tr>
+          <tr>
+            <td>黃化期</td>
+            <td>黃色</td>
+            <td>穀物、麵包香</td>
+            <td>香氣基礎建立</td>
+          </tr>
+          <tr>
+            <td>梅納反應期</td>
+            <td>黃色轉淺棕</td>
+            <td>堅果、焦糖、吐司香</td>
+            <td>甜感提升、風味複雜化</td>
+          </tr>
+          <tr>
+            <td>一爆後</td>
+            <td>淺棕至中棕</td>
+            <td>花香、果香、甜香更明顯</td>
+            <td>淺焙到中焙的主要風味區間</td>
+          </tr>
+          <tr>
+            <td>發展期延長</td>
+            <td>中棕到較深</td>
+            <td>焦糖、可可、熟果</td>
+            <td>甜感厚實、平衡感增加</td>
+          </tr>
+          <tr>
+            <td>二爆後</td>
+            <td>深棕色、可能出油</td>
+            <td>煙燻、炭焙、可可</td>
+            <td>苦感較高、酸質降低</td>
+          </tr>
+        </table>
+      </div>
+
+      <h3>烘焙程度比較</h3>
+      <div class="table-wrap">
+        <table class="compare-table memory-table">
+          <tr>
+            <th>烘焙程度</th>
+            <th>常見風味</th>
+            <th>酸質</th>
+            <th>甜感</th>
+            <th>苦感</th>
+            <th>口感</th>
+          </tr>
+          <tr>
+            <td>淺焙</td>
+            <td>花香、柑橘、莓果、茶感</td>
+            <td>高</td>
+            <td>中</td>
+            <td>低</td>
+            <td>輕盈、明亮</td>
+          </tr>
+          <tr>
+            <td>中焙</td>
+            <td>焦糖、堅果、熟果、蜂蜜甜</td>
+            <td>中</td>
+            <td>高</td>
+            <td>中低</td>
+            <td>圓潤、平衡</td>
+          </tr>
+          <tr>
+            <td>深焙</td>
+            <td>可可、煙燻、焦糖、炭焙感</td>
+            <td>低</td>
+            <td>中</td>
+            <td>高</td>
+            <td>厚實、苦甜感明顯</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="note-box">
+        <strong>教學重點：</strong>
+        咖啡的風味不只與處理法有關，也與烘焙程度高度相關。
+        同一支豆子，若採淺焙，可能呈現花香、果酸與明亮感；
+        若採中焙，會更平衡圓潤；
+        若採深焙，則容易出現可可、焦糖、煙燻與苦甜調性。
       </div>
     </section>
+
+    <section id="compare">
+      <h2>九、六種處理法風味比較</h2>
+
+      <div class="table-wrap">
+        <table class="compare-table">
+          <tr>
+            <th>項目</th>
+            <th>水洗</th>
+            <th>日曬</th>
+            <th>蜜處理</th>
+            <th>葡萄乾蜜處理</th>
+            <th>厭氧處理</th>
+            <th>橡木桶發酵</th>
+          </tr>
+          <tr>
+            <td>乾淨度</td>
+            <td>最高</td>
+            <td>中等</td>
+            <td>高</td>
+            <td>中高</td>
+            <td>中等至中高</td>
+            <td>中等</td>
+          </tr>
+          <tr>
+            <td>甜感</td>
+            <td>中等</td>
+            <td>高</td>
+            <td>高</td>
+            <td>很高</td>
+            <td>高</td>
+            <td>高</td>
+          </tr>
+          <tr>
+            <td>酸質</td>
+            <td>明亮清楚</td>
+            <td>較圓潤</td>
+            <td>酸甜平衡</td>
+            <td>圓潤濃縮</td>
+            <td>明顯且特殊</td>
+            <td>較圓潤</td>
+          </tr>
+          <tr>
+            <td>果香</td>
+            <td>清新果香</td>
+            <td>濃郁果香</td>
+            <td>熟果甜香</td>
+            <td>果乾、酒香</td>
+            <td>熱帶水果、酒香</td>
+            <td>熟果、葡萄乾</td>
+          </tr>
+          <tr>
+            <td>口感</td>
+            <td>清爽</td>
+            <td>厚實</td>
+            <td>滑順</td>
+            <td>濃稠厚實</td>
+            <td>飽滿、有層次</td>
+            <td>厚實、熟成感</td>
+          </tr>
+          <tr>
+            <td>發酵感</td>
+            <td>低</td>
+            <td>中高</td>
+            <td>中</td>
+            <td>中高</td>
+            <td>高</td>
+            <td>中高</td>
+          </tr>
+          <tr>
+            <td>常見風味</td>
+            <td>花香、柑橘、茶感</td>
+            <td>莓果、酒香、熱帶水果</td>
+            <td>蜂蜜、焦糖、熟果</td>
+            <td>葡萄乾、果醬、紅酒感</td>
+            <td>鳳梨、芒果、百香果、優格感</td>
+            <td>香草、木質、可可、酒桶香</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <div class="teacher-box" id="teaching">
+      <h2>十、課程講解建議</h2>
+
+      <p>
+        咖啡處理法就像料理方式一樣，同樣的咖啡豆，經過不同處理，
+        會產生不同個性；而烘焙則像是把這些個性進一步表現出來的方式。
+      </p>
+
+      <p>
+        <strong>水洗</strong>像是清蒸，保留食材本身的乾淨與原味。<br>
+        <strong>日曬</strong>像是水果乾燥熟成，香氣濃郁、甜感更強。<br>
+        <strong>蜜處理</strong>介於兩者之間，既有水洗的乾淨，也有日曬的甜感。<br>
+        <strong>葡萄乾蜜處理</strong>像是把果實糖分先濃縮，所以風味更甜、更厚實。<br>
+        <strong>厭氧處理</strong>像是在密閉空間中控制發酵，讓香氣與水果感更集中。<br>
+        <strong>橡木桶發酵</strong>像是讓咖啡進入酒桶熟成環境，產生木質、香草與酒香調性。<br>
+        <strong>烘焙</strong>則決定這些風味最後是偏明亮、平衡、厚實，還是偏可可、焦糖與苦甜感。
+      </p>
+
+      <h3>簡單記憶法</h3>
+
+      <div class="table-wrap">
+        <table class="compare-table memory-table">
+          <tr>
+            <th>主題</th>
+            <th>一句話記憶</th>
+          </tr>
+          <tr>
+            <td>水洗</td>
+            <td>乾淨明亮，最能喝出產區特色</td>
+          </tr>
+          <tr>
+            <td>日曬</td>
+            <td>果香濃郁，甜感與發酵香明顯</td>
+          </tr>
+          <tr>
+            <td>蜜處理</td>
+            <td>酸甜平衡，甜感好、口感滑順</td>
+          </tr>
+          <tr>
+            <td>葡萄乾蜜處理</td>
+            <td>糖分濃縮，果乾酒香與厚實感強</td>
+          </tr>
+          <tr>
+            <td>厭氧處理</td>
+            <td>密閉發酵，香氣強烈、層次特殊</td>
+          </tr>
+          <tr>
+            <td>橡木桶發酵</td>
+            <td>桶香熟成，木質、香草與酒香明顯</td>
+          </tr>
+          <tr>
+            <td>烘焙變化</td>
+            <td>淺焙明亮、中焙平衡、深焙厚實苦甜</td>
+          </tr>
+        </table>
+      </div>
+
+      <h3>品飲引導</h3>
+
+      <ul class="memory-list">
+        <li>喝水洗咖啡時，可以注意它的酸質、花香與乾淨度。</li>
+        <li>喝日曬咖啡時，可以注意它的水果香、甜感與酒香。</li>
+        <li>喝蜜處理咖啡時，可以注意它的滑順口感、蜂蜜甜與酸甜平衡。</li>
+        <li>喝葡萄乾蜜處理咖啡時，可以注意它的果乾香、濃郁甜感與厚實度。</li>
+        <li>喝厭氧處理咖啡時，可以注意它的特殊發酵香、熱帶水果與層次變化。</li>
+        <li>喝橡木桶發酵咖啡時，可以注意它的木質調、香草感、酒桶香與熟成感。</li>
+        <li>比較不同烘焙程度時，可以注意酸質、甜感、苦感與口感厚薄的變化。</li>
+      </ul>
+    </div>
+
   </main>
+
+  <footer>
+    咖啡課程教材｜咖啡處理法與烘焙變化介紹
+  </footer>
+
+  <button class="top-btn" onclick="scrollToTop()">回頂部</button>
+
+  <script>
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+  </script>
+
 </body>
 </html>
