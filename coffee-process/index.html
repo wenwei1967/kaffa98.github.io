@@ -152,6 +152,41 @@
       font-weight: 500;
     }
 
+    .image-box {
+      margin: 22px 0 10px;
+      background: #fbf4ea;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #ead8c0;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+    }
+
+    .image-box img {
+      width: 100%;
+      display: block;
+      max-height: 430px;
+      object-fit: cover;
+      background: #ead8c0;
+    }
+
+    .image-box figcaption {
+      padding: 14px 18px;
+      font-size: 15px;
+      color: #5a3825;
+      background: #fff8ef;
+      line-height: 1.7;
+    }
+
+    .image-box figcaption strong {
+      color: #6b3f25;
+    }
+
+    .overview-image img {
+      max-height: 520px;
+      object-fit: contain;
+      background: #fff8ef;
+    }
+
     .tag-group {
       margin-top: 14px;
     }
@@ -191,7 +226,7 @@
 
     .compare-table {
       width: 100%;
-      min-width: 780px;
+      min-width: 880px;
       border-collapse: collapse;
       background: #fff;
       overflow: hidden;
@@ -216,7 +251,10 @@
       background: #fbf4ea;
     }
 
-    /* 簡單記憶法表格：文字靠左 */
+    .memory-table {
+      min-width: 620px;
+    }
+
     .memory-table th,
     .memory-table td {
       text-align: left;
@@ -290,10 +328,7 @@
         font-size: 24px;
       }
     }
-.memory-table th,
-.memory-table td {
-  text-align: left;
-}
+
     @media (max-width: 600px) {
       header {
         padding: 42px 16px;
@@ -325,6 +360,10 @@
 
       .grid {
         grid-template-columns: 1fr;
+      }
+
+      .image-box img {
+        max-height: 320px;
       }
 
       .compare-table {
@@ -380,6 +419,15 @@
         近年精品咖啡也常見厭氧處理、橡木桶發酵等特殊處理方式，
         用來創造更明顯的水果香、酒香、發酵感與特殊層次。
       </p>
+
+      <figure class="image-box overview-image">
+        <img src="images/coffee-process-info.png" alt="咖啡六大處理法總覽圖" loading="lazy">
+        <figcaption>
+          <strong>圖說｜六大咖啡處理法總覽：</strong>
+          這張圖整理水洗、日曬、蜜處理、葡萄乾蜜處理、厭氧處理與橡木桶發酵的重點概念，
+          可作為課程開場、店內展示或顧客快速理解咖啡風味差異的總覽圖。
+        </figcaption>
+      </figure>
     </div>
 
     <div class="grid">
@@ -427,6 +475,15 @@
         採收咖啡櫻桃 → 去除果皮與果肉 → 發酵分解果膠 → 清水洗淨 → 乾燥 → 脫殼成生豆
       </div>
 
+      <figure class="image-box">
+        <img src="images/washed.jpg" alt="水洗處理示意圖" loading="lazy">
+        <figcaption>
+          <strong>圖說｜水洗處理：</strong>
+          咖啡櫻桃去除果皮與果肉後，透過發酵與清水洗淨去除果膠層，
+          讓咖啡呈現乾淨、明亮、酸質清楚的風味特色。
+        </figcaption>
+      </figure>
+
       <h3>風味特色</h3>
       <p>
         水洗咖啡通常風味比較乾淨、明亮、清爽。酸質會比較明顯，
@@ -460,6 +517,16 @@
       <div class="process-flow">
         採收咖啡櫻桃 → 整顆果實鋪曬 → 定期翻動 → 慢慢乾燥 → 去除乾燥果皮果肉 → 脫殼成生豆
       </div>
+
+      <figure class="image-box">
+        <img src="images/natural.jpg" alt="日曬處理示意圖" loading="lazy">
+        <figcaption>
+          <strong>圖說｜日曬處理：</strong>
+          咖啡櫻桃整顆鋪在曬床或曬場上乾燥，
+          果肉中的糖分與香氣會在乾燥過程中影響咖啡豆，
+          因此常帶有莓果、酒香與濃郁水果甜感。
+        </figcaption>
+      </figure>
 
       <h3>風味特色</h3>
       <p>
@@ -495,6 +562,15 @@
         採收咖啡櫻桃 → 去除果皮 → 保留部分果膠層 → 直接乾燥 → 脫殼成生豆
       </div>
 
+      <figure class="image-box">
+        <img src="images/honey.jpg" alt="蜜處理示意圖" loading="lazy">
+        <figcaption>
+          <strong>圖說｜蜜處理：</strong>
+          蜜處理不是加入蜂蜜，而是保留部分果膠層進行乾燥。
+          果膠層帶有黏性與甜感，因此能讓咖啡呈現蜂蜜甜、焦糖感與滑順口感。
+        </figcaption>
+      </figure>
+
       <h3>風味特色</h3>
       <p>
         蜜處理介於水洗與日曬之間。它比水洗甜感更好、口感更滑順；
@@ -513,7 +589,7 @@
       <h3>蜜處理常見分類</h3>
 
       <div class="table-wrap">
-        <table class="compare-table">
+        <table class="compare-table memory-table">
           <tr>
             <th>類型</th>
             <th>果膠保留程度</th>
@@ -557,6 +633,16 @@
         採收咖啡櫻桃 → 先日曬或陰乾脫水 → 果實呈葡萄乾狀 → 去除果皮 → 保留果膠乾燥 → 脫殼成生豆
       </div>
 
+      <figure class="image-box">
+        <img src="images/raisin-honey.jpg" alt="葡萄乾蜜處理示意圖" loading="lazy">
+        <figcaption>
+          <strong>圖說｜葡萄乾蜜處理：</strong>
+          咖啡櫻桃先經過乾燥或脫水，使果實像葡萄乾般皺縮，
+          讓糖分更加濃縮，再進行蜜處理乾燥，
+          因此容易產生葡萄乾、果乾、紅酒與果醬般的濃郁甜感。
+        </figcaption>
+      </figure>
+
       <h3>風味特色</h3>
       <p>
         葡萄乾蜜處理通常甜感非常明顯，口感厚實，
@@ -596,6 +682,15 @@
       <div class="process-flow">
         採收咖啡櫻桃 → 挑選成熟果實 → 放入密閉容器 → 低氧或無氧發酵 → 取出後日曬或水洗乾燥 → 脫殼成生豆
       </div>
+
+      <figure class="image-box">
+        <img src="images/anaerobic.jpg" alt="厭氧處理示意圖" loading="lazy">
+        <figcaption>
+          <strong>圖說｜厭氧處理：</strong>
+          咖啡櫻桃或咖啡豆被放入密閉容器中，在低氧或無氧環境下發酵。
+          透過控制時間、溫度與發酵條件，可創造酒香、熱帶水果、乳酸感與特殊層次。
+        </figcaption>
+      </figure>
 
       <h3>風味特色</h3>
       <p>
@@ -642,6 +737,16 @@
       <div class="process-flow">
         採收咖啡櫻桃 → 挑選成熟果實 → 放入橡木桶中發酵或熟成 → 取出後乾燥 → 脫殼成生豆
       </div>
+
+      <figure class="image-box">
+        <img src="images/oak-barrel.jpg" alt="橡木桶發酵示意圖" loading="lazy">
+        <figcaption>
+          <strong>圖說｜橡木桶發酵：</strong>
+          咖啡櫻桃或處理中的咖啡豆放入橡木桶中發酵或熟成，
+          可能帶出木質調、香草、酒桶香、可可與熟果風味。
+          這並不代表咖啡含有酒精，而是利用桶香與發酵環境形成特殊風味。
+        </figcaption>
+      </figure>
 
       <h3>風味特色</h3>
       <p>
