@@ -153,23 +153,22 @@
     }
 
     .image-box {
-      margin: 22px 0 10px;
+      margin: 22px 0;
       background: #fbf4ea;
       border-radius: 16px;
       overflow: hidden;
       border: 1px solid #ead8c0;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.06);
     }
 
     .image-box img {
       width: 100%;
       display: block;
-      max-height: 430px;
+      max-height: 420px;
       object-fit: cover;
-      background: #ead8c0;
     }
 
     .image-box figcaption {
+      display: block;
       padding: 14px 18px;
       font-size: 15px;
       color: #5a3825;
@@ -179,12 +178,6 @@
 
     .image-box figcaption strong {
       color: #6b3f25;
-    }
-
-    .overview-image img {
-      max-height: 520px;
-      object-fit: contain;
-      background: #fff8ef;
     }
 
     .tag-group {
@@ -226,7 +219,7 @@
 
     .compare-table {
       width: 100%;
-      min-width: 880px;
+      min-width: 780px;
       border-collapse: collapse;
       background: #fff;
       overflow: hidden;
@@ -251,10 +244,6 @@
       background: #fbf4ea;
     }
 
-    .memory-table {
-      min-width: 620px;
-    }
-
     .memory-table th,
     .memory-table td {
       text-align: left;
@@ -265,6 +254,56 @@
       font-weight: 600;
       color: #5a3825;
       width: 160px;
+    }
+
+    .roast-stage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .roast-card {
+      background: #fff;
+      border: 1px solid #e4d4c2;
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .roast-card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: #5a3825;
+      font-size: 22px;
+    }
+
+    .stage-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #f0dfc9;
+      color: #6b3f25;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .roast-card ul {
+      padding-left: 20px;
+      margin: 10px 0 0 0;
+    }
+
+    .roast-card li {
+      margin-bottom: 8px;
+    }
+
+    .roast-timeline {
+      margin-top: 18px;
+      background: #fbf4ea;
+      border-left: 5px solid #b9814f;
+      border-radius: 14px;
+      padding: 18px;
     }
 
     .teacher-box {
@@ -316,7 +355,8 @@
     }
 
     @media (max-width: 900px) {
-      .grid {
+      .grid,
+      .roast-stage-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -358,12 +398,9 @@
         padding: 22px 18px;
       }
 
-      .grid {
+      .grid,
+      .roast-stage-grid {
         grid-template-columns: 1fr;
-      }
-
-      .image-box img {
-        max-height: 320px;
       }
 
       .compare-table {
@@ -373,6 +410,11 @@
       .compare-table th,
       .compare-table td {
         padding: 9px;
+      }
+
+      .image-box figcaption {
+        font-size: 14px;
+        padding: 12px 14px;
       }
 
       .top-btn {
@@ -388,7 +430,7 @@
 
   <header id="top">
     <h1>咖啡處理法介紹</h1>
-    <p>水洗・日曬・蜜處理・葡萄乾蜜處理・厭氧處理・橡木桶發酵</p>
+    <p>水洗・日曬・蜜處理・葡萄乾蜜處理・厭氧處理・橡木桶發酵・烘焙變化</p>
   </header>
 
   <nav>
@@ -399,6 +441,7 @@
     <a href="#raisin">葡萄乾蜜處理</a>
     <a href="#anaerobic">厭氧處理</a>
     <a href="#barrel">橡木桶發酵</a>
+    <a href="#roasting">烘焙變化</a>
     <a href="#compare">風味比較</a>
     <a href="#teaching">教學講法</a>
   </nav>
@@ -407,27 +450,16 @@
 
     <div class="intro" id="intro">
       <h2>一、什麼是咖啡處理法？</h2>
-
       <p>
         咖啡豆其實是咖啡果實裡面的種子。咖啡果實採收後，必須經過處理，
         把果皮、果肉、果膠層去除，再乾燥成生豆。不同處理方式會影響咖啡的
         <strong>香氣、甜感、酸質、口感與風味乾淨度</strong>。
       </p>
-
       <p>
         常見的咖啡處理法包含水洗處理、日曬處理、蜜處理與葡萄乾蜜處理。
-        近年精品咖啡也常見厭氧處理、橡木桶發酵等特殊處理方式，
-        用來創造更明顯的水果香、酒香、發酵感與特殊層次。
+        近年精品咖啡也常見厭氧處理、橡木桶發酵等特殊處理方式。
+        此外，咖啡後續的烘焙程度，也會影響最後杯中的酸甜苦平衡、香氣與厚實度。
       </p>
-
-      <figure class="image-box overview-image">
-        <img src="images/coffee-process-info.png" alt="咖啡六大處理法總覽圖" loading="lazy">
-        <figcaption>
-          <strong>圖說｜六大咖啡處理法總覽：</strong>
-          這張圖整理水洗、日曬、蜜處理、葡萄乾蜜處理、厭氧處理與橡木桶發酵的重點概念，
-          可作為課程開場、店內展示或顧客快速理解咖啡風味差異的總覽圖。
-        </figcaption>
-      </figure>
     </div>
 
     <div class="grid">
@@ -464,7 +496,6 @@
 
     <section id="washed">
       <h2>二、水洗處理 Washed Process</h2>
-
       <p>
         水洗處理是最常見、也最能表現咖啡豆本身產區與品種特色的方式。
         它的重點在於去除果肉與果膠，讓咖啡風味呈現得更乾淨。
@@ -476,7 +507,7 @@
       </div>
 
       <figure class="image-box">
-        <img src="images/washed.jpg" alt="水洗處理示意圖" loading="lazy">
+        <img src="images/washed.jpg" alt="水洗處理示意圖">
         <figcaption>
           <strong>圖說｜水洗處理：</strong>
           咖啡櫻桃去除果皮與果肉後，透過發酵與清水洗淨去除果膠層，
@@ -507,7 +538,6 @@
 
     <section id="natural">
       <h2>三、日曬處理 Natural Process</h2>
-
       <p>
         日曬處理是較傳統的咖啡處理方式。咖啡櫻桃採收後，不先去皮，
         而是整顆果實直接乾燥。果肉中的糖分與香氣會在乾燥過程中慢慢影響咖啡豆。
@@ -519,7 +549,7 @@
       </div>
 
       <figure class="image-box">
-        <img src="images/natural.jpg" alt="日曬處理示意圖" loading="lazy">
+        <img src="images/natural.jpg" alt="日曬處理示意圖">
         <figcaption>
           <strong>圖說｜日曬處理：</strong>
           咖啡櫻桃整顆鋪在曬床或曬場上乾燥，
@@ -551,7 +581,6 @@
 
     <section id="honey">
       <h2>四、蜜處理 Honey Process</h2>
-
       <p>
         蜜處理不是加蜂蜜，而是因為咖啡豆保留果膠層乾燥時，
         表面會黏黏的，像蜂蜜一樣，所以稱為蜜處理。
@@ -563,7 +592,7 @@
       </div>
 
       <figure class="image-box">
-        <img src="images/honey.jpg" alt="蜜處理示意圖" loading="lazy">
+        <img src="images/honey.jpg" alt="蜜處理示意圖">
         <figcaption>
           <strong>圖說｜蜜處理：</strong>
           蜜處理不是加入蜂蜜，而是保留部分果膠層進行乾燥。
@@ -587,9 +616,8 @@
       </div>
 
       <h3>蜜處理常見分類</h3>
-
       <div class="table-wrap">
-        <table class="compare-table memory-table">
+        <table class="compare-table">
           <tr>
             <th>類型</th>
             <th>果膠保留程度</th>
@@ -621,7 +649,6 @@
 
     <section id="raisin">
       <h2>五、葡萄乾蜜處理 Raisin Honey Process</h2>
-
       <p>
         葡萄乾蜜處理可以理解為蜜處理的進階版。這裡的「葡萄乾」不是加入葡萄乾，
         而是咖啡櫻桃在處理前，先經過一段時間的乾燥或脫水，
@@ -634,7 +661,7 @@
       </div>
 
       <figure class="image-box">
-        <img src="images/raisin-honey.jpg" alt="葡萄乾蜜處理示意圖" loading="lazy">
+        <img src="images/raisin-honey.jpg" alt="葡萄乾蜜處理示意圖">
         <figcaption>
           <strong>圖說｜葡萄乾蜜處理：</strong>
           咖啡櫻桃先經過乾燥或脫水，使果實像葡萄乾般皺縮，
@@ -666,7 +693,6 @@
 
     <section id="anaerobic">
       <h2>六、厭氧處理 Anaerobic Process</h2>
-
       <p>
         厭氧處理是近年精品咖啡中很受歡迎的特殊處理方式。
         「厭氧」的意思是讓咖啡櫻桃或去皮後的咖啡豆，
@@ -684,7 +710,7 @@
       </div>
 
       <figure class="image-box">
-        <img src="images/anaerobic.jpg" alt="厭氧處理示意圖" loading="lazy">
+        <img src="images/anaerobic.jpg" alt="厭氧處理示意圖">
         <figcaption>
           <strong>圖說｜厭氧處理：</strong>
           咖啡櫻桃或咖啡豆被放入密閉容器中，在低氧或無氧環境下發酵。
@@ -721,7 +747,6 @@
 
     <section id="barrel">
       <h2>七、橡木桶發酵 Oak Barrel Fermentation</h2>
-
       <p>
         橡木桶發酵是特殊處理法的一種，通常會把咖啡櫻桃或處理中的咖啡豆，
         放入橡木桶中進行發酵或熟成。
@@ -739,7 +764,7 @@
       </div>
 
       <figure class="image-box">
-        <img src="images/oak-barrel.jpg" alt="橡木桶發酵示意圖" loading="lazy">
+        <img src="images/oak-barrel.jpg" alt="橡木桶發酵示意圖">
         <figcaption>
           <strong>圖說｜橡木桶發酵：</strong>
           咖啡櫻桃或處理中的咖啡豆放入橡木桶中發酵或熟成，
@@ -774,8 +799,223 @@
       </div>
     </section>
 
+    <section id="roasting">
+      <h2>八、咖啡烘焙過程的變化</h2>
+
+      <p>
+        咖啡烘焙是將生豆透過熱能轉化為熟豆的過程。在烘焙中，
+        咖啡豆會經歷水分蒸發、顏色改變、體積膨脹、香氣形成與酸甜苦平衡變化。
+        不同階段的變化，會直接影響杯中的風味表現。
+      </p>
+
+      <div class="roast-timeline">
+        <strong>烘焙變化簡要流程：</strong><br>
+        生豆 → 脫水期 → 黃化期 → 梅納反應期 → 一爆 → 發展期 → 深焙時可能進入二爆
+      </div>
+
+      <div class="roast-stage-grid">
+        <article class="roast-card">
+          <div class="stage-badge">Stage 1</div>
+          <h3>生豆狀態</h3>
+          <p>
+            咖啡生豆在烘焙前呈現青綠色或淡綠色，含有較高水分，
+            聞起來常帶有青草、豆生味或乾穀物氣味。
+          </p>
+          <ul>
+            <li>顏色：綠色、淡綠色</li>
+            <li>氣味：青草、豆生味</li>
+            <li>特徵：水分高、質地堅硬</li>
+          </ul>
+        </article>
+
+        <article class="roast-card">
+          <div class="stage-badge">Stage 2</div>
+          <h3>脫水期</h3>
+          <p>
+            烘焙初期，咖啡豆開始吸熱，內部水分逐漸蒸發，
+            顏色會從綠色轉為淡黃，豆表逐漸乾燥。
+          </p>
+          <ul>
+            <li>顏色：綠色 → 淡黃色</li>
+            <li>氣味：青草味逐漸減少</li>
+            <li>變化：水分蒸發、豆體升溫</li>
+          </ul>
+        </article>
+
+        <article class="roast-card">
+          <div class="stage-badge">Stage 3</div>
+          <h3>黃化期</h3>
+          <p>
+            當脫水接近完成後，咖啡豆會變成黃色，
+            氣味開始由青草味轉向穀物、吐司或麵包香。
+          </p>
+          <ul>
+            <li>顏色：淡黃、黃色</li>
+            <li>氣味：穀物、麵包香</li>
+            <li>變化：開始建立香氣基礎</li>
+          </ul>
+        </article>
+
+        <article class="roast-card">
+          <div class="stage-badge">Stage 4</div>
+          <h3>梅納反應期</h3>
+          <p>
+            這個階段是糖分與胺基酸反應的重要時期，
+            咖啡豆顏色由黃色轉為淺棕色，甜感、堅果調、焦糖感逐漸形成。
+          </p>
+          <ul>
+            <li>顏色：黃色 → 淺棕色</li>
+            <li>氣味：堅果、焦糖、吐司香</li>
+            <li>變化：甜感提升，香氣更複雜</li>
+          </ul>
+        </article>
+
+        <article class="roast-card">
+          <div class="stage-badge">Stage 5</div>
+          <h3>一爆 First Crack</h3>
+          <p>
+            當內部壓力升高到一定程度，咖啡豆會發出像爆米花般的爆裂聲，
+            這就是「一爆」。一爆後，咖啡豆體積會膨脹，酸質與香氣更明顯。
+          </p>
+          <ul>
+            <li>聲音：明顯爆裂聲</li>
+            <li>顏色：淺棕至中棕色</li>
+            <li>變化：體積膨脹、花果香更突出</li>
+          </ul>
+        </article>
+
+        <article class="roast-card">
+          <div class="stage-badge">Stage 6</div>
+          <h3>發展期 Development</h3>
+          <p>
+            一爆之後進入發展期，烘焙師會依照想要的風味決定下豆時間。
+            這個階段會影響甜感、厚實度、酸苦平衡與尾韻表現。
+          </p>
+          <ul>
+            <li>淺焙：酸質活潑、花果香明亮</li>
+            <li>中焙：酸甜平衡、口感圓潤</li>
+            <li>中深焙：甜感厚實、苦甜感增加</li>
+          </ul>
+        </article>
+
+        <article class="roast-card">
+          <div class="stage-badge">Stage 7</div>
+          <h3>二爆 Second Crack</h3>
+          <p>
+            若繼續加深烘焙，咖啡豆可能進入二爆，
+            聲音比一爆更細碎急促，表面也可能開始出油。
+          </p>
+          <ul>
+            <li>顏色：深棕色甚至更深</li>
+            <li>氣味：煙燻、焦糖、可可、炭焙感</li>
+            <li>變化：苦感提升，酸質下降，油脂更明顯</li>
+          </ul>
+        </article>
+      </div>
+
+      <h3>烘焙階段變化比較</h3>
+      <div class="table-wrap">
+        <table class="compare-table memory-table">
+          <tr>
+            <th>烘焙階段</th>
+            <th>外觀變化</th>
+            <th>香氣變化</th>
+            <th>風味方向</th>
+          </tr>
+          <tr>
+            <td>生豆</td>
+            <td>綠色、質地硬</td>
+            <td>青草、豆生味</td>
+            <td>尚未形成飲用品質風味</td>
+          </tr>
+          <tr>
+            <td>脫水期</td>
+            <td>綠色轉淡黃</td>
+            <td>青草味減少</td>
+            <td>準備進入香氣形成階段</td>
+          </tr>
+          <tr>
+            <td>黃化期</td>
+            <td>黃色</td>
+            <td>穀物、麵包香</td>
+            <td>香氣基礎建立</td>
+          </tr>
+          <tr>
+            <td>梅納反應期</td>
+            <td>黃色轉淺棕</td>
+            <td>堅果、焦糖、吐司香</td>
+            <td>甜感提升、風味複雜化</td>
+          </tr>
+          <tr>
+            <td>一爆後</td>
+            <td>淺棕至中棕</td>
+            <td>花香、果香、甜香更明顯</td>
+            <td>淺焙到中焙的主要風味區間</td>
+          </tr>
+          <tr>
+            <td>發展期延長</td>
+            <td>中棕到較深</td>
+            <td>焦糖、可可、熟果</td>
+            <td>甜感厚實、平衡感增加</td>
+          </tr>
+          <tr>
+            <td>二爆後</td>
+            <td>深棕色、可能出油</td>
+            <td>煙燻、炭焙、可可</td>
+            <td>苦感較高、酸質降低</td>
+          </tr>
+        </table>
+      </div>
+
+      <h3>烘焙程度比較</h3>
+      <div class="table-wrap">
+        <table class="compare-table memory-table">
+          <tr>
+            <th>烘焙程度</th>
+            <th>常見風味</th>
+            <th>酸質</th>
+            <th>甜感</th>
+            <th>苦感</th>
+            <th>口感</th>
+          </tr>
+          <tr>
+            <td>淺焙</td>
+            <td>花香、柑橘、莓果、茶感</td>
+            <td>高</td>
+            <td>中</td>
+            <td>低</td>
+            <td>輕盈、明亮</td>
+          </tr>
+          <tr>
+            <td>中焙</td>
+            <td>焦糖、堅果、熟果、蜂蜜甜</td>
+            <td>中</td>
+            <td>高</td>
+            <td>中低</td>
+            <td>圓潤、平衡</td>
+          </tr>
+          <tr>
+            <td>深焙</td>
+            <td>可可、煙燻、焦糖、炭焙感</td>
+            <td>低</td>
+            <td>中</td>
+            <td>高</td>
+            <td>厚實、苦甜感明顯</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="note-box">
+        <strong>教學重點：</strong>
+        咖啡的風味不只與處理法有關，也與烘焙程度高度相關。
+        同一支豆子，若採淺焙，可能呈現花香、果酸與明亮感；
+        若採中焙，會更平衡圓潤；
+        若採深焙，則容易出現可可、焦糖、煙燻與苦甜調性。
+      </div>
+    </section>
+
     <section id="compare">
-      <h2>八、六種處理法風味比較</h2>
+      <h2>九、六種處理法風味比較</h2>
 
       <div class="table-wrap">
         <table class="compare-table">
@@ -856,11 +1096,11 @@
     </section>
 
     <div class="teacher-box" id="teaching">
-      <h2>九、課程講解建議</h2>
+      <h2>十、課程講解建議</h2>
 
       <p>
         咖啡處理法就像料理方式一樣，同樣的咖啡豆，經過不同處理，
-        會產生不同個性。
+        會產生不同個性；而烘焙則像是把這些個性進一步表現出來的方式。
       </p>
 
       <p>
@@ -869,7 +1109,8 @@
         <strong>蜜處理</strong>介於兩者之間，既有水洗的乾淨，也有日曬的甜感。<br>
         <strong>葡萄乾蜜處理</strong>像是把果實糖分先濃縮，所以風味更甜、更厚實。<br>
         <strong>厭氧處理</strong>像是在密閉空間中控制發酵，讓香氣與水果感更集中。<br>
-        <strong>橡木桶發酵</strong>像是讓咖啡進入酒桶熟成環境，產生木質、香草與酒香調性。
+        <strong>橡木桶發酵</strong>像是讓咖啡進入酒桶熟成環境，產生木質、香草與酒香調性。<br>
+        <strong>烘焙</strong>則決定這些風味最後是偏明亮、平衡、厚實，還是偏可可、焦糖與苦甜感。
       </p>
 
       <h3>簡單記憶法</h3>
@@ -877,7 +1118,7 @@
       <div class="table-wrap">
         <table class="compare-table memory-table">
           <tr>
-            <th>處理法</th>
+            <th>主題</th>
             <th>一句話記憶</th>
           </tr>
           <tr>
@@ -904,6 +1145,10 @@
             <td>橡木桶發酵</td>
             <td>桶香熟成，木質、香草與酒香明顯</td>
           </tr>
+          <tr>
+            <td>烘焙變化</td>
+            <td>淺焙明亮、中焙平衡、深焙厚實苦甜</td>
+          </tr>
         </table>
       </div>
 
@@ -916,13 +1161,14 @@
         <li>喝葡萄乾蜜處理咖啡時，可以注意它的果乾香、濃郁甜感與厚實度。</li>
         <li>喝厭氧處理咖啡時，可以注意它的特殊發酵香、熱帶水果與層次變化。</li>
         <li>喝橡木桶發酵咖啡時，可以注意它的木質調、香草感、酒桶香與熟成感。</li>
+        <li>比較不同烘焙程度時，可以注意酸質、甜感、苦感與口感厚薄的變化。</li>
       </ul>
     </div>
 
   </main>
 
   <footer>
-    咖啡課程教材｜咖啡處理法介紹
+    咖啡課程教材｜咖啡處理法與烘焙變化介紹
   </footer>
 
   <button class="top-btn" onclick="scrollToTop()">回頂部</button>
