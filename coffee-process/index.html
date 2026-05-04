@@ -306,6 +306,80 @@
       padding: 18px;
     }
 
+
+    .roast-chart-box {
+  margin-top: 20px;
+  background: #fffaf3;
+  border: 1px solid #ead8c0;
+  border-radius: 16px;
+  padding: 18px;
+  overflow-x: auto;
+}
+
+.roast-chart-title {
+  margin: 0 0 12px 0;
+  color: #5a3825;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.roast-chart-desc {
+  margin: 0 0 14px 0;
+  color: #6b4a35;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.roast-chart-svg {
+  width: 100%;
+  min-width: 760px;
+  height: auto;
+  display: block;
+}
+
+.roast-chart-note {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #6b4a35;
+  line-height: 1.7;
+}
+
+.roast-legend {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  font-size: 14px;
+  color: #5a3825;
+}
+
+.roast-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.roast-legend i {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+}
+
+@media (max-width: 600px) {
+  .roast-chart-title {
+    font-size: 18px;
+  }
+
+  .roast-chart-desc,
+  .roast-chart-note {
+    font-size: 14px;
+  }
+}
+
+
+
+    
     .teacher-box {
       background: #f1e1ce;
       padding: 28px;
@@ -812,7 +886,129 @@
         <strong>烘焙變化簡要流程：</strong><br>
         生豆 → 脫水期 → 黃化期 → 梅納反應期 → 一爆 → 發展期 → 深焙時可能進入二爆
       </div>
+<div class="roast-chart-box">
+  <h3 class="roast-chart-title">烘焙曲線圖（示意）</h3>
+  <p class="roast-chart-desc">
+    下圖為咖啡烘焙過程中的簡化示意曲線。橫軸代表時間，縱軸代表豆溫變化。
+    從脫水期、黃化期、梅納反應期，到一爆、發展期與二爆前後，都會影響最終風味表現。
+  </p>
 
+  <svg class="roast-chart-svg" viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="咖啡烘焙曲線圖">
+    <!-- 背景 -->
+    <rect x="0" y="0" width="900" height="460" fill="#fffaf3"/>
+
+    <!-- 區段底色 -->
+    <rect x="80" y="60" width="110" height="300" fill="#f9eddc"/>
+    <rect x="190" y="60" width="110" height="300" fill="#f6e4cc"/>
+    <rect x="300" y="60" width="140" height="300" fill="#f3dcc0"/>
+    <rect x="440" y="60" width="110" height="300" fill="#efd4b4"/>
+    <rect x="550" y="60" width="140" height="300" fill="#ebcaa7"/>
+    <rect x="690" y="60" width="110" height="300" fill="#e6bf98"/>
+
+    <!-- 網格線 -->
+    <g stroke="#d8c5ad" stroke-width="1">
+      <line x1="80" y1="360" x2="820" y2="360"/>
+      <line x1="80" y1="300" x2="820" y2="300"/>
+      <line x1="80" y1="240" x2="820" y2="240"/>
+      <line x1="80" y1="180" x2="820" y2="180"/>
+      <line x1="80" y1="120" x2="820" y2="120"/>
+      <line x1="80" y1="60" x2="820" y2="60"/>
+    </g>
+
+    <!-- 座標軸 -->
+    <g stroke="#6b3f25" stroke-width="2">
+      <line x1="80" y1="360" x2="820" y2="360"/>
+      <line x1="80" y1="360" x2="80" y2="60"/>
+    </g>
+
+    <!-- Y 軸文字 -->
+    <g font-size="14" fill="#5a3825" text-anchor="end">
+      <text x="70" y="365">100°C</text>
+      <text x="70" y="305">120°C</text>
+      <text x="70" y="245">140°C</text>
+      <text x="70" y="185">160°C</text>
+      <text x="70" y="125">180°C</text>
+      <text x="70" y="65">200°C</text>
+    </g>
+
+    <!-- X 軸文字 -->
+    <g font-size="14" fill="#5a3825" text-anchor="middle">
+      <text x="80" y="388">0</text>
+      <text x="190" y="388">2</text>
+      <text x="300" y="388">4</text>
+      <text x="410" y="388">6</text>
+      <text x="520" y="388">8</text>
+      <text x="630" y="388">10</text>
+      <text x="740" y="388">12</text>
+      <text x="820" y="388">13+</text>
+    </g>
+
+    <!-- 軸標題 -->
+    <text x="450" y="425" text-anchor="middle" font-size="16" fill="#5a3825" font-weight="700">時間（分鐘）</text>
+    <text x="24" y="210" transform="rotate(-90 24 210)" text-anchor="middle" font-size="16" fill="#5a3825" font-weight="700">豆溫（示意）</text>
+
+    <!-- 烘焙曲線 -->
+    <path d="M80,345
+             C120,330 150,315 190,290
+             S250,255 300,225
+             S370,190 440,155
+             S500,130 550,112
+             S620,95 690,82
+             S760,68 820,60"
+          fill="none" stroke="#8b3f1f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- 一爆線 -->
+    <line x1="550" y1="60" x2="550" y2="360" stroke="#b54a2f" stroke-width="2.5" stroke-dasharray="8 6"/>
+    <text x="550" y="50" text-anchor="middle" font-size="15" fill="#b54a2f" font-weight="700">一爆</text>
+
+    <!-- 二爆線 -->
+    <line x1="770" y1="60" x2="770" y2="360" stroke="#7a2f1f" stroke-width="2.5" stroke-dasharray="8 6"/>
+    <text x="770" y="50" text-anchor="middle" font-size="15" fill="#7a2f1f" font-weight="700">二爆</text>
+
+    <!-- 各區段標示 -->
+    <g font-size="14" fill="#5a3825" text-anchor="middle" font-weight="700">
+      <text x="135" y="85">脫水期</text>
+      <text x="245" y="85">黃化期</text>
+      <text x="370" y="85">梅納反應期</text>
+      <text x="495" y="85">一爆前</text>
+      <text x="620" y="85">發展期</text>
+      <text x="745" y="85">深焙 / 二爆區</text>
+    </g>
+
+    <!-- 重要節點 -->
+    <g fill="#8b3f1f">
+      <circle cx="190" cy="290" r="5"/>
+      <circle cx="300" cy="225" r="5"/>
+      <circle cx="440" cy="155" r="5"/>
+      <circle cx="550" cy="112" r="6"/>
+      <circle cx="690" cy="82" r="5"/>
+      <circle cx="770" cy="70" r="6"/>
+    </g>
+
+    <!-- 節點說明 -->
+    <g font-size="13" fill="#5a3825">
+      <text x="150" y="285">脫水完成</text>
+      <text x="255" y="220">黃化</text>
+      <text x="382" y="150">梅納反應</text>
+      <text x="565" y="108">一爆開始</text>
+      <text x="690" y="105" text-anchor="middle">發展延伸</text>
+      <text x="784" y="84">二爆</text>
+    </g>
+  </svg>
+
+  <div class="roast-legend">
+    <span><i style="background:#8b3f1f;"></i>豆溫曲線</span>
+    <span><i style="background:#b54a2f;"></i>一爆位置</span>
+    <span><i style="background:#7a2f1f;"></i>二爆位置</span>
+  </div>
+
+  <p class="roast-chart-note">
+    <strong>圖表解讀：</strong>
+    一般來說，脫水期與黃化期主要在移除水分與建立香氣基礎；
+    梅納反應期會開始形成甜感、堅果與焦糖香；
+    一爆後進入發展期，決定淺焙、中焙或深焙的風味走向。
+  </p>
+</div>
       <div class="roast-stage-grid">
         <article class="roast-card">
           <div class="stage-badge">Stage 1</div>
