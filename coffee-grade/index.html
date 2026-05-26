@@ -1,94 +1,177 @@
+# 完整整合版 coffee-grade.html
+
+以下為完整整合版本，可直接覆蓋原本的 `coffee-grade.html` 使用。
+
+```html
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>咖啡豆等級說明｜給好咖啡</title>
+<title>咖啡豆等級與咖啡知識專區｜給好咖啡</title>
 
 <style>
 body{
   margin:0;
-  font-family:"Noto Sans TC", Arial, sans-serif;
+  font-family:"Noto Sans TC",sans-serif;
   background:#f7f3ed;
   color:#2f241d;
   line-height:1.8;
 }
+
 .container{
-  max-width:980px;
+  max-width:1200px;
   margin:auto;
-  padding:30px 18px;
+  padding:28px 18px;
 }
+
 .hero{
-  background:linear-gradient(135deg,#3b2618,#8b5a2b);
+  background:linear-gradient(135deg,#2d1d14,#7a4a27);
   color:#fff;
-  padding:36px 24px;
-  border-radius:18px;
+  border-radius:20px;
+  padding:50px 30px;
   text-align:center;
 }
+
 .hero h1{
   margin:0;
-  font-size:32px;
+  font-size:38px;
 }
+
 .hero p{
-  margin-top:12px;
-  font-size:17px;
+  margin-top:14px;
+  font-size:18px;
 }
+
 .card{
   background:#fff;
+  border-radius:18px;
+  padding:28px;
   margin-top:24px;
-  padding:24px;
-  border-radius:16px;
-  box-shadow:0 4px 14px rgba(0,0,0,.08);
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
 }
+
 h2{
   color:#5a351d;
   border-left:6px solid #b47a3c;
   padding-left:12px;
 }
-.tag{
-  display:inline-block;
-  background:#efe0cd;
-  color:#5a351d;
-  padding:4px 12px;
-  border-radius:999px;
-  font-weight:bold;
-  margin:4px;
-}
+
 table{
   width:100%;
   border-collapse:collapse;
-  margin-top:14px;
+  margin-top:18px;
 }
+
 th,td{
   border:1px solid #ddd0c2;
   padding:12px;
   text-align:left;
 }
+
 th{
   background:#6b4226;
   color:#fff;
 }
+
 tr:nth-child(even){
   background:#faf6f1;
 }
-.example{
-  background:#f2e5d6;
-  border-left:5px solid #8b5a2b;
-  padding:16px;
-  border-radius:10px;
-  margin-top:12px;
+
+.imageCard{
+  display:flex;
+  gap:24px;
+  flex-wrap:wrap;
+  align-items:center;
 }
-.note{
-  background:#fff7df;
-  border-left:5px solid #d8a22a;
-  padding:16px;
-  border-radius:10px;
+
+.imageCard img{
+  width:320px;
+  border-radius:16px;
+  box-shadow:0 6px 18px rgba(0,0,0,.12);
 }
+
+.imageText{
+  flex:1;
+}
+
+.imageGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+}
+
+.processBox,
+.knowledgeItem{
+  background:#faf5ef;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid #eadccf;
+  transition:.3s;
+}
+
+.processBox:hover,
+.knowledgeItem:hover{
+  transform:translateY(-4px);
+  box-shadow:0 8px 18px rgba(0,0,0,.1);
+}
+
+.processBox img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+
+.processBox h3,
+.knowledgeItem h3{
+  margin:0;
+  padding:16px 16px 0;
+  color:#5a351d;
+}
+
+.processBox p,
+.knowledgeItem p{
+  padding:8px 16px;
+}
+
+.imageSource{
+  font-size:13px;
+  color:#7a6657;
+  padding:0 16px 16px;
+}
+
+.imageSource a{
+  color:#8b5a2b;
+  text-decoration:none;
+}
+
+.knowledgeGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+  margin-top:20px;
+}
+
 .footer{
   text-align:center;
-  margin-top:36px;
+  margin-top:40px;
   color:#7a6657;
-  font-size:14px;
+}
+
+@media (max-width:768px){
+
+  .hero h1{
+    font-size:30px;
+  }
+
+  .imageCard{
+    flex-direction:column;
+  }
+
+  .imageCard img{
+    width:100%;
+  }
+
 }
 </style>
 </head>
@@ -97,196 +180,226 @@ tr:nth-child(even){
 
 <div class="container">
 
-  <section class="hero">
-    <h1>咖啡豆等級怎麼看？</h1>
-    <p>從 G1、G2、AA、SHB 到 Supremo，一次看懂咖啡名稱中的等級標示。</p>
-  </section>
+<section class="hero">
+  <h1>咖啡豆等級與咖啡知識專區</h1>
+  <p>
+    從 G1、AA、SHB 到處理法、烘焙與風味輪，
+    一次認識精品咖啡世界。
+  </p>
+</section>
 
-  <section class="card">
-    <h2>一、咖啡名稱中的 G1 是什麼意思？</h2>
-    <p>
-      咖啡名稱中的 <strong>G1</strong>，通常是指
-      <strong>Grade 1（一級豆）</strong>，代表咖啡豆在分級制度中屬於較高等級。
-      這種標示最常出現在 <strong>衣索比亞咖啡</strong>，例如：
-    </p>
+<section class="card">
+  <h2>☕ 咖啡 G1 是什麼？</h2>
 
-    <div>
-      <span class="tag">耶加雪菲 G1</span>
-      <span class="tag">古吉 G1</span>
-      <span class="tag">西達摩 G1</span>
+  <p>
+    G1（Grade 1）代表高等級咖啡豆，通常表示瑕疵率較低、品質穩定。
+    最常見於衣索比亞精品咖啡。
+  </p>
+
+  <table>
+    <tr>
+      <th>等級</th>
+      <th>代表意義</th>
+      <th>特色</th>
+    </tr>
+
+    <tr>
+      <td>G1</td>
+      <td>高等級精品豆</td>
+      <td>瑕疵少、乾淨度高</td>
+    </tr>
+
+    <tr>
+      <td>G2</td>
+      <td>次高等級</td>
+      <td>風味較奔放</td>
+    </tr>
+
+    <tr>
+      <td>G3-G5</td>
+      <td>商業等級</td>
+      <td>瑕疵較多</td>
+    </tr>
+  </table>
+</section>
+
+<section class="card">
+  <h2>🌍 世界咖啡產區</h2>
+
+  <div class="imageCard">
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/27/Ethiopian_coffee_regions_map.png" alt="衣索比亞咖啡產區">
+
+    <div class="imageText">
+      <h3>衣索比亞精品咖啡產區</h3>
+
+      <p>
+        衣索比亞是阿拉比卡咖啡的重要起源地。
+        耶加雪菲、古吉與西達摩皆為知名精品產區。
+      </p>
+
+      <div class="imageSource">
+        圖片來源：
+        <a href="https://commons.wikimedia.org/" target="_blank">
+          Wikimedia Commons
+        </a>
+      </div>
     </div>
 
-    <p>
-      G1 通常代表瑕疵豆少、乾淨度高、品質穩定，是精品咖啡中常見的等級標示。
-    </p>
-  </section>
-
-  <section class="card">
-    <h2>二、G1、G2 等級比較</h2>
-
-    <table>
-      <tr>
-        <th>等級</th>
-        <th>代表意義</th>
-        <th>常見特色</th>
-      </tr>
-      <tr>
-        <td><strong>G1</strong></td>
-        <td>最高或較高等級</td>
-        <td>瑕疵少、風味乾淨、品質穩定</td>
-      </tr>
-      <tr>
-        <td><strong>G2</strong></td>
-        <td>次高等級</td>
-        <td>品質仍佳，常見於日曬豆</td>
-      </tr>
-      <tr>
-        <td><strong>G3-G5</strong></td>
-        <td>商業等級</td>
-        <td>瑕疵較多，風味穩定度較低</td>
-      </tr>
-    </table>
-  </section>
-
-  <section class="card">
-    <h2>三、G1 是怎麼分出來的？</h2>
-    <p>咖啡豆分級通常會依據以下條件判斷：</p>
-
-    <ul>
-      <li><strong>瑕疵豆數量：</strong>破豆、蟲蛀豆、黑豆、發霉豆越少，等級越高。</li>
-      <li><strong>豆子外觀：</strong>顆粒完整、大小一致、色澤均勻。</li>
-      <li><strong>杯測風味：</strong>風味乾淨、酸甜平衡、沒有雜味。</li>
-      <li><strong>處理品質：</strong>日曬、水洗或蜜處理過程是否穩定。</li>
-    </ul>
-  </section>
-
-  <section class="card">
-    <h2>四、G1 一定比較好喝嗎？</h2>
-
-    <div class="note">
-      <strong>不一定。</strong>  
-      G1 代表生豆品質和瑕疵率較佳，但不代表一定最符合每個人的口味。
-    </div>
-
-    <p>
-      咖啡好不好喝，還會受到以下因素影響：
-    </p>
-
-    <ul>
-      <li>產區與海拔</li>
-      <li>品種</li>
-      <li>處理法</li>
-      <li>烘焙程度</li>
-      <li>新鮮度</li>
-      <li>沖煮方式</li>
-    </ul>
-
-    <p>
-      有些 <strong>G2 日曬豆</strong> 也可能有非常奔放的水果香、酒香與發酵香，
-      反而更適合喜歡特殊風味的人。
-    </p>
-  </section>
-
-  <section class="card">
-    <h2>五、常見咖啡等級標示</h2>
-
-    <table>
-      <tr>
-        <th>標示</th>
-        <th>常見國家</th>
-        <th>意思</th>
-      </tr>
-      <tr>
-        <td><strong>G1 / G2</strong></td>
-        <td>衣索比亞</td>
-        <td>依瑕疵率與杯測品質分級</td>
-      </tr>
-      <tr>
-        <td><strong>AA</strong></td>
-        <td>肯亞、坦尚尼亞</td>
-        <td>大顆粒、高等級咖啡豆</td>
-      </tr>
-      <tr>
-        <td><strong>SHB</strong></td>
-        <td>瓜地馬拉、哥斯大黎加</td>
-        <td>Strictly Hard Bean，高海拔硬豆</td>
-      </tr>
-      <tr>
-        <td><strong>Supremo</strong></td>
-        <td>哥倫比亞</td>
-        <td>大顆粒咖啡豆等級</td>
-      </tr>
-      <tr>
-        <td><strong>EP</strong></td>
-        <td>中南美洲</td>
-        <td>European Preparation，歐規挑選，瑕疵較少</td>
-      </tr>
-    </table>
-  </section>
-
-  <section class="card">
-    <h2>六、咖啡名稱範例解讀</h2>
-
-    <div class="example">
-      <strong>衣索比亞 古吉 G1 厭氧日曬 淺中焙</strong>
-      <br><br>
-      這個名稱可以拆解成：
-      <ul>
-        <li><strong>衣索比亞：</strong>生產國</li>
-        <li><strong>古吉：</strong>產區</li>
-        <li><strong>G1：</strong>咖啡豆等級</li>
-        <li><strong>厭氧日曬：</strong>處理法</li>
-        <li><strong>淺中焙：</strong>烘焙程度</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="card">
-    <h2>七、給消費者的簡單記憶法</h2>
-
-    <table>
-      <tr>
-        <th>看到標示</th>
-        <th>可以這樣理解</th>
-      </tr>
-      <tr>
-        <td>G1</td>
-        <td>高品質、瑕疵少、乾淨度佳</td>
-      </tr>
-      <tr>
-        <td>G2</td>
-        <td>品質仍不錯，常見於風味奔放的日曬豆</td>
-      </tr>
-      <tr>
-        <td>AA</td>
-        <td>大顆粒豆，常見於肯亞咖啡</td>
-      </tr>
-      <tr>
-        <td>SHB</td>
-        <td>高海拔硬豆，密度高、風味集中</td>
-      </tr>
-    </table>
-  </section>
-
-  <section class="card">
-    <h2>八、結論</h2>
-    <p>
-      咖啡豆等級可以幫助我們初步判斷生豆品質，
-      但真正影響一杯咖啡好不好喝的關鍵，
-      還包括產區、處理法、烘焙與沖煮方式。
-    </p>
-
-    <p>
-      因此，看到 <strong>G1</strong> 時，可以理解為：
-      <strong>這是一支瑕疵少、品質較穩定、適合精品咖啡使用的高等級咖啡豆。</strong>
-    </p>
-  </section>
-
-  <div class="footer">
-    © 給好咖啡 kaffa98｜咖啡知識教學
   </div>
+</section>
+
+<section class="card">
+  <h2>🫘 咖啡處理法</h2>
+
+  <div class="imageGrid">
+
+    <div class="processBox">
+      <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1200&auto=format&fit=crop" alt="日曬處理">
+
+      <h3>日曬處理</h3>
+
+      <p>
+        果香濃郁、甜感較高，常帶有莓果與酒香風味。
+      </p>
+
+      <div class="imageSource">
+        圖片來源：
+        <a href="https://unsplash.com/" target="_blank">Unsplash</a>
+      </div>
+    </div>
+
+
+    <div class="processBox">
+      <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=1200&auto=format&fit=crop" alt="水洗處理">
+
+      <h3>水洗處理</h3>
+
+      <p>
+        風味乾淨、酸值明亮，層次感清晰。
+      </p>
+
+      <div class="imageSource">
+        圖片來源：
+        <a href="https://unsplash.com/" target="_blank">Unsplash</a>
+      </div>
+    </div>
+
+
+    <div class="processBox">
+      <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=1200&auto=format&fit=crop" alt="蜜處理">
+
+      <h3>蜜處理</h3>
+
+      <p>
+        甜感與滑順度佳，平衡性較高。
+      </p>
+
+      <div class="imageSource">
+        圖片來源：
+        <a href="https://unsplash.com/" target="_blank">Unsplash</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="card">
+  <h2>🔥 咖啡烘焙度</h2>
+
+  <table>
+    <tr>
+      <th>烘焙度</th>
+      <th>風味特色</th>
+    </tr>
+
+    <tr>
+      <td>淺焙</td>
+      <td>花果香明顯、酸值較高</td>
+    </tr>
+
+    <tr>
+      <td>中焙</td>
+      <td>酸甜平衡、甜感較佳</td>
+    </tr>
+
+    <tr>
+      <td>深焙</td>
+      <td>苦甜厚實、焦糖與巧克力風味</td>
+    </tr>
+  </table>
+</section>
+
+<section class="card">
+  <h2>🍓 咖啡風味輪</h2>
+
+  <div class="imageCard">
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Coffee_Flavor_Wheel_2016.jpg" alt="咖啡風味輪">
+
+    <div class="imageText">
+
+      <h3>精品咖啡風味輪</h3>
+
+      <p>
+        用於辨識水果香、花香、巧克力、堅果、香料與酒香等風味。
+      </p>
+
+      <div class="imageSource">
+        圖片來源：
+        <a href="https://commons.wikimedia.org/" target="_blank">
+          Wikimedia Commons
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>📚 咖啡知識專區</h2>
+
+  <div class="knowledgeGrid">
+
+    <div class="knowledgeItem">
+      <h3>☕ 咖啡等級介紹</h3>
+      <p>G1、AA、SHB、Supremo 詳細介紹。</p>
+    </div>
+
+    <div class="knowledgeItem">
+      <h3>🫘 咖啡處理法</h3>
+      <p>日曬、水洗、蜜處理與厭氧發酵。</p>
+    </div>
+
+    <div class="knowledgeItem">
+      <h3>🔥 咖啡烘焙度</h3>
+      <p>淺焙、中焙、深焙差異。</p>
+    </div>
+
+    <div class="knowledgeItem">
+      <h3>🍓 風味輪介紹</h3>
+      <p>認識水果、花香與巧克力風味。</p>
+    </div>
+
+    <div class="knowledgeItem">
+      <h3>💧 手沖教學</h3>
+      <p>水溫、比例與沖煮技巧。</p>
+    </div>
+
+    <div class="knowledgeItem">
+      <h3>⚙️ 磨豆粗細</h3>
+      <p>不同器具適合的研磨程度。</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="footer">
+  © 給好咖啡 kaffa98 ｜ Coffee Knowledge
+</div>
 
 </div>
 
 </body>
 </html>
+```
