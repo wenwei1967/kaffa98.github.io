@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>咖啡豆出油還可以喝嗎？出油是否正常？</title>
+  <style>
+    :root{
+      --coffee:#5a3825;
+      --coffee-dark:#2f1b12;
+      --cream:#fff8ef;
+      --latte:#f4e2c7;
+      --gold:#c88a3d;
+      --green:#4b7b58;
+      --red:#b94a3c;
+      --text:#2b211b;
+      --muted:#6d5c50;
+      --card:#ffffff;
+      --shadow:0 10px 30px rgba(62,38,22,.13);
+      --radius:22px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Noto Sans TC","Microsoft JhengHei",Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(200,138,61,.18), transparent 34%),
+        linear-gradient(180deg,#fffaf2 0%,#f3e0c9 100%);
+      line-height:1.75;
+    }
+    .hero{
+      position:relative;
+      overflow:hidden;
+      padding:58px 20px 42px;
+      background:
+        linear-gradient(135deg, rgba(47,27,18,.94), rgba(90,56,37,.88)),
+        radial-gradient(circle at 85% 15%, rgba(255,255,255,.18), transparent 23%);
+      color:white;
+      text-align:center;
+    }
+    .hero:after{
+      content:"☕";
+      position:absolute;
+      right:8%;
+      bottom:-40px;
+      font-size:160px;
+      opacity:.12;
+      transform:rotate(-12deg);
+    }
+    .hero h1{
+      margin:0 auto 16px;
+      max-width:900px;
+      font-size:clamp(2rem,5vw,4rem);
+      line-height:1.2;
+      letter-spacing:.04em;
+    }
+    .hero p{
+      margin:0 auto;
+      max-width:820px;
+      font-size:clamp(1.05rem,2.3vw,1.35rem);
+      color:#f8e8d2;
+    }
+    .wrap{
+      width:min(1120px,92vw);
+      margin:0 auto;
+      padding:34px 0 70px;
+    }
+    .summary{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:-58px;
+      position:relative;
+      z-index:2;
+    }
+    .pill-card{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(90,56,37,.08);
+    }
+    .pill-card .icon{font-size:2.2rem}
+    .pill-card h3{
+      margin:.4rem 0 .2rem;
+      color:var(--coffee-dark);
+      font-size:1.28rem;
+    }
+    .pill-card p{margin:0;color:var(--muted)}
+    section{
+      background:rgba(255,255,255,.88);
+      border:1px solid rgba(90,56,37,.08);
+      border-radius:var(--radius);
+      margin:24px 0;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(62,38,22,.08);
+    }
+    h2{
+      margin:0 0 18px;
+      color:var(--coffee-dark);
+      font-size:clamp(1.55rem,3vw,2.1rem);
+      border-left:8px solid var(--gold);
+      padding-left:14px;
+    }
+    h3{
+      color:var(--coffee);
+      margin:20px 0 8px;
+      font-size:1.25rem;
+    }
+    .lead{
+      font-size:1.15rem;
+      background:var(--cream);
+      padding:18px 20px;
+      border-radius:16px;
+      border-left:6px solid var(--gold);
+    }
+    .bean-stage{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+      margin-top:18px;
+    }
+    .bean{
+      text-align:center;
+      background:#fffaf5;
+      border-radius:18px;
+      padding:18px 12px;
+      border:1px solid rgba(90,56,37,.08);
+    }
+    .bean .circle{
+      width:82px;height:82px;
+      border-radius:50%;
+      margin:0 auto 12px;
+      box-shadow:inset -12px -10px 18px rgba(0,0,0,.15), 0 8px 18px rgba(62,38,22,.12);
+      position:relative;
+    }
+    .bean .circle:before{
+      content:"";
+      position:absolute;
+      left:39px;top:11px;
+      width:6px;height:58px;
+      border-radius:50%;
+      background:rgba(255,255,255,.22);
+      transform:rotate(15deg);
+    }
+    .light{background:#b98555}
+    .medium{background:#7b4a2e}
+    .dark{background:#3d2116}
+    .oily{
+      background:
+        radial-gradient(circle at 28% 25%, rgba(255,255,255,.42), transparent 13%),
+        radial-gradient(circle at 72% 68%, rgba(255,255,255,.22), transparent 18%),
+        #24120c;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      overflow:hidden;
+      border-radius:16px;
+      background:white;
+      margin:14px 0 4px;
+      font-size:1rem;
+    }
+    th,td{
+      padding:14px 12px;
+      border-bottom:1px solid #ead8c1;
+      text-align:left;
+      vertical-align:top;
+    }
+    th{
+      background:var(--coffee);
+      color:white;
+      font-weight:700;
+    }
+    tr:nth-child(even) td{background:#fff8ef}
+    .ok{color:var(--green);font-weight:700}
+    .warn{color:#a26418;font-weight:700}
+    .bad{color:var(--red);font-weight:700}
+    .grid2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+    .checklist{
+      list-style:none;
+      padding:0;margin:0;
+    }
+    .checklist li{
+      background:#fffaf5;
+      border-radius:14px;
+      margin:10px 0;
+      padding:13px 14px;
+      border-left:6px solid var(--gold);
+    }
+    .note{
+      background:#2f1b12;
+      color:#fff4e6;
+      padding:22px;
+      border-radius:18px;
+      margin-top:18px;
+    }
+    .note strong{color:#ffd08a}
+    .footer{
+      text-align:center;
+      color:var(--muted);
+      padding:20px 0 0;
+      font-size:.95rem;
+    }
+    @media(max-width:820px){
+      .summary,.bean-stage,.grid2{grid-template-columns:1fr}
+      .hero{padding-top:42px}
+      section{padding:22px 18px}
+      table{font-size:.95rem}
+      th,td{padding:12px 9px}
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <h1>咖啡豆出油還可以喝嗎？</h1>
+    <p>咖啡豆表面油亮不一定代表壞掉，關鍵要看焙度、保存時間、氣味與沖煮後的風味。</p>
+  </header>
+
+  <main class="wrap">
+    <div class="summary">
+      <article class="pill-card">
+        <div class="icon">✅</div>
+        <h3>可以喝嗎？</h3>
+        <p>多數情況可以喝，尤其是深焙豆出油屬正常現象。</p>
+      </article>
+      <article class="pill-card">
+        <div class="icon">🫘</div>
+        <h3>正常嗎？</h3>
+        <p>烘焙越深，細胞壁破壞越多，油脂越容易浮到表面。</p>
+      </article>
+      <article class="pill-card">
+        <div class="icon">👃</div>
+        <h3>重點判斷</h3>
+        <p>若有油耗味、紙板味、蠟筆味，通常代表油脂氧化。</p>
+      </article>
+    </div>
+
+    <section>
+      <h2>一、咖啡豆為什麼會出油？</h2>
+      <p class="lead">咖啡豆內部本來就含有油脂。烘焙越深，豆子的細胞結構越容易被破壞，油脂就會慢慢滲出到表面。</p>
+      <div class="bean-stage">
+        <div class="bean">
+          <div class="circle light"></div>
+          <h3>淺焙</h3>
+          <p>表面通常乾爽，幾乎不出油。</p>
+        </div>
+        <div class="bean">
+          <div class="circle medium"></div>
+          <h3>中焙</h3>
+          <p>可能有輕微光澤，但不應大量出油。</p>
+        </div>
+        <div class="bean">
+          <div class="circle dark"></div>
+          <h3>中深焙</h3>
+          <p>放置數天後，可能開始有油亮感。</p>
+        </div>
+        <div class="bean">
+          <div class="circle oily"></div>
+          <h3>深焙</h3>
+          <p>表面明顯油亮是常見現象。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>二、不同焙度的出油判斷</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>焙度</th>
+            <th>出油情況</th>
+            <th>是否正常</th>
+            <th>建議判斷</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>淺焙</td>
+            <td>幾乎不出油</td>
+            <td class="ok">正常</td>
+            <td>若剛烘好就大量出油，可能烘焙過深或發展過度。</td>
+          </tr>
+          <tr>
+            <td>中焙</td>
+            <td>少量光澤</td>
+            <td class="ok">多半正常</td>
+            <td>需觀察是否放太久，以及是否有油耗味。</td>
+          </tr>
+          <tr>
+            <td>中深焙</td>
+            <td>容易開始出油</td>
+            <td class="ok">正常</td>
+            <td>常見於烘後數天至數週。</td>
+          </tr>
+          <tr>
+            <td>深焙</td>
+            <td>表面明顯油亮</td>
+            <td class="ok">非常常見</td>
+            <td>義式配方豆、深焙豆常會出油。</td>
+          </tr>
+          <tr>
+            <td>放很久的豆子</td>
+            <td>大量油亮、黏手</td>
+            <td class="warn">需小心</td>
+            <td>若伴隨油耗味、紙板味，代表品質已下降。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>三、剛烘好就出油正常嗎？</h2>
+      <div class="grid2">
+        <div>
+          <h3>淺焙、中焙</h3>
+          <p>如果剛烘完一兩天就大量出油，通常不是理想狀況，可能代表烘焙過深、火力過猛，或發展時間過長。</p>
+        </div>
+        <div>
+          <h3>深焙</h3>
+          <p>深焙豆烘後 2～7 天開始慢慢出油，屬於常見且正常的現象。尤其義式濃縮用豆更常見。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>四、放久了才出油代表什麼？</h2>
+      <p>有些咖啡豆剛開始表面乾爽，放置一段時間後才逐漸出油，這是油脂隨著時間慢慢滲出的現象，也是咖啡豆老化的一部分。</p>
+      <table>
+        <thead>
+          <tr>
+            <th>保存狀態</th>
+            <th>可能變化</th>
+            <th>風味影響</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>密封良好、時間不長</td>
+            <td>微微出油</td>
+            <td class="ok">仍可飲用，風味可能還正常。</td>
+          </tr>
+          <tr>
+            <td>放置二、三個月以上</td>
+            <td>油脂氧化機率提高</td>
+            <td class="warn">香氣下降，苦澀與陳味增加。</td>
+          </tr>
+          <tr>
+            <td>未密封、常接觸空氣</td>
+            <td>油耗味明顯</td>
+            <td class="bad">不建議飲用，品質明顯下降。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>五、如何判斷還能不能喝？</h2>
+      <div class="grid2">
+        <div>
+          <h3>可以喝的狀況</h3>
+          <ul class="checklist">
+            <li>聞起來有巧克力、焦糖、堅果、烘烤香。</li>
+            <li>表面只是微微油亮，不黏手。</li>
+            <li>沖煮後香氣仍在，沒有怪味。</li>
+            <li>深焙或義式豆在保存期限內。</li>
+          </ul>
+        </div>
+        <div>
+          <h3>不建議喝的狀況</h3>
+          <ul class="checklist">
+            <li>聞起來有哈喇味、油耗味。</li>
+            <li>有紙板味、木頭味、蠟筆味。</li>
+            <li>表面油很多且黏手。</li>
+            <li>放太久、未密封、香氣明顯消失。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>六、風味上的差異</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>正常出油</th>
+            <th>可能風味</th>
+            <th>油脂氧化</th>
+            <th>可能風味</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>深焙自然出油</td>
+            <td>苦甜、焦糖、巧克力、堅果、厚實感</td>
+            <td>存放過久出油</td>
+            <td>油耗、紙板、木質、陳味、苦澀增加</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="note">
+        <strong>重點：</strong>出油不是判斷咖啡好壞的唯一標準。真正要看的是香氣、甜感、酸質、平衡、餘韻，以及是否出現缺陷風味。
+      </div>
+    </section>
+
+    <section>
+      <h2>七、保存建議</h2>
+      <ul class="checklist">
+        <li>咖啡豆開封後建議使用密封罐或單向排氣袋保存。</li>
+        <li>避免陽光直射、高溫、潮濕與頻繁接觸空氣。</li>
+        <li>深焙豆較容易出油，建議在最佳賞味期內喝完。</li>
+        <li>若豆子已出現油耗味，即使還能沖泡，也不建議作為主要飲用豆。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>八、烘焙學習小提醒</h2>
+      <p>若正在學習 SCA Roasting Intermediate 或 Professional，可以記住：</p>
+      <div class="note">
+        <p><strong>油脂出現在表面，不等於品質不好。</strong></p>
+        <p><strong>要區分「烘焙造成的正常出油」與「保存造成的油脂氧化」。</strong></p>
+        <p><strong>品質判斷應回到杯測結果，而不是只看豆子表面是否油亮。</strong></p>
+      </div>
+    </section>
+
+    <div class="footer">
+      © 咖啡知識整理｜咖啡豆出油判斷教學頁
+    </div>
+  </main>
+</body>
+</html>
