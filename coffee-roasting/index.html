@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>咖啡烘焙教材｜給好咖啡 Kaffa98</title>
+<meta content="咖啡烘焙流程、烘焙曲線、化學反應、ROR、Agtron 焙度與常見烘焙缺陷完整教材。" name="description"/>
+<style>
+:root{
+  --coffee:#4b2e1f;--brown:#754526;--gold:#d89b3d;--cream:#fff8ec;
+  --paper:#fffdf8;--line:#ead2b0;--text:#2f261f;--muted:#746457;
+  --green:#3f7551;--orange:#d96f28;--red:#ad4a3d;--blue:#3778a8;
+  --purple:#7556a8;--shadow:0 12px 30px rgba(70,40,20,.12);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:"Noto Sans TC","Microsoft JhengHei",Arial,sans-serif;
+  color:var(--text);line-height:1.75;background:linear-gradient(180deg,#fffaf1,#f1ddbd);
+}
+header{
+  color:white;text-align:center;padding:62px 18px 70px;
+  background:
+    radial-gradient(circle at 18% 20%,rgba(216,155,61,.3),transparent 26%),
+    linear-gradient(135deg,#2d180f,#754526);
+}
+header .eyebrow{font-weight:800;color:#ffd99c;letter-spacing:.18em}
+header h1{font-size:clamp(32px,6vw,60px);margin:8px 0;letter-spacing:.05em}
+header p{max-width:920px;margin:12px auto 0;color:#ffe9c6;font-size:18px}
+nav{
+  position:sticky;top:0;z-index:20;overflow:auto;white-space:nowrap;
+  padding:10px 14px;background:rgba(255,253,248,.94);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);box-shadow:0 5px 18px rgba(70,40,20,.07)
+}
+nav a{
+  display:inline-block;margin:3px 5px;padding:8px 13px;border-radius:999px;
+  color:var(--coffee);background:#f5e5cf;text-decoration:none;font-weight:800;font-size:14px
+}
+main{max-width:1180px;margin:-34px auto 60px;padding:0 18px}
+section{
+  margin:24px 0;padding:28px;background:rgba(255,255,255,.96);
+  border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow)
+}
+h2{margin:0 0 16px;padding-left:14px;border-left:8px solid var(--gold);color:var(--coffee);font-size:30px}
+h3{color:var(--brown);margin:8px 0;font-size:21px}
+.lead{font-size:18px;background:#fff3d9;border-left:6px solid var(--gold);padding:15px 17px;border-radius:13px}
+.grid{display:grid;gap:16px}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px}
+.card p{margin:6px 0}.muted{color:var(--muted)}.small{font-size:14px}
+.note{background:#eef7ee;border-left:6px solid var(--green);padding:14px 16px;border-radius:13px}
+.warning{background:#fff0e7;border-left:6px solid var(--orange);padding:14px 16px;border-radius:13px}
+table{width:100%;border-collapse:collapse;background:#fffdf8;border-radius:15px;overflow:hidden;margin:14px 0}
+th,td{border:1px solid #e8d0aa;padding:11px;text-align:left;vertical-align:top}
+th{background:#6b3f25;color:#fff;text-align:center}
+tr:nth-child(even) td{background:#fff7e8}
+.flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:13px}
+.stage{position:relative;background:#fffaf1;border:1px solid var(--line);border-radius:18px;padding:16px;min-height:235px;text-align:center}
+.stage .num{display:inline-flex;width:34px;height:34px;border-radius:50%;align-items:center;justify-content:center;background:var(--coffee);color:#fff;font-weight:900}
+.stage:after{content:"→";position:absolute;right:-14px;top:96px;color:#aa7b51;font-size:25px;font-weight:900}
+.stage:nth-child(5n):after,.stage:last-child:after{display:none}
+.bean{width:74px;height:74px;margin:7px auto 8px}
+.chart-wrap{overflow:auto;background:#fffdf8;border:1px solid var(--line);border-radius:18px;padding:14px}
+.chart-wrap svg{min-width:980px;width:100%;height:auto;display:block}
+.legend{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:10px}
+.legend span{display:inline-flex;align-items:center;gap:7px;background:#fff7e8;border:1px solid var(--line);border-radius:999px;padding:7px 11px;font-weight:700}
+.line-dot{width:18px;height:4px;border-radius:8px;display:inline-block}
+.bt{background:#8b4c25}.et{background:#3778a8}.ror{background:#d96f28}
+.ror-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.mini-chart{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px}
+.agtron{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:9px}
+.ag{border-radius:16px;padding:15px 11px;color:#fff;min-height:150px}
+.ag b{display:block;font-size:20px}.ag small{display:block;color:rgba(255,255,255,.9)}
+.a95{background:#b87940}.a85{background:#a46936}.a75{background:#8b542f}
+.a65{background:#704024}.a55{background:#56311f}.a45{background:#3a2419}.a35{background:#201511}
+.site-footer{
+  background:#321b11;color:#f8e7cf;padding:38px 18px;text-align:center;margin-top:40px
+}
+.footer-inner{max-width:1080px;margin:auto}
+.footer-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:18px 0}
+.footer-nav a{color:#2d180f;text-decoration:none;background:#d89b3d;border-radius:999px;padding:10px 16px;font-weight:900}
+hr{border:0;border-top:1px solid rgba(255,255,255,.18);margin:25px 0}
+.top{position:fixed;right:18px;bottom:18px;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#6b3f25;color:white;text-decoration:none;font-size:22px;box-shadow:var(--shadow)}
+@media(max-width:900px){
+  .g2,.g3,.g4,.ror-grid,.agtron{grid-template-columns:1fr}
+  .flow{display:flex;overflow-x:auto;padding-bottom:8px}
+  .stage{min-width:220px}.stage:after{display:none}
+  section{padding:20px}h2{font-size:25px}
+}
+
+.chapter-photo{margin:0 0 24px 0;border-radius:20px;overflow:hidden;border:1px solid #e6d3b2;background:#fff;box-shadow:0 10px 24px rgba(0,0,0,.12)}
+.chapter-photo img{display:block;width:100%;height:420px;object-fit:cover}
+.chapter-photo .caption{padding:14px 18px;background:#faf6ef;font-size:15px;color:#5a4636}
+@media(max-width:768px){.chapter-photo img{height:240px}}
+</style>
+</head>
+<body id="top">
+<header>
+<div class="eyebrow">給好咖啡 · KAFFA98 COFFEE</div>
+<h1>咖啡烘焙教材</h1>
+<p>Coffee Roasting｜從入豆、轉折點、脫水、梅納、焦糖化、一爆、發展期到下豆，完整理解烘焙曲線、ROR、Agtron 與風味走向。</p>
+</header>
+<nav aria-label="章節導覽">
+<a href="#intro">烘焙介紹</a><a href="#process">烘焙流程</a><a href="#curve">烘焙曲線</a>
+<a href="#chemistry">化學反應</a><a href="#ror">ROR 判讀</a><a href="#agtron">Agtron 焙度</a>
+<a href="#flavor">風味走向</a><a href="#defects">常見缺陷</a><a href="#references">資料來源</a>
+</nav>
+<main>
+<div class="chapter-photo">
+<img alt="商業滾筒式咖啡烘焙機正在烘焙咖啡豆" src="images/roasting-machine.jpg"/>
+<div class="caption">
+<strong>圖 1-1　商業滾筒式咖啡烘焙機（Drum Coffee Roaster）</strong><br/>
+烘焙機透過火力、熱風、滾筒轉速與時間控制，使咖啡生豆逐步完成脫水、梅納反應、焦糖化反應及發展期，形成不同的香氣與風味。
+</div>
+</div>
+<section id="intro">
+<h2>一、什麼是咖啡烘焙？</h2>
+<p class="lead">咖啡烘焙是透過熱能、時間與氣流控制，使生豆中的水分、糖、酸、蛋白質與香氣前驅物發生物理與化學變化，形成可被感知的香氣、酸質、甜感、醇厚度與餘韻。</p>
+<div class="grid g3">
+<div class="card"><h3>建立香氣</h3><p>透過梅納反應、焦糖化與熱裂解，形成花香、果香、堅果、焦糖與巧克力等風味。</p></div>
+<div class="card"><h3>調整酸甜平衡</h3><p>控制各階段時間與熱能，使酸質、甜感與厚實度達到目標。</p></div>
+<div class="card"><h3>提高穩定性</h3><p>記錄曲線並配合杯測，可重複建立同一批豆子的烘焙設定。</p></div>
+</div>
+</section>
+<section id="process">
+<h2>二、咖啡烘焙完整流程</h2>
+<div class="flow">
+<div class="stage">
+<span class="num">1</span>
+<svg class="bean" viewbox="0 0 100 100"><ellipse cx="50" cy="50" fill="#9fbf70" rx="31" ry="42" transform="rotate(25 50 50)"></ellipse><path d="M45 14 C58 34 33 54 57 86" fill="none" stroke="#5e7e3f" stroke-linecap="round" stroke-width="6"></path></svg>
+<h3>生豆投入 Charge</h3><p>依豆種與烘豆機設定入豆溫，開始吸收熱能。</p>
+</div>
+<div class="stage">
+<span class="num">2</span>
+<svg class="bean" viewbox="0 0 100 100"><ellipse cx="50" cy="50" fill="#c7b16e" rx="31" ry="42" transform="rotate(25 50 50)"></ellipse><path d="M45 14 C58 34 33 54 57 86" fill="none" stroke="#9a8340" stroke-linecap="round" stroke-width="6"></path></svg>
+<h3>轉折點 TP</h3><p>豆溫先下降，再於最低點後回升，通常約出現在入豆後 1–2 分鐘。</p>
+</div>
+<div class="stage">
+<span class="num">3</span>
+<svg class="bean" viewbox="0 0 100 100"><ellipse cx="50" cy="50" fill="#dfb85b" rx="31" ry="42" transform="rotate(25 50 50)"></ellipse><path d="M45 14 C58 34 33 54 57 86" fill="none" stroke="#a36b2d" stroke-linecap="round" stroke-width="6"></path></svg>
+<h3>脫水／黃化</h3><p>水分逐漸蒸發，豆色由綠轉黃，青草味轉為穀物香。</p>
+</div>
+<div class="stage">
+<span class="num">4</span>
+<svg class="bean" viewbox="0 0 100 100"><ellipse cx="50" cy="50" fill="#c58347" rx="31" ry="42" transform="rotate(25 50 50)"></ellipse><path d="M45 14 C58 34 33 54 57 86" fill="none" stroke="#7b3c1f" stroke-linecap="round" stroke-width="6"></path></svg>
+<h3>梅納反應</h3><p>胺基酸與還原糖反應，形成堅果、吐司、餅乾與烘烤香氣。</p>
+</div>
+<div class="stage">
+<span class="num">5</span>
+<svg class="bean" viewbox="0 0 100 100"><ellipse cx="50" cy="50" fill="#9c5c32" rx="31" ry="42" transform="rotate(25 50 50)"></ellipse><path d="M45 14 C58 34 33 54 57 86" fill="none" stroke="#542918" stroke-linecap="round" stroke-width="6"></path></svg>
+<h3>焦糖化反應</h3><p>糖類裂解與聚合，甜感、蜂蜜、焦糖與黑糖調逐漸形成。</p>
+</div>
+<div class="stage">
+<span class="num">6</span>
+<svg class="bean" viewbox="0 0 100 100"><ellipse cx="50" cy="50" fill="#754026" rx="31" ry="42" transform="rotate(25 50 50)"></ellipse><path d="M45 14 C58 34 33 54 57 86" fill="none" stroke="#28150e" stroke-linecap="round" stroke-width="6"></path></svg>
+<h3>一爆 FCs</h3><p>水蒸氣與氣體壓力釋放，出現類似爆米花聲。</p>
+</div>
+<div class="stage">
+<span class="num">7</span>
+<svg class="bean" viewbox="0 0 100 100"><ellipse cx="50" cy="50" fill="#6a3922" rx="31" ry="42" transform="rotate(25 50 50)"></ellipse><path d="M45 14 C58 34 33 54 57 86" fill="none" stroke="#26130c" stroke-linecap="round" stroke-width="6"></path></svg>
+<h3>發展期 DT</h3><p>從一爆開始到下豆，決定酸甜平衡、厚實度與焙度走向。</p>
+</div>
+<div class="stage">
+<span class="num">8</span>
+<svg class="bean" viewbox="0 0 100 100"><ellipse cx="50" cy="50" fill="#3b2419" rx="31" ry="42" transform="rotate(25 50 50)"></ellipse><path d="M45 14 C58 34 33 54 57 86" fill="none" stroke="#100b08" stroke-linecap="round" stroke-width="6"></path></svg>
+<h3>二爆 SCs</h3><p>纖維裂解、油脂外移，巧克力、煙燻與深焙苦甜感提高。</p>
+</div>
+<div class="stage">
+<span class="num">9</span>
+<svg class="bean" viewbox="0 0 100 100"><ellipse cx="50" cy="50" fill="#2a1912" rx="31" ry="42" transform="rotate(25 50 50)"></ellipse><path d="M45 14 C58 34 33 54 57 86" fill="none" stroke="#0d0806" stroke-linecap="round" stroke-width="6"></path></svg>
+<h3>下豆冷卻 Drop</h3><p>快速冷卻以停止持續反應，避免焙度繼續加深。</p>
+</div>
+</div>
+</section>
+<section id="curve">
+<h2>三、完整烘焙曲線圖</h2>
+<p class="lead">曲線從入豆溫開始，依序標示 TP、脫水結束、黃化、梅納、焦糖化、一爆、發展期與下豆。BT 是豆溫，ET 是環境溫，ROR 是升溫率。</p>
+<div class="chart-wrap">
+<svg aria-label="咖啡烘焙曲線" role="img" viewbox="0 0 1120 620">
+<rect fill="#fffaf1" height="620" rx="20" width="1120" x="0" y="0"></rect>
+<rect fill="#fff" height="470" stroke="#ead2b0" width="930" x="90" y="55"></rect>
+<rect fill="#e9f3db" height="470" opacity=".65" width="120" x="90" y="55"></rect>
+<rect fill="#fff1bd" height="470" opacity=".55" width="190" x="210" y="55"></rect>
+<rect fill="#ffe0bd" height="470" opacity=".58" width="185" x="400" y="55"></rect>
+<rect fill="#ffd3aa" height="470" opacity=".58" width="170" x="585" y="55"></rect>
+<rect fill="#ffd8d0" height="470" opacity=".55" width="120" x="755" y="55"></rect>
+<rect fill="#eadffd" height="470" opacity=".5" width="145" x="875" y="55"></rect>
+<g stroke="#ead2b0" stroke-width="1">
+<line x1="90" x2="1020" y1="525" y2="525"></line><line x1="90" x2="1020" y1="431" y2="431"></line>
+<line x1="90" x2="1020" y1="337" y2="337"></line><line x1="90" x2="1020" y1="243" y2="243"></line>
+<line x1="90" x2="1020" y1="149" y2="149"></line><line x1="90" x2="1020" y1="55" y2="55"></line>
+</g>
+<g fill="#6b4b35" font-size="15" text-anchor="end">
+<text x="80" y="530">50°C</text><text x="80" y="436">90°C</text><text x="80" y="342">130°C</text>
+<text x="80" y="248">170°C</text><text x="80" y="154">210°C</text><text x="80" y="60">250°C</text>
+</g>
+<g fill="#6b4b35" font-size="15" text-anchor="middle">
+<text x="90" y="558">0</text><text x="245" y="558">2</text><text x="400" y="558">4</text>
+<text x="555" y="558">6</text><text x="710" y="558">8</text><text x="865" y="558">10</text><text x="1020" y="558">12 分</text>
+</g>
+<path d="M90 173 C135 325 160 438 205 431 C290 419 350 354 405 290 C475 208 535 184 590 161 C655 135 710 126 760 119 C820 111 875 104 930 94 C965 88 995 81 1020 72" fill="none" stroke="#8b4c25" stroke-linecap="round" stroke-width="6"></path>
+<path d="M90 120 C160 126 245 117 340 102 C475 82 640 76 790 72 C900 70 975 70 1020 68" fill="none" stroke="#3778a8" stroke-linecap="round" stroke-width="4"></path>
+<path d="M120 245 C190 178 280 166 380 187 C490 210 600 232 700 255 C810 278 900 305 1010 342" fill="none" stroke="#d96f28" stroke-dasharray="10 8" stroke-linecap="round" stroke-width="4"></path>
+<g font-size="14" font-weight="700" text-anchor="middle">
+<g fill="#4b2e1f"><circle cx="90" cy="173" r="7"></circle><text x="90" y="145">Charge</text><text x="90" y="162">入豆</text></g>
+<g fill="#4b2e1f"><circle cx="205" cy="431" r="7"></circle><text x="205" y="408">TP</text><text x="205" y="424">轉折點</text></g>
+<g fill="#8a6a20"><circle cx="400" cy="290" r="7"></circle><text x="400" y="265">Dry End</text><text x="400" y="282">脫水結束</text></g>
+<g fill="#8a5a20"><circle cx="470" cy="214" r="7"></circle><text x="470" y="190">Yellow</text><text x="470" y="207">黃化</text></g>
+<g fill="#9a4a1a"><circle cx="590" cy="161" r="7"></circle><text x="590" y="137">Maillard</text><text x="590" y="154">梅納</text></g>
+<g fill="#9a3f13"><circle cx="700" cy="128" r="7"></circle><text x="700" y="105">Caramel</text><text x="700" y="122">焦糖化</text></g>
+<g fill="#ad4a3d"><circle cx="805" cy="114" r="7"></circle><text x="805" y="90">FCs</text><text x="805" y="107">一爆開始</text></g>
+<g fill="#7556a8"><circle cx="905" cy="99" r="7"></circle><text x="905" y="75">DT</text><text x="905" y="92">發展期</text></g>
+<g fill="#332019"><circle cx="1020" cy="72" r="7"></circle><text x="1020" y="45">Drop</text><text x="1020" y="62">下豆</text></g>
+</g>
+<g fill="#4b2e1f" font-size="15" font-weight="700" text-anchor="middle">
+<text x="150" y="505">入豆／回溫</text><text x="302" y="505">脫水期</text><text x="492" y="505">梅納反應</text>
+<text x="670" y="505">焦糖化</text><text x="815" y="505">一爆</text><text x="945" y="505">發展期／下豆</text>
+</g>
+<text fill="#5b3a28" font-size="16" text-anchor="middle" x="555" y="595">時間（分鐘）</text>
+<text fill="#5b3a28" font-size="16" text-anchor="middle" transform="rotate(-90 25 290)" x="25" y="290">溫度（°C）</text>
+</svg>
+<div class="legend">
+<span><i class="line-dot bt"></i>BT 豆溫</span>
+<span><i class="line-dot et"></i>ET 環境溫</span>
+<span><i class="line-dot ror"></i>ROR 升溫率</span>
+</div>
+</div>
+<div class="grid g2" style="margin-top:16px">
+<div class="card"><h3>曲線代表的意義</h3><p><strong>BT</strong> 是豆子受熱與熟成的主線；<strong>ET</strong> 反映烘豆機內熱能；<strong>ROR</strong> 是每分鐘升溫速度，用來判斷熱能是否平穩。</p></div>
+<div class="card"><h3>是否能看出風味走向？</h3><p>可以大致預測。梅納較長通常甜感、堅果與厚實度增加；焦糖化較完整會帶蜂蜜與焦糖感；發展期短偏花果酸，較長則偏巧克力與厚實。</p></div>
+</div>
+</section>
+<section id="chemistry">
+<h2>四、烘焙期間的主要化學反應</h2>
+<table>
+<tr><th>階段</th><th>主要變化</th><th>常見風味</th></tr>
+<tr><td>脫水反應</td><td>水分蒸發、細胞結構開始膨脹</td><td>青草、穀物感逐漸下降</td></tr>
+<tr><td>黃化期</td><td>豆色由綠轉黃，梅納反應開始</td><td>麥芽、穀物甜香</td></tr>
+<tr><td>梅納反應</td><td>胺基酸與還原糖反應，形成香氣前驅物</td><td>堅果、吐司、餅乾、烤麵包</td></tr>
+<tr><td>焦糖化反應</td><td>糖類裂解與聚合</td><td>蜂蜜、焦糖、奶油糖、黑糖</td></tr>
+<tr><td>一爆</td><td>水蒸氣與氣體壓力釋放，細胞結構爆裂</td><td>花香、果香、明亮酸質</td></tr>
+<tr><td>熱裂解／二爆</td><td>纖維裂解、油脂外移、逐漸碳化</td><td>巧克力、煙燻、炭焙、苦甜</td></tr>
+</table>
+</section>
+<section id="ror">
+<h2>五、ROR 升溫率判讀</h2>
+<div class="ror-grid">
+<div class="card"><h3>理想 Declining ROR</h3><div class="mini-chart"><svg viewbox="0 0 240 120"><path d="M20 20 C60 35 95 52 130 68 C165 83 190 94 220 102" fill="none" stroke="#3f7551" stroke-linecap="round" stroke-width="6"></path></svg></div><p>平順下降，常見風味乾淨、甜感佳、層次清楚。</p></div>
+<div class="card"><h3>Crash</h3><div class="mini-chart"><svg viewbox="0 0 240 120"><path d="M20 20 C70 38 120 58 150 70 L165 110 L220 112" fill="none" stroke="#ad4a3d" stroke-linecap="round" stroke-width="6"></path></svg></div><p>一爆後急墜，容易香氣扁平、發展不足。</p></div>
+<div class="card"><h3>Flick</h3><div class="mini-chart"><svg viewbox="0 0 240 120"><path d="M20 20 C80 40 130 65 170 85 C190 95 200 75 220 55" fill="none" stroke="#d96f28" stroke-linecap="round" stroke-width="6"></path></svg></div><p>尾段反彈，容易燥感、刺激感與苦澀。</p></div>
+<div class="card"><h3>Baked</h3><div class="mini-chart"><svg viewbox="0 0 240 120"><path d="M20 20 C60 45 90 70 130 78 L220 78" fill="none" stroke="#7556a8" stroke-linecap="round" stroke-width="6"></path></svg></div><p>ROR 長時間過平，風味可能呆滯、無活力。</p></div>
+</div>
+</section>
+<section id="agtron">
+<h2>六、Agtron 焙度值</h2>
+<p class="lead">Agtron 數值越高代表顏色越淺，數值越低代表焙度越深。數值可輔助描述焙度，但仍需搭配杯測判斷。</p>
+<div class="agtron">
+<div class="ag a95"><b>95–85</b><small>極淺焙<br/>花香、茶感、柑橘</small></div>
+<div class="ag a85"><b>85–75</b><small>淺焙<br/>花果香、莓果</small></div>
+<div class="ag a75"><b>75–65</b><small>淺中焙<br/>果酸與甜感平衡</small></div>
+<div class="ag a65"><b>65–55</b><small>中焙<br/>焦糖、蜂蜜、堅果</small></div>
+<div class="ag a55"><b>55–45</b><small>中深焙<br/>巧克力、可可、厚實</small></div>
+<div class="ag a45"><b>45–35</b><small>深焙<br/>煙燻、焦糖苦甜</small></div>
+<div class="ag a35"><b>35 以下</b><small>極深焙<br/>炭燒、苦味明顯</small></div>
+</div>
+</section>
+<section id="flavor">
+<h2>七、曲線與風味走向</h2>
+<table>
+<tr><th>曲線特徵</th><th>可能風味走向</th></tr>
+<tr><td>脫水期過短</td><td>容易出現生味、草味或內外熟度不均</td></tr>
+<tr><td>脫水期過長</td><td>香氣可能變弱，風味較沉悶</td></tr>
+<tr><td>梅納期較長</td><td>甜感、堅果、烘烤與厚實度增加</td></tr>
+<tr><td>焦糖化較完整</td><td>蜂蜜、焦糖、黑糖與圓潤甜感提高</td></tr>
+<tr><td>發展期偏短</td><td>花果香明亮，但可能尖酸或發展不足</td></tr>
+<tr><td>發展期較長</td><td>巧克力、厚實度與焙火調增加</td></tr>
+<tr><td>ROR 平穩下降</td><td>風味較乾淨、甜感與層次較完整</td></tr>
+</table>
+<p class="note"><strong>提醒：</strong>曲線只能預測趨勢，真正的風味判斷仍需搭配杯測，並考量產區、品種、處理法、含水率與密度。</p>
+</section>
+<section id="defects">
+<h2>八、常見烘焙缺陷</h2>
+<table>
+<tr><th>缺陷</th><th>可能原因</th><th>杯測表現</th></tr>
+<tr><td>Underdeveloped 發展不足</td><td>一爆後發展時間過短或熱能不足</td><td>草味、尖酸、甜感弱</td></tr>
+<tr><td>Baked 烘焙呆滯</td><td>ROR 長時間過平、反應拖太久</td><td>風味無活力、層次少</td></tr>
+<tr><td>Scorched 表面焦灼</td><td>初期火力或鍋溫過高</td><td>焦苦、燒焦味</td></tr>
+<tr><td>Tipped 豆尖燒焦</td><td>熱風或傳導熱過強</td><td>煙燻、苦澀、刺口</td></tr>
+<tr><td>Crash 一爆後失速</td><td>一爆前後降火過多</td><td>平淡、香氣扁平</td></tr>
+<tr><td>Flick 下豆前暴衝</td><td>尾段熱能控制不佳</td><td>燥感、雜味、苦澀</td></tr>
+</table>
+</section>
+<section id="references">
+<h2>九、資料來源與參考資料</h2>
+<p>本教材內容參考下列公開專業資源整理：</p>
+<ol>
+<li>Specialty Coffee Association（SCA）— Coffee Skills Program、Coffee Standards</li>
+<li>Coffee Roasters Guild（CRG）相關烘焙教育資料</li>
+<li>World Coffee Research（WCR）公開研究與感官資料</li>
+<li>Coffee Quality Institute（CQI）公開教育資源</li>
+</ol>
+<p class="note"><strong>圖表來源：</strong>本網頁之烘焙流程圖、烘焙曲線、ROR 示意與 Agtron 圖表均由「給好咖啡 Kaffa98 Coffee」自行繪製與整理。</p>
+<p class="warning"><strong>聲明：</strong>本教材為公開資料之教育性整理，並非 SCA、CQI、CRG 或 WCR 官方出版教材。正式認證或專業評鑑，請以相關機構最新標準文件為準。</p>
+<p class="note"><strong>圖片說明：</strong> 第一章烘焙機圖片為「給好咖啡 Kaffa98 Coffee」教材示意圖。</p></section>
+</main>
+<footer class="site-footer">
+<div class="footer-inner">
+<h2 style="color:#fff;border:0;padding:0;margin-bottom:4px">給好咖啡 Kaffa98 Coffee</h2>
+<p>咖啡知識教學系列｜咖啡烘焙 Coffee Roasting</p>
+<div class="footer-nav">
+<a href="https://wenwei1967.github.io/kaffa98.github.io/">🏠 返回咖啡知識庫</a>
+</div>
+<hr/>
+<p><strong>版本：</strong>Ver. 1.0　｜　<strong>最後更新：</strong>2026 年 7 月 15 日</p>
+<p class="small">本教材內容僅供咖啡教育、課程教學與自我學習使用。</p>
+<p>© 2026 Kaffa98 Coffee. All Rights Reserved.</p>
+</div>
+</footer>
+<a aria-label="返回頁首" class="top" href="#top">↑</a>
+</body>
+</html>
