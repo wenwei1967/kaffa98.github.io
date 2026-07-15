@@ -1,1 +1,306 @@
+<!DOCTYPE html>
 
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>咖啡感官杯測教材｜給好咖啡 Kaffa98</title>
+<meta content="咖啡感官杯測完整教材：器具、準備、乾香、注水、破渣、撈渣、啜吸、感官分析、評分、風味描述與常見缺陷。" name="description"/>
+<style>
+:root{
+  --coffee:#4b2e1f;--brown:#754526;--gold:#d89b3d;--cream:#fff8ec;
+  --paper:#fffdf8;--line:#ead2b0;--text:#2f261f;--muted:#746457;
+  --green:#3f7551;--orange:#d96f28;--red:#ad4a3d;--blue:#3778a8;
+  --shadow:0 12px 30px rgba(70,40,20,.12);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:"Noto Sans TC","Microsoft JhengHei",Arial,sans-serif;
+  color:var(--text);line-height:1.75;background:linear-gradient(180deg,#fffaf1,#f1ddbd);
+}
+header{
+  color:white;text-align:center;padding:62px 18px 70px;
+  background:
+    radial-gradient(circle at 18% 20%,rgba(216,155,61,.3),transparent 26%),
+    linear-gradient(135deg,#2d180f,#754526);
+}
+header .eyebrow{font-weight:800;color:#ffd99c;letter-spacing:.18em}
+header h1{font-size:clamp(32px,6vw,60px);margin:8px 0;letter-spacing:.05em}
+header p{max-width:900px;margin:12px auto 0;color:#ffe9c6;font-size:18px}
+nav{
+  position:sticky;top:0;z-index:20;overflow:auto;white-space:nowrap;
+  padding:10px 14px;background:rgba(255,253,248,.94);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);box-shadow:0 5px 18px rgba(70,40,20,.07)
+}
+nav a{
+  display:inline-block;margin:3px 5px;padding:8px 13px;border-radius:999px;
+  color:var(--coffee);background:#f5e5cf;text-decoration:none;font-weight:800;font-size:14px
+}
+main{max-width:1180px;margin:-34px auto 60px;padding:0 18px}
+section{
+  margin:24px 0;padding:28px;background:rgba(255,255,255,.96);
+  border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow)
+}
+h2{margin:0 0 16px;padding-left:14px;border-left:8px solid var(--gold);color:var(--coffee);font-size:30px}
+h3{color:var(--brown);margin:8px 0;font-size:21px}
+.lead{font-size:18px;background:#fff3d9;border-left:6px solid var(--gold);padding:15px 17px;border-radius:13px}
+.grid{display:grid;gap:16px}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px}
+.card p{margin:6px 0}.muted{color:var(--muted)}.small{font-size:14px}
+.tag{display:inline-block;padding:4px 10px;margin:3px;border-radius:999px;background:#f3dfc5;color:#643b22;font-weight:800;font-size:13px}
+.note{background:#eef7ee;border-left:6px solid var(--green);padding:14px 16px;border-radius:13px}
+.warning{background:#fff0e7;border-left:6px solid var(--orange);padding:14px 16px;border-radius:13px}
+table{width:100%;border-collapse:collapse;background:#fffdf8;border-radius:15px;overflow:hidden;margin:14px 0}
+th,td{border:1px solid #e8d0aa;padding:11px;text-align:left;vertical-align:top}
+th{background:#6b3f25;color:#fff;text-align:center}
+tr:nth-child(even) td{background:#fff7e8}
+.flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+.step{position:relative;background:#fffaf1;border:1px solid var(--line);border-radius:18px;padding:16px;min-height:212px}
+.step .num{display:inline-flex;width:34px;height:34px;border-radius:50%;align-items:center;justify-content:center;background:var(--coffee);color:#fff;font-weight:900}
+.step .icon{font-size:38px;display:block;margin:7px 0}
+.step:after{content:"→";position:absolute;right:-14px;top:86px;color:#aa7b51;font-size:25px;font-weight:900}
+.step:nth-child(4n):after,.step:last-child:after{display:none}
+.sensory{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.sensory .card{min-height:165px}
+.scorebar{height:13px;background:#eadbc6;border-radius:999px;overflow:hidden;margin-top:8px}
+.scorebar i{display:block;height:100%;background:linear-gradient(90deg,#d89b3d,#754526)}
+.wheel{display:flex;align-items:center;justify-content:center;min-height:340px}
+.wheel svg{max-width:500px;width:100%;height:auto}
+.form-wrap{overflow:auto}
+.cupping-form{min-width:900px}
+input,textarea{width:100%;border:1px solid #ccb08b;border-radius:8px;padding:8px;background:white}
+textarea{min-height:78px}
+.ref-list a{color:#6b3f25;font-weight:700}
+.site-footer{
+  background:#321b11;color:#f8e7cf;padding:38px 18px;text-align:center;margin-top:40px
+}
+.footer-inner{max-width:1080px;margin:auto}
+.footer-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:18px 0}
+.footer-nav a{color:#fff;text-decoration:none;background:#704225;border:1px solid #9c704e;border-radius:999px;padding:9px 14px;font-weight:800}
+.footer-nav a.primary{background:#d89b3d;color:#2d180f}
+hr{border:0;border-top:1px solid rgba(255,255,255,.18);margin:25px 0}
+.top{position:fixed;right:18px;bottom:18px;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#6b3f25;color:white;text-decoration:none;font-size:22px;box-shadow:var(--shadow)}
+@media(max-width:900px){
+  .g2,.g3,.g4,.sensory{grid-template-columns:1fr}
+  .flow{display:flex;overflow-x:auto;padding-bottom:8px}
+  .step{min-width:210px}.step:after{display:none}
+  section{padding:20px}h2{font-size:25px}
+}
+@media print{
+  nav,.top,.footer-nav{display:none}
+  body{background:white}main{margin:0;max-width:none}
+  section{box-shadow:none;break-inside:avoid}
+  .print-page{break-before:page}
+}
+</style>
+</head>
+<body id="top">
+<header>
+<div class="eyebrow">給好咖啡 · KAFFA98 COFFEE</div>
+<h1>咖啡感官杯測</h1>
+<p>Coffee Cupping &amp; Sensory Evaluation｜從標準化準備、聞香、破渣、啜吸，到風味描述與品質分析的完整入門教材。</p>
+</header>
+<nav aria-label="章節導覽">
+<a href="#intro">杯測介紹</a><a href="#tools">器具準備</a><a href="#setup">樣品準備</a>
+<a href="#process">杯測流程</a><a href="#sensory">感官分析</a><a href="#flavor">風味描述</a>
+<a href="#score">評分理解</a><a href="#defects">常見缺陷</a><a href="#record">杯測紀錄表</a><a href="#references">資料來源</a>
+</nav>
+<main>
+<section id="intro">
+<h2>一、什麼是咖啡感官杯測？</h2>
+<p class="lead">杯測是以一致的研磨、粉水比例、注水、浸泡與品飲方式，比較咖啡的香氣、風味、酸質、甜感、口感、餘韻與整體表現。</p>
+<div class="grid g3">
+<div class="card"><h3>品質檢查</h3><p>辨識生豆、處理、儲存或烘焙造成的正面特徵與缺陷。</p></div>
+<div class="card"><h3>樣品比較</h3><p>在相同條件下比較不同產區、批次、處理法或烘焙設定。</p></div>
+<div class="card"><h3>建立共同語言</h3><p>利用標準化描述詞，讓生產者、採購、烘豆師與吧檯人員能有效溝通。</p></div>
+</div>
+<p class="note"><strong>重點：</strong>杯測不是只判斷「好不好喝」，而是先客觀描述咖啡表現，再依使用目的做品質或偏好判斷。</p>
+</section>
+<section id="tools">
+<h2>二、杯測器具與用途</h2>
+<div class="grid g4">
+<div class="card"><span class="icon">🥣</span><h3>杯測碗</h3><p>容量、材質與形狀保持一致，避免樣品間產生沖煮差異。</p></div>
+<div class="card"><span class="icon">🥄</span><h3>杯測匙</h3><p>深圓匙面有利於盛取咖啡液與啜吸霧化。</p></div>
+<div class="card"><span class="icon">⚖️</span><h3>電子秤</h3><p>控制每杯粉量與注水量，維持粉水比例一致。</p></div>
+<div class="card"><span class="icon">⚙️</span><h3>磨豆機</h3><p>研磨均勻，並在不同樣品之間清潔殘粉。</p></div>
+<div class="card"><span class="icon">🫖</span><h3>熱水壺</h3><p>穩定供水，確保各杯注水速度與水溫相近。</p></div>
+<div class="card"><span class="icon">🌡️</span><h3>溫度計</h3><p>確認水溫與環境條件，降低批次間誤差。</p></div>
+<div class="card"><span class="icon">⏱️</span><h3>計時器</h3><p>控制注水、破渣、撈渣及開始啜吸的時間。</p></div>
+<div class="card"><span class="icon">📝</span><h3>紀錄表</h3><p>記錄描述、強度、品質、缺陷與整體判斷。</p></div>
+</div>
+</section>
+<section id="setup">
+<h2>三、杯測前的樣品準備</h2>
+<div class="grid g2">
+<div class="card">
+<h3>教學常用設定</h3>
+<table>
+<tr><th>項目</th><th>建議</th></tr>
+<tr><td>粉水比例</td><td>約 1:18；例如 8.25 g 咖啡粉搭配 150 mL 水</td></tr>
+<tr><td>研磨</td><td>中粗研磨，所有樣品維持一致</td></tr>
+<tr><td>水溫</td><td>約 92–94°C，並記錄實際溫度</td></tr>
+<tr><td>樣品杯數</td><td>專業比較常使用多杯，以檢查一致性</td></tr>
+<tr><td>環境</td><td>安靜、明亮、無香水、食物或煙味干擾</td></tr>
+</table>
+</div>
+<div class="card">
+<h3>開始前檢查</h3>
+<p>□ 樣品以代碼標示，避免先入為主。</p>
+<p>□ 杯、匙、磨豆機與工作檯清潔無異味。</p>
+<p>□ 水質、水溫、研磨與注水量一致。</p>
+<p>□ 先準備清水杯，用於清洗杯測匙。</p>
+<p class="warning"><strong>注意：</strong>不同機構與評鑑制度可能採不同標準。正式評鑑時，應依當次採用的 SCA CVA、CQI 或主辦單位規範執行。</p>
+</div>
+</div>
+</section>
+<section id="process">
+<h2>四、杯測操作流程</h2>
+<div class="flow">
+<div class="step"><span class="num">1</span><span class="icon">⚖️</span><h3>秤重與編碼</h3><p>每杯粉量一致，先以代碼標示樣品。</p></div>
+<div class="step"><span class="num">2</span><span class="icon">⚙️</span><h3>研磨</h3><p>杯測前研磨，聞乾粉香氣並立即記錄。</p></div>
+<div class="step"><span class="num">3</span><span class="icon">👃</span><h3>乾香 Fragrance</h3><p>辨識花香、果香、堅果、香料或異味。</p></div>
+<div class="step"><span class="num">4</span><span class="icon">🫖</span><h3>注水</h3><p>均勻注滿，立即計時，避免攪動粉層。</p></div>
+<div class="step"><span class="num">5</span><span class="icon">☁️</span><h3>濕香 Aroma</h3><p>觀察粉殼形成後釋放的濕香與強度。</p></div>
+<div class="step"><span class="num">6</span><span class="icon">🥄</span><h3>破渣 Break</h3><p>約第 4 分鐘輕推粉殼，靠近杯面聞香。</p></div>
+<div class="step"><span class="num">7</span><span class="icon">🫧</span><h3>撈渣 Clean</h3><p>移除浮沫與殘渣，使杯面乾淨。</p></div>
+<div class="step"><span class="num">8</span><span class="icon">💨</span><h3>啜吸 Slurp</h3><p>降溫後啜吸，使咖啡液霧化並覆蓋口腔。</p></div>
+</div>
+<div class="grid g2" style="margin-top:16px">
+<div class="card"><h3>為什麼要啜吸？</h3><p>快速吸入可讓咖啡液形成細小液滴，增加與口腔、舌面及鼻後嗅覺接觸，較容易辨識香氣、酸質與質地。</p></div>
+<div class="card"><h3>為什麼要從熱喝到冷？</h3><p>高溫時香氣較強；降溫後甜感、酸質、缺陷與餘韻通常更容易辨識。至少分熱、溫、冷三個階段記錄。</p></div>
+</div>
+</section>
+<section id="sensory">
+<h2>五、感官分析項目</h2>
+<div class="sensory">
+<div class="card"><h3>香氣 Aroma</h3><p>乾香、濕香的強度、清晰度與複雜度。</p></div>
+<div class="card"><h3>風味 Flavor</h3><p>入口後整體味覺與香氣的主要印象。</p></div>
+<div class="card"><h3>餘韻 Aftertaste</h3><p>吞嚥或吐出後，風味停留的品質與時間。</p></div>
+<div class="card"><h3>酸質 Acidity</h3><p>關注明亮度、成熟度與舒服程度，不只看強弱。</p></div>
+<div class="card"><h3>醇厚 Body</h3><p>液體的重量感、黏稠感、滑順度與質地。</p></div>
+<div class="card"><h3>甜感 Sweetness</h3><p>水果甜、蜂蜜、蔗糖或焦糖般的自然甜味。</p></div>
+<div class="card"><h3>平衡 Balance</h3><p>香氣、酸、甜、苦、口感與餘韻是否協調。</p></div>
+<div class="card"><h3>一致性 Uniformity</h3><p>同一樣品的多杯表現是否一致。</p></div>
+<div class="card"><h3>乾淨度 Clean Cup</h3><p>從入口到餘韻是否無不良干擾或污染味。</p></div>
+<div class="card"><h3>整體 Overall</h3><p>綜合品質、特色與完整度的專業判斷。</p></div>
+</div>
+</section>
+<section id="flavor">
+<h2>六、風味描述與風味輪使用方式</h2>
+<div class="grid g2">
+<div class="wheel card">
+<svg aria-label="簡化咖啡風味分類輪" role="img" viewbox="0 0 420 420">
+<circle cx="210" cy="210" fill="#f5e4cc" r="190"></circle>
+<path d="M210,210 L210,20 A190,190 0 0,1 374,115 Z" fill="#e68d76"></path>
+<path d="M210,210 L374,115 A190,190 0 0,1 374,305 Z" fill="#dda64e"></path>
+<path d="M210,210 L374,305 A190,190 0 0,1 210,400 Z" fill="#8b6444"></path>
+<path d="M210,210 L210,400 A190,190 0 0,1 46,305 Z" fill="#9b7ab5"></path>
+<path d="M210,210 L46,305 A190,190 0 0,1 46,115 Z" fill="#75a66b"></path>
+<path d="M210,210 L46,115 A190,190 0 0,1 210,20 Z" fill="#e4be66"></path>
+<circle cx="210" cy="210" fill="#fffaf1" r="76" stroke="#6b3f25" stroke-width="3"></circle>
+<text fill="#4b2e1f" font-size="22" font-weight="800" text-anchor="middle" x="210" y="202">COFFEE</text>
+<text fill="#6b3f25" font-size="17" text-anchor="middle" x="210" y="230">風味分類</text>
+<g fill="#2f241f" font-size="17" font-weight="800" text-anchor="middle">
+<text x="278" y="86">水果</text><text x="337" y="215">甜感</text><text x="282" y="346">可可堅果</text>
+<text x="138" y="346">香料</text><text x="83" y="215">植物草本</text><text x="140" y="85">花香</text>
+</g>
+</svg>
+</div>
+<div class="card">
+<h3>由大分類走向具體描述</h3>
+<p><span class="tag">水果 Fruity</span> → <span class="tag">莓果 Berry</span> → <span class="tag">藍莓 Blueberry</span></p>
+<p><span class="tag">花香 Floral</span> → <span class="tag">白花</span> → <span class="tag">茉莉花 Jasmine</span></p>
+<p><span class="tag">甜感 Sweet</span> → <span class="tag">焦糖化</span> → <span class="tag">蜂蜜 Honey</span></p>
+<h3>描述公式</h3>
+<p><strong>香氣類型＋味覺品質＋口感＋餘韻</strong></p>
+<p class="note">範例：乾香有茉莉花與柑橘；入口呈白桃、蜂蜜甜感，酸質明亮但柔和，口感如紅茶，餘韻乾淨而持久。</p>
+<p class="warning"><strong>避免只寫：</strong>「很香、很酸、很順」。應盡量說明是什麼香氣、什麼類型的酸，以及口感如何。</p>
+</div>
+</div>
+</section>
+<section id="score">
+<h2>七、如何理解杯測評分</h2>
+<p class="lead">現行專業實務可能使用 SCA Coffee Value Assessment（CVA）或 CQI／傳統杯測表。兩者用途與表格設計不同，本頁先教「描述、辨識與比較」的共同核心。</p>
+<div class="grid g2">
+<div class="card">
+<h3>描述性評估</h3>
+<p>記錄風味屬性及強度，例如：茉莉、柑橘、蜂蜜、黑巧克力；酸質強度 7/15、甜感印象明顯。</p>
+<div class="scorebar"><i style="width:72%"></i></div>
+</div>
+<div class="card">
+<h3>情感性／品質判斷</h3>
+<p>評估各項表現是否令人喜愛、品質是否優良，並說明理由，而不是只給總分。</p>
+<div class="scorebar"><i style="width:83%"></i></div>
+</div>
+</div>
+<table>
+<tr><th>判讀面向</th><th>應記錄的內容</th><th>範例</th></tr>
+<tr><td>強度</td><td>特徵有多明顯</td><td>花香中高、酸質中等</td></tr>
+<tr><td>品質</td><td>表現是否成熟、乾淨、舒服</td><td>酸質明亮且細緻</td></tr>
+<tr><td>清晰度</td><td>風味是否容易辨識</td><td>藍莓與草莓輪廓清楚</td></tr>
+<tr><td>完整度</td><td>入口至餘韻是否連貫</td><td>甜感延續至長餘韻</td></tr>
+</table>
+</section>
+<section id="defects">
+<h2>八、常見杯測缺陷與辨識</h2>
+<table>
+<tr><th>缺陷或負面特徵</th><th>感官表現</th><th>可能來源</th></tr>
+<tr><td>草味／生味</td><td>青豆、青草、穀殼、尖銳酸感</td><td>未熟豆、烘焙發展不足或儲存問題</td></tr>
+<tr><td>木質／紙板</td><td>乾木、紙箱、稻草、風味衰退</td><td>生豆老化、包裝或儲存不當</td></tr>
+<tr><td>發酵過度</td><td>酒精、醋、腐熟水果、刺激發酵味</td><td>發酵控制、乾燥或儲存異常</td></tr>
+<tr><td>土味／黴味</td><td>潮濕地下室、霉布、泥土</td><td>乾燥、倉儲或污染問題</td></tr>
+<tr><td>酚味／藥味</td><td>消毒水、塑膠、藥水、辛辣刺激</td><td>生豆缺陷、污染或設備異味</td></tr>
+<tr><td>焦苦／煙燻</td><td>炭、灰燼、焦黑、苦味停留</td><td>烘焙過深、焦灼、排煙不良</td></tr>
+</table>
+<p class="warning"><strong>判斷原則：</strong>單一負面風味不能直接證明唯一原因。應比對多杯一致性、生豆狀況、烘焙曲線與儲存紀錄後再下結論。</p>
+</section>
+<section class="print-page" id="record">
+<h2>九、給好咖啡｜杯測紀錄表</h2>
+<div class="form-wrap">
+<table class="cupping-form">
+<tr><th colspan="6">樣品基本資料</th></tr>
+<tr><td>日期</td><td><input/></td><td>樣品代碼</td><td><input/></td><td>杯測者</td><td><input/></td></tr>
+<tr><td>產國／產區</td><td><input/></td><td>處理法</td><td><input/></td><td>烘焙日期</td><td><input/></td></tr>
+<tr><td>粉量</td><td><input/></td><td>水量／水溫</td><td><input/></td><td>研磨設定</td><td><input/></td></tr>
+<tr><th>項目</th><th>描述</th><th>強度</th><th>品質</th><th>冷卻後變化</th><th>備註</th></tr>
+<tr><td>乾香／濕香</td><td><textarea></textarea></td><td><input/></td><td><input/></td><td><textarea></textarea></td><td><textarea></textarea></td></tr>
+<tr><td>風味／餘韻</td><td><textarea></textarea></td><td><input/></td><td><input/></td><td><textarea></textarea></td><td><textarea></textarea></td></tr>
+<tr><td>酸質／甜感</td><td><textarea></textarea></td><td><input/></td><td><input/></td><td><textarea></textarea></td><td><textarea></textarea></td></tr>
+<tr><td>醇厚／口感</td><td><textarea></textarea></td><td><input/></td><td><input/></td><td><textarea></textarea></td><td><textarea></textarea></td></tr>
+<tr><td>平衡／整體</td><td><textarea></textarea></td><td><input/></td><td><input/></td><td><textarea></textarea></td><td><textarea></textarea></td></tr>
+<tr><td>缺陷／一致性</td><td colspan="5"><textarea></textarea></td></tr>
+<tr><td>綜合結論</td><td colspan="5"><textarea></textarea></td></tr>
+</table>
+</div>
+<p class="small muted">列印提示：使用瀏覽器列印功能，即可輸出此紀錄表。</p>
+</section>
+<section id="references">
+<h2>十、資料來源與參考文獻</h2>
+<p>本頁教材參考下列官方公開資源整理，並以教學語言重新編寫：</p>
+<ol class="ref-list">
+<li><a href="https://sca.coffee/value-assessment" rel="noopener" target="_blank">Specialty Coffee Association — Coffee Value Assessment（CVA）</a></li>
+<li><a href="https://sca.coffee/research/coffee-standards" rel="noopener" target="_blank">Specialty Coffee Association — Coffee Standards</a></li>
+<li><a href="https://worldcoffeeresearch.org/resources/sensory-lexicon" rel="noopener" target="_blank">World Coffee Research — Sensory Lexicon</a></li>
+<li><a href="https://www.coffeeinstitute.org/" rel="noopener" target="_blank">Coffee Quality Institute（CQI）</a></li>
+</ol>
+<p class="note"><strong>圖表來源：</strong>本網頁中的流程圖、簡化風味分類圖與教學排版均由「給好咖啡 Kaffa98 Coffee」自行繪製與整理。</p>
+<p class="warning"><strong>聲明：</strong>本教材為公開資料之教育性整理，並非 SCA、CQI 或 WCR 官方出版教材。正式認證、競賽或商業評鑑，請以相關機構最新標準文件為準。</p>
+</section>
+</main>
+<footer class="site-footer">
+<div class="footer-inner">
+<h2 style="color:#fff;border:0;padding:0;margin-bottom:4px">給好咖啡 Kaffa98 Coffee</h2>
+<p>咖啡知識教學系列｜咖啡感官杯測 Coffee Cupping</p>
+<div class="footer-nav"><a class="primary" href="https://wenwei1967.github.io/kaffa98.github.io/">🏠 返回咖啡知識庫</a></div>
+<hr/>
+<p><strong>版本：</strong>Ver. 1.0　｜　<strong>最後更新：</strong>2026 年 7 月 15 日</p>
+<p class="small">本教材內容僅供咖啡教育、課程教學與自我學習使用。</p>
+<p>© 2026 Kaffa98 Coffee. All Rights Reserved.</p>
+</div>
+</footer>
+<a aria-label="返回頁首" class="top" href="#top">↑</a>
+</body>
+</html>
