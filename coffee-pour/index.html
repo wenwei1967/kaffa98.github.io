@@ -1,1 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="比較一次注水、悶蒸加一次注水、悶蒸加分段注水三種手沖咖啡方式的萃取與風味差異。" />
+  <title>三種手沖咖啡方法比較｜給好咖啡</title>
+  <style>
+    :root{
+      --bg:#f5efe6;
+      --paper:#fffdf9;
+      --coffee:#5b3824;
+      --coffee-dark:#2f1d14;
+      --accent:#b86b36;
+      --gold:#d8a45d;
+      --green:#627a58;
+      --text:#332923;
+      --muted:#786b63;
+      --line:#e6d7c8;
+      --shadow:0 12px 30px rgba(72,44,28,.12);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(216,164,93,.16), transparent 28%),
+        linear-gradient(180deg,#f8f3ec 0%,var(--bg) 100%);
+      line-height:1.8;
+    }
+    a{color:inherit}
+    .hero{
+      min-height:68vh;
+      display:grid;
+      place-items:center;
+      padding:72px 22px;
+      color:white;
+      position:relative;
+      overflow:hidden;
+      background:
+        linear-gradient(135deg,rgba(34,20,14,.92),rgba(91,56,36,.82)),
+        linear-gradient(120deg,#3a2519,#8a5431);
+    }
+    .hero:before,.hero:after{
+      content:"";
+      position:absolute;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.15);
+    }
+    .hero:before{width:430px;height:430px;right:-120px;top:-120px}
+    .hero:after{width:280px;height:280px;left:-80px;bottom:-100px}
+    .hero-inner{max-width:1050px;text-align:center;position:relative;z-index:2}
+    .eyebrow{
+      display:inline-block;
+      padding:7px 14px;
+      border:1px solid rgba(255,255,255,.35);
+      border-radius:999px;
+      letter-spacing:.15em;
+      font-size:.88rem;
+      margin-bottom:20px;
+      background:rgba(255,255,255,.07);
+    }
+    h1{
+      font-size:clamp(2rem,5vw,4.4rem);
+      line-height:1.18;
+      margin:0 0 18px;
+      letter-spacing:.02em;
+    }
+    .hero p{
+      max-width:800px;
+      margin:0 auto 30px;
+      font-size:clamp(1rem,2vw,1.25rem);
+      color:#f7eadc;
+    }
+    .hero-badges{
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    .hero-badges span{
+      padding:10px 16px;
+      border-radius:12px;
+      background:rgba(255,255,255,.1);
+      backdrop-filter:blur(4px);
+    }
+    .container{width:min(1120px,calc(100% - 32px));margin:auto}
+    section{padding:68px 0}
+    .section-title{text-align:center;margin-bottom:36px}
+    .section-title small{color:var(--accent);font-weight:800;letter-spacing:.14em}
+    .section-title h2{
+      font-size:clamp(1.7rem,3vw,2.7rem);
+      margin:7px 0 8px;
+      color:var(--coffee-dark);
+    }
+    .section-title p{max-width:750px;margin:auto;color:var(--muted)}
+    .summary{
+      margin-top:-42px;
+      position:relative;
+      z-index:5;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .summary-card{
+      background:var(--paper);
+      border:1px solid rgba(184,107,54,.15);
+      border-radius:20px;
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+    .summary-card strong{display:block;font-size:1.2rem;color:var(--coffee)}
+    .summary-card span{font-size:.94rem;color:var(--muted)}
+    .method-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .method{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+    }
+    .method-head{
+      padding:22px 22px 14px;
+      background:linear-gradient(135deg,#fff9f1,#f3e4d3);
+    }
+    .method-no{
+      width:42px;height:42px;border-radius:50%;
+      display:grid;place-items:center;
+      background:var(--coffee);color:#fff;font-weight:800;
+      margin-bottom:14px;
+    }
+    .method h3{margin:0;color:var(--coffee-dark);font-size:1.45rem}
+    .method .tag{color:var(--accent);font-weight:700;font-size:.9rem}
+    .diagram{padding:14px 18px 0;background:#fff}
+    .diagram svg{width:100%;height:auto;display:block}
+    .method-body{padding:20px 22px 24px;flex:1}
+    .recipe{
+      background:#f8f2ea;
+      border-left:4px solid var(--gold);
+      padding:12px 14px;
+      border-radius:10px;
+      margin:0 0 16px;
+      font-weight:700;
+    }
+    .pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .mini{
+      border-radius:12px;padding:12px;
+      border:1px solid var(--line);font-size:.94rem;
+    }
+    .mini b{display:block;margin-bottom:4px}
+    .effect{
+      margin-top:16px;
+      padding-top:16px;
+      border-top:1px dashed var(--line);
+    }
+    .effect strong{color:var(--coffee)}
+    .comparison-wrap{
+      overflow-x:auto;background:var(--paper);border-radius:18px;
+      border:1px solid var(--line);box-shadow:var(--shadow);
+    }
+    table{width:100%;border-collapse:collapse;min-width:760px}
+    th,td{padding:15px 14px;text-align:center;border-bottom:1px solid var(--line)}
+    th{background:var(--coffee-dark);color:#fff}
+    td:first-child,th:first-child{text-align:left;font-weight:800}
+    tr:last-child td{border-bottom:none}
+    tbody tr:hover{background:#fbf4ec}
+    .stars{letter-spacing:.08em;color:#c9822c;white-space:nowrap}
+    .science{
+      display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;
+    }
+    .science-card{
+      background:var(--paper);border:1px solid var(--line);border-radius:22px;
+      padding:28px;box-shadow:var(--shadow);
+    }
+    .science-card h3{margin-top:0;color:var(--coffee-dark)}
+    .steps{display:grid;gap:14px}
+    .step{
+      display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;
+      padding:14px;border:1px solid var(--line);border-radius:14px;background:#fff;
+    }
+    .step-num{
+      width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
+      background:#f0dfcc;color:var(--coffee);font-weight:900;
+    }
+    .step h4{margin:0 0 4px}
+    .step p{margin:0;color:var(--muted);font-size:.95rem}
+    .recommend-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .recommend{
+      padding:22px;border-radius:18px;color:#fff;min-height:210px;
+      position:relative;overflow:hidden;
+    }
+    .recommend:nth-child(1){background:linear-gradient(135deg,#6f8b65,#405b3b)}
+    .recommend:nth-child(2){background:linear-gradient(135deg,#c17b3d,#7d4425)}
+    .recommend:nth-child(3){background:linear-gradient(135deg,#71564a,#34251f)}
+    .recommend h3{margin:0 0 8px;font-size:1.4rem}
+    .recommend p{margin:0 0 12px;color:rgba(255,255,255,.88)}
+    .recommend b{display:inline-block;padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.14)}
+    .note{
+      margin-top:26px;padding:22px;border-radius:16px;
+      background:#fff8e9;border:1px solid #efd8a8;
+    }
+    .formula{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px;
+    }
+    .formula div{
+      text-align:center;background:#fff;border:1px solid var(--line);
+      border-radius:14px;padding:12px;
+    }
+    footer{
+      background:#241710;color:#e8dbd0;padding:38px 20px;text-align:center;
+    }
+    footer strong{color:#fff}
+    .back{
+      display:inline-block;margin-top:14px;padding:10px 18px;border-radius:999px;
+      text-decoration:none;background:#fff;color:var(--coffee-dark);font-weight:800;
+    }
+    @media (max-width:900px){
+      .summary,.method-grid,.recommend-grid{grid-template-columns:1fr}
+      .science{grid-template-columns:1fr}
+      .formula{grid-template-columns:repeat(2,1fr)}
+      .hero{min-height:auto}
+    }
+    @media (max-width:520px){
+      section{padding:50px 0}
+      .summary{margin-top:-24px}
+      .pros-cons{grid-template-columns:1fr}
+      .formula{grid-template-columns:1fr}
+      .summary-card,.method-body,.science-card{padding:18px}
+    }
+  </style>
+</head>
+<body>
 
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">POUR OVER COFFEE GUIDE</div>
+    <h1>三種手沖咖啡方法<br>萃取效果與風味差異</h1>
+    <p>從「一次注水」到「悶蒸＋分段注水」，操作只多了幾個步驟，卻會明顯改變咖啡的香氣、甜感、醇厚度與穩定性。</p>
+    <div class="hero-badges">
+      <span>一次注水</span>
+      <span>悶蒸＋一次注水</span>
+      <span>悶蒸＋分段注水</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container summary">
+    <div class="summary-card"><strong>最簡單</strong><span>一次注水，適合快速沖煮與清爽口感。</span></div>
+    <div class="summary-card"><strong>最實用</strong><span>悶蒸後一次注水，平衡操作與風味。</span></div>
+    <div class="summary-card"><strong>最有層次</strong><span>悶蒸加分段注水，可細緻控制萃取。</span></div>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <small>BREWING METHODS</small>
+        <h2>三種沖煮方式</h2>
+        <p>以下以 15 克咖啡粉、總注水量 240 克作為簡易示範。實際沖煮仍可依焙度、研磨度與個人口味調整。</p>
+      </div>
+
+      <div class="method-grid">
+        <article class="method">
+          <div class="method-head">
+            <div class="method-no">1</div>
+            <div class="tag">ONE POUR</div>
+            <h3>簡易一次注水</h3>
+          </div>
+          <div class="diagram">
+            <svg viewBox="0 0 360 220" role="img" aria-label="一次注水示意圖">
+              <defs>
+                <linearGradient id="water1" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#a9d7e8"/>
+                  <stop offset="1" stop-color="#5da2bd"/>
+                </linearGradient>
+              </defs>
+              <path d="M120 30 Q180 5 240 30" fill="none" stroke="#6b6b6b" stroke-width="12" stroke-linecap="round"/>
+              <path d="M220 34 Q205 80 190 122" fill="none" stroke="url(#water1)" stroke-width="9" stroke-linecap="round"/>
+              <path d="M95 95 L180 195 L265 95 Z" fill="#f0e5d9" stroke="#5b3824" stroke-width="5"/>
+              <path d="M120 125 Q180 95 240 125 L225 145 Q180 130 135 145 Z" fill="#6f452f"/>
+              <rect x="145" y="193" width="70" height="14" rx="7" fill="#5b3824"/>
+              <text x="180" y="213" text-anchor="middle" font-size="16" fill="#5b3824">連續注水至 240g</text>
+            </svg>
+          </div>
+          <div class="method-body">
+            <p class="recipe">15g 咖啡粉 → 直接注水至 240g</p>
+            <div class="pros-cons">
+              <div class="mini"><b>優點</b>步驟少、速度快，容易記憶。</div>
+              <div class="mini"><b>注意</b>咖啡粉未先排氣，較容易萃取不均。</div>
+            </div>
+            <div class="effect"><strong>常見風味：</strong>酸質清楚、口感較輕、甜感和層次通常較少。</div>
+          </div>
+        </article>
+
+        <article class="method">
+          <div class="method-head">
+            <div class="method-no">2</div>
+            <div class="tag">BLOOM + ONE POUR</div>
+            <h3>悶蒸＋一次注水</h3>
+          </div>
+          <div class="diagram">
+            <svg viewBox="0 0 360 220" role="img" aria-label="悶蒸加一次注水示意圖">
+              <path d="M90 115 L180 205 L270 115 Z" fill="#f0e5d9" stroke="#5b3824" stroke-width="5"/>
+              <path d="M118 145 Q180 112 242 145 L226 164 Q180 146 134 164 Z" fill="#6f452f"/>
+              <circle cx="145" cy="112" r="10" fill="#d8a45d"/>
+              <circle cx="180" cy="96" r="13" fill="#d8a45d"/>
+              <circle cx="215" cy="112" r="9" fill="#d8a45d"/>
+              <path d="M145 95 Q135 70 150 52" fill="none" stroke="#a07d65" stroke-width="4" stroke-dasharray="5 6"/>
+              <path d="M180 79 Q172 50 188 30" fill="none" stroke="#a07d65" stroke-width="4" stroke-dasharray="5 6"/>
+              <path d="M215 96 Q225 68 210 49" fill="none" stroke="#a07d65" stroke-width="4" stroke-dasharray="5 6"/>
+              <text x="180" y="22" text-anchor="middle" font-size="15" fill="#5b3824">CO₂ 排出</text>
+              <text x="180" y="218" text-anchor="middle" font-size="15" fill="#5b3824">40g 悶蒸 30 秒，再注至 240g</text>
+            </svg>
+          </div>
+          <div class="method-body">
+            <p class="recipe">40g 悶蒸 30 秒 → 一次注水至 240g</p>
+            <div class="pros-cons">
+              <div class="mini"><b>優點</b>先讓咖啡粉排氣並充分濕潤。</div>
+              <div class="mini"><b>注意</b>悶蒸水量不足，仍可能出現乾粉。</div>
+            </div>
+            <div class="effect"><strong>常見風味：</strong>酸甜平衡、甜感提升、尾韻更乾淨，適合日常使用。</div>
+          </div>
+        </article>
+
+        <article class="method">
+          <div class="method-head">
+            <div class="method-no">3</div>
+            <div class="tag">BLOOM + PULSE POUR</div>
+            <h3>悶蒸＋分段注水</h3>
+          </div>
+          <div class="diagram">
+            <svg viewBox="0 0 360 220" role="img" aria-label="悶蒸加分段注水示意圖">
+              <path d="M95 105 L180 200 L265 105 Z" fill="#f0e5d9" stroke="#5b3824" stroke-width="5"/>
+              <path d="M122 137 Q180 105 238 137 L223 158 Q180 140 137 158 Z" fill="#6f452f"/>
+              <path d="M128 24 Q145 65 154 102" fill="none" stroke="#6aa7bd" stroke-width="8" stroke-linecap="round"/>
+              <path d="M180 18 Q180 62 180 103" fill="none" stroke="#6aa7bd" stroke-width="8" stroke-linecap="round"/>
+              <path d="M232 24 Q215 65 206 102" fill="none" stroke="#6aa7bd" stroke-width="8" stroke-linecap="round"/>
+              <circle cx="128" cy="24" r="13" fill="#d8a45d"/><text x="128" y="29" text-anchor="middle" font-size="12" fill="#fff">1</text>
+              <circle cx="180" cy="18" r="13" fill="#d8a45d"/><text x="180" y="23" text-anchor="middle" font-size="12" fill="#fff">2</text>
+              <circle cx="232" cy="24" r="13" fill="#d8a45d"/><text x="232" y="29" text-anchor="middle" font-size="12" fill="#fff">3</text>
+              <text x="180" y="218" text-anchor="middle" font-size="15" fill="#5b3824">悶蒸後，以多段水量完成沖煮</text>
+            </svg>
+          </div>
+          <div class="method-body">
+            <p class="recipe">40g 悶蒸 → 90g → 150g → 210g → 240g</p>
+            <div class="pros-cons">
+              <div class="mini"><b>優點</b>可透過水位與攪動控制萃取節奏。</div>
+              <div class="mini"><b>注意</b>分段過多或間隔過久，可能增加苦澀。</div>
+            </div>
+            <div class="effect"><strong>常見風味：</strong>甜感、醇厚度與層次通常較明顯，但也最需要穩定手法。</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:rgba(255,255,255,.55)">
+    <div class="container">
+      <div class="section-title">
+        <small>COMPARISON</small>
+        <h2>風味與操作比較</h2>
+        <p>星等代表一般情況下的相對傾向，不代表所有咖啡豆都會產生完全相同的結果。</p>
+      </div>
+      <div class="comparison-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>比較項目</th>
+              <th>一次注水</th>
+              <th>悶蒸＋一次注水</th>
+              <th>悶蒸＋分段注水</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>操作難度</td><td class="stars">★☆☆☆☆</td><td class="stars">★★☆☆☆</td><td class="stars">★★★★☆</td></tr>
+            <tr><td>萃取均勻度</td><td class="stars">★★☆☆☆</td><td class="stars">★★★★☆</td><td class="stars">★★★★★</td></tr>
+            <tr><td>香氣表現</td><td class="stars">★★★☆☆</td><td class="stars">★★★★☆</td><td class="stars">★★★★★</td></tr>
+            <tr><td>酸質清晰度</td><td class="stars">★★★★☆</td><td class="stars">★★★★☆</td><td class="stars">★★★★☆</td></tr>
+            <tr><td>甜感</td><td class="stars">★★☆☆☆</td><td class="stars">★★★★☆</td><td class="stars">★★★★★</td></tr>
+            <tr><td>醇厚度</td><td class="stars">★★☆☆☆</td><td class="stars">★★★☆☆</td><td class="stars">★★★★☆</td></tr>
+            <tr><td>風味層次</td><td class="stars">★★☆☆☆</td><td class="stars">★★★☆☆</td><td class="stars">★★★★★</td></tr>
+            <tr><td>日常容錯率</td><td class="stars">★★★☆☆</td><td class="stars">★★★★★</td><td class="stars">★★★☆☆</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container science">
+      <div class="science-card">
+        <h3>為什麼「悶蒸」會改善風味？</h3>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">01</div>
+            <div><h4>排出二氧化碳</h4><p>新鮮咖啡粉遇水會釋放氣體。若直接大量注水，氣體可能阻擋水與咖啡粉接觸。</p></div>
+          </div>
+          <div class="step">
+            <div class="step-num">02</div>
+            <div><h4>讓咖啡粉均勻濕潤</h4><p>先以約咖啡粉重量 2～3 倍的水量悶蒸，可降低乾粉區與局部萃取不足。</p></div>
+          </div>
+          <div class="step">
+            <div class="step-num">03</div>
+            <div><h4>建立較穩定的萃取起點</h4><p>後續注水時，水流能更平均通過咖啡床，甜感與乾淨度通常更容易呈現。</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="science-card">
+        <h3>分段注水真正改變的是什麼？</h3>
+        <p>分段注水並不是單純「倒很多次」，而是在控制咖啡床的水位、攪動程度與接觸時間。</p>
+        <div class="formula">
+          <div><b>水位</b><br><span>影響水壓與流速</span></div>
+          <div><b>攪動</b><br><span>影響粉水接觸</span></div>
+          <div><b>時間</b><br><span>影響萃取程度</span></div>
+          <div><b>溫度</b><br><span>影響溶解效率</span></div>
+        </div>
+        <div class="note">
+          <strong>重要提醒：</strong>分段越多不一定越好。若注水過急、繞圈過大、每段間隔過久或咖啡床反覆乾掉，反而可能造成通道效應、澀感與過度萃取。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#ede3d8">
+    <div class="container">
+      <div class="section-title">
+        <small>ROAST LEVEL GUIDE</small>
+        <h2>依焙度選擇沖煮方式</h2>
+      </div>
+      <div class="recommend-grid">
+        <div class="recommend">
+          <h3>淺焙咖啡</h3>
+          <p>花香、柑橘、莓果與明亮酸質較明顯，需要較完整的萃取。</p>
+          <b>推薦：悶蒸＋分段注水</b>
+        </div>
+        <div class="recommend">
+          <h3>中焙咖啡</h3>
+          <p>甜感、酸質與醇厚度較平衡，適合多數日常沖煮。</p>
+          <b>推薦：悶蒸＋一次注水</b>
+        </div>
+        <div class="recommend">
+          <h3>中深焙／深焙</h3>
+          <p>堅果、焦糖、巧克力與苦甜調性較明顯，宜避免過多攪動。</p>
+          <b>推薦：悶蒸＋一次注水</b>
+        </div>
+      </div>
+      <div class="note">
+        <strong>一般家庭最推薦：</strong>「悶蒸＋一次注水」。它兼顧操作簡單、甜感、乾淨度與穩定性。遇到高品質淺焙豆，想進一步表現花香、甜感和層次，再使用「悶蒸＋分段注水」。
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <strong>給好咖啡｜手沖咖啡知識教材</strong><br>
+  <span>本頁為沖煮教學用途，實際結果會受咖啡豆、研磨度、水溫、濾杯與注水手法影響。</span><br>
+  <a class="back" href="javascript:history.back()">返回上一頁</a>
+</footer>
+
+</body>
+</html>
