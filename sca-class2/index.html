@@ -1,1 +1,136 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SCA CSP 烘豆初中級課程重點整理</title>
+<style>
+:root{--coffee:#5b3a29;--dark:#2b211b;--cream:#fff8ef;--paper:#fffdf9;--gold:#c89654;--red:#b85c38;--green:#5f7d55;--blue:#557a95;--gray:#6b625c}*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",Arial,sans-serif;background:linear-gradient(135deg,#f7efe3,#fffaf3);color:#2b211b;line-height:1.75}.hero{background:radial-gradient(circle at 20% 20%,rgba(255,255,255,.12),transparent 28%),linear-gradient(135deg,#2b211b,#6a422c);color:white;padding:56px 18px;text-align:center}.hero h1{font-size:clamp(28px,5vw,48px);margin:0 0 12px;letter-spacing:.06em}.hero p{margin:0 auto;max-width:860px;font-size:18px;opacity:.94}.wrap{max-width:1120px;margin:auto;padding:24px 16px 60px}.toc{background:white;border-radius:20px;padding:20px;box-shadow:0 10px 28px rgba(62,39,24,.12);margin-top:-34px}.toc h2{margin:0 0 10px}.toc a{display:inline-block;margin:6px 8px 6px 0;padding:7px 13px;border-radius:999px;background:#f1e3d3;color:#4b2f20;text-decoration:none;font-weight:700}.section{background:var(--paper);margin:26px 0;padding:26px;border-radius:22px;box-shadow:0 10px 24px rgba(62,39,24,.10);border:1px solid #eadaca}.section h2{margin-top:0;border-left:8px solid var(--gold);padding-left:12px;font-size:28px}.section h3{color:var(--coffee);margin-top:22px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}.card{background:#fff;border:1px solid #eadaca;border-radius:16px;padding:16px}.badge{display:inline-block;background:var(--coffee);color:white;padding:3px 10px;border-radius:999px;font-size:13px;font-weight:700}.note{background:#fff3d8;border-left:6px solid var(--gold);padding:14px 16px;border-radius:12px;margin:14px 0}.warn{background:#ffe9e4;border-left:6px solid var(--red);padding:14px 16px;border-radius:12px;margin:14px 0}.ok{background:#eaf4e8;border-left:6px solid var(--green);padding:14px 16px;border-radius:12px;margin:14px 0}table{border-collapse:collapse;width:100%;background:white;border-radius:14px;overflow:hidden;margin:14px 0}th,td{font-size:20px;border:1px solid #eadaca;padding:10px 12px;text-align:left}th{background:#5b3a29;color:white}.curve{width:100%;max-width:920px;margin:18px auto;display:block;background:white;border-radius:18px;padding:10px;border:1px solid #eadaca}.formula{font-size:22px;text-align:center;background:#f7efe3;border-radius:12px;padding:14px;margin:12px 0;font-family:Georgia,serif}.small{font-size:14px;color:#6b625c}.pillbar{display:flex;height:34px;border-radius:999px;overflow:hidden;margin:14px 0;background:#eee}.pillbar span{display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:13px}.dry{background:#c89654;width:40%}.mai{background:#8b5a3c;width:40%}.dev{background:#b85c38;width:20%}.footer{text-align:center;color:#6b625c;padding:20px}.print{position:fixed;right:16px;bottom:16px;background:#5b3a29;color:#fff;border:none;border-radius:999px;padding:12px 16px;font-weight:700;box-shadow:0 8px 20px rgba(0,0,0,.2)}@media print{.print,.toc{display:none}.section{box-shadow:none;break-inside:avoid}.hero{padding:26px;color:#222;background:white}}
+</style>
+
+<style>
+:root{
+  --coffee:#5b3a29; --coffee-dark:#2f1d15; --cream:#fff8ef;
+  --latte:#ead7c3; --gold:#b98952; --ink:#2b211c;
+}
+body{
+  font-family:"標楷體","DFKai-SB","BiauKai","Microsoft JhengHei",serif;
+  background:linear-gradient(180deg,#fffaf4,#f4eadf);
+  color:var(--ink); font-size:20px; line-height:1.85;
+}
+h1,h2,h3{color:var(--coffee-dark);letter-spacing:.04em}
+h1{font-size:38px} h2{font-size:30px;border-left:10px solid var(--gold);padding-left:14px}
+h3{font-size:25px}
+table{border-collapse:collapse;width:100%;margin:18px 0;background:#fff;box-shadow:0 4px 18px rgba(80,50,30,.12)}
+th{background:var(--coffee);color:#fff;font-size:22px!important}
+td{font-size:21px!important}
+th,td{padding:16px 18px!important;border:1px solid #d9c5ae;vertical-align:top}
+tr:nth-child(even) td{background:#fff8ef}
+.note,.quiz{background:#fff;border-radius:16px;padding:18px 22px;margin:16px 0;border-left:8px solid var(--gold);box-shadow:0 4px 16px rgba(80,50,30,.10)}
+.curve-wrap{background:#fff;border:1px solid #dfcbb5;border-radius:18px;padding:18px;margin:20px 0;overflow-x:auto}
+svg text{font-family:"標楷體","DFKai-SB","Microsoft JhengHei",serif}
+@media(max-width:768px){
+  body{font-size:19px} h1{font-size:32px} h2{font-size:26px}
+  th{font-size:21px!important} td{font-size:20px!important}
+}
+</style>
+
+</head>
+<body>
+<header class="hero"><h1>SCA CSP 烘豆初中級課程重點整理</h1><p>依課堂講義整理：香氣味道、烘焙曲線、焙度變化、失重率、一爆二爆、設備、安全、SOP、盲測與燃燒器。</p></header>
+<main class="wrap">
+<nav class="toc"><h2>快速目錄</h2><a href="#flavor">香氣與味道</a><a href="#curve">烘焙曲線</a><a href="#color">焙度與落點</a><a href="#physical">物理變化</a><a href="#crack">一爆二爆</a><a href="#machine">設備與安全</a><a href="#sop">SOP與證照</a><a href="#test">盲測與燃燒器</a></nav>
+
+<section id="flavor" class="section"><h2>1. 描述香氣與味道</h2><div class="grid"><div class="card"><span class="badge">淺焙</span><h3>果花香、酸高、苦低</h3><p>淺焙保留較多有機酸與產區特色，常出現柑橘、莓果、葡萄、茉莉花、蜂蜜花香等風味。酸質明亮、苦味較低。</p></div><div class="card"><span class="badge">深焙</span><h3>酸低、苦味多、烘烤香氣</h3><p>深焙使有機酸下降，焦糖化與碳化反應增加，常出現黑巧克力、焦糖、堅果、烤吐司、煙燻與木質調。</p></div></div><div class="note"><b>記憶：</b>淺焙看產區；深焙看烘焙。淺焙花果香明顯，深焙烘烤與苦甜感增加。</div></section>
+
+<section id="curve" class="section"><h2>2. 烘焙過程與烘焙曲線</h2><p>烘焙的兩大主軸是 <b>時間</b> 與 <b>溫度</b>。同樣溫度下，時間不同，風味也會完全不同。</p>
+<svg class="curve" viewBox="0 0 900 460" role="img" aria-label="咖啡烘豆曲線圖">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#333"/></marker></defs>
+<rect x="0" y="0" width="900" height="460" fill="#fffdf9"/>
+<line x1="80" y1="390" x2="835" y2="390" stroke="#333" stroke-width="3" marker-end="url(#arrow)"/><line x1="80" y1="390" x2="80" y2="55" stroke="#333" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="820" y="425" font-size="20">時間</text><text x="20" y="65" font-size="20">豆溫 BT</text>
+<path d="M90 110 C105 220,115 350,155 350 C250 350,330 255,430 210 C560 155,690 130,790 90" fill="none" stroke="#5b3a29" stroke-width="6"/>
+<circle cx="90" cy="110" r="8" fill="#b85c38"/><text x="105" y="108" font-size="18">A 入豆溫</text>
+<circle cx="155" cy="350" r="8" fill="#557a95"/><text x="170" y="355" font-size="18">B 回溫點</text>
+<circle cx="430" cy="210" r="8" fill="#c89654"/><text x="445" y="210" font-size="18">C 黃化點</text>
+<circle cx="645" cy="140" r="8" fill="#b85c38"/><text x="660" y="140" font-size="18">D 一爆開始</text>
+<circle cx="790" cy="90" r="8" fill="#2b211b"/><text x="710" y="70" font-size="18">F 下豆</text>
+<rect x="90" y="405" width="250" height="28" fill="#c89654"/><rect x="340" y="405" width="300" height="28" fill="#8b5a3c"/><rect x="640" y="405" width="150" height="28" fill="#b85c38"/>
+<text x="165" y="425" font-size="16" fill="white">乾燥期</text><text x="430" y="425" font-size="16" fill="white">梅納反應期</text><text x="675" y="425" font-size="16" fill="white">發展期</text></svg>
+<div class="pillbar"><span class="dry">乾燥期 30~40%</span><span class="mai">梅納 40~50%</span><span class="dev">發展 15~25%</span></div>
+<table><tr><th>階段</th><th>重點</th><th>風味影響</th></tr><tr><td>乾燥期</td><td>水分蒸發，綠色轉黃</td><td>不足易有青草味、生豆味</td></tr><tr><td>梅納反應</td><td>胺基酸與還原糖反應</td><td>形成麥芽、堅果、烤吐司香</td></tr><tr><td>焦糖化</td><td>糖類分解與褐變</td><td>焦糖、黑糖、蜂蜜甜感</td></tr><tr><td>發展期</td><td>一爆後到下豆</td><td>決定成熟度、酸甜苦平衡</td></tr></table></section>
+
+<section id="color" class="section"><h2>3. 烘焙變化、Agtron 與烘焙落點</h2><p><b>Agtron 數值越大，代表焙度越淺；數值越小，代表焙度越深。</b></p><table><tr><th>Agtron</th><th>焙度參考</th><th>風味</th></tr><tr><td>#95~#85</td><td>極淺焙／淺焙</td><td>酸高、花果香明顯</td></tr><tr><td>#75~#65</td><td>淺中焙／City Roast</td><td>產區特色清楚、酸甜平衡</td></tr><tr><td>#55</td><td>中深焙／Full City</td><td>甜感、焦糖、堅果</td></tr><tr><td>#45~#25</td><td>深焙至極深焙</td><td>苦甜、煙燻、烘烤味</td></tr></table><div class="note">不一定要到二爆才算完成烘焙。精品咖啡常在一爆後、二爆前下豆。</div><table><tr><th>下豆參考</th><th>時間</th><th>可能風味</th></tr><tr><td>淺中焙</td><td>一爆後約 1:00~1:40</td><td>花香、果酸、明亮</td></tr><tr><td>中焙</td><td>一爆後約 1:40~2:45</td><td>酸甜平衡、醇厚提升</td></tr><tr><td>深焙</td><td>一爆後約 2:45~4:00 或接近二爆</td><td>巧克力、焦糖、烘烤苦甜</td></tr></table></section>
+
+<section id="physical" class="section"><h2>4. 烘焙物理現象、失重率與體積增加率</h2><div class="grid"><div class="card"><h3>烘焙後的物理變化</h3><p>咖啡豆體積變大，最後可接近生豆兩倍；顏色由綠、黃、褐色逐漸變深；水分與氣體逸散，重量變輕。</p></div><div class="card"><h3>烘焙機影響</h3><p>滾筒設計、材質、轉速、熱風與火力控制，都會影響生豆翻轉熟化速度。</p></div></div><h3>失重率公式</h3><div class="formula">失重率 =（生豆重量 - 熟豆重量）÷ 生豆重量 × 100%</div><p>例：6000g 生豆，失重 15%，熟豆重量 = 6000 × 85% = <b>5100g</b>。</p><table><tr><th>焙度</th><th>失重率參考</th></tr><tr><td>淺焙</td><td>10%~13%</td></tr><tr><td>中焙</td><td>14%~16%</td></tr><tr><td>深焙</td><td>17%~22%以上</td></tr></table><h3>體積增加率公式</h3><div class="formula">體積增加率 =（烘後體積 - 烘前體積）÷ 烘前體積 × 100%</div><p>例：5L 變 7L，增加率 = (7-5) ÷ 5 = <b>40%</b>。</p></section>
+
+<section id="crack" class="section"><h2>5. 一爆與二爆</h2><div class="grid"><div class="card"><span class="badge">一爆 First Crack</span><p>豆內水蒸氣、CO₂ 與揮發性氣體累積壓力，超過細胞壁承受能力時，細胞壁破裂，發出清脆爆裂聲。</p><p><b>釋放：</b>CO₂、水蒸氣、有機酸與香氣物質。</p></div><div class="card"><span class="badge">二爆 Second Crack</span><p>較深焙時，纖維結構與細胞壁進一步崩解，聲音較細碎密集。</p><p><b>釋放：</b>熱能、CO₂、脂質、揮發性化合物、蒸氣與壓力。</p></div></div><table><tr><th>項目</th><th>一爆</th><th>二爆</th></tr><tr><td>原因</td><td>蒸氣壓力造成細胞壁破裂</td><td>細胞結構崩解</td></tr><tr><td>聲音</td><td>大聲清脆</td><td>細小密集</td></tr><tr><td>風味</td><td>花果香、酸甜感</td><td>煙燻、焦糖、苦甜</td></tr><tr><td>油脂</td><td>多在內部</td><td>開始浮出表面</td></tr></table></section>
+
+<section id="machine" class="section"><h2>6. 烘焙機元件與工作區安全</h2><table><tr><th>代號</th><th>名稱</th><th>功能</th></tr><tr><td>A</td><td>後燃機</td><td>燃燒廢氣、油煙與 VOC</td></tr><tr><td>B</td><td>下豆槽／豆倉</td><td>存放待烘生豆</td></tr><tr><td>C</td><td>風溫指標 ET</td><td>觀察熱風與環境溫度</td></tr><tr><td>D</td><td>烘焙滾筒</td><td>咖啡豆受熱與翻滾的位置</td></tr><tr><td>E</td><td>火排／燃燒器</td><td>提供熱能</td></tr><tr><td>F</td><td>冷卻盤</td><td>下豆後快速降溫</td></tr></table><div class="warn"><b>火災處理重點：</b>先關瓦斯，不要急著下豆。冷卻槽起火建議使用 CO₂ 滅火器；銀皮桶、排煙管、後燃機是高風險區。</div><table><tr><th>區域</th><th>產品安全</th><th>人身安全</th></tr><tr><td>生豆存放區</td><td>溫濕度、黴菌、蟲害</td><td>豆袋掉落、粉塵吸入</td></tr><tr><td>烘焙工作區</td><td>熟豆異物、設備污染</td><td>火災、燙傷、撿豆受傷</td></tr><tr><td>包裝儲放區</td><td>標籤錯誤、密封不良</td><td>封口機燙傷、搬箱受傷</td></tr><tr><td>運輸區</td><td>運輸污染、破包</td><td>台車操作不當受傷</td></tr></table></section>
+
+<section id="sop" class="section"><h2>7. 烘焙機操作手冊 SOP 與初級證照活動</h2><p>每台烘焙機都要建立自己的 SOP，包含冷卻關機溫度、銀皮桶清潔、鏈條保養、傳動帶檢查、瓦斯與排煙系統檢查。</p><div class="ok"><b>SOP目的：</b>品質一致、安全管理、新人訓練、設備壽命延長。</div><table><tr><th>檢查項目</th><th>建議頻率</th></tr><tr><td>清理銀皮桶、冷卻盤、關瓦斯</td><td>每日</td></tr><tr><td>清理排煙管、檢查風門與集塵處</td><td>每週</td></tr><tr><td>鏈條上油、皮帶鬆緊、軸承異音</td><td>每月</td></tr><tr><td>溫度探針校正、瓦斯安全檢測</td><td>定期</td></tr></table><h3>初級證照活動 A</h3><ul><li>了解烘焙曲線並確實記錄。</li><li>能烘焙淺、中、深三種焙度。</li><li>能計算發展率 DTR 與失重率 Loss Weight。</li><li>個人班：老師示範，學員複製；團體班：老師示範，學員觀察並記錄。</li></ul><div class="formula">DTR = 發展時間 ÷ 總烘焙時間 × 100%</div></section>
+
+<section id="test" class="section"><h2>8. 盲測三杯與燃燒器種類</h2><h3>盲測三杯</h3><p>準備三個焙度熟豆，現場盲測辨識淺焙、中焙、深焙，並能描述可能的下豆點與風味差異。</p><table><tr><th>焙度</th><th>感官特徵</th><th>判斷方向</th></tr><tr><td>淺焙</td><td>花香、果酸、苦低</td><td>一爆後較早下豆</td></tr><tr><td>中焙</td><td>酸甜平衡、焦糖、醇厚</td><td>一爆後中段下豆</td></tr><tr><td>深焙</td><td>苦甜、煙燻、烘烤香</td><td>接近二爆或二爆附近</td></tr></table><h3>燃燒器種類</h3><table><tr><th>種類</th><th>原理</th><th>特色</th></tr><tr><td>大氣式 Atmospheric Burner</td><td>自然吸入空氣與瓦斯混合</td><td>結構簡單、成本低、不需鼓風機</td></tr><tr><td>電子式／強制送風</td><td>鼓風機送入空氣與瓦斯混合</td><td>火力穩定、反應較快、維護較複雜</td></tr><tr><td>紅外線燃燒器</td><td>利用紅外線輻射熱加熱</td><td>熱效率高、受熱均勻、成本較高</td></tr></table></section>
+
+<section class="section"><h2>考前總整理</h2><div class="grid"><div class="card"><h3>必背公式</h3><p>失重率 =（生豆 - 熟豆）÷ 生豆 × 100%</p><p>DTR = 發展時間 ÷ 總烘焙時間 × 100%</p></div><div class="card"><h3>必背觀念</h3><p>Agtron 越大越淺；一爆是壓力破裂；二爆是結構崩解；冷卻要快速；銀皮要天天清。</p></div><div class="card"><h3>安全口訣</h3><p>火災先關氣、起火用 CO₂、銀皮天天清、設備定檢查、操作照 SOP。</p></div></div></section>
+</main><button class="print" onclick="window.print()">列印 / 存 PDF</button><footer class="footer">SCA CSP Roasting Notes Web Version</footer>
+
+<section id="roast-curve-summary">
+  <h2>📈 烘焙曲線總覽</h2>
+  <div class="curve-wrap">
+    <svg width="980" height="520" viewBox="0 0 980 520" role="img" aria-label="咖啡烘焙曲線圖">
+      <rect x="0" y="0" width="980" height="520" fill="#fffaf4"/>
+      <line x1="90" y1="430" x2="910" y2="430" stroke="#6b4a35" stroke-width="3"/>
+      <line x1="90" y1="60" x2="90" y2="430" stroke="#6b4a35" stroke-width="3"/>
+      <text x="35" y="70" font-size="22" fill="#3b251a">溫度℃</text>
+      <text x="840" y="470" font-size="22" fill="#3b251a">時間</text>
+      <rect x="90" y="440" width="280" height="28" fill="#f2d2a9"/>
+      <rect x="370" y="440" width="330" height="28" fill="#d9ad7c"/>
+      <rect x="700" y="440" width="210" height="28" fill="#a66a43"/>
+      <text x="175" y="462" font-size="20" fill="#3b251a">乾燥期</text>
+      <text x="475" y="462" font-size="20" fill="#3b251a">梅納反應期</text>
+      <text x="755" y="462" font-size="20" fill="#fff">發展期</text>
+      <path d="M100 110 C115 250, 130 390, 185 395 C260 395, 350 310, 430 250 C550 165, 675 135, 790 118 C835 110, 875 102, 910 92" fill="none" stroke="#5b3a29" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="100" cy="110" r="9" fill="#8b3f2b"/><text x="112" y="105" font-size="21" fill="#3b251a">A 入豆溫</text>
+      <circle cx="185" cy="395" r="9" fill="#8b3f2b"/><text x="200" y="400" font-size="21" fill="#3b251a">B 回溫點</text>
+      <circle cx="430" cy="250" r="9" fill="#8b3f2b"/><text x="445" y="250" font-size="21" fill="#3b251a">C 黃化點</text>
+      <circle cx="700" cy="132" r="9" fill="#8b3f2b"/><text x="715" y="135" font-size="21" fill="#3b251a">D 一爆開始</text>
+      <circle cx="790" cy="118" r="9" fill="#8b3f2b"/><text x="805" y="120" font-size="21" fill="#3b251a">E 二爆附近</text>
+      <circle cx="910" cy="92" r="9" fill="#8b3f2b"/><text x="790" y="82" font-size="21" fill="#3b251a">F 下豆點</text>
+      <text x="115" y="505" font-size="20" fill="#3b251a">流程：入豆 → 回溫 → 乾燥黃化 → 梅納反應 → 一爆 → 發展 → 下豆 → 冷卻</text>
+    </svg>
+  </div>
+  <table>
+    <tr><th>階段</th><th>大約範圍</th><th>重點</th><th>常見風味方向</th></tr>
+    <tr><td>乾燥期</td><td>入豆至黃化</td><td>水分蒸發、豆色由綠轉黃</td><td>青草味轉為穀物、麵包香</td></tr>
+    <tr><td>梅納反應期</td><td>黃化至一爆</td><td>糖類與胺基酸反應，形成香氣與褐變</td><td>堅果、麥芽、焦糖、甜感</td></tr>
+    <tr><td>發展期</td><td>一爆至下豆</td><td>決定酸甜苦平衡與焙度落點</td><td>淺焙保留花果酸；深焙增加苦甜烘烤味</td></tr>
+  </table>
+</section>
+
+<section id="sca-keypoints">
+  <h2>✅ SCA 初級烘焙重點總整理</h2>
+  <div class="note"><strong>一句話記憶：</strong>烘焙就是控制「時間、溫度、熱能、氣流、下豆點」，讓咖啡豆從生豆轉化成具有香氣、甜感與適當焙度的熟豆。</div>
+  <table>
+    <tr><th>主題</th><th>必懂重點</th></tr>
+    <tr><td>淺焙</td><td>果花香明顯、酸質高、苦味低，較能表現產區特色。</td></tr>
+    <tr><td>深焙</td><td>酸質降低、苦味增加，烘烤香、焦糖、黑巧克力感提高。</td></tr>
+    <tr><td>Agtron</td><td>數值越大代表顏色越淺；數值越小代表焙度越深。</td></tr>
+    <tr><td>一爆</td><td>豆內水蒸氣與氣體壓力增加，造成細胞壁破裂。</td></tr>
+    <tr><td>二爆</td><td>細胞結構進一步崩解，油脂容易浮出，風味走向深焙。</td></tr>
+    <tr><td>失重率</td><td>焙度越深，失重率通常越高。淺焙約10–13%，中焙約14–16%，深焙約17–22%以上。</td></tr>
+    <tr><td>安全</td><td>火災先關瓦斯；銀皮桶、排煙管與後燃機需定期清潔。</td></tr>
+  </table>
+</section>
+
+<section id="quiz">
+  <h2>📝 模擬考題</h2>
+  <div class="quiz"><strong>1. Agtron 值越高代表什麼？</strong><br>答：顏色越淺，焙度越淺。</div>
+  <div class="quiz"><strong>2. 一爆形成的主要原因是什麼？</strong><br>答：豆內水蒸氣與氣體壓力增加，造成細胞壁破裂。</div>
+  <div class="quiz"><strong>3. 生豆 6000g，烘後熟豆 5100g，失重率是多少？</strong><br>答：(6000-5100) ÷ 6000 × 100% = 15%。</div>
+  <div class="quiz"><strong>4. 烘焙機起火時，第一步通常應該做什麼？</strong><br>答：先關瓦斯與火源，不要慌張下豆。</div>
+  <div class="quiz"><strong>5. 淺焙、中焙、深焙的風味差異？</strong><br>答：淺焙花果香與酸質明顯；中焙酸甜平衡；深焙苦甜、焦糖與烘烤香明顯。</div>
+</section>
+
+</body></html>
 
