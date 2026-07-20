@@ -334,6 +334,57 @@ footer{text-align:center;color:var(--muted);padding:28px 0 4px;font-size:.9rem}
   .search-actions{display:grid;grid-template-columns:1fr 1fr}
   .search-btn,.clear-btn{padding:12px}
 }
+
+.back-home{
+display:inline-block;
+margin:40px auto;
+padding:14px 32px;
+background:#6F4E37;
+color:#fff;
+text-decoration:none;
+border-radius:10px;
+font-size:18px;
+font-weight:600;
+transition:.3s;
+}
+.back-home:hover{
+background:#4E342E;
+transform:translateY(-2px);
+}
+
+
+/* 咖啡產區卡片：提高背景與文字辨識度 */
+.tile.c7{
+    background:linear-gradient(135deg,#123d26 0%,#1f6b3d 58%,#2f8a50 100%);
+    color:#ffffff;
+    border-color:rgba(255,255,255,.18);
+    box-shadow:0 14px 30px rgba(18,61,38,.28);
+}
+.tile.c7 h2{
+    color:#ffffff;
+    text-shadow:0 2px 5px rgba(0,0,0,.28);
+}
+.tile.c7 .en{
+    color:#ffe49a;
+    font-weight:700;
+}
+.tile.c7 p{
+    color:#f4fff7;
+}
+.tile.c7 .emoji{
+    filter:drop-shadow(0 3px 5px rgba(0,0,0,.25));
+}
+.tile.c7 .badge{
+    background:#ffd166;
+    color:#3f2d16;
+    border:1px solid rgba(255,255,255,.55);
+    font-weight:800;
+}
+.tile.c7:hover{
+    transform:translateY(-5px);
+    box-shadow:0 18px 38px rgba(18,61,38,.36);
+}
+
 </style>
 </head>
 <body>
@@ -470,12 +521,17 @@ footer{text-align:center;color:var(--muted);padding:28px 0 4px;font-size:.9rem}
   <span class="badge">🚧 建置中</span>
 </div>
 
-<div class="tile pending"
+<a class="tile active-card c7"
  data-category="產區"
- data-keywords="咖啡產區 coffee origin 衣索比亞 耶加雪菲 哥倫比亞 巴拿馬 藝伎 非洲 中南美洲 亞洲 咖啡帶">
+ data-keywords="咖啡產區 coffee origin 衣索比亞 耶加雪菲 哥倫比亞 巴拿馬 藝伎 非洲 中南美洲 亞洲 咖啡帶"
+ href="https://wenwei1967.github.io/kaffa98.github.io/coffee-origin/"
+ target="_blank" rel="noopener noreferrer">
   <div class="emoji">🌍</div>
   <h2>咖啡產區</h2>
   <div class="en">Coffee Origin</div>
+  <p>探索非洲、中南美洲與亞洲產地特色</p>
+  <span class="badge">✓ 已上線</span>
+</a>
   <p>探索非洲、中南美洲與亞洲產地特色</p>
   <span class="badge">🚧 建置中</span>
 </div>
@@ -509,8 +565,8 @@ footer{text-align:center;color:var(--muted);padding:28px 0 4px;font-size:.9rem}
 </div>
 
 <section class="stats">
-  <div class="stat"><strong>7</strong><span>已上線教材</span></div>
-  <div class="stat"><strong>3</strong><span>建置中主題</span></div>
+  <div class="stat"><strong>8</strong><span>已上線教材</span></div>
+  <div class="stat"><strong>2</strong><span>建置中主題</span></div>
   <div class="stat"><strong>80+</strong><span>搜尋關鍵字</span></div>
   <div class="stat"><strong>2026/07</strong><span>最近更新</span></div>
 </section>
