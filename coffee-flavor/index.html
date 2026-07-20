@@ -1,1 +1,621 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>咖啡風味｜Kaffa98 咖啡知識庫</title>
+<meta name="description" content="以圖文方式認識咖啡香氣、酸質、甜感、醇厚度、尾韻與常見風味來源。">
+<style>
+:root{
+  --coffee:#5a3825;
+  --coffee-dark:#2f2119;
+  --cream:#fffaf2;
+  --paper:#fffdf8;
+  --gold:#c68a2b;
+  --green:#3f6f55;
+  --rose:#a95a67;
+  --blue:#477a9b;
+  --line:#eadbc7;
+  --text:#332822;
+  --muted:#75665d;
+  --shadow:0 12px 32px rgba(62,39,24,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"Noto Sans TC","Microsoft JhengHei",Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 8% 0%,rgba(198,138,43,.10),transparent 28%),
+    linear-gradient(180deg,#fffdf8,#f7efe4);
+  line-height:1.8;
+}
+a{color:inherit}
+.hero{
+  min-height:72vh;
+  padding:78px 20px 56px;
+  display:grid;
+  place-items:center;
+  background:
+    linear-gradient(135deg,rgba(31,19,14,.88),rgba(78,46,28,.76)),
+    radial-gradient(circle at 75% 25%,rgba(255,209,102,.22),transparent 28%);
+  color:white;
+  overflow:hidden;
+}
+.hero-wrap{
+  width:min(1180px,100%);
+  display:grid;
+  grid-template-columns:1.08fr .92fr;
+  gap:46px;
+  align-items:center;
+}
+.kicker{
+  display:inline-flex;
+  gap:8px;
+  align-items:center;
+  padding:7px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.28);
+  font-weight:800;
+}
+.hero h1{
+  margin:18px 0 12px;
+  font-size:clamp(2.5rem,6vw,5.4rem);
+  line-height:1.08;
+  letter-spacing:.04em;
+}
+.hero p{
+  margin:0;
+  max-width:700px;
+  font-size:clamp(1.05rem,2vw,1.35rem);
+  color:#f6eadc;
+}
+.hero-note{
+  margin-top:24px;
+  padding:16px 18px;
+  border-left:4px solid #ffd166;
+  background:rgba(255,255,255,.08);
+  border-radius:10px;
+}
+.hero-art{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:30px;
+  padding:24px;
+  box-shadow:0 22px 60px rgba(0,0,0,.28);
+}
+.hero-art svg{display:block;width:100%;height:auto}
+.nav{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:rgba(255,253,248,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  width:min(1180px,calc(100% - 28px));
+  margin:auto;
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding:12px 0;
+}
+.nav a{
+  flex:0 0 auto;
+  text-decoration:none;
+  padding:8px 13px;
+  border-radius:999px;
+  background:#fff;
+  border:1px solid var(--line);
+  font-weight:800;
+  color:var(--coffee);
+}
+main{
+  width:min(1180px,calc(100% - 28px));
+  margin:auto;
+  padding:48px 0 70px;
+}
+.section{
+  margin:0 0 34px;
+  padding:34px;
+  border-radius:26px;
+  background:rgba(255,255,255,.92);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+}
+.section h2{
+  margin:0 0 10px;
+  color:var(--coffee);
+  font-size:clamp(1.65rem,3vw,2.35rem);
+  line-height:1.3;
+}
+.lead{font-size:1.08rem;color:var(--muted)}
+.grid-4,.grid-3,.grid-2{
+  display:grid;
+  gap:18px;
+  margin-top:22px;
+}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+.card{
+  padding:22px;
+  border-radius:20px;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg,#fff,#fffaf3);
+}
+.card .icon{font-size:2.35rem}
+.card h3{margin:8px 0 5px;color:var(--coffee-dark)}
+.card p{margin:0;color:var(--muted)}
+.diagram{
+  margin-top:22px;
+  border-radius:22px;
+  overflow:hidden;
+  background:#f9f3e9;
+  border:1px solid var(--line);
+}
+.diagram svg{display:block;width:100%;height:auto}
+.flow{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:10px;
+  align-items:stretch;
+  margin-top:20px;
+}
+.step{
+  min-height:112px;
+  padding:16px 10px;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  border-radius:17px;
+  background:#fff8ec;
+  border:1px solid var(--line);
+  font-weight:800;
+  color:var(--coffee);
+  position:relative;
+}
+.step:not(:last-child)::after{
+  content:"➜";
+  position:absolute;
+  right:-18px;
+  top:41%;
+  z-index:2;
+  color:var(--gold);
+  font-size:1.4rem;
+}
+.flavor-card{
+  position:relative;
+  overflow:hidden;
+  min-height:210px;
+}
+.flavor-card::after{
+  content:"";
+  position:absolute;
+  width:120px;height:120px;border-radius:50%;
+  right:-35px;bottom:-45px;
+  background:rgba(255,255,255,.45);
+}
+.flower{background:linear-gradient(135deg,#fff4f7,#f8d9e2)}
+.fruit{background:linear-gradient(135deg,#fff5e7,#ffd9aa)}
+.nut{background:linear-gradient(135deg,#fbf1df,#e7c58d)}
+.cocoa{background:linear-gradient(135deg,#f4e8df,#c89d80)}
+.scale{
+  margin-top:16px;
+  display:grid;
+  grid-template-columns:120px 1fr;
+  gap:10px 14px;
+  align-items:center;
+}
+.bar{
+  height:14px;
+  background:#eee4d7;
+  border-radius:999px;
+  overflow:hidden;
+}
+.bar span{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--coffee))}
+.table-wrap{overflow-x:auto;margin-top:18px}
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:760px;
+}
+th,td{
+  padding:14px;
+  border-bottom:1px solid var(--line);
+  text-align:left;
+}
+th{background:#f8efe4;color:var(--coffee)}
+.tip{
+  margin-top:18px;
+  padding:16px 18px;
+  border-radius:15px;
+  background:#f2f8f4;
+  border-left:5px solid var(--green);
+}
+.warning{
+  margin-top:18px;
+  padding:16px 18px;
+  border-radius:15px;
+  background:#fff4f1;
+  border-left:5px solid #bf5c4a;
+}
+.refs ol{padding-left:22px}
+.refs li{margin:10px 0}
+.refs a{color:#225d87;word-break:break-word}
+.footer-btn{
+  display:flex;
+  justify-content:center;
+  margin-top:30px;
+}
+.footer-btn a{
+  display:inline-block;
+  padding:14px 24px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--coffee),#8b5a35);
+  color:#fff;
+  font-weight:900;
+  text-decoration:none;
+  box-shadow:0 10px 25px rgba(72,43,27,.22);
+}
+.small{font-size:.92rem;color:var(--muted)}
+@media(max-width:900px){
+  .hero-wrap{grid-template-columns:1fr}
+  .grid-4,.grid-3{grid-template-columns:repeat(2,1fr)}
+  .flow{grid-template-columns:repeat(2,1fr)}
+  .step:not(:last-child)::after{display:none}
+}
+@media(max-width:620px){
+  .section{padding:24px 18px}
+  .grid-4,.grid-3,.grid-2{grid-template-columns:1fr}
+  .flow{grid-template-columns:1fr}
+  .scale{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-wrap">
+    <div>
+      <span class="kicker">☕ Kaffa98 咖啡知識庫</span>
+      <h1>咖啡風味<br>如何品嚐與描述</h1>
+      <p>從香氣、酸質、甜感、醇厚度到尾韻，建立一套清楚、可練習的咖啡風味辨識方法。</p>
+      <div class="hero-note">
+        咖啡中的花香、果香、堅果或巧克力感，多數並不是額外添加香料，而是由品種、產地、處理、烘焙與沖煮共同形成的感官印象。
+      </div>
+    </div>
+
+    <div class="hero-art" aria-label="咖啡風味示意圖">
+      <svg viewBox="0 0 620 500" role="img">
+        <defs>
+          <radialGradient id="cup" cx="50%" cy="42%" r="60%">
+            <stop offset="0" stop-color="#7b4b2c"/>
+            <stop offset="1" stop-color="#2b1912"/>
+          </radialGradient>
+        </defs>
+        <circle cx="310" cy="250" r="210" fill="#fff8e7" opacity=".95"/>
+        <circle cx="310" cy="250" r="142" fill="#f3dbc0"/>
+        <circle cx="310" cy="250" r="105" fill="url(#cup)"/>
+        <circle cx="310" cy="250" r="82" fill="#432519"/>
+        <path d="M405 205 C500 180,520 305,420 320" fill="none" stroke="#f3dbc0" stroke-width="28" stroke-linecap="round"/>
+        <g font-size="34">
+          <text x="78" y="125">🌸</text>
+          <text x="470" y="135">🍊</text>
+          <text x="72" y="370">🫐</text>
+          <text x="472" y="370">🍫</text>
+          <text x="282" y="58">🍯</text>
+          <text x="286" y="455">🌰</text>
+        </g>
+        <g fill="#fff" font-size="18" font-weight="700" text-anchor="middle">
+          <text x="310" y="242">AROMA</text>
+          <text x="310" y="270">FLAVOR</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#what">什麼是風味</a>
+    <a href="#formation">風味形成</a>
+    <a href="#wheel">風味輪</a>
+    <a href="#families">風味家族</a>
+    <a href="#taste">品嚐方法</a>
+    <a href="#roast">烘焙關係</a>
+    <a href="#references">引用來源</a>
+  </div>
+</nav>
+
+<main>
+<section class="section" id="what">
+  <h2>一、什麼是咖啡風味？</h2>
+  <p class="lead">「風味」不是單一味道，而是嗅覺、味覺與口腔觸感共同產生的整體感受。</p>
+
+  <div class="grid-4">
+    <article class="card">
+      <div class="icon">👃</div>
+      <h3>香氣 Aroma</h3>
+      <p>包含乾香、注水後的濕香，以及入口後由鼻腔後端感受到的香氣。</p>
+    </article>
+    <article class="card">
+      <div class="icon">🍋</div>
+      <h3>酸質 Acidity</h3>
+      <p>可呈現柑橘、莓果、蘋果或葡萄般的明亮感，不等於腐敗或尖酸。</p>
+    </article>
+    <article class="card">
+      <div class="icon">🍯</div>
+      <h3>甜感 Sweetness</h3>
+      <p>可能讓人聯想到蜂蜜、蔗糖、焦糖或成熟水果的自然甜感。</p>
+    </article>
+    <article class="card">
+      <div class="icon">🥛</div>
+      <h3>醇厚度 Body</h3>
+      <p>是咖啡在口中的重量與質地，例如清爽、茶感、滑順、奶油感或厚實。</p>
+    </article>
+  </div>
+
+  <div class="grid-2">
+    <article class="card">
+      <div class="icon">⚖️</div>
+      <h3>平衡 Balance</h3>
+      <p>酸、甜、苦、香氣與口感彼此協調，沒有某一項過度突出或互相衝突。</p>
+    </article>
+    <article class="card">
+      <div class="icon">⏳</div>
+      <h3>尾韻 Aftertaste</h3>
+      <p>吞下咖啡後仍留在口中的感受；可觀察其長短、乾淨度與風味變化。</p>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="formation">
+  <h2>二、咖啡風味如何形成？</h2>
+  <p class="lead">同一種咖啡豆，經過不同處理、烘焙與沖煮，最後可能呈現完全不同的風味。</p>
+
+  <div class="flow">
+    <div class="step">🧬<br>品種</div>
+    <div class="step">⛰️<br>產地與海拔</div>
+    <div class="step">🌤️<br>氣候與成熟度</div>
+    <div class="step">🍒<br>處理法</div>
+    <div class="step">🔥<br>烘焙</div>
+    <div class="step">💧<br>沖煮</div>
+    <div class="step">☕<br>杯中風味</div>
+  </div>
+
+  <div class="grid-3">
+    <article class="card">
+      <h3>品種與產地</h3>
+      <p>品種會影響香氣潛力、酸質與口感；土壤、日照、雨量及海拔則影響成熟速度與風味密度。</p>
+    </article>
+    <article class="card">
+      <h3>處理法</h3>
+      <p>水洗常較乾淨明亮；日曬常有較濃郁的果香與甜感；蜜處理則常介於兩者之間。</p>
+    </article>
+    <article class="card">
+      <h3>烘焙與沖煮</h3>
+      <p>烘焙決定風味發展方向，沖煮則影響萃取濃度、平衡與乾淨度。</p>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="wheel">
+  <h2>三、如何看懂咖啡風味輪？</h2>
+  <p class="lead">風味輪的使用方式是由中心的大分類，逐步往外找到更精確的描述詞。</p>
+
+  <div class="diagram">
+    <svg viewBox="0 0 980 520" role="img" aria-label="簡化咖啡風味輪示意">
+      <rect width="980" height="520" fill="#fffaf1"/>
+      <circle cx="490" cy="260" r="190" fill="#f2dfc2"/>
+      <path d="M490 260 L490 70 A190 190 0 0 1 654 165 Z" fill="#e8a8bd"/>
+      <path d="M490 260 L654 165 A190 190 0 0 1 676 319 Z" fill="#f2b66d"/>
+      <path d="M490 260 L676 319 A190 190 0 0 1 584 425 Z" fill="#be8a62"/>
+      <path d="M490 260 L584 425 A190 190 0 0 1 396 425 Z" fill="#8d5d45"/>
+      <path d="M490 260 L396 425 A190 190 0 0 1 304 319 Z" fill="#9fbe71"/>
+      <path d="M490 260 L304 319 A190 190 0 0 1 326 165 Z" fill="#76a6c9"/>
+      <path d="M490 260 L326 165 A190 190 0 0 1 490 70 Z" fill="#b692d0"/>
+      <circle cx="490" cy="260" r="82" fill="#fff" stroke="#e3c9a9" stroke-width="3"/>
+      <g font-size="22" font-weight="800" text-anchor="middle" fill="#3e2b22">
+        <text x="490" y="252">由內向外</text>
+        <text x="490" y="282">逐步描述</text>
+        <text x="563" y="125">花香</text>
+        <text x="652" y="248">水果</text>
+        <text x="610" y="395">堅果</text>
+        <text x="490" y="450">可可</text>
+        <text x="360" y="395">香料</text>
+        <text x="330" y="245">發酵</text>
+        <text x="415" y="125">其他</text>
+      </g>
+      <g font-size="17" fill="#5d4a40">
+        <text x="760" y="120">例：</text>
+        <text x="760" y="160">水果 → 莓果 → 藍莓</text>
+        <text x="760" y="205">甜香 → 焦糖 → 黑糖</text>
+        <text x="760" y="250">花香 → 白花 → 茉莉</text>
+        <text x="760" y="295">可可 → 黑巧克力</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="tip">
+    使用風味輪時，不必一開始就猜「藍莓」。先確認它屬於水果、莓果還是柑橘，再逐步縮小範圍，會更容易建立穩定的感官記憶。
+  </div>
+</section>
+
+<section class="section" id="families">
+  <h2>四、常見的四大風味家族</h2>
+  <div class="grid-4">
+    <article class="card flavor-card flower">
+      <div class="icon">🌸</div>
+      <h3>花香類</h3>
+      <p>茉莉、橙花、玫瑰、薰衣草、茶花。常見於香氣細緻、烘焙較淺的咖啡。</p>
+    </article>
+    <article class="card flavor-card fruit">
+      <div class="icon">🍓</div>
+      <h3>水果類</h3>
+      <p>柑橘、莓果、核果、葡萄、熱帶水果。可能呈現明亮、鮮甜或酒香般的感受。</p>
+    </article>
+    <article class="card flavor-card nut">
+      <div class="icon">🌰</div>
+      <h3>堅果與焦糖</h3>
+      <p>杏仁、榛果、花生、焦糖、黑糖與蜂蜜，常帶來溫暖、甜潤的印象。</p>
+    </article>
+    <article class="card flavor-card cocoa">
+      <div class="icon">🍫</div>
+      <h3>可可與烘烤</h3>
+      <p>牛奶巧克力、黑巧克力、可可粉、烤麵包與煙燻，常隨烘焙加深而更明顯。</p>
+    </article>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>大分類</th><th>常見描述詞</th><th>感官聯想</th><th>常見情境</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>花香</td><td>茉莉、橙花、玫瑰</td><td>清雅、細緻、上揚</td><td>高海拔、淺焙、乾淨處理</td></tr>
+        <tr><td>水果</td><td>檸檬、莓果、桃子、葡萄</td><td>明亮、鮮甜、多汁</td><td>淺焙、日曬或特殊發酵</td></tr>
+        <tr><td>堅果</td><td>杏仁、榛果、花生</td><td>溫暖、圓潤、熟香</td><td>中焙、中南美洲常見</td></tr>
+        <tr><td>甜香</td><td>蜂蜜、焦糖、黑糖</td><td>甜潤、黏稠、圓滑</td><td>發展良好的中焙</td></tr>
+        <tr><td>可可</td><td>可可粉、牛奶巧克力、黑巧克力</td><td>厚實、沉穩、苦甜</td><td>中深焙至深焙</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section" id="taste">
+  <h2>五、咖啡風味的實際品嚐步驟</h2>
+  <div class="grid-3">
+    <article class="card">
+      <div class="icon">1️⃣</div>
+      <h3>先聞乾香</h3>
+      <p>研磨後先聞咖啡粉，記錄花香、果香、堅果或烘烤香等第一印象。</p>
+    </article>
+    <article class="card">
+      <div class="icon">2️⃣</div>
+      <h3>再聞濕香</h3>
+      <p>加入熱水後觀察香氣是否變得更甜、更熟，或出現發酵、香料等特徵。</p>
+    </article>
+    <article class="card">
+      <div class="icon">3️⃣</div>
+      <h3>啜吸並霧化</h3>
+      <p>讓咖啡液均勻散布在口腔，增加香氣與味覺接觸面積。</p>
+    </article>
+    <article class="card">
+      <div class="icon">4️⃣</div>
+      <h3>先判斷基本結構</h3>
+      <p>先找酸、甜、苦、醇厚度與乾淨度，再進一步描述具體風味。</p>
+    </article>
+    <article class="card">
+      <div class="icon">5️⃣</div>
+      <h3>由大類往小類找</h3>
+      <p>例如先判斷是水果，再分辨柑橘、莓果、核果或熱帶水果。</p>
+    </article>
+    <article class="card">
+      <div class="icon">6️⃣</div>
+      <h3>觀察降溫變化</h3>
+      <p>咖啡降溫後，甜感、酸質與細緻香氣通常更容易辨識。</p>
+    </article>
+  </div>
+
+  <div class="warning">
+    常見誤解：酸不等於壞掉；苦不等於濃郁；聞到水果感也不代表咖啡加入了水果香料。
+  </div>
+</section>
+
+<section class="section" id="roast">
+  <h2>六、烘焙程度與風味表現</h2>
+  <p class="lead">下列為一般趨勢，實際結果仍會受到生豆、烘焙曲線與沖煮條件影響。</p>
+
+  <div class="grid-3">
+    <article class="card">
+      <h3>淺焙</h3>
+      <div class="scale">
+        <span>花香</span><div class="bar"><span style="width:92%"></span></div>
+        <span>水果</span><div class="bar"><span style="width:90%"></span></div>
+        <span>酸質</span><div class="bar"><span style="width:85%"></span></div>
+        <span>烘烤感</span><div class="bar"><span style="width:25%"></span></div>
+      </div>
+    </article>
+    <article class="card">
+      <h3>中焙</h3>
+      <div class="scale">
+        <span>甜感</span><div class="bar"><span style="width:88%"></span></div>
+        <span>焦糖</span><div class="bar"><span style="width:82%"></span></div>
+        <span>堅果</span><div class="bar"><span style="width:74%"></span></div>
+        <span>平衡</span><div class="bar"><span style="width:90%"></span></div>
+      </div>
+    </article>
+    <article class="card">
+      <h3>深焙</h3>
+      <div class="scale">
+        <span>可可</span><div class="bar"><span style="width:90%"></span></div>
+        <span>煙燻</span><div class="bar"><span style="width:78%"></span></div>
+        <span>苦感</span><div class="bar"><span style="width:84%"></span></div>
+        <span>產地香</span><div class="bar"><span style="width:35%"></span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <h2>七、建立自己的風味記憶庫</h2>
+  <div class="grid-3">
+    <article class="card">
+      <div class="icon">🍎</div>
+      <h3>實際聞與吃</h3>
+      <p>比較檸檬、橙子、蘋果、葡萄、莓果、堅果、蜂蜜與巧克力，建立真實記憶。</p>
+    </article>
+    <article class="card">
+      <div class="icon">📝</div>
+      <h3>固定格式紀錄</h3>
+      <p>每次都以香氣、酸質、甜感、醇厚度、風味與尾韻的順序記錄。</p>
+    </article>
+    <article class="card">
+      <div class="icon">👥</div>
+      <h3>多人交叉比較</h3>
+      <p>感官描述具有個人差異，與他人討論可幫助校正詞彙與強度判斷。</p>
+    </article>
+  </div>
+</section>
+
+<section class="section refs" id="references">
+  <h2>八、引用資料來源（References）</h2>
+  <p class="lead">本頁圖示與示意圖均為本站自行繪製；文字內容參考下列咖啡感官與杯測資料整理。</p>
+  <ol>
+    <li>Specialty Coffee Association. <em>Coffee Taster’s Flavor Wheel</em> 與咖啡感官相關教育資料。<br>
+      <a href="https://sca.coffee/research/coffee-tasters-flavor-wheel" target="_blank" rel="noopener">https://sca.coffee/research/coffee-tasters-flavor-wheel</a>
+    </li>
+    <li>World Coffee Research. <em>World Coffee Research Sensory Lexicon</em>。<br>
+      <a href="https://worldcoffeeresearch.org/resources/sensory-lexicon" target="_blank" rel="noopener">https://worldcoffeeresearch.org/resources/sensory-lexicon</a>
+    </li>
+    <li>Specialty Coffee Association. 咖啡杯測、感官評估與教育資源。<br>
+      <a href="https://sca.coffee/" target="_blank" rel="noopener">https://sca.coffee/</a>
+    </li>
+    <li>Coffee Quality Institute. 咖啡品質與感官評估相關資料。<br>
+      <a href="https://www.coffeeinstitute.org/" target="_blank" rel="noopener">https://www.coffeeinstitute.org/</a>
+    </li>
+    <li>International Coffee Organization. 咖啡產業與產地背景資料。<br>
+      <a href="https://www.ico.org/" target="_blank" rel="noopener">https://www.ico.org/</a>
+    </li>
+    <li>Hoffmann, J. <em>The World Atlas of Coffee</em>. Mitchell Beazley.</li>
+  </ol>
+
+  <h3>圖像與版權說明</h3>
+  <p class="small">
+    本頁所使用的咖啡杯、風味分類與流程圖皆為教學用途之原創 SVG 示意圖，並非 SCA 官方風味輪複製圖。
+    「Coffee Taster’s Flavor Wheel」及相關名稱之著作權與商標權歸原權利人所有。本頁僅作教育性介紹與資料引用。
+  </p>
+</section>
+
+<div class="footer-btn">
+  <a href="https://wenwei1967.github.io/kaffa98.github.io/">🏠 返回咖啡知識庫</a>
+</div>
+</main>
+
+</body>
+</html>
 
