@@ -1,1 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>咖啡樣本烘焙與杯測教學</title>
+  <style>
+    :root{
+      --coffee:#5a3e2b;
+      --dark:#2b211b;
+      --cream:#f8f3eb;
+      --light:#fffaf3;
+      --accent:#c58b4c;
+      --green:#69785d;
+      --red:#a34b3c;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Noto Sans TC","Microsoft JhengHei",Arial,sans-serif;
+      line-height:1.8;
+      color:#2d2722;
+      background:var(--cream);
+    }
+    header{
+      background:linear-gradient(135deg,rgba(43,33,27,.92),rgba(90,62,43,.88)), 
+        radial-gradient(circle at 30% 20%,#9b6b42 0,#2b211b 55%);
+      color:white;
+      padding:72px 24px 56px;
+      text-align:center;
+    }
+    header h1{font-size:clamp(2rem,5vw,4rem);margin:0 0 12px;letter-spacing:.08em}
+    header p{font-size:1.15rem;max-width:900px;margin:auto;color:#f1e4d5}
+    nav{
+      position:sticky;top:0;z-index:10;
+      background:#fff;border-bottom:1px solid #eadfce;
+      overflow-x:auto;white-space:nowrap;padding:10px 14px;
+      box-shadow:0 2px 8px rgba(0,0,0,.05)
+    }
+    nav a{display:inline-block;color:var(--coffee);text-decoration:none;padding:8px 12px;border-radius:999px;font-weight:700}
+    nav a:hover{background:#f1e5d5}
+    main{max-width:1120px;margin:auto;padding:28px 18px 60px}
+    section{
+      background:var(--light);
+      margin:24px 0;
+      padding:28px;
+      border-radius:22px;
+      box-shadow:0 8px 24px rgba(72,45,20,.08);
+      border:1px solid #eadfce;
+    }
+    h2{color:var(--coffee);font-size:1.8rem;margin:0 0 12px;border-left:8px solid var(--accent);padding-left:14px}
+    h3{color:#3d2c20;margin-top:26px}
+    .lead{font-size:1.1rem;background:#f1e5d5;padding:16px 18px;border-radius:14px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+    .card{background:white;border-radius:16px;padding:18px;border:1px solid #eadfce}
+    .card b{color:var(--coffee)}
+    table{width:100%;border-collapse:collapse;background:white;border-radius:14px;overflow:hidden;margin:14px 0}
+    th,td{border:1px solid #e6d8c5;padding:10px 12px;text-align:left;vertical-align:top}
+    th{background:#7b5738;color:white}
+    .note{border-left:6px solid var(--green);background:#eef3ea;padding:14px 16px;border-radius:10px}
+    .warn{border-left:6px solid var(--red);background:#fff0ed;padding:14px 16px;border-radius:10px}
+    .flow{font-family:ui-monospace,Consolas,monospace;background:#2b211b;color:#fff;padding:18px;border-radius:14px;overflow:auto}
+    .pill{display:inline-block;background:#efe1ce;color:#5a3e2b;border-radius:999px;padding:3px 10px;margin:3px;font-weight:700}
+    .timeline{border-left:4px solid var(--accent);padding-left:18px}
+    .timeline div{margin:12px 0;background:white;border-radius:12px;padding:12px 14px;border:1px solid #eadfce}
+    .formula{font-size:1.2rem;text-align:center;background:#fff;border:2px dashed #d1a873;border-radius:14px;padding:12px;margin:12px 0}
+    .footer{text-align:center;color:#6a5a4d;padding:28px}
+    @media(max-width:700px){
+      section{padding:20px}
+      th,td{font-size:.92rem;padding:8px}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>咖啡樣本烘焙與杯測教學</h1>
+  <p>整合 Sample Roasting、烘焙曲線、ROR、Agtron、SCA 杯測、熱傳遞、排氣、安全與生豆儲存重點。</p>
+</header>
+
+<nav>
+  <a href="#sample">樣本烘焙</a>
+  <a href="#curve">烘焙曲線</a>
+  <a href="#agtron">Agtron</a>
+  <a href="#cupping">杯測</a>
+  <a href="#ror">ROR與密度</a>
+  <a href="#heat">熱傳遞</a>
+  <a href="#production">生產路徑</a>
+  <a href="#safety">安全與儲存</a>
+</nav>
+
+<main>
+
+<section id="sample">
+  <h2>一、什麼是樣本烘焙 Sample Roasting？</h2>
+  <p class="lead">樣本烘焙是指在大量採購生豆前，先用少量生豆進行烘焙與杯測，用最小成本評估生豆品質、風味潛力與是否值得採購。</p>
+  <div class="grid">
+    <div class="card"><b>目的 1：評估生豆品質</b><br>判斷陌生生豆是否好喝，是否有花香、果酸、甜感、醇厚度與乾淨度。</div>
+    <div class="card"><b>目的 2：避免浪費</b><br>先用 50g～200g 測試，避免直接採購大量生豆後才發現品質不佳。</div>
+    <div class="card"><b>目的 3：採購決策</b><br>收到樣品 → 樣本烘焙 → 杯測 → 評分 → 決定是否購買。</div>
+  </div>
+
+  <h3>樣本烘焙的核心原則</h3>
+  <ul>
+    <li>必須嚴謹，確保每次操作具有一致性。</li>
+    <li>不同樣品最好使用相同流程，才能公平比較。</li>
+    <li>不能一個發展過度、一個中度發展，否則無法比較生豆本質。</li>
+    <li>樣本烘焙後的結果，常用來預估未來新豆上架的風味。</li>
+  </ul>
+
+  <h3>樣本烘焙流程</h3>
+  <div class="timeline">
+    <div><b>0:00</b> 預熱烘焙機、設定風量與火力、下豆並啟動計時。</div>
+    <div><b>0:30～1:30</b> 提高溫度，建立熱能；注意不要讓風量過大造成熱量流失。</div>
+    <div><b>2:00～3:00</b> 水分自生豆排出，需要引導排流，排除濕氣與銀皮。</div>
+    <div><b>3:00～4:00</b> 開始 yellowish 黃化，注意氣味由草味轉向穀物、麥香。</div>
+    <div><b>4:00 後</b> 進入梅納反應，產生麵包、堅果、焦糖等香氣。</div>
+    <div><b>7:00～8:00</b> 一爆前檢查香氣，如有煙感可增加氣流。</div>
+    <div><b>約 9:00</b> 一爆後 60～120 秒下豆並快速冷卻。</div>
+  </div>
+
+  <div class="flow">收到生豆樣品 → 挑除明顯瑕疵 → 樣本烘焙 → 靜置 8～24 小時 → 杯測 → 評估風味與缺陷 → 決定是否採購</div>
+</section>
+
+<section id="curve">
+  <h2>二、什麼是烘焙曲線？</h2>
+  <p class="lead">烘焙曲線是把咖啡豆在烘焙過程中的溫度變化記錄成圖表。橫軸是時間，縱軸通常是豆溫或環境溫。</p>
+  <h3>曲線代表什麼？</h3>
+  <p>一條曲線代表熱能如何進入咖啡豆。即使下豆溫度與總時間相同，若前段熱量、梅納期長短、發展期不同，風味仍會不同。</p>
+  <table>
+    <tr><th>曲線特徵</th><th>可能風味走向</th></tr>
+    <tr><td>前段升溫快</td><td>花香、果酸明亮，但過快可能尖酸。</td></tr>
+    <tr><td>前段升溫慢</td><td>甜感與厚度增加，但過慢可能悶味。</td></tr>
+    <tr><td>梅納期較長</td><td>焦糖、堅果、麵包香增加。</td></tr>
+    <tr><td>發展期較長</td><td>醇厚、巧克力感增加，酸質下降。</td></tr>
+    <tr><td>發展過長</td><td>木質、煙燻、苦味上升。</td></tr>
+  </table>
+  <p class="note">曲線可以預測風味方向，但不能百分之百決定風味，仍需配合 Agtron、失重率與杯測確認。</p>
+</section>
+
+<section id="agtron">
+  <h2>三、Agtron 色度與烘焙顏色</h2>
+  <p class="lead">Agtron 是利用光譜儀偵測咖啡顏色反射光，提供客觀數值的焙度判斷工具。數字越高越淺焙，數字越低越深焙。</p>
+  <table>
+    <tr><th>Agtron</th><th>焙度</th><th>常見風味</th></tr>
+    <tr><td>95</td><td>極淺焙</td><td>白花、茶感、檸檬酸、柑橘。</td></tr>
+    <tr><td>85</td><td>淺焙</td><td>花香、果香、莓果、明亮酸質。</td></tr>
+    <tr><td>75</td><td>中淺焙</td><td>水果甜感、蜂蜜、清爽甜。</td></tr>
+    <tr><td>65</td><td>中焙</td><td>焦糖、堅果、甜感平衡。</td></tr>
+    <tr><td>55</td><td>中深焙</td><td>巧克力、堅果、厚實。</td></tr>
+    <tr><td>45</td><td>深焙</td><td>煙燻、炭燒、苦甜巧克力。</td></tr>
+  </table>
+
+  <h3>Agtron 與曲線的關係</h3>
+  <ul>
+    <li>不同生豆使用同一條曲線，Agtron 數字不一定相同。</li>
+    <li>同一支豆使用不同烘法，也可能得到相同 Agtron，但風味不同。</li>
+    <li>Agtron 只能代表顏色，不完全代表風味。</li>
+    <li>每次應在固定時間、固定光源、固定研磨條件下量測。</li>
+  </ul>
+</section>
+
+<section id="cupping">
+  <h2>四、杯測感官分析與 SCA 杯測表</h2>
+  <p class="lead">杯測的目的不只是判斷好不好喝，而是分析生豆品質、烘焙是否適當，以及風味是否符合目標。</p>
+
+  <h3>杯測分為兩種分析</h3>
+  <div class="grid">
+    <div class="card"><b>生豆分析</b><br>評估種植、後製與瑕疵問題，例如蟲蛀豆、發霉豆、過度發酵。</div>
+    <div class="card"><b>熟豆分析</b><br>判斷烘焙瑕疵，例如發展不足有生菜、豆莢味；過度發展有灰燼、煙燻肉感。</div>
+  </div>
+
+  <h3>SCA 杯測評分項目</h3>
+  <table>
+    <tr><th>項目</th><th>說明</th></tr>
+    <tr><td>香氣 Fragrance/Aroma</td><td>乾香與濕香，如花香、果香、堅果香。</td></tr>
+    <tr><td>風味 Flavor</td><td>入口後的主要味道表現。</td></tr>
+    <tr><td>餘韻 Aftertaste</td><td>吞嚥後留下的香氣與甜感長短。</td></tr>
+    <tr><td>酸質 Acidity</td><td>酸的品質，不是單純酸度強弱。</td></tr>
+    <tr><td>質地 Body</td><td>口感重量，如茶感、牛奶感、奶油感。</td></tr>
+    <tr><td>平衡 Balance</td><td>香氣、酸甜、口感是否協調。</td></tr>
+    <tr><td>一致性 Uniformity</td><td>同一樣品多杯是否一致。</td></tr>
+    <tr><td>乾淨度 Clean Cup</td><td>是否沒有霉味、土味、雜味。</td></tr>
+    <tr><td>甜感 Sweetness</td><td>是否有天然甜感，如蜂蜜、黑糖、蔗糖。</td></tr>
+    <tr><td>整體 Overall</td><td>杯測者整體印象。</td></tr>
+  </table>
+
+  <p class="note">SCA 杯測通常同一樣品準備 5 杯，80 分以上可稱為精品咖啡。</p>
+
+  <h3>三角杯測 Triangle Test</h3>
+  <p>準備三杯，其中兩杯相同、一杯不同，讓測試者判斷哪一杯不同。可用來確認不同發展時間或不同曲線是否真的喝得出差異。</p>
+</section>
+
+<section id="chemistry">
+  <h2>五、烘焙期間的化學反應</h2>
+  <h3>梅納反應 Maillard Reaction</h3>
+  <p>約 140℃ 後開始明顯進行，由糖類與胺基酸反應，產生麵包香、堅果香、烤吐司香與咖啡褐色物質。</p>
+  <div class="card"><b>類黑精 Melanoidins：</b>梅納反應產生的褐色物質，使咖啡由黃色轉為褐色，也帶來烘烤香與醇厚感。</div>
+
+  <h3>焦糖化反應</h3>
+  <p>約 160℃ 後糖類分解更明顯，形成焦糖、蜂蜜、黑糖等甜香。過度則會往苦味、焦味與炭燒感發展。</p>
+
+  <table>
+    <tr><th>溫度區間</th><th>主要變化</th><th>風味影響</th></tr>
+    <tr><td>100℃以下</td><td>水分蒸發</td><td>脫水、草味下降。</td></tr>
+    <tr><td>140℃左右</td><td>梅納反應開始</td><td>麥香、堅果、烘烤感。</td></tr>
+    <tr><td>160℃以上</td><td>焦糖化反應</td><td>焦糖、蜂蜜、甜感。</td></tr>
+    <tr><td>一爆後</td><td>發展期</td><td>酸甜平衡、醇厚度、餘韻。</td></tr>
+  </table>
+</section>
+
+<section id="ror">
+  <h2>六、ROR 與密度</h2>
+  <h3>ROR 是什麼？</h3>
+  <p>ROR（Rate of Rise）是升溫率，表示單位時間內豆溫上升多少度。</p>
+  <div class="formula">ROR = 溫度差 ÷ 時間差</div>
+  <p>例：6:00 為 160℃，9:00 為 190℃，溫差 30℃，時間 3 分鐘，平均 ROR = 10℃/分鐘；若以 30 秒計算，約為 5℃/30秒。</p>
+
+  <h3>一爆後 ROR</h3>
+  <p>一爆後 ROR 通常較低，理想狀態多為平順下降。若 ROR 變成負值，可能代表烘焙停滯，容易有草味、穀物味或發展不足。</p>
+
+  <h3>密度 Density</h3>
+  <div class="formula">密度 = 重量 ÷ 體積（g/L）</div>
+  <p>密度可作為培訓與烘焙參考。高密度豆通常需要較多熱量；低密度豆較容易受熱過快。但密度不能作為品質的唯一固定指標。</p>
+</section>
+
+<section id="heat">
+  <h2>七、熱傳遞與排氣路徑</h2>
+  <p class="lead">咖啡烘焙的本質，是熱從高溫環境傳遞到低溫咖啡豆，並透過傳導、對流、輻射三種方式完成。</p>
+
+  <div class="grid">
+    <div class="card"><b>傳導 Conduction</b><br>滾筒與豆子直接接觸傳熱。過多容易焦斑。</div>
+    <div class="card"><b>對流 Convection</b><br>熱空氣穿過豆層加熱豆子。受熱均勻，乾淨度較佳。</div>
+    <div class="card"><b>輻射 Radiation</b><br>火焰或熱表面以輻射方式傳熱，增加整體熱量影響。</div>
+  </div>
+
+  <h3>排氣路徑</h3>
+  <div class="flow">燃燒器風箱 → 烘焙爐 → 烘焙爐排氣 → 排氣扇 → 銀皮盒 → 後燃器 → 煙囪</div>
+  <p>排氣不足會產生悶味、煙味、灰燼感；排氣過強則可能造成熱量不足、發展不足與酸尖。</p>
+</section>
+
+<section id="production">
+  <h2>八、生產路徑與 Sample Roasting Test</h2>
+  <h3>咖啡生產流程</h3>
+  <div class="flow">1 烘焙機豆倉 → 2 烘焙爐 → 3 冷卻盤 → 4 除石機 → 5 秤重與包裝 → 6 零售咖啡包裝袋</div>
+
+  <h3>樣品烘焙要準備什麼？</h3>
+  <table>
+    <tr><th>項目</th><th>內容</th></tr>
+    <tr><td>生豆資料</td><td>國家、產區、處理法、品種、海拔、批次。</td></tr>
+    <tr><td>物理數據</td><td>水分、密度、水活性、瑕疵狀況。</td></tr>
+    <tr><td>烘焙條件</td><td>入豆溫、豆量、火力、風量、時間。</td></tr>
+    <tr><td>Measure</td><td>測量失重率、體積變化與烘焙結果。</td></tr>
+    <tr><td>Agtron</td><td>測量豆色與粉色，確認焙度。</td></tr>
+    <tr><td>Light</td><td>固定光源判斷顏色，避免視覺誤差。</td></tr>
+    <tr><td>Time</td><td>固定烘後量測時間，例如 24 小時後測量。</td></tr>
+  </table>
+</section>
+
+<section id="safety">
+  <h2>九、安全與生豆儲存</h2>
+  <h3>烘焙安全</h3>
+  <table>
+    <tr><th>問題</th><th>說明</th></tr>
+    <tr><td>多久清潔銀皮盒？</td><td>建議每天清理，或每 2～5 鍋檢查一次。銀皮乾燥易燃，堆積可能造成火災。</td></tr>
+    <tr><td>冷卻時間越來越長？</td><td>可能是銀皮盒、冷卻盤濾網或排風管阻塞，需立即檢查。</td></tr>
+    <tr><td>為什麼會起火？</td><td>多與銀皮、排煙管油垢、後燃器與冷卻盤長期未清潔有關。</td></tr>
+    <tr><td>食品防護需要什麼？</td><td>烘焙設備附近應設置洗手台、肥皂、擦手紙，維持食品衛生。</td></tr>
+  </table>
+
+  <h3>生豆儲存</h3>
+  <p>對生豆最不利的三個因素：</p>
+  <p><span class="pill">水分</span><span class="pill">光照</span><span class="pill">小動物／害蟲</span></p>
+  <table>
+    <tr><th>項目</th><th>建議</th></tr>
+    <tr><td>環境濕度</td><td>約 50%～60% RH 較理想。</td></tr>
+    <tr><td>環境溫度</td><td>約 18～25℃，避免高溫與日曬。</td></tr>
+    <tr><td>生豆含水率</td><td>10%～12% 較理想；13% 以上不利儲存。</td></tr>
+    <tr><td>擺放方式</td><td>離地、離牆、避免受潮，定期檢查蟲害。</td></tr>
+  </table>
+
+  <p class="warn">安全重點：好的咖啡不只是會烘，還要會清潔設備、管理排氣、控制冷卻與妥善保存生豆。</p>
+</section>
+
+<section>
+  <h2>十、完整烘焙紀錄表建議</h2>
+  <table>
+    <tr><th>分類</th><th>紀錄項目</th></tr>
+    <tr><td>生豆資料</td><td>名稱、產區、處理法、品種、海拔、批號。</td></tr>
+    <tr><td>生豆物理值</td><td>水分、密度、水活性。</td></tr>
+    <tr><td>烘焙資料</td><td>入豆量、入豆溫、回溫點、黃化點、一爆、下豆、總時間。</td></tr>
+    <tr><td>熱能控制</td><td>火力、風量、ROR、排氣狀態。</td></tr>
+    <tr><td>結果數據</td><td>失重率、體積變化、Agtron 豆色、Agtron 粉色。</td></tr>
+    <tr><td>杯測結果</td><td>香氣、風味、酸質、質地、平衡、甜感、總分。</td></tr>
+  </table>
+</section>
+
+</main>
+
+<div class="footer">
+  咖啡烘焙課程整理｜Sample Roasting × Roasting Curve × Agtron × SCA Cupping
+</div>
+
+</body>
+</html>
 
