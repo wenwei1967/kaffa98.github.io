@@ -60,10 +60,35 @@
     }
 
     .hero {
-      padding-top:clamp(36px, 5vw, 64px);
+      position:relative;
+      min-height:clamp(620px, 92vh, 900px);
+      padding:clamp(42px, 7vw, 82px) 0;
+      display:flex;
+      align-items:center;
       text-align:center;
       color:#fff;
-      background:linear-gradient(180deg,var(--dark),var(--dark-2));
+      overflow:hidden;
+      background:
+        linear-gradient(rgba(27,18,13,.42), rgba(27,18,13,.62)),
+        url("images/hero-kaffa98.jpg") center center / cover no-repeat;
+    }
+
+    .hero::after {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(
+        180deg,
+        rgba(20,13,9,.18) 0%,
+        rgba(20,13,9,.28) 48%,
+        rgba(20,13,9,.62) 100%
+      );
+      pointer-events:none;
+    }
+
+    .hero .container {
+      position:relative;
+      z-index:1;
     }
 
     .brand-small {
@@ -81,6 +106,7 @@
       line-height:1.15;
       letter-spacing:.03em;
       word-break:keep-all;
+      text-shadow:0 3px 16px rgba(0,0,0,.55);
     }
 
     h1 span {
@@ -98,6 +124,7 @@
       font-size:clamp(19px, 3vw, 29px);
       line-height:1.55;
       font-weight:700;
+      text-shadow:0 2px 12px rgba(0,0,0,.55);
     }
 
     .hero-buttons {
@@ -141,26 +168,6 @@
       .button-secondary:hover {
         background:rgba(255,255,255,.1);
       }
-    }
-
-    .image-wrap {
-      width:min(var(--max-width), calc(100% - 40px));
-      margin-inline:auto;
-    }
-
-    .image-frame {
-      overflow:hidden;
-      border-radius:clamp(16px, 2.5vw, 28px) clamp(16px, 2.5vw, 28px) 0 0;
-      background:#160f0b;
-      box-shadow:0 -8px 40px rgba(0,0,0,.26);
-    }
-
-    .image-frame img {
-      width:100%;
-      height:auto;
-      max-height:none;
-      object-fit:contain;
-      object-position:center;
     }
 
     .story {
@@ -246,14 +253,15 @@
     /* 平板 */
     @media (min-width: 768px) and (max-width: 1024px) {
       .container,
-      .image-wrap,
       .story-inner,
       .order-card {
         width:calc(100% - 64px);
       }
 
       .hero {
-        padding-top:48px;
+        min-height:720px;
+        padding:56px 0;
+        background-position:center center;
       }
 
       h1 {
@@ -273,14 +281,15 @@
     /* 手機 */
     @media (max-width: 767px) {
       .container,
-      .image-wrap,
       .story-inner,
       .order-card {
         width:calc(100% - 28px);
       }
 
       .hero {
-        padding-top:34px;
+        min-height:680px;
+        padding:46px 0;
+        background-position:38% center;
       }
 
       .brand-small {
@@ -313,16 +322,6 @@
         font-size:15px;
       }
 
-      .image-frame {
-        border-radius:16px 16px 0 0;
-      }
-
-      .image-frame img {
-        width:100%;
-        height:auto;
-        object-fit:contain;
-      }
-
       .story {
         padding-block:58px;
       }
@@ -348,10 +347,14 @@
     /* 小手機 */
     @media (max-width: 380px) {
       .container,
-      .image-wrap,
       .story-inner,
       .order-card {
         width:calc(100% - 20px);
+      }
+
+      .hero {
+        min-height:640px;
+        background-position:36% center;
       }
 
       h1 {
@@ -403,13 +406,6 @@
         </h1>
 
         <p class="slogan">好咖啡，不靠運氣，而是靠工藝。</p>
-
-<div class="image-wrap">
-        <div class="image-frame">
-          <img src="images/hero-kaffa98.jpg"
-               alt="Kaffa98研究室完整品牌形象圖片">
-        </div>
-      </div>
     </section>
 
     <section class="story" id="story">
