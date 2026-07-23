@@ -60,10 +60,35 @@
     }
 
     .hero {
-      padding-top:clamp(36px, 5vw, 64px);
+      position:relative;
+      min-height:clamp(620px, 92vh, 900px);
+      padding:clamp(42px, 7vw, 82px) 0;
+      display:flex;
+      align-items:center;
       text-align:center;
       color:#fff;
-      background:linear-gradient(180deg,var(--dark),var(--dark-2));
+      overflow:hidden;
+      background:
+        linear-gradient(rgba(27,18,13,.42), rgba(27,18,13,.62)),
+        url("images/hero-kaffa98.jpg") center center / cover no-repeat;
+    }
+
+    .hero::after {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(
+        180deg,
+        rgba(20,13,9,.18) 0%,
+        rgba(20,13,9,.28) 48%,
+        rgba(20,13,9,.62) 100%
+      );
+      pointer-events:none;
+    }
+
+    .hero .container {
+      position:relative;
+      z-index:1;
     }
 
     .brand-small {
@@ -81,6 +106,7 @@
       line-height:1.15;
       letter-spacing:.03em;
       word-break:keep-all;
+      text-shadow:0 3px 16px rgba(0,0,0,.55);
     }
 
     h1 span {
@@ -98,69 +124,12 @@
       font-size:clamp(19px, 3vw, 29px);
       line-height:1.55;
       font-weight:700;
+      text-shadow:0 2px 12px rgba(0,0,0,.55);
     }
 
-    .hero-buttons {
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-bottom:clamp(24px, 4vw, 38px);
-    }
-
-    .button {
-      min-height:54px;
-      padding:13px 26px;
-      border-radius:999px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      font-size:16px;
-      font-weight:900;
-      line-height:1.2;
-      transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
-    }
-
-    .button-primary {
-      color:var(--dark);
-      background:linear-gradient(135deg,#f1d39f,var(--gold));
-      box-shadow:0 12px 28px rgba(0,0,0,.28);
-    }
-
-    .button-secondary {
-      color:#fff;
-      border:1px solid rgba(255,255,255,.45);
-      background:rgba(255,255,255,.04);
-    }
-
-    @media (hover:hover) {
-      .button:hover {
-        transform:translateY(-2px);
-      }
-      .button-secondary:hover {
+    .button-secondary:hover {
         background:rgba(255,255,255,.1);
       }
-    }
-
-    .image-wrap {
-      width:min(var(--max-width), calc(100% - 40px));
-      margin-inline:auto;
-    }
-
-    .image-frame {
-      overflow:hidden;
-      border-radius:clamp(16px, 2.5vw, 28px) clamp(16px, 2.5vw, 28px) 0 0;
-      background:#160f0b;
-      box-shadow:0 -8px 40px rgba(0,0,0,.26);
-    }
-
-    .image-frame img {
-      width:100%;
-      height:auto;
-      max-height:none;
-      object-fit:contain;
-      object-position:center;
     }
 
     .story {
@@ -246,14 +215,15 @@
     /* 平板 */
     @media (min-width: 768px) and (max-width: 1024px) {
       .container,
-      .image-wrap,
       .story-inner,
       .order-card {
         width:calc(100% - 64px);
       }
 
       .hero {
-        padding-top:48px;
+        min-height:720px;
+        padding:56px 0;
+        background-position:center center;
       }
 
       h1 {
@@ -273,14 +243,15 @@
     /* 手機 */
     @media (max-width: 767px) {
       .container,
-      .image-wrap,
       .story-inner,
       .order-card {
         width:calc(100% - 28px);
       }
 
       .hero {
-        padding-top:34px;
+        min-height:680px;
+        padding:46px 0;
+        background-position:38% center;
       }
 
       .brand-small {
@@ -299,28 +270,6 @@
       .slogan {
         max-width:320px;
         font-size:clamp(18px, 5vw, 22px);
-      }
-
-      .hero-buttons {
-        flex-direction:column;
-        align-items:stretch;
-        gap:10px;
-      }
-
-      .button {
-        width:100%;
-        min-height:52px;
-        font-size:15px;
-      }
-
-      .image-frame {
-        border-radius:16px 16px 0 0;
-      }
-
-      .image-frame img {
-        width:100%;
-        height:auto;
-        object-fit:contain;
       }
 
       .story {
@@ -348,10 +297,14 @@
     /* 小手機 */
     @media (max-width: 380px) {
       .container,
-      .image-wrap,
       .story-inner,
       .order-card {
         width:calc(100% - 20px);
+      }
+
+      .hero {
+        min-height:640px;
+        background-position:36% center;
       }
 
       h1 {
@@ -362,10 +315,7 @@
         font-size:18px;
       }
 
-      .button {
-        padding-inline:18px;
       }
-    }
 
     /* 大螢幕 */
     @media (min-width: 1440px) {
@@ -403,27 +353,6 @@
         </h1>
 
         <p class="slogan">好咖啡，不靠運氣，而是靠工藝。</p>
-
-        <div class="hero-buttons">
-          <a class="button button-primary"
-             href="https://script.google.com/macros/s/AKfycbyim3ysQXceVnCNm2n7r_NxXd1oqEw1lWTtlA_W6Ymd4yw4WT-ozqsWCedlnnjhJ9JDXQ/exec?page=mobile"
-             target="_blank"
-             rel="noopener">
-            ☕ 進入訂單系統
-          </a>
-
-          <a class="button button-secondary" href="#story">
-            品牌理念
-          </a>
-        </div>
-      </div>
-
-      <div class="image-wrap">
-        <div class="image-frame">
-          <img src="images/hero-kaffa98.jpg"
-               alt="Kaffa98研究室完整品牌形象圖片">
-        </div>
-      </div>
     </section>
 
     <section class="story" id="story">
@@ -465,7 +394,16 @@
   </main>
 
   <footer>
-    Kaffa98 研究室｜給好咖啡
-  </footer>
+  <div>© <span id="footer-date"></span> Kaffa98 研究室｜給好咖啡</div>
+</footer>
+
+<script>
+(function(){
+  const d=new Date();
+  const y=d.getFullYear();
+  const m=String(d.getMonth()+1).padStart(2,'0');
+  document.getElementById('footer-date').textContent=`${y}.${m}`;
+})();
+</script>
 </body>
 </html>
