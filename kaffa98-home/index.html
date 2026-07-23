@@ -722,6 +722,20 @@
       transform:scale(1.15);
     }
     @media (max-width:560px) {
+      /* 手機版完整顯示輪播圖片，不裁切上下內容 */
+      .cover-slides {
+        aspect-ratio:16 / 9;
+        background:#17130f;
+      }
+      .cover-slide:first-child {
+        position:absolute;
+      }
+      .cover-slide img {
+        width:100%;
+        height:100%;
+        object-fit:contain;
+        object-position:center;
+      }
       .cover-arrow {
         width:38px;
         height:38px;
