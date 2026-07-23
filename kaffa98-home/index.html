@@ -218,6 +218,32 @@
       font-size:clamp(15px, 2vw, 17px);
     }
 
+    
+.order-actions{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:32px;
+flex-wrap:wrap;
+margin-top:24px;
+}
+.line-box{text-align:center;}
+.line-box img{
+width:150px;
+max-width:40vw;
+border-radius:12px;
+background:#fff;
+padding:6px;
+box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+.line-box .label{
+margin-top:8px;
+color:#e5d8ce;
+font-size:15px;
+font-weight:700;
+}
+
+
     footer {
       padding:24px 20px;
       text-align:center;
@@ -412,12 +438,18 @@
         <h2>加入會員／進入訂單系統</h2>
         <p>選擇目前供應的咖啡商品，完成線上訂購。</p>
 
-        <a class="button button-primary"
+        <div class="order-actions">
+<a class="button button-primary"
            href="https://script.google.com/macros/s/AKfycbyim3ysQXceVnCNm2n7r_NxXd1oqEw1lWTtlA_W6Ymd4yw4WT-ozqsWCedlnnjhJ9JDXQ/exec?page=mobile"
            target="_blank"
            rel="noopener">
           ☕ 加入會員／進入訂單系統
         </a>
+<div class="line-box">
+<img src="qrcode-line.png" alt="加入LINE好友 QR Code">
+<div class="label">加入 LINE 好友</div>
+</div>
+</div>
       </div>
     </section>
   </main>
