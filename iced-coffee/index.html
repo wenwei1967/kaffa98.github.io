@@ -1,900 +1,462 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="冰咖啡沖煮技巧：日本急冷法、冷泡法與熱沖冰鎮比較，包含粉水比、冰塊比例、水溫、研磨與注水流程。" />
-  <title>冰咖啡沖煮技巧｜給好咖啡知識庫</title>
-
-  <style>
-    :root{
-      --coffee:#5a3825;
-      --coffee-dark:#2f1d14;
-      --coffee-light:#b88763;
-      --cream:#f7f1e8;
-      --paper:#fffdf9;
-      --ice:#dff3fb;
-      --blue:#5d99b8;
-      --gold:#d8a84e;
-      --red:#b85f55;
-      --green:#688b68;
-      --text:#2f2b28;
-      --muted:#6f6760;
-      --line:#e8ddd2;
-      --shadow:0 10px 28px rgba(49,30,20,.10);
-      --radius:22px;
-    }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:"Noto Sans TC","Microsoft JhengHei",Arial,sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(circle at top right, rgba(223,243,251,.65), transparent 28%),
-        linear-gradient(180deg,#fbf8f3 0%,#f5efe6 100%);
-      line-height:1.8;
-    }
-
-    img{
-      width:100%;
-      display:block;
-      object-fit:cover;
-    }
-
-    a{text-decoration:none;color:inherit}
-
-    .container{
-      width:min(1120px, calc(100% - 32px));
-      margin:auto;
-    }
-
-    .hero{
-      min-height:72vh;
-      display:flex;
-      align-items:center;
-      position:relative;
-      overflow:hidden;
-      color:#fff;
-      background:
-        linear-gradient(90deg,rgba(35,22,14,.88),rgba(35,22,14,.44)),
-        url("images/iced-coffee-hero.jpg") center/cover no-repeat;
-    }
-
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:auto 0 0;
-      height:120px;
-      background:linear-gradient(transparent,rgba(247,241,232,.98));
-    }
-
-    .hero-content{
-      position:relative;
-      z-index:2;
-      max-width:760px;
-      padding:72px 0 120px;
-    }
-
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:7px 14px;
-      border:1px solid rgba(255,255,255,.32);
-      border-radius:999px;
-      background:rgba(255,255,255,.12);
-      backdrop-filter:blur(8px);
-      font-size:.95rem;
-      letter-spacing:.08em;
-    }
-
-    h1{
-      margin:18px 0 12px;
-      font-size:clamp(2.6rem,7vw,5.6rem);
-      line-height:1.05;
-      letter-spacing:.02em;
-    }
-
-    .hero-subtitle{
-      margin:0 0 26px;
-      font-size:clamp(1.08rem,2.4vw,1.45rem);
-      color:#f5eee8;
-      max-width:680px;
-    }
-
-    .hero-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      min-height:48px;
-      padding:11px 20px;
-      border-radius:999px;
-      font-weight:800;
-      transition:.25s ease;
-      border:1px solid transparent;
-    }
-
-    .btn-primary{
-      background:#fff;
-      color:var(--coffee-dark);
-    }
-
-    .btn-outline{
-      color:#fff;
-      border-color:rgba(255,255,255,.55);
-      background:rgba(255,255,255,.08);
-    }
-
-    .btn:hover{transform:translateY(-2px)}
-
-    main{padding:30px 0 88px}
-
-    .section{
-      margin:30px auto;
-      padding:34px;
-      background:rgba(255,253,249,.92);
-      border:1px solid rgba(232,221,210,.9);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-    }
-
-    .section-head{
-      display:flex;
-      gap:16px;
-      align-items:flex-start;
-      margin-bottom:24px;
-    }
-
-    .section-number{
-      flex:0 0 52px;
-      width:52px;
-      height:52px;
-      border-radius:16px;
-      display:grid;
-      place-items:center;
-      background:linear-gradient(145deg,var(--coffee),var(--coffee-light));
-      color:#fff;
-      font-weight:900;
-      font-size:1.2rem;
-      box-shadow:0 8px 18px rgba(90,56,37,.2);
-    }
-
-    h2{
-      margin:0;
-      color:var(--coffee-dark);
-      font-size:clamp(1.55rem,4vw,2.2rem);
-      line-height:1.3;
-    }
-
-    .lead{
-      margin:6px 0 0;
-      color:var(--muted);
-      font-size:1.05rem;
-    }
-
-    .grid-2,.grid-3,.grid-4{
-      display:grid;
-      gap:20px;
-    }
-
-    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
-
-    .photo-card,.info-card,.method-card,.fault-card,.tip-card{
-      overflow:hidden;
-      border-radius:18px;
-      background:#fff;
-      border:1px solid var(--line);
-    }
-
-    .photo-card img{
-      width:100%;
-      height:auto;
-      aspect-ratio:auto;
-      object-fit:contain;
-      background:#eee7df;
-    }
-
-    /* 第一章急冷法主圖：完整顯示整張圖片，不裁切上下內容 */
-    .flash-brew-photo img{
-      width:100%;
-      height:auto;
-      max-height:none;
-      object-fit:contain;
-      object-position:center;
-      background:#eee7df;
-    }
-
-    .photo-card .caption{
-      padding:15px 18px;
-      color:var(--muted);
-      font-size:.95rem;
-    }
-
-    .info-card,.method-card,.fault-card,.tip-card{
-      padding:22px;
-    }
-
-    .icon{
-      font-size:2rem;
-      line-height:1;
-      margin-bottom:10px;
-    }
-
-    .card-title{
-      margin:0 0 8px;
-      font-size:1.16rem;
-      color:var(--coffee-dark);
-    }
-
-    .highlight{
-      margin:22px 0 0;
-      padding:20px 22px;
-      border-left:5px solid var(--blue);
-      border-radius:14px;
-      background:linear-gradient(90deg,#edf8fc,#fff);
-    }
-
-    .compare-table,.brew-table{
-      width:100%;
-      border-collapse:collapse;
-      overflow:hidden;
-      border-radius:16px;
-      background:#fff;
-    }
-
-    .table-wrap{
-      overflow-x:auto;
-      border:1px solid var(--line);
-      border-radius:16px;
-    }
-
-    th,td{
-      padding:14px 16px;
-      border-bottom:1px solid var(--line);
-      text-align:left;
-      white-space:nowrap;
-    }
-
-    th{
-      background:var(--coffee);
-      color:#fff;
-    }
-
-    tr:last-child td{border-bottom:0}
-    tbody tr:nth-child(even){background:#fbf7f2}
-
-    .recipe{
-      display:grid;
-      grid-template-columns:repeat(6,minmax(0,1fr));
-      gap:12px;
-    }
-
-    .recipe-item{
-      padding:18px 12px;
-      border-radius:16px;
-      text-align:center;
-      background:linear-gradient(180deg,#fff,#f8f3ed);
-      border:1px solid var(--line);
-    }
-
-    .recipe-item b{
-      display:block;
-      color:var(--coffee-dark);
-      font-size:1.22rem;
-    }
-
-    .recipe-item span{
-      color:var(--muted);
-      font-size:.88rem;
-    }
-
-    .steps{
-      position:relative;
-      display:grid;
-      gap:16px;
-    }
-
-    .step{
-      display:grid;
-      grid-template-columns:66px 1fr;
-      gap:16px;
-      align-items:start;
-      padding:18px;
-      border-radius:18px;
-      background:#fff;
-      border:1px solid var(--line);
-    }
-
-    .step-no{
-      width:56px;
-      height:56px;
-      display:grid;
-      place-items:center;
-      border-radius:50%;
-      color:#fff;
-      background:linear-gradient(145deg,var(--blue),#89c4dc);
-      font-weight:900;
-      font-size:1.25rem;
-    }
-
-    .step h3{margin:1px 0 5px;color:var(--coffee-dark)}
-    .step p{margin:0;color:var(--muted)}
-
-    .ice-comparison-photo img{
-      width:100%;
-      height:auto;
-      aspect-ratio:auto;
-      object-fit:contain;
-      object-position:center;
-      background:#fff;
-    }
-
-    .ice-box{
-      padding:22px;
-      border-radius:18px;
-      background:
-        linear-gradient(145deg,rgba(223,243,251,.96),rgba(255,255,255,.96));
-      border:1px solid #c8e6f1;
-    }
-
-    .good{color:var(--green);font-weight:800}
-    .bad{color:var(--red);font-weight:800}
-
-    .fault-card{
-      position:relative;
-      min-height:180px;
-    }
-
-    .fault-card strong{
-      display:block;
-      margin-bottom:6px;
-      color:var(--coffee-dark);
-      font-size:1.08rem;
-    }
-
-    .fault-card small{
-      display:block;
-      margin-top:8px;
-      color:var(--muted);
-    }
-
-    .flow{
-      display:flex;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-    }
-
-    .flow-item{
-      min-width:120px;
-      padding:16px 14px;
-      text-align:center;
-      border-radius:16px;
-      background:#fff;
-      border:1px solid var(--line);
-      font-weight:800;
-      color:var(--coffee-dark);
-    }
-
-    .arrow{
-      color:var(--coffee-light);
-      font-size:1.5rem;
-      font-weight:900;
-    }
-
-    details{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:14px;
-      padding:0 18px;
-      margin:12px 0;
-    }
-
-    summary{
-      cursor:pointer;
-      padding:16px 0;
-      font-weight:800;
-      color:var(--coffee-dark);
-    }
-
-    details p{
-      margin:0;
-      padding:0 0 18px;
-      color:var(--muted);
-    }
-
-    .references{
-      color:var(--muted);
-      font-size:.94rem;
-    }
-
-    .references li{margin-bottom:8px}
-
-    .footer{
-      padding:38px 16px 70px;
-      text-align:center;
-      color:var(--muted);
-    }
-
-    .footer .back{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:13px 22px;
-      border-radius:999px;
-      color:#fff;
-      background:var(--coffee);
-      font-weight:900;
-      box-shadow:var(--shadow);
-    }
-
-    .to-top{
-      position:fixed;
-      right:20px;
-      bottom:20px;
-      width:48px;
-      height:48px;
-      display:grid;
-      place-items:center;
-      border-radius:50%;
-      background:var(--coffee-dark);
-      color:#fff;
-      font-size:1.25rem;
-      box-shadow:0 8px 20px rgba(0,0,0,.22);
-      z-index:20;
-    }
-
-    .note{
-      padding:14px 18px;
-      border-radius:12px;
-      background:#fff8e8;
-      border:1px solid #f0d69a;
-      color:#775b22;
-    }
-
-    @media (max-width:900px){
-      .grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .recipe{grid-template-columns:repeat(3,minmax(0,1fr))}
-    }
-
-    @media (max-width:680px){
-      .container{width:min(100% - 20px,1120px)}
-      .hero{min-height:650px}
-      .hero-content{padding-top:56px}
-      .section{padding:22px 17px;border-radius:18px}
-      .section-head{gap:12px}
-      .section-number{width:46px;height:46px;flex-basis:46px}
-      .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
-      .recipe{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .step{grid-template-columns:52px 1fr;padding:15px}
-      .step-no{width:46px;height:46px}
-      .arrow{transform:rotate(90deg)}
-      .hero-actions{flex-direction:column;align-items:stretch}
-      .btn{width:100%}
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="冰咖啡沖煮技巧：日本急冷法、器材、配方、注水、焙度、冰塊比較與常見問題。">
+<title>冰咖啡沖煮技巧｜給好咖啡知識庫</title>
+<style>
+:root{
+  --brown:#5d3a28;
+  --brown2:#8a5a3d;
+  --cream:#f7f1e8;
+  --paper:#fffdf9;
+  --text:#2d2926;
+  --muted:#71685f;
+  --line:#e8ddd1;
+  --blue:#5ea7ca;
+  --bluebg:#eef8fc;
+  --green:#4f8d63;
+  --red:#c65c50;
+  --shadow:0 14px 38px rgba(52,31,19,.10);
+  --radius:24px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"Noto Sans TC","Microsoft JhengHei",Arial,sans-serif;
+  color:var(--text);
+  background:linear-gradient(180deg,#faf7f2 0%,#f3ede4 100%);
+  line-height:1.75;
+}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+.container{width:min(1160px,calc(100% - 28px));margin:auto}
+.hero{
+  min-height:72vh;
+  display:flex;
+  align-items:center;
+  color:#fff;
+  background:
+    linear-gradient(90deg,rgba(34,20,12,.88),rgba(34,20,12,.34)),
+    url("images/iced-coffee-hero.jpg") center/cover no-repeat;
+}
+.hero-inner{padding:72px 0}
+.hero-kicker{
+  display:inline-block;
+  padding:8px 14px;
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:999px;
+  background:rgba(255,255,255,.12);
+  backdrop-filter:blur(8px);
+  letter-spacing:.08em;
+}
+h1{
+  margin:18px 0 12px;
+  font-size:clamp(2.7rem,7vw,5.6rem);
+  line-height:1.05;
+}
+.hero p{
+  max-width:720px;
+  font-size:clamp(1.05rem,2.3vw,1.4rem);
+  color:#f3ebe5;
+}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  padding:12px 20px;
+  border-radius:999px;
+  font-weight:800;
+}
+.btn-light{background:#fff;color:#2d1c13}
+.btn-ghost{border:1px solid rgba(255,255,255,.55);background:rgba(255,255,255,.08)}
+main{padding:32px 0 86px}
+.section{
+  background:rgba(255,253,249,.96);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:34px;
+  margin:28px 0;
+}
+.section-head{display:flex;gap:16px;align-items:flex-start;margin-bottom:24px}
+.no{
+  flex:0 0 54px;
+  height:54px;
+  display:grid;
+  place-items:center;
+  border-radius:17px;
+  color:#fff;
+  font-weight:900;
+  background:linear-gradient(145deg,var(--brown),var(--brown2));
+}
+h2{margin:0;color:#2c1a12;font-size:clamp(1.65rem,4vw,2.3rem);line-height:1.25}
+.lead{margin:5px 0 0;color:var(--muted)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  overflow:hidden;
+}
+.card-body{padding:18px}
+.photo{
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  background:#f1ebe5;
+}
+.highlight{
+  padding:20px 22px;
+  border-left:5px solid var(--blue);
+  border-radius:15px;
+  background:linear-gradient(90deg,var(--bluebg),#fff);
+}
+.method,.tool,.tip,.fault{
+  padding:20px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+}
+.icon{font-size:2rem;line-height:1;margin-bottom:10px}
+.method h3,.tool h3,.tip h3,.fault h3{margin:0 0 8px;color:#3a2418}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px}
+table{width:100%;border-collapse:collapse;background:#fff}
+th,td{padding:14px 16px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+th{background:var(--brown);color:#fff}
+tbody tr:nth-child(even){background:#fbf7f2}
+.recipe{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.recipe div{
+  padding:18px 10px;
+  text-align:center;
+  background:linear-gradient(180deg,#fff,#f8f3ed);
+  border:1px solid var(--line);
+  border-radius:16px;
+}
+.recipe b{display:block;font-size:1.25rem;color:#3b2418}
+.recipe span{font-size:.9rem;color:var(--muted)}
+.steps{display:grid;gap:14px}
+.step{
+  display:grid;
+  grid-template-columns:58px 1fr;
+  gap:15px;
+  align-items:start;
+  padding:18px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:#fff;
+}
+.step span{
+  width:50px;height:50px;
+  display:grid;place-items:center;
+  border-radius:50%;
+  background:linear-gradient(145deg,var(--blue),#8bc5df);
+  color:#fff;font-weight:900;
+}
+.step h3{margin:2px 0 4px;color:#3a2418}
+.step p{margin:0;color:var(--muted)}
+.good{color:var(--green);font-weight:900}
+.bad{color:var(--red);font-weight:900}
+
+/* 第七章：大圖版，移除大片空白 */
+.ice-guide{
+  margin-top:20px;
+  padding:0;
+  border:0;
+  background:transparent;
+}
+.ice-guide img{
+  width:min(100%,900px);
+  height:auto;
+  margin:0 auto;
+  object-fit:contain;
+  object-position:center;
+  background:#fafaf8;
+  border:1px solid var(--line);
+  border-radius:20px;
+  box-shadow:0 14px 34px rgba(40,28,20,.14);
+}
+.ice-caption{
+  max-width:980px;
+  margin:10px auto 0;
+  padding:0 4px;
+  color:var(--muted);
+  font-size:.95rem;
+}
+.ice-summary{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin-top:18px;
+}
+.ice-summary div{
+  padding:16px;
+  border-radius:16px;
+  background:#fff;
+  border:1px solid var(--line);
+}
+.ice-summary b{display:block;margin-bottom:5px;color:#382318}
+
+.flow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center}
+.flow-item{
+  min-width:120px;
+  padding:15px 12px;
+  border-radius:15px;
+  border:1px solid var(--line);
+  background:#fff;
+  font-weight:800;
+  text-align:center;
+}
+.arrow{font-size:1.5rem;color:var(--brown2);font-weight:900}
+details{border:1px solid var(--line);border-radius:14px;background:#fff;padding:0 18px;margin:11px 0}
+summary{cursor:pointer;padding:15px 0;font-weight:800;color:#382318}
+details p{margin:0;padding:0 0 16px;color:var(--muted)}
+footer{text-align:center;padding:36px 16px 68px;color:var(--muted)}
+.back{
+  display:inline-flex;
+  padding:13px 22px;
+  color:#fff;
+  background:var(--brown);
+  border-radius:999px;
+  font-weight:900;
+}
+.top{
+  position:fixed;right:20px;bottom:20px;
+  width:48px;height:48px;
+  display:grid;place-items:center;
+  border-radius:50%;
+  background:#2d1c13;color:#fff;
+  box-shadow:0 8px 22px rgba(0,0,0,.25);
+}
+@media(max-width:920px){
+  .grid-4{grid-template-columns:repeat(2,1fr)}
+  .grid-3{grid-template-columns:repeat(2,1fr)}
+  .recipe{grid-template-columns:repeat(3,1fr)}
+  .ice-summary{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:700px){
+  .container{width:min(100% - 18px,1160px)}
+  .section{padding:22px 16px;border-radius:19px}
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+  .recipe{grid-template-columns:repeat(2,1fr)}
+  .ice-summary{grid-template-columns:1fr}
+  .actions{flex-direction:column}
+  .btn{width:100%}
+  .arrow{transform:rotate(90deg)}
+}
+</style>
 </head>
-
 <body id="top">
-  <header class="hero">
-    <div class="container hero-content">
-      <span class="eyebrow">🧊 Coffee Brewing Guide</span>
-      <h1>冰咖啡沖煮技巧</h1>
-      <p class="hero-subtitle">
-        掌握日本急冷法的粉水比、冰塊比例、水溫、研磨與注水節奏，
-        沖出香氣清晰、酸甜平衡、冰涼卻不水薄的冰咖啡。
-      </p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#recipe">查看標準配方</a>
-        <a class="btn btn-outline" href="https://wenwei1967.github.io/kaffa98.github.io/coffee-library/">返回咖啡知識庫</a>
-      </div>
+
+<header class="hero">
+  <div class="container hero-inner">
+    <span class="hero-kicker">🧊 Coffee Brewing Guide</span>
+    <h1>冰咖啡沖煮技巧</h1>
+    <p>從日本急冷法、冰塊比例、研磨、水溫到注水節奏，完整掌握香氣清楚、酸甜平衡又不水薄的冰手沖咖啡。</p>
+    <div class="actions">
+      <a class="btn btn-light" href="#recipe">查看標準配方</a>
+      <a class="btn btn-ghost" href="https://wenwei1967.github.io/kaffa98.github.io/coffee-library/">返回咖啡知識庫</a>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main class="container">
+<main class="container">
 
-    <section class="section">
-      <div class="section-head">
-        <div class="section-number">01</div>
-        <div>
-          <h2>什麼是冰咖啡急冷法？</h2>
-          <p class="lead">以熱水萃取，再讓咖啡液直接滴落在冰塊上快速降溫。</p>
-        </div>
-      </div>
+<section class="section">
+  <div class="section-head">
+    <div class="no">01</div>
+    <div><h2>什麼是冰咖啡急冷法？</h2><p class="lead">以熱水萃取，再讓咖啡液直接滴落在冰塊上快速降溫。</p></div>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <img class="photo" src="images/iced-coffee-flash-brew.jpg" alt="手沖咖啡直接滴入冰塊分享壺">
+      <div class="card-body">日本急冷法：熱萃取與快速降溫同時完成。</div>
+    </div>
+    <div>
+      <p>冰咖啡若只是把一般熱咖啡放涼後再加冰，容易因氧化與稀釋而失去香氣。急冷法利用熱水快速萃取芳香物質，再由冰塊立即降溫，可保留較清楚的花香、果香、酸質與甜感。</p>
+      <div class="highlight"><strong>核心觀念：</strong>冰塊不是最後才加入，而是總用水量的一部分。沖煮時需同時計算「熱水量＋冰塊量」。</div>
+    </div>
+  </div>
+</section>
 
-      <div class="grid-2">
-        <div class="photo-card flash-brew-photo">
-          <img src="images/iced-coffee-flash-brew.jpg" alt="手沖咖啡直接滴入冰塊分享壺" loading="lazy">
-          <div class="caption">日本急冷法：熱萃取與快速降溫同時完成。</div>
-        </div>
-        <div>
-          <p>
-            冰咖啡若只是把一般熱咖啡放涼後再加冰，容易因氧化與稀釋而失去香氣。
-            急冷法則利用熱水快速萃取咖啡的芳香物質，再由冰塊立即降溫，
-            可保留較清楚的花香、果香、酸質與甜感。
-          </p>
-          <div class="highlight">
-            <strong>核心觀念：</strong>
-            冰塊不是最後才加入，而是總用水量的一部分。沖煮時必須同時計算
-            「熱水量＋冰塊量」。
-          </div>
-        </div>
-      </div>
-    </section>
+<section class="section">
+  <div class="section-head">
+    <div class="no">02</div>
+    <div><h2>三種冰咖啡方式比較</h2><p class="lead">不同沖煮方式，會帶來完全不同的香氣、酸質與口感。</p></div>
+  </div>
+  <div class="grid-3">
+    <div class="method"><div class="icon">⚡</div><h3>日本急冷法</h3><p>香氣清楚、酸甜明亮、口感乾淨，最適合花果香精品豆。</p></div>
+    <div class="method"><div class="icon">🌙</div><h3>冷泡法</h3><p>長時間低溫浸泡，酸感較低，口感圓潤滑順。</p></div>
+    <div class="method"><div class="icon">🧊</div><h3>熱沖後加冰</h3><p>操作最快，但若未提高濃度，容易因融冰而變淡。</p></div>
+  </div>
+  <div class="table-wrap" style="margin-top:18px">
+    <table>
+      <thead><tr><th>方式</th><th>香氣</th><th>甜感</th><th>酸質</th><th>口感</th></tr></thead>
+      <tbody>
+        <tr><td>日本急冷法</td><td>★★★★★</td><td>★★★★☆</td><td>★★★★☆</td><td>清爽明亮</td></tr>
+        <tr><td>冷泡法</td><td>★★★☆☆</td><td>★★★★★</td><td>★★☆☆☆</td><td>圓潤滑順</td></tr>
+        <tr><td>熱沖後加冰</td><td>★★☆☆☆</td><td>★★★☆☆</td><td>★★★☆☆</td><td>依濃度而定</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
-    <section class="section">
-      <div class="section-head">
-        <div class="section-number">02</div>
-        <div>
-          <h2>三種冰咖啡方式比較</h2>
-          <p class="lead">不同方式會帶來完全不同的香氣、酸質與口感。</p>
-        </div>
-      </div>
+<section class="section">
+  <div class="section-head">
+    <div class="no">03</div>
+    <div><h2>器材準備</h2><p class="lead">器材不必複雜，但電子秤、磨豆機與冰塊品質非常重要。</p></div>
+  </div>
+  <div class="grid-4">
+    <div class="tool"><div class="icon">☕</div><h3>濾杯與濾紙</h3><p>V60、扇形或平底濾杯皆可。</p></div>
+    <div class="tool"><div class="icon">⚖️</div><h3>電子秤</h3><p>精準測量粉量、熱水量與冰塊量。</p></div>
+    <div class="tool"><div class="icon">🫖</div><h3>細口壺</h3><p>穩定控制注水速度與位置。</p></div>
+    <div class="tool"><div class="icon">⚙️</div><h3>磨豆機</h3><p>研磨均勻度會直接影響甜感。</p></div>
+    <div class="tool"><div class="icon">🌡️</div><h3>溫度計</h3><p>建議水溫控制在 87～92°C。</p></div>
+    <div class="tool"><div class="icon">🧊</div><h3>大冰塊</h3><p>選擇無異味、密實、融化慢的冰塊。</p></div>
+    <div class="tool"><div class="icon">🥛</div><h3>分享壺</h3><p>先放入冰塊，承接萃取咖啡液。</p></div>
+    <div class="tool"><div class="icon">🥄</div><h3>攪拌匙</h3><p>完成後讓濃度與溫度均一。</p></div>
+  </div>
+</section>
 
-      <div class="grid-3">
-        <article class="method-card">
-          <div class="icon">⚡</div>
-          <h3 class="card-title">日本急冷法</h3>
-          <p>香氣清楚、酸甜明亮、口感乾淨，最適合表現精品豆的產區特色。</p>
-        </article>
-        <article class="method-card">
-          <div class="icon">🌙</div>
-          <h3 class="card-title">冷泡法</h3>
-          <p>長時間低溫浸泡，酸感較低、口感圓潤，常呈現巧克力與糖漿感。</p>
-        </article>
-        <article class="method-card">
-          <div class="icon">🧊</div>
-          <h3 class="card-title">熱沖後加冰</h3>
-          <p>操作最快，但若未提高濃度，常因冰塊融化而變淡，香氣也較容易流失。</p>
-        </article>
-      </div>
+<section class="section" id="recipe">
+  <div class="section-head">
+    <div class="no">04</div>
+    <div><h2>標準沖煮配方</h2><p class="lead">適合一杯約 280～300 ml 的冰手沖咖啡。</p></div>
+  </div>
+  <div class="recipe">
+    <div><b>20 g</b><span>咖啡粉</span></div>
+    <div><b>180 g</b><span>熱水</span></div>
+    <div><b>120 g</b><span>冰塊</span></div>
+    <div><b>90°C</b><span>參考水溫</span></div>
+    <div><b>中偏細</b><span>研磨粗細</span></div>
+    <div><b>2:00–2:30</b><span>總時間</span></div>
+  </div>
+  <div class="highlight" style="margin-top:18px"><strong>總水量：</strong>180 g 熱水＋120 g 冰塊＝300 g，粉水比約為 1：15。</div>
+</section>
 
-      <div class="table-wrap" style="margin-top:20px">
-        <table class="compare-table">
-          <thead>
-            <tr>
-              <th>方式</th>
-              <th>香氣</th>
-              <th>甜感</th>
-              <th>酸質</th>
-              <th>口感</th>
-              <th>適合情境</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>日本急冷法</td>
-              <td>★★★★★</td>
-              <td>★★★★☆</td>
-              <td>★★★★☆</td>
-              <td>清爽明亮</td>
-              <td>精品豆、花果香豆</td>
-            </tr>
-            <tr>
-              <td>冷泡法</td>
-              <td>★★★☆☆</td>
-              <td>★★★★★</td>
-              <td>★★☆☆☆</td>
-              <td>圓潤滑順</td>
-              <td>大量製作、日常飲用</td>
-            </tr>
-            <tr>
-              <td>熱沖後加冰</td>
-              <td>★★☆☆☆</td>
-              <td>★★★☆☆</td>
-              <td>★★★☆☆</td>
-              <td>視濃度而定</td>
-              <td>快速沖煮</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+<section class="section">
+  <div class="section-head">
+    <div class="no">05</div>
+    <div><h2>注水流程</h2><p class="lead">注水穩定、萃取均勻，比追求過多段數更重要。</p></div>
+  </div>
+  <div class="steps">
+    <div class="step"><span>1</span><div><h3>預熱濾杯並放入冰塊</h3><p>潤濕濾紙、倒掉洗紙水，再於分享壺放入 120 g 冰塊。</p></div></div>
+    <div class="step"><span>2</span><div><h3>悶蒸 40 g，等待 30 秒</h3><p>由中心向外小圈注水，確保咖啡粉均勻濕潤。</p></div></div>
+    <div class="step"><span>3</span><div><h3>第二段注至 110 g</h3><p>使用細而穩定的水柱，小範圍繞圈。</p></div></div>
+    <div class="step"><span>4</span><div><h3>第三段注至 180 g</h3><p>完成後輕輕攪拌，總時間控制在約 2:00～2:30。</p></div></div>
+  </div>
+</section>
 
-    <section class="section">
-      <div class="section-head">
-        <div class="section-number">03</div>
-        <div>
-          <h2>器材準備</h2>
-          <p class="lead">器材不必複雜，但電子秤、磨豆機與冰塊品質非常重要。</p>
-        </div>
-      </div>
+<section class="section">
+  <div class="section-head">
+    <div class="no">06</div>
+    <div><h2>不同焙度的調整方式</h2><p class="lead">焙度越深，通常需要較低水溫與較粗研磨。</p></div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>焙度</th><th>水溫</th><th>研磨</th><th>風味方向</th><th>調整重點</th></tr></thead>
+      <tbody>
+        <tr><td>淺焙</td><td>91～92°C</td><td>中偏細</td><td>花香、柑橘、莓果</td><td>提高萃取，避免尖酸</td></tr>
+        <tr><td>中焙</td><td>89～91°C</td><td>中細</td><td>焦糖、堅果、熟果</td><td>追求酸甜平衡</td></tr>
+        <tr><td>深焙</td><td>87～89°C</td><td>中粗</td><td>巧克力、焦糖、堅果</td><td>降低焦苦與乾澀</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
-      <div class="grid-4">
-        <div class="info-card"><div class="icon">☕</div><h3 class="card-title">濾杯與濾紙</h3><p>V60、扇形濾杯或平底濾杯皆可。</p></div>
-        <div class="info-card"><div class="icon">⚖️</div><h3 class="card-title">電子秤</h3><p>同時測量熱水量、冰塊量與沖煮時間。</p></div>
-        <div class="info-card"><div class="icon">🫖</div><h3 class="card-title">細口壺</h3><p>幫助控制水柱粗細與注水位置。</p></div>
-        <div class="info-card"><div class="icon">⚙️</div><h3 class="card-title">磨豆機</h3><p>研磨均勻度會直接影響萃取與甜感。</p></div>
-        <div class="info-card"><div class="icon">🌡️</div><h3 class="card-title">溫度計</h3><p>建議將水溫控制在 87～92°C。</p></div>
-        <div class="info-card"><div class="icon">🧊</div><h3 class="card-title">大冰塊</h3><p>冰塊應無異味、質地硬、融化速度慢。</p></div>
-        <div class="info-card"><div class="icon">🥛</div><h3 class="card-title">分享壺</h3><p>先放入冰塊，承接萃取完成的咖啡液。</p></div>
-        <div class="info-card"><div class="icon">🥄</div><h3 class="card-title">攪拌匙</h3><p>完成後攪拌，使咖啡濃度與溫度一致。</p></div>
-      </div>
-    </section>
+<section class="section">
+  <div class="section-head">
+    <div class="no">07</div>
+    <div><h2>冰塊為什麼重要？</h2><p class="lead">冰塊同時決定降溫速度、稀釋程度與成品乾淨度。</p></div>
+  </div>
 
-    <section class="section" id="recipe">
-      <div class="section-head">
-        <div class="section-number">04</div>
-        <div>
-          <h2>標準沖煮配方</h2>
-          <p class="lead">適合一杯約 280～300 ml 的冰手沖咖啡。</p>
-        </div>
-      </div>
+  <div class="grid-2">
+    <div class="highlight"><span class="good">✓ 建議使用</span><p>大顆、密實、無異味的冰塊。使用過濾水製冰，可減少氯味與冰箱雜味。</p></div>
+    <div class="highlight" style="border-left-color:var(--red);background:linear-gradient(90deg,#fff2f0,#fff)"><span class="bad">✗ 避免使用</span><p>碎冰、中空冰或已吸附冰箱味的冰塊，因融化太快，容易造成咖啡水薄。</p></div>
+  </div>
 
-      <div class="recipe">
-        <div class="recipe-item"><b>20 g</b><span>咖啡粉</span></div>
-        <div class="recipe-item"><b>180 g</b><span>熱水</span></div>
-        <div class="recipe-item"><b>120 g</b><span>冰塊</span></div>
-        <div class="recipe-item"><b>90°C</b><span>參考水溫</span></div>
-        <div class="recipe-item"><b>中偏細</b><span>研磨粗細</span></div>
-        <div class="recipe-item"><b>2:00–2:30</b><span>總沖煮時間</span></div>
-      </div>
+  <div class="ice-guide">
+    <img src="images/iced-coffee-ice-comparison.jpg" alt="大冰塊、透明冰、碎冰與中空冰比較">
+    <div class="ice-caption">大冰塊、透明冰、碎冰與中空冰的融化速度、稀釋程度與風味影響比較。</div>
+  </div>
 
-      <div class="highlight">
-        <strong>總水量計算：</strong>180 g 熱水＋120 g 冰塊＝300 g 總水量，
-        粉水比約為 1：15。
-      </div>
-    </section>
+  <div class="ice-summary">
+    <div><b>大冰塊</b>融化速度慢，能維持濃度與風味。</div>
+    <div><b>透明冰</b>純度高、融化慢，適合精品冰咖啡。</div>
+    <div><b>碎冰</b>表面積大，融化快，容易稀釋。</div>
+    <div><b>中空冰</b>內部空心，結構不穩定，風味容易不均。</div>
+  </div>
+</section>
 
-    <section class="section">
-      <div class="section-head">
-        <div class="section-number">05</div>
-        <div>
-          <h2>四段式注水流程</h2>
-          <p class="lead">注水穩定、萃取均勻，比追求過多段數更重要。</p>
-        </div>
-      </div>
+<section class="section">
+  <div class="section-head">
+    <div class="no">08</div>
+    <div><h2>常見問題與修正方式</h2><p class="lead">一次只調整一個變因，才能找出真正原因。</p></div>
+  </div>
+  <div class="grid-3">
+    <div class="fault"><h3>太酸、刺激</h3><p>研磨細一點、提高水溫或延長接觸時間。</p></div>
+    <div class="fault"><h3>太苦、乾澀</h3><p>研磨粗一點、降低水溫或縮短時間。</p></div>
+    <div class="fault"><h3>味道太淡</h3><p>增加粉量，或把冰塊比例由 40% 降至 35%。</p></div>
+    <div class="fault"><h3>香氣不明顯</h3><p>改用新鮮豆，並讓咖啡液直接滴在冰塊上。</p></div>
+    <div class="fault"><h3>口感混濁</h3><p>改善磨豆均勻度，縮小繞圈範圍。</p></div>
+    <div class="fault"><h3>甜感不足</h3><p>研磨略細，並控制總時間約 2:00～2:30。</p></div>
+  </div>
+</section>
 
-      <div class="steps">
-        <article class="step">
-          <div class="step-no">1</div>
-          <div>
-            <h3>預熱濾杯並放入冰塊</h3>
-            <p>先潤濕濾紙、倒掉洗紙水，再於分享壺中放入 120 g 冰塊。</p>
-          </div>
-        </article>
-        <article class="step">
-          <div class="step-no">2</div>
-          <div>
-            <h3>悶蒸 40 g，等待 30 秒</h3>
-            <p>由中心向外小圈注水，確保所有咖啡粉均勻濕潤並充分排氣。</p>
-          </div>
-        </article>
-        <article class="step">
-          <div class="step-no">3</div>
-          <div>
-            <h3>第二段注至 110 g</h3>
-            <p>使用細而穩定的水柱，小範圍繞圈，避免直接沖刷濾紙邊緣。</p>
-          </div>
-        </article>
-        <article class="step">
-          <div class="step-no">4</div>
-          <div>
-            <h3>第三段注至 180 g</h3>
-            <p>保持粉床水位穩定，總時間控制在約 2:00～2:30，完成後輕輕攪拌。</p>
-          </div>
-        </article>
-      </div>
-    </section>
+<section class="section">
+  <div class="section-head">
+    <div class="no">09</div>
+    <div><h2>提升甜感的五個技巧</h2><p class="lead">冰咖啡的甜感來自均勻萃取，而不是單純提高濃度。</p></div>
+  </div>
+  <div class="grid-3">
+    <div class="tip"><div class="icon">🌱</div><h3>新鮮咖啡豆</h3><p>選擇養豆完成、香氣仍活躍的咖啡豆。</p></div>
+    <div class="tip"><div class="icon">💧</div><h3>穩定小水柱</h3><p>減少粉床擾動，讓萃取更均勻。</p></div>
+    <div class="tip"><div class="icon">⚖️</div><h3>精準比例</h3><p>冰塊約占總水量 35～40%。</p></div>
+    <div class="tip"><div class="icon">⏱️</div><h3>控制時間</h3><p>過短容易酸薄，過長容易苦澀。</p></div>
+    <div class="tip"><div class="icon">🥄</div><h3>完成後攪拌</h3><p>讓濃度與溫度完全均一。</p></div>
+  </div>
+</section>
 
-    <section class="section">
-      <div class="section-head">
-        <div class="section-number">06</div>
-        <div>
-          <h2>不同焙度的調整方式</h2>
-          <p class="lead">焙度越深，通常需要較低水溫與較粗研磨，減少苦澀與乾燥感。</p>
-        </div>
-      </div>
+<section class="section">
+  <div class="section-head">
+    <div class="no">10</div>
+    <div><h2>完整流程總整理</h2><p class="lead">依序完成，能有效降低比例錯誤與操作遺漏。</p></div>
+  </div>
+  <div class="flow">
+    <div class="flow-item">磨豆</div><div class="arrow">→</div>
+    <div class="flow-item">潤濕濾紙</div><div class="arrow">→</div>
+    <div class="flow-item">加入冰塊</div><div class="arrow">→</div>
+    <div class="flow-item">悶蒸</div><div class="arrow">→</div>
+    <div class="flow-item">分段注水</div><div class="arrow">→</div>
+    <div class="flow-item">充分攪拌</div><div class="arrow">→</div>
+    <div class="flow-item">立即飲用</div>
+  </div>
+</section>
 
-      <div class="table-wrap">
-        <table class="brew-table">
-          <thead>
-            <tr>
-              <th>焙度</th>
-              <th>建議水溫</th>
-              <th>研磨</th>
-              <th>風味方向</th>
-              <th>調整重點</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>淺焙</td>
-              <td>91～92°C</td>
-              <td>中偏細</td>
-              <td>花香、柑橘、莓果</td>
-              <td>提高萃取，避免尖酸</td>
-            </tr>
-            <tr>
-              <td>中焙</td>
-              <td>89～91°C</td>
-              <td>中細</td>
-              <td>焦糖、堅果、熟果</td>
-              <td>追求酸甜平衡</td>
-            </tr>
-            <tr>
-              <td>深焙</td>
-              <td>87～89°C</td>
-              <td>中粗</td>
-              <td>巧克力、焦糖、堅果</td>
-              <td>降低苦味與焦澀感</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+<section class="section">
+  <div class="section-head">
+    <div class="no">11</div>
+    <div><h2>常見問答 FAQ</h2><p class="lead">依咖啡豆、濾杯與個人口味微調，沒有唯一固定答案。</p></div>
+  </div>
+  <details><summary>冰咖啡為什麼喝起來比較酸？</summary><p>低溫會降低苦味與部分甜味感受，使酸質更突出。若酸味尖銳，可將研磨調細、提高水溫或延長沖煮時間。</p></details>
+  <details><summary>冰塊一定要先放在分享壺嗎？</summary><p>急冷法建議先放，讓剛萃取出的高溫咖啡立即降溫，減少香氣流失。</p></details>
+  <details><summary>可以使用深焙咖啡豆嗎？</summary><p>可以。建議降低水溫、研磨略粗，並縮短沖煮時間。</p></details>
+  <details><summary>急冷法與冷泡有什麼不同？</summary><p>急冷法以熱水快速萃取，香氣與酸質較清楚；冷泡則較圓潤、酸感較低。</p></details>
+</section>
 
-    <section class="section">
-      <div class="section-head">
-        <div class="section-number">07</div>
-        <div>
-          <h2>冰塊為什麼重要？</h2>
-          <p class="lead">冰塊同時決定降溫速度、稀釋程度與成品乾淨度。</p>
-        </div>
-      </div>
+</main>
 
-      <div class="grid-2">
-        <div class="ice-box">
-          <h3 class="good">✓ 建議使用</h3>
-          <p>大顆、密實、無異味的冰塊。使用過濾水製冰，可減少氯味與冰箱雜味。</p>
-        </div>
-        <div class="ice-box">
-          <h3 class="bad">✗ 避免使用</h3>
-          <p>碎冰、中空冰或已吸附冰箱味的冰塊，因為融化太快，容易造成咖啡水薄。</p>
-        </div>
-      </div>
+<footer>
+  <a class="back" href="https://wenwei1967.github.io/kaffa98.github.io/coffee-library/">← 返回咖啡知識庫</a>
+  <p>© 給好咖啡｜Coffee Knowledge Library</p>
+</footer>
 
-      <div class="photo-card ice-comparison-photo" style="margin-top:20px">
-        <img src="images/iced-coffee-ice-comparison.jpg" alt="大冰塊與碎冰融化速度比較" loading="lazy">
-        <div class="caption">建議圖片：大冰塊、透明冰與碎冰的融化速度比較。</div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-head">
-        <div class="section-number">08</div>
-        <div>
-          <h2>常見問題與修正方式</h2>
-          <p class="lead">先一次只調整一個變因，才能找出真正原因。</p>
-        </div>
-      </div>
-
-      <div class="grid-3">
-        <article class="fault-card"><strong>太酸、刺激</strong>可能是萃取不足。<small>研磨細一點、提高水溫或延長接觸時間。</small></article>
-        <article class="fault-card"><strong>太苦、乾澀</strong>可能是過度萃取。<small>研磨粗一點、降低水溫或縮短沖煮時間。</small></article>
-        <article class="fault-card"><strong>味道太淡</strong>冰塊比例過高或咖啡粉太少。<small>增加粉量，或將冰塊由 40% 降至 35%。</small></article>
-        <article class="fault-card"><strong>香氣不明顯</strong>咖啡豆不新鮮或降溫太慢。<small>改用新鮮豆，並讓咖啡液直接滴在冰塊上。</small></article>
-        <article class="fault-card"><strong>口感混濁</strong>細粉過多或注水擾動過強。<small>改善磨豆均勻度，縮小繞圈範圍。</small></article>
-        <article class="fault-card"><strong>前酸後苦</strong>萃取不均或形成通道。<small>悶蒸完整、注水穩定，避免只沖單一位置。</small></article>
-        <article class="fault-card"><strong>冰塊很快融完</strong>冰塊太小或咖啡液溫度過高。<small>使用較大冰塊，並避免分享壺預熱過度。</small></article>
-        <article class="fault-card"><strong>甜感不足</strong>研磨過粗或流速太快。<small>研磨略細，並控制總時間約 2:00～2:30。</small></article>
-        <article class="fault-card"><strong>成品不夠冰</strong>冰塊量不足或攪拌不均。<small>確認冰塊比例，完成後充分攪拌再飲用。</small></article>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-head">
-        <div class="section-number">09</div>
-        <div>
-          <h2>提升甜感的五個技巧</h2>
-          <p class="lead">冰咖啡的甜感來自均勻萃取，而不是單純提高濃度。</p>
-        </div>
-      </div>
-
-      <div class="grid-3">
-        <div class="tip-card"><div class="icon">🌱</div><h3 class="card-title">使用新鮮咖啡豆</h3><p>選擇養豆完成、香氣仍活躍的咖啡豆。</p></div>
-        <div class="tip-card"><div class="icon">💧</div><h3 class="card-title">穩定的小水柱</h3><p>減少粉床擾動，讓萃取更均勻。</p></div>
-        <div class="tip-card"><div class="icon">⚖️</div><h3 class="card-title">精準計算冰水比例</h3><p>冰塊約占總水量 35～40%，較容易兼顧濃度與冰涼感。</p></div>
-        <div class="tip-card"><div class="icon">⏱️</div><h3 class="card-title">控制沖煮時間</h3><p>時間過短容易酸薄，過長則容易苦澀。</p></div>
-        <div class="tip-card"><div class="icon">🥄</div><h3 class="card-title">完成後充分攪拌</h3><p>讓上層濃咖啡、下層融冰水與溫度完全均一。</p></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-head">
-        <div class="section-number">10</div>
-        <div>
-          <h2>完整流程總整理</h2>
-          <p class="lead">依序完成，能有效降低忘記冰塊或比例錯誤的情況。</p>
-        </div>
-      </div>
-
-      <div class="flow">
-        <div class="flow-item">磨豆</div><div class="arrow">→</div>
-        <div class="flow-item">潤濕濾紙</div><div class="arrow">→</div>
-        <div class="flow-item">加入冰塊</div><div class="arrow">→</div>
-        <div class="flow-item">悶蒸 30 秒</div><div class="arrow">→</div>
-        <div class="flow-item">分段注水</div><div class="arrow">→</div>
-        <div class="flow-item">完成滴濾</div><div class="arrow">→</div>
-        <div class="flow-item">充分攪拌</div><div class="arrow">→</div>
-        <div class="flow-item">立即飲用</div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-head">
-        <div class="section-number">11</div>
-        <div>
-          <h2>常見問答 FAQ</h2>
-          <p class="lead">依咖啡豆、濾杯與個人口味微調，沒有唯一固定答案。</p>
-        </div>
-      </div>
-
-      <details>
-        <summary>冰咖啡為什麼喝起來比較酸？</summary>
-        <p>低溫會降低苦味與部分甜味感受，使酸質更突出。若酸味尖銳，可將研磨調細、提高水溫或延長沖煮時間。</p>
-      </details>
-      <details>
-        <summary>冰塊一定要先放在分享壺嗎？</summary>
-        <p>急冷法建議先放，讓剛萃取出的高溫咖啡立即降溫，減少香氣流失與持續氧化。</p>
-      </details>
-      <details>
-        <summary>可以使用深焙咖啡豆嗎？</summary>
-        <p>可以。建議降低水溫、研磨略粗，並縮短沖煮時間，以降低焦苦與乾澀感。</p>
-      </details>
-      <details>
-        <summary>急冷法與冷泡有什麼不同？</summary>
-        <p>急冷法以熱水快速萃取，香氣與酸質較清楚；冷泡以低溫長時間浸泡，口感較圓潤、酸感較低。</p>
-      </details>
-      <details>
-        <summary>冰咖啡適合哪一類咖啡豆？</summary>
-        <p>花香、柑橘、莓果、熱帶水果與乾淨甜感明顯的淺焙至中焙咖啡豆，通常特別適合急冷法。</p>
-      </details>
-    </section>
-
-    <section class="section">
-      <div class="section-head">
-        <div class="section-number">12</div>
-        <div>
-          <h2>圖片檔案與上傳說明</h2>
-          <p class="lead">請將圖片放在本網頁同層的 <code>images</code> 資料夾。</p>
-        </div>
-      </div>
-
-      <div class="note">
-        本頁預留三張圖片：<br>
-        <code>images/iced-coffee-hero.jpg</code><br>
-        <code>images/iced-coffee-flash-brew.jpg</code><br>
-        <code>images/iced-coffee-ice-comparison.jpg</code>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-head">
-        <div class="section-number">13</div>
-        <div>
-          <h2>參考資料</h2>
-          <p class="lead">實際沖煮結果仍會受到咖啡豆、磨豆機、濾杯與水質影響。</p>
-        </div>
-      </div>
-      <ol class="references">
-        <li>Specialty Coffee Association（SCA）：咖啡沖煮、水質與感官評估相關教材。</li>
-        <li>HARIO：V60 濾杯與冰手沖咖啡沖煮建議。</li>
-        <li>James Hoffmann：手沖咖啡萃取、研磨與冰咖啡沖煮相關公開教學。</li>
-        <li>Barista Hustle：咖啡萃取、粉水比、攪動與沖煮控制相關文章。</li>
-      </ol>
-    </section>
-
-  </main>
-
-  <footer class="footer">
-    <a class="back" href="https://wenwei1967.github.io/kaffa98.github.io/coffee-library/">← 返回咖啡知識庫</a>
-    <p>© 給好咖啡｜Coffee Knowledge Library</p>
-  </footer>
-
-  <a class="to-top" href="#top" aria-label="回到頂端">↑</a>
+<a class="top" href="#top" aria-label="回到頂端">↑</a>
 </body>
 </html>
