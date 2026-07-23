@@ -2,19 +2,22 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="Kaffa98研究室｜給好咖啡">
+  <meta name="theme-color" content="#211611">
   <title>Kaffa98研究室｜給好咖啡</title>
 
   <style>
     :root {
       --dark:#211611;
+      --dark-2:#382319;
       --brown:#5d3c2c;
       --gold:#d4aa69;
       --cream:#f7f1e8;
       --paper:#fffaf4;
       --text:#34251d;
       --muted:#705c50;
+      --max-width:1180px;
     }
 
     * {
@@ -23,14 +26,17 @@
 
     html {
       scroll-behavior:smooth;
+      -webkit-text-size-adjust:100%;
     }
 
     body {
       margin:0;
-      font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;
+      min-width:320px;
+      font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
       color:var(--text);
       background:var(--cream);
       line-height:1.8;
+      overflow-x:hidden;
     }
 
     img {
@@ -40,24 +46,30 @@
 
     a {
       text-decoration:none;
+      color:inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color:transparent;
+    }
+
+    .container {
+      width:min(var(--max-width), calc(100% - 40px));
+      margin-inline:auto;
     }
 
     .hero {
-      padding:62px 5vw 0;
+      padding-top:clamp(36px, 5vw, 64px);
       text-align:center;
       color:#fff;
-      background:linear-gradient(180deg,#20150f,#382319);
-    }
-
-    .hero-inner {
-      width:min(1180px,100%);
-      margin:auto;
+      background:linear-gradient(180deg,var(--dark),var(--dark-2));
     }
 
     .brand-small {
-      margin-bottom:10px;
+      margin-bottom:8px;
       color:var(--gold);
-      font-size:13px;
+      font-size:clamp(11px, 1.5vw, 13px);
       font-weight:800;
       letter-spacing:.18em;
     }
@@ -65,9 +77,10 @@
     h1 {
       margin:0;
       font-family:"Noto Serif TC","PMingLiU",serif;
-      font-size:clamp(42px,7vw,76px);
+      font-size:clamp(38px, 7vw, 76px);
       line-height:1.15;
       letter-spacing:.03em;
+      word-break:keep-all;
     }
 
     h1 span {
@@ -75,33 +88,38 @@
       margin-top:10px;
       color:#f0c98c;
       font-size:.5em;
-      letter-spacing:.15em;
+      letter-spacing:.12em;
     }
 
     .slogan {
-      margin:22px auto 26px;
+      margin:clamp(16px, 3vw, 24px) auto clamp(20px, 3vw, 28px);
+      padding-inline:12px;
       font-family:"Noto Serif TC","PMingLiU",serif;
-      font-size:clamp(21px,3vw,29px);
+      font-size:clamp(19px, 3vw, 29px);
+      line-height:1.55;
       font-weight:700;
     }
 
     .hero-buttons {
       display:flex;
       justify-content:center;
+      align-items:center;
       gap:12px;
       flex-wrap:wrap;
-      margin-bottom:38px;
+      margin-bottom:clamp(24px, 4vw, 38px);
     }
 
     .button {
-      min-height:56px;
-      padding:14px 27px;
+      min-height:54px;
+      padding:13px 26px;
       border-radius:999px;
       display:inline-flex;
       align-items:center;
       justify-content:center;
+      font-size:16px;
       font-weight:900;
-      transition:.2s ease;
+      line-height:1.2;
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
     }
 
     .button-primary {
@@ -110,38 +128,49 @@
       box-shadow:0 12px 28px rgba(0,0,0,.28);
     }
 
-    .button-primary:hover {
-      transform:translateY(-2px);
-    }
-
     .button-secondary {
       color:#fff;
       border:1px solid rgba(255,255,255,.45);
+      background:rgba(255,255,255,.04);
+    }
+
+    @media (hover:hover) {
+      .button:hover {
+        transform:translateY(-2px);
+      }
+      .button-secondary:hover {
+        background:rgba(255,255,255,.1);
+      }
+    }
+
+    .image-wrap {
+      width:min(var(--max-width), calc(100% - 40px));
+      margin-inline:auto;
     }
 
     .image-frame {
-      width:min(1180px,100%);
-      margin:auto;
       overflow:hidden;
-      border-radius:26px 26px 0 0;
-      background:#170f0b;
+      border-radius:clamp(16px, 2.5vw, 28px) clamp(16px, 2.5vw, 28px) 0 0;
+      background:#160f0b;
       box-shadow:0 -8px 40px rgba(0,0,0,.26);
     }
 
     .image-frame img {
       width:100%;
       height:auto;
+      max-height:none;
       object-fit:contain;
+      object-position:center;
     }
 
     .story {
-      padding:90px 5vw;
+      padding:clamp(64px, 9vw, 100px) 0;
       background:var(--paper);
     }
 
     .story-inner {
-      width:min(920px,100%);
-      margin:auto;
+      width:min(920px, calc(100% - 40px));
+      margin-inline:auto;
     }
 
     .section-label {
@@ -152,44 +181,45 @@
     }
 
     h2 {
-      margin:8px 0 28px;
+      margin:8px 0 clamp(20px, 3vw, 28px);
       font-family:"Noto Serif TC","PMingLiU",serif;
-      font-size:clamp(32px,5vw,48px);
+      font-size:clamp(29px, 5vw, 48px);
       line-height:1.35;
       color:var(--dark);
+      word-break:keep-all;
     }
 
     .story p {
       margin:0 0 22px;
       color:var(--muted);
-      font-size:18px;
+      font-size:clamp(16px, 2vw, 18px);
     }
 
     .quote {
-      margin-top:34px;
-      padding:30px 32px;
+      margin-top:clamp(26px, 4vw, 36px);
+      padding:clamp(22px, 4vw, 32px);
       border-left:5px solid #b97848;
       background:#f7ede2;
       font-family:"Noto Serif TC","PMingLiU",serif;
-      font-size:clamp(21px,3vw,28px);
-      line-height:1.7;
+      font-size:clamp(19px, 3vw, 28px);
+      line-height:1.75;
       font-weight:700;
       color:var(--dark);
     }
 
     .order {
-      padding:78px 5vw 94px;
+      padding:clamp(52px, 8vw, 82px) 0 clamp(64px, 9vw, 96px);
       background:var(--cream);
     }
 
     .order-card {
-      width:min(920px,100%);
-      margin:auto;
-      padding:50px 32px;
-      border-radius:26px;
+      width:min(920px, calc(100% - 40px));
+      margin-inline:auto;
+      padding:clamp(34px, 6vw, 52px) clamp(20px, 5vw, 36px);
+      border-radius:clamp(20px, 3vw, 28px);
       text-align:center;
       color:#fff;
-      background:linear-gradient(135deg,#5b3927,#211611);
+      background:linear-gradient(135deg,#5b3927,var(--dark));
       box-shadow:0 22px 58px rgba(47,29,20,.22);
     }
 
@@ -202,56 +232,160 @@
       margin:0 auto 28px;
       max-width:650px;
       color:#e5d8ce;
-      font-size:17px;
+      font-size:clamp(15px, 2vw, 17px);
     }
 
     footer {
-      padding:28px 5vw;
+      padding:24px 20px;
       text-align:center;
       color:#d8c8bc;
       background:var(--dark);
       font-size:14px;
     }
 
-    @media(max-width:600px) {
+    /* 平板 */
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .container,
+      .image-wrap,
+      .story-inner,
+      .order-card {
+        width:calc(100% - 64px);
+      }
+
       .hero {
-        padding:42px 4vw 0;
+        padding-top:48px;
       }
 
       h1 {
-        font-size:42px;
+        font-size:clamp(50px, 7vw, 66px);
+      }
+
+      .image-frame img {
+        width:100%;
+        height:auto;
+      }
+
+      .story {
+        padding-block:78px;
+      }
+    }
+
+    /* 手機 */
+    @media (max-width: 767px) {
+      .container,
+      .image-wrap,
+      .story-inner,
+      .order-card {
+        width:calc(100% - 28px);
+      }
+
+      .hero {
+        padding-top:34px;
+      }
+
+      .brand-small {
+        letter-spacing:.12em;
+      }
+
+      h1 {
+        font-size:clamp(34px, 10vw, 46px);
+      }
+
+      h1 span {
+        margin-top:8px;
+        font-size:.52em;
+      }
+
+      .slogan {
+        max-width:320px;
+        font-size:clamp(18px, 5vw, 22px);
       }
 
       .hero-buttons {
-        margin-bottom:26px;
+        flex-direction:column;
+        align-items:stretch;
+        gap:10px;
       }
 
       .button {
         width:100%;
+        min-height:52px;
+        font-size:15px;
       }
 
       .image-frame {
-        border-radius:18px 18px 0 0;
+        border-radius:16px 16px 0 0;
+      }
+
+      .image-frame img {
+        width:100%;
+        height:auto;
+        object-fit:contain;
       }
 
       .story {
-        padding:65px 5vw;
+        padding-block:58px;
       }
 
-      .story p {
-        font-size:17px;
+      h2 {
+        font-size:clamp(27px, 8vw, 36px);
       }
 
       .quote {
-        padding:24px 22px;
+        padding:22px 20px;
+        border-left-width:4px;
       }
 
       .order {
-        padding:52px 5vw 70px;
+        padding-block:48px 68px;
       }
 
       .order-card {
-        padding:38px 22px;
+        padding:34px 20px;
+      }
+    }
+
+    /* 小手機 */
+    @media (max-width: 380px) {
+      .container,
+      .image-wrap,
+      .story-inner,
+      .order-card {
+        width:calc(100% - 20px);
+      }
+
+      h1 {
+        font-size:32px;
+      }
+
+      .slogan {
+        font-size:18px;
+      }
+
+      .button {
+        padding-inline:18px;
+      }
+    }
+
+    /* 大螢幕 */
+    @media (min-width: 1440px) {
+      .hero {
+        padding-top:72px;
+      }
+
+      .image-frame {
+        max-width:1280px;
+        margin-inline:auto;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior:auto;
+      }
+
+      * {
+        transition:none !important;
       }
     }
   </style>
@@ -260,7 +394,7 @@
 <body>
   <main>
     <section class="hero">
-      <div class="hero-inner">
+      <div class="container">
         <div class="brand-small">KAFFA98 COFFEE LABORATORY</div>
 
         <h1>
@@ -284,9 +418,11 @@
         </div>
       </div>
 
-      <div class="image-frame">
-        <img src="images/hero-kaffa98.jpg"
-             alt="Kaffa98研究室完整品牌形象圖片">
+      <div class="image-wrap">
+        <div class="image-frame">
+          <img src="images/hero-kaffa98.jpg"
+               alt="Kaffa98研究室完整品牌形象圖片">
+        </div>
       </div>
     </section>
 
@@ -316,9 +452,7 @@
     <section class="order">
       <div class="order-card">
         <h2>進入訂單系統</h2>
-        <p>
-          選擇目前供應的咖啡商品，完成線上訂購。
-        </p>
+        <p>選擇目前供應的咖啡商品，完成線上訂購。</p>
 
         <a class="button button-primary"
            href="https://script.google.com/macros/s/AKfycbyim3ysQXceVnCNm2n7r_NxXd1oqEw1lWTtlA_W6Ymd4yw4WT-ozqsWCedlnnjhJ9JDXQ/exec?page=mobile"
