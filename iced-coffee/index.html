@@ -198,7 +198,20 @@
     }
 
     .photo-card img{
-      aspect-ratio:16/10;
+      width:100%;
+      height:auto;
+      aspect-ratio:auto;
+      object-fit:contain;
+      background:#eee7df;
+    }
+
+    /* 第一章急冷法主圖：完整顯示整張圖片，不裁切上下內容 */
+    .flash-brew-photo img{
+      width:100%;
+      height:auto;
+      max-height:none;
+      object-fit:contain;
+      object-position:center;
       background:#eee7df;
     }
 
@@ -494,7 +507,7 @@
       </div>
 
       <div class="grid-2">
-        <div class="photo-card">
+        <div class="photo-card flash-brew-photo">
           <img src="images/iced-coffee-flash-brew.jpg" alt="手沖咖啡直接滴入冰塊分享壺" loading="lazy">
           <div class="caption">日本急冷法：熱萃取與快速降溫同時完成。</div>
         </div>
@@ -876,4 +889,3 @@
   <a class="to-top" href="#top" aria-label="回到頂端">↑</a>
 </body>
 </html>
-
