@@ -465,7 +465,16 @@
   </main>
 
   <footer>
-    Kaffa98 研究室｜給好咖啡
-  </footer>
+  <div>© <span id="footer-date"></span> Kaffa98 研究室｜給好咖啡</div>
+</footer>
+
+<script>
+(function(){
+  const d=new Date();
+  const y=d.getFullYear();
+  const m=String(d.getMonth()+1).padStart(2,'0');
+  document.getElementById('footer-date').textContent=`${y}.${m}`;
+})();
+</script>
 </body>
 </html>
