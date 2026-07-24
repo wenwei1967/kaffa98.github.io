@@ -1310,6 +1310,37 @@
   }
 }
 
+
+/* v3.2 修正手機版 Manifesto 被截掉 */
+.manifesto-inner{
+  overflow:visible;
+}
+.manifesto blockquote{
+  white-space:normal;
+  overflow:visible;
+  word-break:break-word;
+}
+@media (max-width:700px){
+  .manifesto{
+    padding-top:72px;
+    padding-bottom:72px;
+  }
+  .manifesto-inner{
+    max-width:100%;
+    overflow:visible!important;
+  }
+  .manifesto blockquote{
+    font-size:26px;
+    line-height:1.8;
+    padding:0 4px;
+    overflow-wrap:anywhere;
+  }
+  .manifesto-note{
+    margin-top:20px;
+    line-height:1.7;
+  }
+}
+
 </style>
 </head>
 
