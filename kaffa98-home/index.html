@@ -254,60 +254,14 @@
       overflow:hidden;
       position:relative;
       box-shadow:var(--shadow);
-      background:
-        radial-gradient(circle at 55% 18%,rgba(255,245,222,.92),transparent 23%),
-        linear-gradient(145deg,#9b6948 0%,#3a241b 52%,#17100d 100%);
+      background:#2b1a12;
     }
-    .art-card::after {
-      content:"KAFFA98";
-      position:absolute;
-      left:7%;
-      bottom:4%;
-      color:rgba(255,255,255,.13);
-      font-size:clamp(42px,6vw,82px);
-      font-weight:900;
-      letter-spacing:.08em;
-    }
-    .coffee-scene {
+    .hero-roast-image {
       width:100%;
       height:100%;
-    }
-    .roast-badge {
-      position:absolute;
-      right:-8px;
-      bottom:58px;
-      width:156px;
-      min-height:156px;
-      padding:16px 14px 13px;
-      border-radius:50%;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      color:var(--coffee-dark);
-      background:linear-gradient(145deg,#f4c675,var(--gold));
-      border:8px solid rgba(255,250,242,.86);
-      box-shadow:0 15px 35px rgba(30,18,12,.25);
-      font-weight:900;
-      line-height:1.15;
-      transform:rotate(5deg);
-    }
-    .roast-badge svg {
-      width:82px;
-      height:58px;
-      margin-bottom:5px;
-      overflow:visible;
-    }
-    .roast-badge strong {
+      object-fit:cover;
+      object-position:center;
       display:block;
-      font-size:15px;
-      letter-spacing:.08em;
-    }
-    .roast-badge small {
-      display:block;
-      margin-top:5px;
-      font-size:9px;
-      letter-spacing:.14em;
     }
 
     section { padding:100px 5vw; }
@@ -703,17 +657,6 @@
       .hero-lead { font-size:18px; }
       .hero-actions .btn { width:100%; }
       .hero-art { min-height:400px; }
-      .roast-badge {
-        width:118px;
-        min-height:118px;
-        right:0;
-        bottom:34px;
-        padding:12px 10px 10px;
-        border-width:6px;
-      }
-      .roast-badge svg { width:62px; height:42px; margin-bottom:2px; }
-      .roast-badge strong { font-size:12px; }
-      .roast-badge small { font-size:7px; }
       .lab-visual { min-height:390px; }
       .craft-grid { grid-template-columns:1fr; gap:16px; }
       .craft-card { min-height:auto; border-radius:14px; }
@@ -879,53 +822,10 @@
         </div>
 
         <div class="hero-art reveal">
-          <div class="art-card" aria-label="咖啡研究室意象插圖">
-            <svg class="coffee-scene" viewBox="0 0 600 750" role="img" aria-label="咖啡烘焙、手沖與咖啡豆">
-              <defs>
-                <linearGradient id="cup" x1="0" x2="1">
-                  <stop offset="0" stop-color="#fff7e8"/>
-                  <stop offset="1" stop-color="#cfae83"/>
-                </linearGradient>
-                <radialGradient id="brew">
-                  <stop offset="0" stop-color="#8b5738"/>
-                  <stop offset="1" stop-color="#26150f"/>
-                </radialGradient>
-              </defs>
-              <circle cx="300" cy="190" r="150" fill="rgba(255,243,216,.10)"/>
-              <path d="M245 90h110l-19 185h-72Z" fill="#1c1512" opacity=".88"/>
-              <path d="M270 106h60l-8 76h-44Z" fill="#bd8051"/>
-              <path d="M220 287c38-26 122-26 160 0l-31 70h-98Z" fill="#17110f"/>
-              <path d="M256 296h88l-15 36h-58Z" fill="#dfb275"/>
-              <path d="M298 356c-8 46-6 74 4 104" stroke="#f5e4c9" stroke-width="7" stroke-linecap="round" opacity=".84"/>
-              <path d="M177 480h247l-22 143c-2 17-17 29-34 29H230c-18 0-33-13-35-31Z" fill="url(#cup)"/>
-              <ellipse cx="300" cy="484" rx="123" ry="42" fill="#f9e9ce"/>
-              <ellipse cx="300" cy="488" rx="102" ry="30" fill="url(#brew)"/>
-              <path d="M421 514c72-13 83 85 17 103-19 5-34 1-45-5" fill="none" stroke="#d7ba91" stroke-width="22" stroke-linecap="round"/>
-              <g fill="#2c190f">
-                <ellipse cx="112" cy="575" rx="25" ry="36" transform="rotate(-30 112 575)"/>
-                <ellipse cx="486" cy="632" rx="24" ry="35" transform="rotate(34 486 632)"/>
-                <ellipse cx="134" cy="665" rx="18" ry="27" transform="rotate(20 134 665)"/>
-              </g>
-              <g stroke="#c28a61" stroke-width="3" fill="none">
-                <path d="M104 548c9 17 14 34 16 54"/>
-                <path d="M480 605c8 17 12 34 10 54"/>
-                <path d="M128 641c8 13 12 25 12 39"/>
-              </g>
-              <path d="M250 433c-23-34 18-43-4-77M302 429c-26-39 22-49-3-92M353 434c-22-31 18-41-1-72" stroke="#fff0d6" stroke-width="7" stroke-linecap="round" fill="none" opacity=".7"/>
-            </svg>
-          </div>
-          <div class="roast-badge" aria-label="烘焙曲線圖">
-            <svg viewBox="0 0 100 66" role="img" aria-hidden="true">
-              <path d="M8 58H94M8 58V8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-              <path d="M12 50C24 40 30 27 43 30C55 33 58 19 70 20C80 21 85 12 92 9"
-                    fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="12" cy="50" r="3.5" fill="currentColor"/>
-              <circle cx="43" cy="30" r="3.5" fill="currentColor"/>
-              <circle cx="70" cy="20" r="3.5" fill="currentColor"/>
-              <circle cx="92" cy="9" r="3.5" fill="currentColor"/>
-            </svg>
-            <strong>烘焙曲線圖</strong>
-            <small>ROASTING PROFILE</small>
+          <div class="art-card" aria-label="Kaffa98 烘焙曲線與咖啡杯品牌意象">
+            <img class="hero-roast-image"
+                 src="images/hero-roasting-profile.jpg"
+                 alt="深咖啡色烘焙曲線圖，包含豆溫、RoR、乾燥、梅納反應、一爆與發展階段，前景為咖啡杯">
           </div>
         </div>
       </div>
