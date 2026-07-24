@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-
 <html lang="zh-Hant">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Kaffa98 咖啡知識庫 V6</title>
 <style>
 :root{
@@ -488,6 +487,17 @@ transform:translateY(-2px);
 }
 
 
+/* 咖啡豆出油 */
+.c13{
+  background:linear-gradient(135deg,#5b3a29,#8b5a3c);
+}
+.c13 .en{color:#ffe7c2}
+.c13 .badge{
+  background:#ffd166;
+  color:#4b2e22;
+}
+
+
 .references{margin-top:36px;padding:28px;border-top:1px solid var(--line);background:var(--surface);border-radius:18px;box-shadow:var(--shadow)}
 .references h2{margin-top:0;color:var(--coffee)}
 .references ul{padding-left:22px;line-height:1.8}
@@ -498,155 +508,239 @@ transform:translateY(-2px);
 </head>
 <body>
 <div class="page">
+
 <section class="hero">
-<div class="hero-inner">
-<div class="topbar">
-<div class="brand">☕ KAFFA98 · 給好咖啡</div>
-<button class="theme-btn" id="themeBtn" type="button">🌙 深色模式</button>
-</div>
-<h1>咖啡知識庫</h1>
-<p>探索咖啡・學習咖啡・分享咖啡</p>
-<div class="search-panel">
-<input autocomplete="off" class="search-input" id="searchBox" placeholder="🔍 搜尋教材：G1、日曬、蜜處理、SCA、RoR、手沖、杯測…" type="search"/>
-<div class="search-actions">
-<button class="search-btn" id="searchBtn" type="button">搜尋</button>
-<button class="clear-btn" id="clearBtn" type="button">清除</button>
-</div>
-</div>
-<div class="hot-search">
-<span>熱門搜尋：</span>
-<button class="chip" data-search="G1">G1</button>
-<button class="chip" data-search="SCA">SCA</button>
-<button class="chip" data-search="日曬">日曬</button>
-<button class="chip" data-search="蜜處理">蜜處理</button>
-<button class="chip" data-search="RoR">RoR</button>
-<button class="chip" data-search="杯測">杯測</button>
-<button class="chip" data-search="手沖">手沖</button>
-<button class="chip" data-search="藝伎">藝伎</button>
-</div>
-</div>
+  <div class="hero-inner">
+    <div class="topbar">
+      <div class="brand">☕ KAFFA98 · 給好咖啡</div>
+      <button class="theme-btn" id="themeBtn" type="button">🌙 深色模式</button>
+    </div>
+
+    <h1>咖啡知識庫</h1>
+    <p>探索咖啡・學習咖啡・分享咖啡</p>
+
+    <div class="search-panel">
+      <input id="searchBox" class="search-input" type="search"
+        autocomplete="off"
+        placeholder="🔍 搜尋教材：G1、日曬、蜜處理、SCA、RoR、手沖、杯測…">
+      <div class="search-actions">
+        <button id="searchBtn" class="search-btn" type="button">搜尋</button>
+        <button id="clearBtn" class="clear-btn" type="button">清除</button>
+      </div>
+    </div>
+
+    <div class="hot-search">
+      <span>熱門搜尋：</span>
+      <button class="chip" data-search="G1">G1</button>
+      <button class="chip" data-search="SCA">SCA</button>
+      <button class="chip" data-search="日曬">日曬</button>
+      <button class="chip" data-search="蜜處理">蜜處理</button>
+      <button class="chip" data-search="RoR">RoR</button>
+      <button class="chip" data-search="杯測">杯測</button>
+      <button class="chip" data-search="手沖">手沖</button>
+      <button class="chip" data-search="藝伎">藝伎</button>
+<button class="chip" data-search="出油">出油</button>
+    </div>
+  </div>
 </section>
+
 <section class="toolbar">
-<div class="category-row">
-<button class="category-btn active" data-category="all">全部</button>
-<button class="category-btn" data-category="基礎知識">基礎知識</button>
-<button class="category-btn" data-category="沖煮">沖煮</button>
-<button class="category-btn" data-category="烘焙">烘焙</button>
-<button class="category-btn" data-category="感官">感官</button>
-<button class="category-btn" data-category="產區">產區</button>
-<button class="category-btn" data-category="課程">課程</button>
-</div>
-<div class="result-info" id="resultInfo">目前顯示 11 個教材主題</div>
+  <div class="category-row">
+    <button class="category-btn active" data-category="all">全部</button>
+    <button class="category-btn" data-category="基礎知識">基礎知識</button>
+    <button class="category-btn" data-category="沖煮">沖煮</button>
+    <button class="category-btn" data-category="烘焙">烘焙</button>
+    <button class="category-btn" data-category="感官">感官</button>
+    <button class="category-btn" data-category="產區">產區</button>
+    <button class="category-btn" data-category="課程">課程</button>
+  </div>
+  <div id="resultInfo" class="result-info">目前顯示 12 個教材主題</div>
 </section>
+
 <main class="grid" id="courseGrid">
-<a class="tile active-card c1" data-category="基礎知識" data-keywords="咖啡等級 coffee grade G1 G2 AA AB SHB SHG EP 精品咖啡 分級 瑕疵豆" href="https://wenwei1967.github.io/kaffa98.github.io/coffee-grade/" rel="noopener noreferrer" target="_blank">
-<div class="emoji">🏅</div>
-<h2>咖啡等級</h2>
-<div class="en">Coffee Grade</div>
-<p>認識 G1、AA、SHB 等常見分級制度</p>
-<span class="badge">✓ 已上線</span>
+
+<a class="tile active-card c1"
+ data-category="基礎知識"
+ data-keywords="咖啡等級 coffee grade G1 G2 AA AB SHB SHG EP 精品咖啡 分級 瑕疵豆"
+ href="https://wenwei1967.github.io/kaffa98.github.io/coffee-grade/"
+ target="_blank" rel="noopener noreferrer">
+  <div class="emoji">🏅</div>
+  <h2>咖啡等級</h2>
+  <div class="en">Coffee Grade</div>
+  <p>認識 G1、AA、SHB 等常見分級制度</p>
+  <span class="badge">✓ 已上線</span>
 </a>
-<a class="tile active-card c2" data-category="基礎知識" data-keywords="咖啡豆處理法 coffee processing 日曬 水洗 蜜處理 白蜜 黃蜜 紅蜜 黑蜜 厭氧 anaerobic carbonic 藝伎 發酵" href="https://wenwei1967.github.io/kaffa98.github.io/coffee-process/" rel="noopener noreferrer" target="_blank">
-<div class="emoji">🌿</div>
-<h2>咖啡豆處理法</h2>
-<div class="en">Coffee Processing</div>
-<p>水洗、日曬、蜜處理與特殊發酵</p>
-<span class="badge">✓ 已上線</span>
+
+<a class="tile active-card c2"
+ data-category="基礎知識"
+ data-keywords="咖啡豆處理法 coffee processing 日曬 水洗 蜜處理 白蜜 黃蜜 紅蜜 黑蜜 厭氧 anaerobic carbonic 藝伎 發酵"
+ href="https://wenwei1967.github.io/kaffa98.github.io/coffee-process/"
+ target="_blank" rel="noopener noreferrer">
+  <div class="emoji">🌿</div>
+  <h2>咖啡豆處理法</h2>
+  <div class="en">Coffee Processing</div>
+  <p>水洗、日曬、蜜處理與特殊發酵</p>
+  <span class="badge">✓ 已上線</span>
 </a>
-<a class="tile active-card c3" data-category="烘焙" data-keywords="咖啡烘焙 coffee roasting RoR Agtron 梅納反應 焦糖化 一爆 二爆 烘焙曲線 發展時間 脫水期" href="https://wenwei1967.github.io/kaffa98.github.io/coffee-roasting/" rel="noopener noreferrer" target="_blank">
-<div class="emoji">🔥</div>
-<h2>咖啡烘焙</h2>
-<div class="en">Coffee Roasting</div>
-<p>烘焙階段、曲線與風味變化</p>
-<span class="badge">✓ 已上線</span>
+
+<a class="tile active-card c3"
+ data-category="烘焙"
+ data-keywords="咖啡烘焙 coffee roasting RoR Agtron 梅納反應 焦糖化 一爆 二爆 烘焙曲線 發展時間 脫水期"
+ href="https://wenwei1967.github.io/kaffa98.github.io/coffee-roasting/"
+ target="_blank" rel="noopener noreferrer">
+  <div class="emoji">🔥</div>
+  <h2>咖啡烘焙</h2>
+  <div class="en">Coffee Roasting</div>
+  <p>烘焙階段、曲線與風味變化</p>
+  <span class="badge">✓ 已上線</span>
 </a>
-<a class="tile active-card c4" data-category="沖煮" data-keywords="咖啡沖煮一 咖啡沖煮 coffee brewing 手沖 V60 Kalita KONO 濾紙 研磨 水溫 悶蒸 萃取 粉水比" href="https://wenwei1967.github.io/kaffa98.github.io/" rel="noopener noreferrer" target="_blank">
-<div class="emoji">💧</div>
-<h2>咖啡沖煮一</h2>
-<div class="en">Coffee Brewing I</div>
-<p>手沖比例、水溫、研磨與萃取技巧</p>
-<span class="badge">✓ 已上線</span>
+
+<a class="tile active-card c4"
+ data-category="沖煮"
+ data-keywords="咖啡沖煮一 咖啡沖煮 coffee brewing 手沖 V60 Kalita KONO 濾紙 研磨 水溫 悶蒸 萃取 粉水比"
+ href="https://wenwei1967.github.io/kaffa98.github.io/"
+ target="_blank" rel="noopener noreferrer">
+  <div class="emoji">💧</div>
+  <h2>咖啡沖煮一</h2>
+  <div class="en">Coffee Brewing I</div>
+  <p>手沖比例、水溫、研磨與萃取技巧</p>
+  <span class="badge">✓ 已上線</span>
 </a>
-<a class="tile active-card c4" data-category="沖煮" data-keywords="咖啡沖煮二 coffee brewing two 手沖 沖煮 教材" href="https://wenwei1967.github.io/kaffa98.github.io/coffee-pour/" rel="noopener noreferrer" target="_blank">
-<div class="emoji">💦</div>
-<h2>咖啡沖煮二</h2>
-<div class="en">Coffee Brewing II</div>
-<p>進階沖煮教材與技巧</p>
-<span class="badge">✓ 已上線</span>
+
+<a class="tile active-card c4"
+ data-category="沖煮"
+ data-keywords="咖啡沖煮二 coffee brewing two 手沖 沖煮 教材"
+ href="https://wenwei1967.github.io/kaffa98.github.io/coffee-pour/"
+ target="_blank" rel="noopener noreferrer">
+  <div class="emoji">💦</div>
+  <h2>咖啡沖煮二</h2>
+  <div class="en">Coffee Brewing II</div>
+  <p>進階沖煮教材與技巧</p>
+  <span class="badge">✓ 已上線</span>
 </a>
-<a class="tile active-card c12" data-category="沖煮" data-keywords="冰咖啡沖煮 iced coffee 冰手沖 急冷式 冷萃 冰塊 粉水比 水溫 沖煮技巧" href="https://wenwei1967.github.io/kaffa98.github.io/iced-coffee/" rel="noopener noreferrer" target="_blank">
-<div class="emoji">🧊</div>
-<h2>冰咖啡沖煮</h2>
-<div class="en">Iced Coffee Brewing</div>
-<p>急冷式、冰手沖與冰咖啡沖煮技巧</p>
-<span class="badge">✓ 已上線</span>
+
+<a class="tile active-card c12"
+ data-category="沖煮"
+ data-keywords="冰咖啡沖煮 iced coffee 冰手沖 急冷式 冷萃 冰塊 粉水比 水溫 沖煮技巧"
+ href="https://wenwei1967.github.io/kaffa98.github.io/iced-coffee/"
+ target="_blank" rel="noopener noreferrer">
+  <div class="emoji">🧊</div>
+  <h2>冰咖啡沖煮</h2>
+  <div class="en">Iced Coffee Brewing</div>
+  <p>急冷式、冰手沖與冰咖啡沖煮技巧</p>
+  <span class="badge">✓ 已上線</span>
 </a>
-<a class="tile active-card c5" data-category="感官" data-keywords="咖啡杯測 coffee cupping SCA fragrance aroma acidity body sweetness aftertaste 杯測匙 破渣 感官" href="https://wenwei1967.github.io/kaffa98.github.io/coffee-cupping/" rel="noopener noreferrer" target="_blank">
-<div class="emoji">🥄</div>
-<h2>咖啡杯測</h2>
-<div class="en">Coffee Cupping</div>
-<p>依照標準流程評估香氣與風味</p>
-<span class="badge">✓ 已上線</span>
+
+<a class="tile active-card c5"
+ data-category="感官"
+ data-keywords="咖啡杯測 coffee cupping SCA fragrance aroma acidity body sweetness aftertaste 杯測匙 破渣 感官"
+ href="https://wenwei1967.github.io/kaffa98.github.io/coffee-cupping/"
+ target="_blank" rel="noopener noreferrer">
+  <div class="emoji">🥄</div>
+  <h2>咖啡杯測</h2>
+  <div class="en">Coffee Cupping</div>
+  <p>依照標準流程評估香氣與風味</p>
+  <span class="badge">✓ 已上線</span>
 </a>
-<a class="tile active-card c10" data-category="感官" data-keywords="咖啡風味 coffee flavor 香氣 酸質 甜感 醇厚度 餘韻 風味輪 水果 花香 巧克力" href="https://wenwei1967.github.io/kaffa98.github.io/coffee-flavor/" rel="noopener noreferrer" target="_blank">
-<div class="emoji">🍓</div>
-<h2>咖啡風味</h2>
-<div class="en">Coffee Flavor</div>
-<p>香氣、酸質、甜感、醇厚度與餘韻</p>
-<span class="badge">✓ 已上線</span>
+
+<a class="tile active-card c10"
+ data-category="感官"
+ data-keywords="咖啡風味 coffee flavor 香氣 酸質 甜感 醇厚度 餘韻 風味輪 水果 花香 巧克力"
+ href="https://wenwei1967.github.io/kaffa98.github.io/coffee-flavor/"
+ target="_blank" rel="noopener noreferrer">
+  <div class="emoji">🍓</div>
+  <h2>咖啡風味</h2>
+  <div class="en">Coffee Flavor</div>
+  <p>香氣、酸質、甜感、醇厚度與餘韻</p>
+  <span class="badge">✓ 已上線</span>
 </a>
-<a class="tile active-card c7" data-category="產區" data-keywords="咖啡產區 coffee origin 衣索比亞 耶加雪菲 哥倫比亞 巴拿馬 藝伎 非洲 中南美洲 亞洲 咖啡帶" href="https://wenwei1967.github.io/kaffa98.github.io/coffee-origin/" rel="noopener noreferrer" target="_blank">
-<div class="emoji">🌍</div>
-<h2>咖啡產區</h2>
-<div class="en">Coffee Origin</div>
-<p>探索非洲、中南美洲與亞洲產地特色</p>
-<span class="badge">✓ 已上線</span>
+
+<a class="tile active-card c13"
+ data-category="烘焙"
+ data-keywords="咖啡豆出油 咖啡出油 coffee beans oily oily beans 深焙 淺焙 保存 油耗味 新鮮度 油脂 氧化 酸敗 還能喝嗎"
+ href="https://wenwei1967.github.io/kaffa98.github.io/coffee-beans-oily/"
+ target="_blank" rel="noopener noreferrer">
+  <div class="emoji">🫘</div>
+  <h2>咖啡豆出油，怎麼辦？</h2>
+  <div class="en">Coffee Beans Oily</div>
+  <p>了解咖啡豆出油原因、保存方式及是否還能飲用</p>
+  <span class="badge">✓ 已上線</span>
+</a>
+
+
+<a class="tile active-card c7"
+ data-category="產區"
+ data-keywords="咖啡產區 coffee origin 衣索比亞 耶加雪菲 哥倫比亞 巴拿馬 藝伎 非洲 中南美洲 亞洲 咖啡帶"
+ href="https://wenwei1967.github.io/kaffa98.github.io/coffee-origin/"
+ target="_blank" rel="noopener noreferrer">
+  <div class="emoji">🌍</div>
+  <h2>咖啡產區</h2>
+  <div class="en">Coffee Origin</div>
+  <p>探索非洲、中南美洲與亞洲產地特色</p>
+  <span class="badge">✓ 已上線</span>
 </a>
 <div class="section-heading support-heading">
-<span>延伸學習專區</span>
-<small>器具認識與完整課程教材</small>
+  <span>延伸學習專區</span>
+  <small>器具認識與完整課程教材</small>
 </div>
-<a class="tile active-card c9 support-card" data-category="課程" data-keywords="咖啡教室 coffee academy SCA foundation intermediate professional 教材 講義 課程 烘焙師 杯測" href="https://wenwei1967.github.io/kaffa98.github.io/coffee-teaching/" rel="noopener noreferrer" target="_blank">
-<div class="emoji">🎓</div>
-<h2>咖啡教室</h2>
-<div class="en">Coffee Academy</div>
-<p>完整咖啡教材、課程內容與專業知識</p>
-<span class="badge">✓ 已上線</span>
+
+<a class="tile active-card c9 support-card"
+ data-category="課程"
+ data-keywords="咖啡教室 coffee academy SCA foundation intermediate professional 教材 講義 課程 烘焙師 杯測"
+ href="https://wenwei1967.github.io/kaffa98.github.io/coffee-teaching/"
+ target="_blank" rel="noopener noreferrer">
+  <div class="emoji">🎓</div>
+  <h2>咖啡教室</h2>
+  <div class="en">Coffee Academy</div>
+  <p>完整咖啡教材、課程內容與專業知識</p>
+  <span class="badge">✓ 已上線</span>
 </a>
-<a class="tile active-card c11" data-category="器具" data-keywords="咖啡器具 coffee equipment 磨豆機 濾杯 手沖壺 電子秤 義式咖啡機 TDS 杯測" href="https://wenwei1967.github.io/kaffa98.github.io/coffee-equipment/" rel="noopener noreferrer" target="_blank">
-<div class="emoji">🧰</div>
-<h2>咖啡器具</h2>
-<div class="en">Coffee Equipment</div>
-<p>磨豆機、濾杯、手沖壺、義式設備與選購指南</p>
-<span class="badge">✓ 已上線</span>
+
+
+<a class="tile active-card c11"
+ data-category="器具"
+ data-keywords="咖啡器具 coffee equipment 磨豆機 濾杯 手沖壺 電子秤 義式咖啡機 TDS 杯測"
+ href="https://wenwei1967.github.io/kaffa98.github.io/coffee-equipment/"
+ target="_blank" rel="noopener noreferrer">
+  <div class="emoji">🧰</div>
+  <h2>咖啡器具</h2>
+  <div class="en">Coffee Equipment</div>
+  <p>磨豆機、濾杯、手沖壺、義式設備與選購指南</p>
+  <span class="badge">✓ 已上線</span>
 </a>
+
 </main>
-<div class="empty" id="emptyState">
+
+<div id="emptyState" class="empty">
   找不到符合的教材。請改用其他關鍵字，例如「SCA」、「日曬」、「手沖」或「RoR」。
 </div>
+
 <section class="stats">
-<div class="stat"><strong>11</strong><span>已上線教材</span></div>
-<div class="stat"><strong>0</strong><span>建置中主題</span></div>
-<div class="stat"><strong>80+</strong><span>搜尋關鍵字</span></div>
-<div class="stat"><strong>2026/07</strong><span>最近更新</span></div>
+  <div class="stat"><strong>12</strong><span>已上線教材</span></div>
+  <div class="stat"><strong>0</strong><span>建置中主題</span></div>
+  <div class="stat"><strong>90+</strong><span>搜尋關鍵字</span></div>
+  <div class="stat"><strong>2026/07</strong><span>最近更新</span></div>
 </section>
+
 <section class="latest">
-<h2>🆕 最新教材</h2>
-<div class="latest-grid">
-<div class="latest-item">
-<strong>冰咖啡沖煮</strong>
-<span>急冷式、冰手沖與冰咖啡沖煮技巧</span>
-</div>
-<div class="latest-item">
-<strong>咖啡處理法</strong>
-<span>比較水洗、日曬、蜜處理與發酵方式</span>
-</div>
-<div class="latest-item">
-<strong>咖啡教室</strong>
-<span>整合 Kaffa98 專業課程與教學內容</span>
-</div>
-</div>
+  <h2>🆕 最新教材</h2>
+  <div class="latest-grid">
+    <div class="latest-item">
+      <strong>咖啡豆出油，怎麼辦？</strong>
+      <span>了解咖啡豆出油原因、保存方式及是否還能飲用</span>
+    </div>
+    <div class="latest-item">
+      <strong>冰咖啡沖煮</strong>
+      <span>急冷式、冰手沖與冰咖啡沖煮技巧</span>
+    </div>
+    
+    <div class="latest-item">
+      <strong>咖啡教室</strong>
+      <span>整合 Kaffa98 專業課程與教學內容</span>
+    </div>
+  </div>
 </section>
+
 
 <section class="references">
 <h2>📚 引用資料說明</h2>
@@ -663,8 +757,10 @@ transform:translateY(-2px);
 </ul>
 <p><strong>聲明：</strong>若有引用內容涉及著作權或需更正資訊，請來信通知，將儘速處理。</p>
 </section>
-<footer>© 2026 Kaffa98 給好咖啡 .mycoffee0908@gmail.com · Coffee Knowledge Library V6.  </footer>
+
+<footer>© 2026 Kaffa98 給好咖啡 · mycoffee0908@gmail.com · Coffee Knowledge Library V6</footer>
 </div>
+
 <script>
 (function () {
   var searchBox = document.getElementById("searchBox");
