@@ -1289,7 +1289,28 @@
       }
     }
 
-  </style>
+  
+/* v3.1 修正手機版 Our Story 引言被截掉 */
+.story-text .quote{
+  display:block;
+  white-space:normal;
+  overflow:visible;
+  word-break:break-word;
+}
+@media (max-width:700px){
+  .story-text .quote{
+    margin-top:22px;
+    padding:18px 18px;
+    font-size:18px;
+    line-height:1.8;
+    border-radius:0 14px 14px 0;
+  }
+  .story-text{
+    overflow:visible !important;
+  }
+}
+
+</style>
 </head>
 
 <body>
