@@ -360,9 +360,10 @@
       font-weight:700;
     }
 
+    /* V1.2.3：The Craft 更新版 */
     .craft {
-      background:var(--coffee-dark);
-      color:var(--cream);
+      background:#f7f1e9;
+      color:var(--coffee-dark);
       position:relative;
       overflow:hidden;
     }
@@ -370,50 +371,100 @@
       content:"";
       position:absolute;
       inset:0;
-      opacity:.16;
+      opacity:.30;
       background:
-        linear-gradient(90deg,transparent 49.5%,rgba(255,255,255,.08) 50%,transparent 50.5%),
-        linear-gradient(transparent 49.5%,rgba(255,255,255,.08) 50%,transparent 50.5%);
-      background-size:70px 70px;
+        radial-gradient(circle at 12% 10%,rgba(211,161,94,.20),transparent 28%),
+        radial-gradient(circle at 88% 90%,rgba(185,111,68,.12),transparent 30%);
     }
-    .craft .wrap { position:relative; z-index:1; }
+    .craft .wrap {
+      width:min(1220px,100%);
+      position:relative;
+      z-index:1;
+    }
     .craft-head {
-      max-width:780px;
-      margin-bottom:46px;
+      max-width:850px;
+      margin:0 auto 48px;
+      text-align:center;
     }
-    .craft .section-title { color:white; }
-    .craft-head p { color:#d7c7bb; font-size:18px; }
+    .craft .section-kicker {
+      color:#9b663f;
+      letter-spacing:.28em;
+    }
+    .craft .section-title {
+      color:var(--coffee-dark);
+      margin-top:12px;
+    }
+    .craft-head p {
+      max-width:760px;
+      margin:0 auto;
+      color:#6f594a;
+      font-size:18px;
+    }
     .craft-grid {
       display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:18px;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:22px;
     }
     .craft-card {
-      min-height:260px;
-      padding:28px 22px;
-      border-radius:22px;
-      background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.045));
-      border:1px solid rgba(255,255,255,.11);
-      backdrop-filter:blur(8px);
-      transition:.25s ease;
+      padding:0;
+      min-height:0;
+      border-radius:18px;
+      overflow:hidden;
+      position:relative;
+      background:#241711;
+      border:1px solid rgba(43,26,19,.12);
+      box-shadow:0 18px 42px rgba(43,26,19,.16);
+      transition:transform .35s ease,box-shadow .35s ease;
     }
     .craft-card:hover {
-      transform:translateY(-7px);
-      border-color:rgba(214,169,105,.5);
+      transform:translateY(-8px);
+      box-shadow:0 26px 54px rgba(43,26,19,.24);
     }
-    .craft-icon {
-      width:58px;
-      height:58px;
-      border-radius:18px;
-      display:grid;
-      place-items:center;
-      margin-bottom:24px;
+    .craft-card img {
+      width:100%;
+      height:auto;
+      display:block;
+      transition:transform .55s ease;
+    }
+    .craft-card:hover img {
+      transform:scale(1.035);
+    }
+
+    /* 網頁末端引用資料說明 */
+    .references {
+      padding:68px 5vw;
+      background:#eee1d1;
+      border-top:1px solid rgba(43,26,19,.12);
+    }
+    .references-inner {
+      width:min(1120px,100%);
+      margin:auto;
+    }
+    .references h2 {
+      margin:0 0 14px;
       color:var(--coffee-dark);
-      background:var(--gold);
+      font-family:"Noto Serif TC","PMingLiU",serif;
       font-size:28px;
     }
-    .craft-card h3 { margin:0 0 10px; font-size:22px; }
-    .craft-card p { margin:0; color:#cdbdb1; font-size:15px; }
+    .references p {
+      margin:0 0 12px;
+      color:#695346;
+      font-size:14px;
+    }
+    .references ol {
+      margin:16px 0 0;
+      padding-left:22px;
+      color:#5f4b3e;
+      font-size:14px;
+    }
+    .references li + li {
+      margin-top:8px;
+    }
+    .references a {
+      color:#8b4f2f;
+      text-decoration:underline;
+      text-underline-offset:3px;
+    }
 
     .order-section {
       padding:84px 5vw;
@@ -634,8 +685,10 @@
       .hero-art { min-height:400px; }
       .seal { width:105px; height:105px; right:0; bottom:40px; font-size:14px; }
       .lab-visual { min-height:390px; }
-      .craft-grid { grid-template-columns:1fr; }
-      .craft-card { min-height:auto; }
+      .craft-grid { grid-template-columns:1fr; gap:16px; }
+      .craft-card { min-height:auto; border-radius:14px; }
+      .craft-head { margin-bottom:32px; }
+      .craft-head p { font-size:16px; }
       .order-panel { padding:42px 22px; border-radius:26px; }
       .order-actions { width:100%; flex-direction:column; }
       .order-button { width:100%; min-width:0; }
@@ -879,31 +932,23 @@
     <section class="craft" id="craft">
       <div class="wrap">
         <div class="craft-head reveal">
-          <span class="section-kicker">The Craft</span>
-          <h2 class="section-title">一杯好咖啡，是四種工藝的交會</h2>
-          <p>風味並非偶然。每個環節都被記錄、修正與反覆驗證，只為找出那個最適合咖啡豆的平衡點。</p>
+          <span class="section-kicker">THE CRAFT</span>
+          <h2 class="section-title">咖啡工藝</h2>
+          <p>好咖啡，不靠運氣，而是靠工藝。從時間、溫度、水流到技藝，層層講究，只為呈現一杯剛剛好的風味。</p>
         </div>
 
         <div class="craft-grid">
           <article class="craft-card reveal">
-            <div class="craft-icon">◴</div>
-            <h3>時間</h3>
-            <p>掌握發展與萃取節奏，讓甜感、酸質與香氣自然展開。</p>
+            <img src="images/craft-time.jpg" alt="時間控制：咖啡萃取、電子秤與計時器">
           </article>
           <article class="craft-card reveal">
-            <div class="craft-icon">♨</div>
-            <h3>火候</h3>
-            <p>細緻控制熱能與烘焙曲線，留下豆子原有的產地個性。</p>
+            <img src="images/craft-heat.jpg" alt="溫度控制：烘豆機滾筒與咖啡豆">
           </article>
           <article class="craft-card reveal">
-            <div class="craft-icon">≈</div>
-            <h3>水流</h3>
-            <p>以穩定注水建立均勻萃取，讓每一層風味清楚而完整。</p>
+            <img src="images/craft-water.jpg" alt="水流控制：細口壺注水與手沖咖啡">
           </article>
           <article class="craft-card reveal">
-            <div class="craft-icon">⌁</div>
-            <h3>技術</h3>
-            <p>透過紀錄與測試持續校正，將經驗轉化成可重現的美味。</p>
+            <img src="images/craft-skill.jpg" alt="咖啡技藝：杯測、紀錄與品質校正">
           </article>
         </div>
       </div>
@@ -943,6 +988,19 @@
       </div>
     </section>
   </main>
+
+  <section class="references" aria-labelledby="referencesTitle">
+    <div class="references-inner">
+      <h2 id="referencesTitle">引用資料與製作說明</h2>
+      <p>本頁 The Craft 內容依咖啡烘焙、沖煮、萃取控制與品質管理概念整理；圖片為本網站專用之生成式 AI 視覺素材。</p>
+      <ol>
+        <li><a href="https://sca.coffee/education/courses" target="_blank" rel="noopener">Specialty Coffee Association（SCA）｜Coffee Skills Courses</a></li>
+        <li><a href="https://sca.coffee/research/coffee-standards" target="_blank" rel="noopener">Specialty Coffee Association（SCA）｜Coffee Standards</a></li>
+        <li><a href="https://sca.coffee/store" target="_blank" rel="noopener">SCA Digital Store｜Coffee Brewing Handbook、Water Quality Handbook 等專業資料</a></li>
+        <li>圖片製作：生成式 AI 輔助創作；版面與文字整理：Kaffa98 研究室｜給好咖啡。</li>
+      </ol>
+    </div>
+  </section>
 
   <footer>
     <div class="footer-inner">
