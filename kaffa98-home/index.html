@@ -272,25 +272,43 @@
       width:100%;
       height:100%;
     }
-    .seal {
+    .roast-badge {
       position:absolute;
-      right:-6px;
-      bottom:70px;
-      width:128px;
-      height:128px;
+      right:-8px;
+      bottom:58px;
+      width:156px;
+      min-height:156px;
+      padding:16px 14px 13px;
       border-radius:50%;
-      display:grid;
-      place-items:center;
-      text-align:center;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
       color:var(--coffee-dark);
-      background:var(--gold);
-      border:8px solid rgba(255,250,242,.8);
+      background:linear-gradient(145deg,#f4c675,var(--gold));
+      border:8px solid rgba(255,250,242,.86);
       box-shadow:0 15px 35px rgba(30,18,12,.25);
       font-weight:900;
-      line-height:1.25;
-      transform:rotate(8deg);
+      line-height:1.15;
+      transform:rotate(5deg);
     }
-    .seal small { display:block; font-size:11px; letter-spacing:.16em; }
+    .roast-badge svg {
+      width:82px;
+      height:58px;
+      margin-bottom:5px;
+      overflow:visible;
+    }
+    .roast-badge strong {
+      display:block;
+      font-size:15px;
+      letter-spacing:.08em;
+    }
+    .roast-badge small {
+      display:block;
+      margin-top:5px;
+      font-size:9px;
+      letter-spacing:.14em;
+    }
 
     section { padding:100px 5vw; }
     .wrap { width:min(1120px,100%); margin:auto; }
@@ -685,7 +703,17 @@
       .hero-lead { font-size:18px; }
       .hero-actions .btn { width:100%; }
       .hero-art { min-height:400px; }
-      .seal { width:105px; height:105px; right:0; bottom:40px; font-size:14px; }
+      .roast-badge {
+        width:118px;
+        min-height:118px;
+        right:0;
+        bottom:34px;
+        padding:12px 10px 10px;
+        border-width:6px;
+      }
+      .roast-badge svg { width:62px; height:42px; margin-bottom:2px; }
+      .roast-badge strong { font-size:12px; }
+      .roast-badge small { font-size:7px; }
       .lab-visual { min-height:390px; }
       .craft-grid { grid-template-columns:1fr; gap:16px; }
       .craft-card { min-height:auto; border-radius:14px; }
@@ -886,7 +914,19 @@
               <path d="M250 433c-23-34 18-43-4-77M302 429c-26-39 22-49-3-92M353 434c-22-31 18-41-1-72" stroke="#fff0d6" stroke-width="7" stroke-linecap="round" fill="none" opacity=".7"/>
             </svg>
           </div>
-          <div class="seal">精準<br>烘焙<small>CRAFTED</small></div>
+          <div class="roast-badge" aria-label="烘焙曲線圖">
+            <svg viewBox="0 0 100 66" role="img" aria-hidden="true">
+              <path d="M8 58H94M8 58V8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              <path d="M12 50C24 40 30 27 43 30C55 33 58 19 70 20C80 21 85 12 92 9"
+                    fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="12" cy="50" r="3.5" fill="currentColor"/>
+              <circle cx="43" cy="30" r="3.5" fill="currentColor"/>
+              <circle cx="70" cy="20" r="3.5" fill="currentColor"/>
+              <circle cx="92" cy="9" r="3.5" fill="currentColor"/>
+            </svg>
+            <strong>烘焙曲線圖</strong>
+            <small>ROASTING PROFILE</small>
+          </div>
         </div>
       </div>
     </section>
