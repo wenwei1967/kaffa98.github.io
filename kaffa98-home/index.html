@@ -873,6 +873,178 @@
       }
     }
 
+
+    /* Final Responsive：電腦、平板、手機完整顯示圖片，不裁切 */
+    .home-cover {
+      background:#17130f;
+    }
+
+    .cover-slides {
+      aspect-ratio:16 / 9;
+      background:#17130f;
+    }
+
+    .cover-slide:first-child {
+      position:absolute;
+    }
+
+    .cover-slide img {
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      object-position:center;
+    }
+
+    .art-card {
+      width:min(560px,100%);
+      height:auto;
+      aspect-ratio:890 / 830;
+    }
+
+    .hero-roast-image {
+      object-fit:contain;
+      object-position:center;
+    }
+
+    .lab-visual {
+      min-height:0;
+      aspect-ratio:auto;
+      background:#2b1a12;
+    }
+
+    .lab-visual img {
+      position:relative;
+      inset:auto;
+      width:100%;
+      height:auto;
+      object-fit:contain;
+      object-position:center;
+    }
+
+    .craft-card img {
+      width:100%;
+      height:auto;
+      object-fit:contain;
+      object-position:center;
+    }
+
+    @media (min-width:901px) {
+      .hero-inner {
+        grid-template-columns:minmax(0,1.05fr) minmax(420px,.95fr);
+      }
+
+      .hero-art {
+        min-width:0;
+      }
+    }
+
+    @media (max-width:900px) {
+      .hero-inner,
+      .story-grid {
+        grid-template-columns:1fr;
+      }
+
+      .hero-copy {
+        max-width:760px;
+        margin-inline:auto;
+      }
+
+      .hero-art {
+        min-height:0;
+      }
+
+      .art-card {
+        width:min(620px,100%);
+        margin-inline:auto;
+      }
+
+      .lab-visual {
+        width:min(680px,100%);
+        margin-inline:auto;
+      }
+    }
+
+    @media (max-width:700px) {
+      .home-cover {
+        margin-top:78px;
+      }
+
+      .cover-slides {
+        aspect-ratio:16 / 9;
+      }
+
+      .hero {
+        min-height:auto;
+        padding-top:92px;
+      }
+
+      .hero-inner {
+        gap:42px;
+      }
+
+      .hero-art {
+        margin-top:0;
+      }
+
+      .art-card {
+        border-radius:20px;
+      }
+
+      .lab-visual {
+        border-radius:20px;
+      }
+
+      .lab-tag {
+        left:14px;
+        right:14px;
+        bottom:14px;
+        padding:10px 12px;
+        text-align:center;
+      }
+    }
+
+    @media (max-width:480px) {
+      .cover-arrow {
+        width:34px;
+        height:34px;
+      }
+
+      .cover-prev {
+        left:6px;
+      }
+
+      .cover-next {
+        right:6px;
+      }
+
+      .cover-dots {
+        bottom:8px;
+      }
+
+      .cover-dot {
+        width:9px;
+        height:9px;
+      }
+
+      .hero {
+        padding-inline:4.5vw;
+      }
+
+      .art-card {
+        width:100%;
+        border-radius:16px;
+      }
+
+      .lab-visual {
+        width:100%;
+        border-radius:16px;
+      }
+
+      .craft-card {
+        border-radius:12px;
+      }
+    }
+
   </style>
 </head>
 
