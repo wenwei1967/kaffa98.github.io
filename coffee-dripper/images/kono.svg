@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="560" viewBox="0 0 800 560">
+<rect width="100%" height="100%" fill="#efe5dc"/>
+<ellipse cx="400" cy="455" rx="190" ry="28" fill="#cdbdaf" opacity=".55"/>
+<rect x="35" y="35" rx="18" width="250" height="58" fill="#7f5c45"/><text x="160" y="73" text-anchor="middle" font-size="30" fill="white" font-family="sans-serif" font-weight="700">KONO</text>
+<path d="M230 115 L570 115 L505 430 Q400 500 295 430 Z" fill="#f8f4ef" stroke="#4b342c" stroke-width="12"/>
+<path d="M270 145 L530 145 L480 405 Q400 455 320 405 Z" fill="#fff" stroke="#b89b8c" stroke-width="5"/>
+<path d="M325 285 L355 410" stroke="#7f5c45" stroke-width="8" opacity=".8"/><path d="M342 285 L365 410" stroke="#7f5c45" stroke-width="8" opacity=".8"/><path d="M359 285 L375 410" stroke="#7f5c45" stroke-width="8" opacity=".8"/><path d="M376 285 L385 410" stroke="#7f5c45" stroke-width="8" opacity=".8"/><path d="M393 285 L395 410" stroke="#7f5c45" stroke-width="8" opacity=".8"/><path d="M410 285 L405 410" stroke="#7f5c45" stroke-width="8" opacity=".8"/><path d="M427 285 L415 410" stroke="#7f5c45" stroke-width="8" opacity=".8"/><path d="M444 285 L425 410" stroke="#7f5c45" stroke-width="8" opacity=".8"/><path d="M461 285 L435 410" stroke="#7f5c45" stroke-width="8" opacity=".8"/><path d="M478 285 L445 410" stroke="#7f5c45" stroke-width="8" opacity=".8"/>
+<circle cx="400" cy="425" r="22" fill="#33231d"/>
+<path d="M180 135 Q140 230 180 325" fill="none" stroke="#4b342c" stroke-width="18" stroke-linecap="round"/>
+<path d="M620 135 Q660 230 620 325" fill="none" stroke="#4b342c" stroke-width="18" stroke-linecap="round"/>
+<text x="400" y="525" text-anchor="middle" font-size="26" fill="#4b342c" font-family="sans-serif">外觀與內部結構示意圖</text>
+</svg>

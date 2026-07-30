@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="850" viewBox="0 0 1400 850">
+<defs>
+<linearGradient id="g" x1="0" x2="1"><stop stop-color="#2c211c"/><stop offset="1" stop-color="#6d493a"/></linearGradient>
+</defs>
+<rect width="1400" height="850" fill="url(#g)"/>
+<circle cx="1100" cy="170" r="240" fill="#c59a61" opacity=".14"/>
+<circle cx="180" cy="740" r="260" fill="#fff" opacity=".05"/>
+<path d="M490 220 L910 220 L810 650 Q700 720 590 650 Z" fill="#f7f1ea" stroke="#d7b78b" stroke-width="18"/>
+<path d="M555 270 Q470 420 625 630" fill="none" stroke="#9d674d" stroke-width="15"/>
+<path d="M620 260 Q540 420 665 650" fill="none" stroke="#9d674d" stroke-width="15"/>
+<path d="M685 255 Q620 420 700 660" fill="none" stroke="#9d674d" stroke-width="15"/>
+<path d="M750 260 Q830 420 735 650" fill="none" stroke="#9d674d" stroke-width="15"/>
+<path d="M815 270 Q920 420 775 630" fill="none" stroke="#9d674d" stroke-width="15"/>
+<circle cx="700" cy="655" r="34" fill="#2c211c"/>
+<path d="M420 245 Q320 410 410 565" fill="none" stroke="#d7b78b" stroke-width="25" stroke-linecap="round"/>
+<path d="M980 245 Q1080 410 990 565" fill="none" stroke="#d7b78b" stroke-width="25" stroke-linecap="round"/>
+<text x="700" y="105" text-anchor="middle" fill="#fff" font-size="60" font-family="sans-serif" font-weight="700">手沖咖啡濾杯百科</text>
+<text x="700" y="775" text-anchor="middle" fill="#ead7c2" font-size="34" font-family="sans-serif">外觀・內部肋骨・流速・風味差異</text>
+</svg>
