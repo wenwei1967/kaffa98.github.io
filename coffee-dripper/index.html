@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Kaffa98｜手沖咖啡濾杯種類與內部結構</title>
+<title>Kaffa98｜手沖咖啡濾杯百科</title>
 <meta name="description" content="手沖咖啡濾杯百科：外觀、內部肋骨、孔洞、流速與風味差異。">
 <style>
 :root{--bg:#f4eee8;--paper:#fffdf9;--ink:#30241f;--muted:#77675f;--coffee:#4b2e22;--gold:#c79a58;--line:#e4d8cf;--shadow:0 18px 42px rgba(71,43,32,.11)}
@@ -27,7 +27,7 @@ main{width:min(1180px,92vw);margin:auto;padding:70px 0}
 .grid{display:grid;gap:32px}
 .dripper-card{display:grid;grid-template-columns:.95fr 1.05fr;background:var(--paper);border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:var(--shadow)}
 .photo{background:#eee3da;padding:22px;display:grid;place-items:center}
-.photo img{border-radius:20px;width:100%}
+.photo img{border-radius:20px;width:100%;height:300px;object-fit:contain;background:#fff}.photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.photo-grid figure{margin:0}.photo-grid figcaption{text-align:center;font-weight:700;color:#6f5548;margin-top:8px;font-size:.92rem}
 .card-body{padding:34px}
 .eyebrow{font-size:.78rem;letter-spacing:.16em;color:var(--gold);font-weight:800}
 .card-body h2{font-size:2rem;margin:.1em 0}
@@ -42,16 +42,28 @@ th{background:#4b2e22;color:white}
 footer{text-align:center;padding:42px 20px;color:var(--muted)}
 .back{display:inline-block;margin-top:18px;padding:12px 22px;background:var(--gold);color:#2b211c;border-radius:999px;text-decoration:none;font-weight:800}
 @media(max-width:850px){
+ .photo-grid{grid-template-columns:1fr 1fr}
+ .photo img{height:240px}
  .hero{grid-template-columns:1fr;min-height:auto;padding-top:55px}
  .hero img{max-height:420px;object-fit:cover}
  .keys{grid-template-columns:1fr 1fr}
  .dripper-card{grid-template-columns:1fr}
 }
 @media(max-width:520px){
+ .photo-grid{grid-template-columns:1fr}
+ .photo img{height:auto;max-height:340px}
  .keys{grid-template-columns:1fr}
  .card-body{padding:24px}
  h1{font-size:2.6rem}
 }
+
+.real-gallery{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+.real-gallery figure{margin:0;background:#f4ece5;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
+.real-gallery img{width:100%;height:280px;object-fit:cover}
+.real-gallery figcaption{padding:10px 13px;font-size:.9rem;font-weight:700;color:var(--coffee)}
+.diagram-label{margin-top:12px;font-size:.85rem;color:var(--muted);font-weight:700}
+@media(max-width:650px){.real-gallery{grid-template-columns:1fr}.real-gallery img{height:250px}}
+
 </style>
 </head>
 <body>
@@ -86,7 +98,10 @@ footer{text-align:center;padding:42px 20px;color:var(--muted)}
 <section class="grid" id="drippers">
 
 <article class="dripper-card">
-  <div class="photo"><img src="images/v60.svg" alt="Hario V60 濾杯外觀與內部結構示意圖" loading="lazy"></div>
+  <div class="photo photo-grid">
+      <figure><img src="images/v60-exterior.jpg" alt="Hario V60 濾杯外觀與內部結構示意圖－實際沖煮外觀" loading="lazy"><figcaption>實際沖煮外觀</figcaption></figure>
+      <figure><img src="images/v60.svg" alt="Hario V60 濾杯外觀與內部結構示意圖－結構示意圖" loading="lazy"><figcaption>結構示意圖</figcaption></figure>
+    </div>
   <div class="card-body">
     <span class="eyebrow">DRIPPER GUIDE</span>
     <h2>Hario V60</h2>
@@ -97,7 +112,10 @@ footer{text-align:center;padding:42px 20px;color:var(--muted)}
   </div>
 </article>
 <article class="dripper-card">
-  <div class="photo"><img src="images/kalita-wave.svg" alt="Kalita Wave 濾杯外觀與內部結構示意圖" loading="lazy"></div>
+  <div class="photo photo-grid">
+      <figure><img src="images/kalita-real-exterior.jpg" alt="Kalita Wave 濾杯外觀與內部結構示意圖－實際外觀" loading="lazy"><figcaption>實際外觀</figcaption></figure>
+      <figure><img src="images/kalita-real-interior.jpg" alt="Kalita Wave 濾杯外觀與內部結構示意圖－實際內部三孔" loading="lazy"><figcaption>實際內部三孔</figcaption></figure>
+    </div>
   <div class="card-body">
     <span class="eyebrow">DRIPPER GUIDE</span>
     <h2>Kalita Wave</h2>
@@ -108,7 +126,10 @@ footer{text-align:center;padding:42px 20px;color:var(--muted)}
   </div>
 </article>
 <article class="dripper-card">
-  <div class="photo"><img src="images/origami.svg" alt="ORIGAMI 濾杯外觀與內部結構示意圖" loading="lazy"></div>
+  <div class="photo photo-grid">
+      <figure><img src="images/origami-real-exterior.webp" alt="ORIGAMI 濾杯外觀與內部結構示意圖－官方外觀照片" loading="lazy"><figcaption>官方外觀照片</figcaption></figure>
+      <figure><img src="images/origami-real-interior.webp" alt="ORIGAMI 濾杯外觀與內部結構示意圖－官方內部俯視" loading="lazy"><figcaption>官方內部俯視</figcaption></figure>
+    </div>
   <div class="card-body">
     <span class="eyebrow">DRIPPER GUIDE</span>
     <h2>ORIGAMI</h2>
@@ -119,7 +140,10 @@ footer{text-align:center;padding:42px 20px;color:var(--muted)}
   </div>
 </article>
 <article class="dripper-card">
-  <div class="photo"><img src="images/cafec-flower.svg" alt="CAFEC Flower 濾杯外觀與內部結構示意圖" loading="lazy"></div>
+  <div class="photo photo-grid">
+      <figure><img src="images/cafec-exterior.jpg" alt="CAFEC Flower 濾杯外觀與內部結構示意圖－官方實物結構圖" loading="lazy"><figcaption>官方實物結構圖</figcaption></figure>
+      <figure><img src="images/cafec-flower.svg" alt="CAFEC Flower 濾杯外觀與內部結構示意圖－結構示意圖" loading="lazy"><figcaption>結構示意圖</figcaption></figure>
+    </div>
   <div class="card-body">
     <span class="eyebrow">DRIPPER GUIDE</span>
     <h2>CAFEC Flower</h2>
@@ -130,7 +154,14 @@ footer{text-align:center;padding:42px 20px;color:var(--muted)}
   </div>
 </article>
 <article class="dripper-card">
-  <div class="photo"><img src="images/kono.svg" alt="KONO 濾杯外觀與內部結構示意圖" loading="lazy"></div>
+  <div class="photo">
+    <div class="real-gallery">
+      <figure><img src="images/kono-exterior.webp" alt="KONO 實際外觀"><figcaption>實際外觀</figcaption></figure>
+      <figure><img src="images/kono-interior.jpg" alt="KONO 內部結構"><figcaption>內部結構</figcaption></figure>
+    </div>
+    <img src="images/kono.svg" alt="KONO 結構示意圖" loading="lazy">
+    <div class="diagram-label">結構示意圖</div>
+  </div>
   <div class="card-body">
     <span class="eyebrow">DRIPPER GUIDE</span>
     <h2>KONO</h2>
@@ -198,11 +229,26 @@ footer{text-align:center;padding:42px 20px;color:var(--muted)}
 <p><strong>希望表現淺焙花果香：</strong>Hario V60、CAFEC Flower 或 ORIGAMI。</p>
 <p><strong>喜歡甜感與醇厚：</strong>KONO 或 Kalita Wave。</p>
 <p><strong>喜歡研究參數與快速流速：</strong>OREA、April 或 ORIGAMI。</p>
-<p>圖中為原創結構示意，重點用來比較濾杯外觀、肋骨與孔洞配置；實際產品細節可能因尺寸與版本不同而略有差異。</p>
+<p>本頁以實際產品照片搭配原創結構示意圖，協助比較濾杯外觀、內部肋骨與孔洞配置；產品細節可能因尺寸與版本不同而略有差異。</p>
 <a class="back" href="https://wenwei1967.github.io/kaffa98.github.io/coffee-library/">返回咖啡知識庫</a>
 </section>
+
+<section class="compare" id="references">
+<h2>資料來源與圖片引用</h2>
+<p>本頁將引用資料集中列於最後。產品名稱與商標權利屬原品牌所有；實際產品照片僅供咖啡教育與結構辨識使用。其餘濾杯結構示意圖由 Kaffa98 咖啡知識庫製作。</p>
+<ol>
+<li>HARIO V60：HARIO 官方產品資料；European Coffee Trip，〈The Story and Development of Hario V60〉。實際沖煮照片來源：European Coffee Trip。</li>
+<li>Kalita Wave：Kalita 官方 Wave Series 產品說明。外觀與內部照片來源：colorevent 的 Kalita Wave 器具分析頁。</li>
+<li>ORIGAMI Dripper：ORIGAMI 官方線上商店 Dripper M 產品頁。外觀與內部照片均為官方產品圖。</li>
+<li>CAFEC Flower Dripper：CAFEC 官方 Dripper 產品頁。實物結構圖為官方圖片。</li>
+<li>KONO、Melitta、April、OREA：品牌設計概念與常見產品規格整理；本頁目前以 Kaffa98 自製示意圖呈現，避免將示意圖誤認為官方產品攝影。</li>
+</ol>
+<h3>使用說明</h3>
+<p>不同尺寸、材質與版本可能在肋骨、孔洞或底座細節上略有差異。選購與教學時，應以各品牌當期官方產品資料為準。</p>
+</section>
+
 </main>
 
-<footer>© Kaffa98 咖啡知識庫｜手沖咖啡濾杯種類與結構</footer>
+<footer>© Kaffa98 咖啡知識庫｜手沖咖啡濾杯百科</footer>
 </body>
 </html>
