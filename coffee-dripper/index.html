@@ -1,1 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kaffa98｜手沖咖啡濾杯種類與內部結構</title>
+<meta name="description" content="手沖咖啡濾杯百科：外觀、內部肋骨、孔洞、流速與風味差異。">
+<style>
+:root{--bg:#f4eee8;--paper:#fffdf9;--ink:#30241f;--muted:#77675f;--coffee:#4b2e22;--gold:#c79a58;--line:#e4d8cf;--shadow:0 18px 42px rgba(71,43,32,.11)}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;color:var(--ink);background:linear-gradient(180deg,#f8f3ee,#f1e9e2);line-height:1.8}
+img{max-width:100%;display:block}
+.hero{min-height:76vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:50px;padding:70px max(6vw,24px);background:#2d211c;color:#fff;overflow:hidden}
+.hero-copy{max-width:720px}
+.kicker{letter-spacing:.2em;color:#d8b47f;font-weight:700}
+h1{font-size:clamp(2.5rem,6vw,5.6rem);line-height:1.08;margin:.2em 0}
+.hero p{font-size:1.15rem;color:#e8ddd5;max-width:650px}
+.hero img{border-radius:28px;box-shadow:0 28px 70px rgba(0,0,0,.35)}
+nav{position:sticky;top:0;z-index:10;background:rgba(255,253,249,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:12px 5vw;display:flex;gap:18px;overflow:auto;white-space:nowrap}
+nav a{text-decoration:none;font-weight:700;color:var(--coffee)}
+main{width:min(1180px,92vw);margin:auto;padding:70px 0}
+.intro{background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:32px;box-shadow:var(--shadow);margin-bottom:42px}
+.intro h2{font-size:clamp(1.8rem,4vw,3rem);margin:0 0 12px}
+.keys{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
+.key{background:#f4ece5;border-radius:18px;padding:20px}
+.key b{display:block;font-size:1.1rem;color:var(--coffee)}
+.grid{display:grid;gap:32px}
+.dripper-card{display:grid;grid-template-columns:.95fr 1.05fr;background:var(--paper);border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:var(--shadow)}
+.photo{background:#eee3da;padding:22px;display:grid;place-items:center}
+.photo img{border-radius:20px;width:100%}
+.card-body{padding:34px}
+.eyebrow{font-size:.78rem;letter-spacing:.16em;color:var(--gold);font-weight:800}
+.card-body h2{font-size:2rem;margin:.1em 0}
+.card-body h3{margin:20px 0 2px;color:var(--coffee)}
+.design{font-weight:800;color:#745447}
+.note{margin-top:22px;background:#f0e7df;border-left:5px solid var(--gold);padding:13px 16px;border-radius:0 12px 12px 0}
+.compare{margin-top:60px;background:var(--paper);border-radius:28px;padding:30px;box-shadow:var(--shadow);overflow:auto}
+table{width:100%;border-collapse:collapse;min-width:820px}
+th,td{padding:14px;border-bottom:1px solid var(--line);text-align:left}
+th{background:#4b2e22;color:white}
+.summary{margin-top:42px;padding:34px;border-radius:28px;background:#3a2922;color:white}
+footer{text-align:center;padding:42px 20px;color:var(--muted)}
+.back{display:inline-block;margin-top:18px;padding:12px 22px;background:var(--gold);color:#2b211c;border-radius:999px;text-decoration:none;font-weight:800}
+@media(max-width:850px){
+ .hero{grid-template-columns:1fr;min-height:auto;padding-top:55px}
+ .hero img{max-height:420px;object-fit:cover}
+ .keys{grid-template-columns:1fr 1fr}
+ .dripper-card{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+ .keys{grid-template-columns:1fr}
+ .card-body{padding:24px}
+ h1{font-size:2.6rem}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-copy">
+    <div class="kicker">KAFFA98 COFFEE LIBRARY</div>
+    <h1>手沖咖啡<br>濾杯百科</h1>
+    <p>從外觀、內部肋骨、孔洞與底部形狀，理解不同濾杯如何改變排氣、流速、粉層與最終風味。</p>
+  </div>
+  <img src="images/dripper-cover.svg" alt="手沖咖啡濾杯結構示意圖">
+</header>
 
+<nav>
+  <a href="#overview">判讀重點</a>
+  <a href="#drippers">濾杯介紹</a>
+  <a href="#compare">比較表</a>
+  <a href="#choose">選擇建議</a>
+</nav>
+
+<main>
+<section class="intro" id="overview">
+  <h2>先看懂濾杯的四個關鍵</h2>
+  <p>濾杯的差異不只是造型。內部肋骨決定排氣與濾紙貼合程度；底部形狀影響粉層厚度；孔洞控制排水阻力；濾紙則進一步改變流速與口感。</p>
+  <div class="keys">
+    <div class="key"><b>形狀</b>圓錐、平底或梯形，決定粉層分布。</div>
+    <div class="key"><b>肋骨</b>螺旋、直立、短肋或花瓣，影響排氣。</div>
+    <div class="key"><b>孔洞</b>單孔、三孔或多孔，改變流速限制。</div>
+    <div class="key"><b>濾紙</b>錐形或波浪紙，改變貼壁與液體路徑。</div>
+  </div>
+</section>
+
+<section class="grid" id="drippers">
+
+<article class="dripper-card">
+  <div class="photo"><img src="images/v60.svg" alt="Hario V60 濾杯外觀與內部結構示意圖" loading="lazy"></div>
+  <div class="card-body">
+    <span class="eyebrow">DRIPPER GUIDE</span>
+    <h2>Hario V60</h2>
+    <p class="design">圓錐形｜單一大孔｜螺旋肋骨</p>
+    <h3>內部結構</h3><p>肋骨由底部延伸至上緣，讓濾紙與杯壁之間保留空氣通道。大孔設計不主動限制流速，萃取速度主要由研磨、注水與粉層控制。</p>
+    <h3>風味傾向</h3><p>香氣奔放、酸質清晰、層次感強。適合淺焙與希望凸顯產區特色的咖啡。</p>
+    <div class="note">技巧自由度高，但對注水穩定度較敏感。</div>
+  </div>
+</article>
+<article class="dripper-card">
+  <div class="photo"><img src="images/kalita-wave.svg" alt="Kalita Wave 濾杯外觀與內部結構示意圖" loading="lazy"></div>
+  <div class="card-body">
+    <span class="eyebrow">DRIPPER GUIDE</span>
+    <h2>Kalita Wave</h2>
+    <p class="design">平底形｜三孔｜短肋骨</p>
+    <h3>內部結構</h3><p>平坦底部讓咖啡粉層厚度較一致，三孔排水搭配波浪濾紙，降低濾紙貼壁造成的阻塞。</p>
+    <h3>風味傾向</h3><p>甜感明顯、口感圓潤、萃取均衡。</p>
+    <div class="note">容錯率高，適合初學者與多人份穩定沖煮。</div>
+  </div>
+</article>
+<article class="dripper-card">
+  <div class="photo"><img src="images/origami.svg" alt="ORIGAMI 濾杯外觀與內部結構示意圖" loading="lazy"></div>
+  <div class="card-body">
+    <span class="eyebrow">DRIPPER GUIDE</span>
+    <h2>ORIGAMI</h2>
+    <p class="design">圓錐形｜單孔｜深直肋骨</p>
+    <h3>內部結構</h3><p>大量垂直肋骨形成寬闊排氣通道，可搭配錐形或波浪濾紙，改變粉層與流速。</p>
+    <h3>風味傾向</h3><p>錐形紙偏明亮通透；波浪紙偏甜感與均衡。</p>
+    <div class="note">變化性高，適合喜歡比較不同濾紙效果的使用者。</div>
+  </div>
+</article>
+<article class="dripper-card">
+  <div class="photo"><img src="images/cafec-flower.svg" alt="CAFEC Flower 濾杯外觀與內部結構示意圖" loading="lazy"></div>
+  <div class="card-body">
+    <span class="eyebrow">DRIPPER GUIDE</span>
+    <h2>CAFEC Flower</h2>
+    <p class="design">圓錐形｜單孔｜花瓣肋骨</p>
+    <h3>內部結構</h3><p>花瓣狀溝槽讓濾紙只在局部接觸杯壁，增加空氣與水流通道，減少液體停滯。</p>
+    <h3>風味傾向</h3><p>甜感清楚、香氣完整，兼具明亮感與厚度。</p>
+    <div class="note">流速通常偏順，研磨不宜過粗。</div>
+  </div>
+</article>
+<article class="dripper-card">
+  <div class="photo"><img src="images/kono.svg" alt="KONO 濾杯外觀與內部結構示意圖" loading="lazy"></div>
+  <div class="card-body">
+    <span class="eyebrow">DRIPPER GUIDE</span>
+    <h2>KONO</h2>
+    <p class="design">圓錐形｜單孔｜下半部短肋骨</p>
+    <h3>內部結構</h3><p>上半部濾紙較貼近杯壁，下半部才有肋骨，水流與氣體集中於底部排出。</p>
+    <h3>風味傾向</h3><p>甜感集中、醇厚度高、風味凝聚。</p>
+    <div class="note">適合中心注水及日式較低擾動的沖法。</div>
+  </div>
+</article>
+<article class="dripper-card">
+  <div class="photo"><img src="images/melitta.svg" alt="Melitta 濾杯外觀與內部結構示意圖" loading="lazy"></div>
+  <div class="card-body">
+    <span class="eyebrow">DRIPPER GUIDE</span>
+    <h2>Melitta</h2>
+    <p class="design">梯形｜一孔或多孔｜淺肋骨</p>
+    <h3>內部結構</h3><p>梯形粉層搭配較小排水孔，濾杯本身會限制流速，操作較容易穩定。</p>
+    <h3>風味傾向</h3><p>苦甜平衡、口感柔和，風味較傳統。</p>
+    <div class="note">適合初學者、家庭沖煮與中深焙咖啡。</div>
+  </div>
+</article>
+<article class="dripper-card">
+  <div class="photo"><img src="images/april.svg" alt="April Dripper 濾杯外觀與內部結構示意圖" loading="lazy"></div>
+  <div class="card-body">
+    <span class="eyebrow">DRIPPER GUIDE</span>
+    <h2>April Dripper</h2>
+    <p class="design">平底形｜多孔｜放射結構</p>
+    <h3>內部結構</h3><p>寬平底使粉層均勻，多孔底部能快速排水，通常搭配專用波浪濾紙。</p>
+    <h3>風味傾向</h3><p>甜感乾淨、酸質柔和、風味清楚。</p>
+    <div class="note">適合分段注水與低擾動沖法。</div>
+  </div>
+</article>
+<article class="dripper-card">
+  <div class="photo"><img src="images/orea.svg" alt="OREA 濾杯外觀與內部結構示意圖" loading="lazy"></div>
+  <div class="card-body">
+    <span class="eyebrow">DRIPPER GUIDE</span>
+    <h2>OREA</h2>
+    <p class="design">平底形｜多孔｜低壁結構</p>
+    <h3>內部結構</h3><p>低矮杯壁與大面積排水區降低阻力，部分版本可更換底部零件調整流速。</p>
+    <h3>風味傾向</h3><p>乾淨、甜感高、萃取效率佳。</p>
+    <div class="note">流速快，需注意研磨度與注水量的配合。</div>
+  </div>
+</article>
+</section>
+
+<section class="compare" id="compare">
+<h2>濾杯結構與風味比較</h2>
+<table>
+<thead><tr><th>濾杯</th><th>形狀</th><th>孔洞</th><th>內部肋骨</th><th>流速傾向</th><th>主要風味</th><th>操作難度</th></tr></thead>
+<tbody>
+<tr><td>Hario V60</td><td>圓錐</td><td>單一大孔</td><td>長螺旋肋</td><td>快、可控制</td><td>明亮、香氣、層次</td><td>較高</td></tr>
+<tr><td>Kalita Wave</td><td>平底</td><td>三孔</td><td>短肋</td><td>中等穩定</td><td>甜感、圓潤、均衡</td><td>低</td></tr>
+<tr><td>ORIGAMI</td><td>圓錐</td><td>單孔</td><td>深直肋</td><td>中快</td><td>可依濾紙變化</td><td>中</td></tr>
+<tr><td>CAFEC Flower</td><td>圓錐</td><td>單孔</td><td>花瓣肋</td><td>中快</td><td>甜感、香氣、乾淨</td><td>中</td></tr>
+<tr><td>KONO</td><td>圓錐</td><td>單孔</td><td>下半部短肋</td><td>中慢</td><td>甜感集中、醇厚</td><td>中</td></tr>
+<tr><td>Melitta</td><td>梯形</td><td>一孔／多孔</td><td>淺肋</td><td>偏慢</td><td>平衡、柔和</td><td>低</td></tr>
+<tr><td>April</td><td>平底</td><td>多孔</td><td>放射結構</td><td>中快</td><td>清楚、甜感、柔和</td><td>中</td></tr>
+<tr><td>OREA</td><td>平底</td><td>多孔</td><td>低壁直肋</td><td>快</td><td>乾淨、高萃取、甜</td><td>中高</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="summary" id="choose">
+<h2>如何選擇濾杯？</h2>
+<p><strong>初學者：</strong>Kalita Wave 或 Melitta，流速較穩定，沖煮容錯率高。</p>
+<p><strong>希望表現淺焙花果香：</strong>Hario V60、CAFEC Flower 或 ORIGAMI。</p>
+<p><strong>喜歡甜感與醇厚：</strong>KONO 或 Kalita Wave。</p>
+<p><strong>喜歡研究參數與快速流速：</strong>OREA、April 或 ORIGAMI。</p>
+<p>圖中為原創結構示意，重點用來比較濾杯外觀、肋骨與孔洞配置；實際產品細節可能因尺寸與版本不同而略有差異。</p>
+<a class="back" href="https://wenwei1967.github.io/kaffa98.github.io/coffee-library/">返回咖啡知識庫</a>
+</section>
+</main>
+
+<footer>© Kaffa98 咖啡知識庫｜手沖咖啡濾杯種類與結構</footer>
+</body>
+</html>
