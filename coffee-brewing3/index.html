@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#241711">
-<title>Kaffa98｜咖啡沖煮實務課程（2 小時）</title>
+<title>Kaffa98｜咖啡沖煮三｜2 小時實務課程</title>
 <style>
 :root{
   --bg:#f4eee8;--surface:#fffdf9;--surface-2:#efe2d6;--text:#2f241f;--muted:#75665d;
@@ -33,15 +33,49 @@ a{color:inherit} img{max-width:100%}.wrap{width:min(var(--max),calc(100% - 36px)
 @media(max-width:980px){.hero-grid,.recipe,.grid-4,.grid-3,.grid-2{grid-template-columns:1fr 1fr}.timeline{grid-template-columns:repeat(2,1fr)}.navlinks{display:none}}
 @media(max-width:680px){.wrap{width:min(100% - 24px,var(--max))}.hero{padding:58px 0}.hero-grid,.recipe,.grid-4,.grid-3,.grid-2,.param-grid{grid-template-columns:1fr}.pour-visual{height:280px}.timeline{grid-template-columns:1fr}.section{padding:54px 0}.section-head{display:block}.record{font-size:.82rem}.practice .card{padding-left:24px;padding-top:78px}.practice .card:before{top:22px}}
 @media print{.topbar,.hero-actions,.footer .btn{display:none}.hero{padding:35px 0;background:#fff;color:#222}.hero p{color:#555}.hero-panel{display:none}.section{padding:24px 0}.card,.time-item{box-shadow:none}.print-only{display:block}}
+
+.pour-visual{height:430px!important;position:relative;border-radius:18px;overflow:hidden;background:#2b1b14!important}
+.pour-visual img{width:100%;height:100%;display:block;object-fit:cover;object-position:center 46%}
+.pour-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.03),rgba(31,18,12,.20));pointer-events:none}
+.pour-visual .circle,.pour-visual .dripper,.pour-visual .server,.pour-visual .kettle,.pour-visual .spout,.pour-visual .water{display:none!important}
+@media(max-width:680px){.pour-visual{height:360px!important}.pour-visual img{object-position:center 45%}}
+
+
+.pour-visual{
+  height:430px!important;
+  position:relative;
+  border-radius:18px;
+  overflow:hidden;
+  background:#2b1b14!important;
+}
+.pour-visual img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:center center;
+}
+.pour-visual:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.02),rgba(31,18,12,.16));
+  pointer-events:none;
+}
+@media(max-width:680px){
+  .pour-visual{height:350px!important}
+  .pour-visual img{object-position:center center}
+}
+
 </style>
 </head>
 <body>
 <nav class="topbar"><div class="wrap nav"><div class="brand">Kaffa<span>98</span> 研究室</div><div class="navlinks"><a href="#schedule">課程流程</a><a href="#recipe">標準配方</a><a href="#methods">三種實作</a><a href="#practice">學員實作</a><a href="#record">品飲紀錄</a></div></div></nav>
-<header class="hero"><div class="wrap hero-grid"><div><div class="eyebrow">Coffee Brewing Workshop</div><h1>從理解萃取，<br>到沖出一杯好咖啡</h1><p>一堂為初學者設計的 2 小時咖啡沖煮實務課程。以固定粉水比 1：15，比較一次、二段與三段注水，讓學員透過實作直接感受風味差異。</p><div class="hero-actions"><a class="btn btn-primary" href="#methods">開始學習</a><a class="btn btn-ghost" href="#schedule">查看課程流程</a></div></div><div class="hero-panel"><div class="pour-visual" aria-label="手沖咖啡示意圖"><div class="kettle"></div><div class="spout"></div><div class="water"></div><div class="circle"></div><div class="server"></div><div class="dripper"></div></div></div></div></header>
+<header class="hero"><div class="wrap hero-grid"><div><div class="eyebrow">Coffee Brewing Workshop</div><h1>從理解萃取，<br>到沖出一杯好咖啡</h1><p>一堂為初學者設計的 2 小時咖啡沖煮實務課程。以固定粉水比 1：15，比較一次、二段與三段注水，讓學員透過實作直接感受風味差異。</p><div class="hero-actions"><a class="btn btn-primary" href="#methods">開始學習</a><a class="btn btn-ghost" href="#schedule">查看課程流程</a></div></div><div class="hero-panel"><div class="pour-visual"><img src="images/coffee-brewing3-hero.jpg" alt="手沖咖啡沖煮實景"></div></div></div></header>
 
 <section class="section"><div class="wrap"><div class="section-head"><div><div class="kicker">COURSE GOALS</div><h2>課程學習目標</h2></div><p class="lead">課後不只會照表沖煮，也能理解影響風味的主要變因，並具備自行調整配方的基本能力。</p></div><div class="grid grid-4"><article class="card"><div class="icon">☕</div><h3>理解萃取</h3><p>認識研磨、水溫、時間、注水與粉水比的交互影響。</p></article><article class="card"><div class="icon">⚖️</div><h3>掌握配方</h3><p>熟悉本課程統一配方：16 g 咖啡粉、240 g 水。</p></article><article class="card"><div class="icon">💧</div><h3>穩定注水</h3><p>練習水柱高度、粗細、速度與繞圈範圍。</p></article><article class="card"><div class="icon">👃</div><h3>比較風味</h3><p>從香氣、酸質、甜感、醇厚與尾韻進行品飲。</p></article></div></div></section>
 
-<section class="section alt" id="schedule"><div class="wrap"><div class="section-head"><div><div class="kicker">120-MINUTE PLAN</div><h2>2 小時課程流程</h2></div><p class="lead">理論約 45 分鐘、示範 20 分鐘、實作與品飲 55 分鐘，保留足夠時間讓每位學員真正動手操作。</p></div><div class="timeline"><div class="time-item"><b>15 分</b><strong>認識咖啡</strong><span>精品咖啡、焙度與處理法</span></div><div class="time-item"><b>15 分</b><strong>沖煮變因</strong><span>研磨、水溫、比例與時間</span></div><div class="time-item"><b>10 分</b><strong>器材操作</strong><span>濾杯、濾紙、手沖壺與電子秤</span></div><div class="time-item"><b>10 分</b><strong>基本技巧</strong><span>洗紙、悶蒸、水柱與粉床</span></div><div class="time-item"><b>20 分</b><strong>三法示範</strong><span>一次、二段、三段注水</span></div><div class="time-item"><b>40 分</b><strong>學員實作</strong><span>分組沖煮與講師巡迴指導</span></div><div class="time-item"><b>10 分</b><strong>品飲講評</strong><span>比較風味、問題診斷與 Q&amp;A</span></div></div></div></section>
+<section class="section alt" id="schedule"><div class="wrap"><div class="section-head"><div><div class="kicker">120-MINUTE PLAN</div><h2>2 小時課程流程</h2></div><p class="lead">理論約 45 分鐘、示範 20 分鐘、實作與品飲 55 分鐘，保留足夠時間讓每位學員真正動手操作。</p></div><div class="timeline"><div class="time-item"><b>15 分</b><strong>認識咖啡</strong><span>精品咖啡、焙度與處理法</span></div><div class="time-item"><b>15 分</b><strong>沖煮變因</strong><span>研磨、水溫、比例與時間</span></div><div class="time-item"><b>10 分</b><strong>器材操作</strong><span>濾杯、濾紙、手沖壺與電子秤</span></div><div class="time-item"><b>10 分</b><strong>基本技巧</strong><span>洗紙、悶蒸、水柱與粉床</span></div><div class="time-item"><b>20 分</b><strong>三法示範</strong><span>一次、二段、三段注水</span></div><div class="time-item"><b>40 分</b><strong>學員實作</strong><span>分組沖煮與講師指導</span></div><div class="time-item"><b>10 分</b><strong>品飲講評</strong><span>比較風味、問題診斷與 Q&amp;A</span></div></div></div></section>
 
 <section class="section" id="recipe"><div class="wrap"><div class="section-head"><div><div class="kicker">STANDARD RECIPE</div><h2>本課程統一沖煮配方</h2></div><p class="lead">三種實作只改變注水段數，其餘條件維持一致，才能清楚比較注水方式對風味的影響。</p></div><div class="recipe"><div class="ratio-box"><div class="ratio">1：15</div><h3>粉水比例</h3><p>每 1 g 咖啡粉使用 15 g 水。本課程使用 16 g 咖啡粉搭配 240 g 水。</p></div><div class="param-grid"><div class="param"><span>咖啡粉</span><b>16 g</b><small>中細研磨</small></div><div class="param"><span>總水量</span><b>240 g</b><small>含悶蒸水量</small></div><div class="param"><span>水溫</span><b>90–92°C</b><small>依焙度微調</small></div><div class="param"><span>目標時間</span><b>2:30–3:00</b><small>以滴濾結束為準</small></div></div></div><div class="callout" style="margin-top:20px"><strong>比例調整參考：</strong>1：14 較濃郁｜<b>1：15 本課程標準</b>｜1：16 較清爽｜1：17 較淡雅。課堂比較時請不要同時更動比例，以免混淆變因。</div></div></section>
 
