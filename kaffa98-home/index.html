@@ -705,7 +705,8 @@
       opacity:1;
       visibility:visible;
     }
-    .cover-slide img {
+    .cover-slide img,
+    .cover-slide video {
       width:100%;
       height:auto;
       display:block;
@@ -765,7 +766,8 @@
       .cover-slide:first-child {
         position:absolute;
       }
-      .cover-slide img {
+      .cover-slide img,
+      .cover-slide video {
         width:100%;
         height:100%;
         object-fit:contain;
@@ -931,13 +933,15 @@
       height:100%;
     }
 
-    .cover-slide img {
+    .cover-slide img,
+    .cover-slide video {
       width:100%;
       height:100%;
       max-width:100%;
       object-fit:contain;
       object-position:center center;
       display:block;
+      background:#17130f;
     }
 
     /* Hero 烘焙曲線圖完整顯示 */
@@ -1622,14 +1626,14 @@
     const now = new Date();
     document.getElementById("yearMonth").textContent = `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, "0")}`;
 
-    /* 首頁輪播：已規劃 5 張，目前先放 2 張。
-       後續依序放入 images/kaffa-home-cover-3.jpg 至 -5.jpg 即可自動載入。 */
-    const coverImageList = [
-      "images/kaffa-home-cover-1.jpg",
-      "images/kaffa-home-cover-2.jpg",
-      "images/kaffa-home-cover-3.jpg",
-      "images/kaffa-home-cover-4.jpg",
-      "images/kaffa-home-cover-5.jpg"
+    /* 首頁輪播：保留原 5 張 JPG，新增第 6 項 MP4。\n       圖片維持 5 秒切換；影片播放完整後再進入下一張。 */
+    const coverMediaList = [
+      { type:"image", src:"images/kaffa-home-cover-1.jpg" },
+      { type:"image", src:"images/kaffa-home-cover-2.jpg" },
+      { type:"image", src:"images/kaffa-home-cover-3.jpg" },
+      { type:"image", src:"images/kaffa-home-cover-4.jpg" },
+      { type:"image", src:"images/kaffa-home-cover-5.jpg" },
+      { type:"video", src:"images/coffee_in_kaffa.mp4" }
     ];
 
     const coverSlides = document.getElementById("coverSlides");
@@ -1643,65 +1647,117 @@
     let coverTouchStartX = 0;
     let loadedCoverSlides = [];
     let loadedCoverDots = [];
+    let coverPausedByHover = false;
 
-    function checkCoverImage(src) {
+    function checkCoverMedia(item) {
       return new Promise(resolve => {
-        const image = new Image();
-        image.onload = () => resolve(src);
-        image.onerror = () => resolve(null);
-        image.src = src;
+        if (item.type === "video") {
+          const video = document.createElement("video");
+          video.preload = "metadata";
+          video.onloadedmetadata = () => resolve(item);
+          video.onerror = () => resolve(null);
+          video.src = item.src;
+        } else {
+          const image = new Image();
+          image.onload = () => resolve(item);
+          image.onerror = () => resolve(null);
+          image.src = item.src;
+        }
       });
+    }
+
+    function stopCoverTimer() {
+      clearTimeout(coverTimer);
+      coverTimer = null;
+    }
+
+    function scheduleCurrentCover() {
+      stopCoverTimer();
+      if (coverPausedByHover || loadedCoverSlides.length <= 1) return;
+
+      const activeSlide = loadedCoverSlides[activeCover];
+      if (!activeSlide) return;
+      const video = activeSlide.querySelector("video");
+
+      if (video) {
+        video.currentTime = 0;
+        const playPromise = video.play();
+        if (playPromise && typeof playPromise.catch === "function") {
+          playPromise.catch(() => {
+            coverTimer = setTimeout(() => showCover(activeCover + 1), 5000);
+          });
+        }
+      } else {
+        coverTimer = setTimeout(() => showCover(activeCover + 1), 5000);
+      }
     }
 
     function showCover(index) {
       if (!loadedCoverSlides.length) return;
+      stopCoverTimer();
       activeCover = (index + loadedCoverSlides.length) % loadedCoverSlides.length;
 
       loadedCoverSlides.forEach((slide, i) => {
-        slide.classList.toggle("is-active", i === activeCover);
+        const isActive = i === activeCover;
+        slide.classList.toggle("is-active", isActive);
+        const video = slide.querySelector("video");
+        if (video && !isActive) {
+          video.pause();
+          video.currentTime = 0;
+        }
       });
 
       loadedCoverDots.forEach((dot, i) => {
         dot.classList.toggle("is-active", i === activeCover);
         dot.setAttribute("aria-current", i === activeCover ? "true" : "false");
       });
+
+      scheduleCurrentCover();
     }
 
-    function restartCoverTimer() {
-      clearInterval(coverTimer);
-      if (loadedCoverSlides.length > 1) {
-        coverTimer = setInterval(() => showCover(activeCover + 1), 5000);
-      }
-    }
+    Promise.all(coverMediaList.map(checkCoverMedia)).then(results => {
+      const availableMedia = results.filter(Boolean);
 
-    Promise.all(coverImageList.map(checkCoverImage)).then(results => {
-      const availableImages = results.filter(Boolean);
-
-      availableImages.forEach((src, index) => {
+      availableMedia.forEach((item, index) => {
         const slide = document.createElement("div");
         slide.className = `cover-slide${index === 0 ? " is-active" : ""}`;
 
-        const image = document.createElement("img");
-        image.src = src;
-        image.alt = `Kaffa98 首頁形象圖 ${index + 1}`;
-        image.loading = index === 0 ? "eager" : "lazy";
+        if (item.type === "video") {
+          const video = document.createElement("video");
+          video.src = item.src;
+          video.muted = true;
+          video.autoplay = false;
+          video.loop = false;
+          video.playsInline = true;
+          video.preload = "metadata";
+          video.setAttribute("muted", "");
+          video.setAttribute("playsinline", "");
+          video.setAttribute("webkit-playsinline", "");
+          video.setAttribute("aria-label", `Kaffa98 首頁形象影片 ${index + 1}`);
+          video.addEventListener("ended", () => {
+            if (loadedCoverSlides[activeCover] === slide) showCover(activeCover + 1);
+          });
+          slide.appendChild(video);
+        } else {
+          const image = document.createElement("img");
+          image.src = item.src;
+          image.alt = `Kaffa98 首頁形象圖 ${index + 1}`;
+          image.loading = index === 0 ? "eager" : "lazy";
+          slide.appendChild(image);
+        }
 
-        slide.appendChild(image);
         coverSlides.appendChild(slide);
 
         const dot = document.createElement("button");
         dot.type = "button";
         dot.className = `cover-dot${index === 0 ? " is-active" : ""}`;
-        dot.setAttribute("aria-label", `切換至第 ${index + 1} 張`);
-        dot.addEventListener("click", () => {
-          showCover(index);
-          restartCoverTimer();
-        });
+        dot.setAttribute("aria-label", `切換至第 ${index + 1} 個輪播項目`);
+        dot.addEventListener("click", () => showCover(index));
         coverDots.appendChild(dot);
       });
 
-      loadedCoverSlides = [...document.querySelectorAll(".cover-slide")];
-      loadedCoverDots = [...document.querySelectorAll(".cover-dot")];
+      loadedCoverSlides = [...coverSlides.querySelectorAll(".cover-slide")];
+      loadedCoverDots = [...coverDots.querySelectorAll(".cover-dot")];
 
       if (loadedCoverSlides.length <= 1) {
         coverPrev.hidden = true;
@@ -1709,21 +1765,29 @@
         coverDots.hidden = true;
       }
 
-      restartCoverTimer();
+      showCover(0);
     });
 
-    coverPrev.addEventListener("click", () => {
-      showCover(activeCover - 1);
-      restartCoverTimer();
+    coverPrev.addEventListener("click", () => showCover(activeCover - 1));
+    coverNext.addEventListener("click", () => showCover(activeCover + 1));
+
+    homeCover.addEventListener("mouseenter", () => {
+      coverPausedByHover = true;
+      stopCoverTimer();
+      const video = loadedCoverSlides[activeCover]?.querySelector("video");
+      if (video) video.pause();
     });
 
-    coverNext.addEventListener("click", () => {
-      showCover(activeCover + 1);
-      restartCoverTimer();
+    homeCover.addEventListener("mouseleave", () => {
+      coverPausedByHover = false;
+      const video = loadedCoverSlides[activeCover]?.querySelector("video");
+      if (video) {
+        const playPromise = video.play();
+        if (playPromise && typeof playPromise.catch === "function") playPromise.catch(() => {});
+      } else {
+        scheduleCurrentCover();
+      }
     });
-
-    homeCover.addEventListener("mouseenter", () => clearInterval(coverTimer));
-    homeCover.addEventListener("mouseleave", restartCoverTimer);
 
     homeCover.addEventListener("touchstart", event => {
       coverTouchStartX = event.changedTouches[0].clientX;
@@ -1733,7 +1797,6 @@
       const distance = event.changedTouches[0].clientX - coverTouchStartX;
       if (Math.abs(distance) > 45) {
         showCover(activeCover + (distance < 0 ? 1 : -1));
-        restartCoverTimer();
       }
     }, { passive:true });
 
